@@ -1,0 +1,632 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  FACULTY
+  ACCOUNTANT
+  STUDENT
+}
+
+enum StudentStatus {
+  ACTIVE
+  GRADUATED
+  DROPPED
+  SUSPENDED
+}
+
+enum FeeStatus {
+  PAID
+  PARTIAL
+  UNPAID
+  OVERDUE
+}
+
+enum FeeType {
+  TUITION
+  EXAM
+  LIBRARY
+  SPORTS
+  ACTIVITY
+  OTHER
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+  HOLIDAY
+}
+
+enum NewsType {
+  NEWS
+  NOTICE
+  EVENT
+  ACHIEVEMENT
+}
+
+enum EventType {
+  TOUR
+  WORKSHOP
+  SEMINAR
+  CULTURAL
+  SPORTS
+  OTHER
+}
+
+enum RegistrationStatus {
+  REGISTERED
+  CONFIRMED
+  CANCELLED
+  ATTENDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  REFUNDED
+}
+
+enum ApplicantStatus {
+  PENDING
+  REVIEWING
+  ACCEPTED
+  REJECTED
+  WAITLISTED
+}
+
+enum BorrowStatus {
+  BORROWED
+  RETURNED
+  OVERDUE
+}
+
+enum SubmissionStatus {
+  SUBMITTED
+  GRADED
+  LATE
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  name      String
+  role      Role     @default(STUDENT)
+  image     String?
+  studentId String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  student    Student?
+  faculty    Faculty?
+  news       News[]
+  messages   Message[] @relation("SentMessages")
+  received   Message[] @relation("ReceivedMessages")
+  accounts   Account[]
+  sessions   Session[]
+  galleries  Gallery[]
+  logs       ActivityLog[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Program {
+  id                 String   @id @default(cuid())
+  code               String   @unique
+  name               String
+  fullName           String
+  duration           String
+  description        String   @db.Text
+  careerOpportunities String[] @default([])
+  eligibility        String   @db.Text
+  syllabusUrl        String?
+  icon               String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  students    Student[]
+  subjects    Subject[]
+  applicants  Applicant[]
+}
+
+model Subject {
+  id        String   @id @default(cuid())
+  code      String
+  name      String
+  credits   Int      @default(3)
+  semester  Int
+  programId String
+  createdAt DateTime @default(now())
+
+  program     Program      @relation(fields: [programId], references: [id], onDelete: Cascade)
+  attendance  Attendance[]
+  grades      Grade[]
+  assignments Assignment[]
+
+  @@unique([code, programId])
+}
+
+model Student {
+  id               String        @id @default(cuid())
+  userId           String        @unique
+  firstName        String
+  lastName         String
+  dateOfBirth      DateTime
+  gender           String
+  phone            String
+  address          String
+  photoUrl         String?
+  enrollmentNumber String        @unique
+  programId        String
+  semester         Int           @default(1)
+  batch            String
+  admissionDate    DateTime      @default(now())
+  status           StudentStatus @default(ACTIVE)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  program           Program             @relation(fields: [programId], references: [id])
+  attendance        Attendance[]
+  fees              Fee[]
+  grades            Grade[]
+  borrows           BookBorrow[]
+  submissions       AssignmentSubmission[]
+  eventRegistrations EventRegistration[]
+}
+
+model Faculty {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  firstName      String
+  lastName       String
+  photoUrl       String?
+  qualifications String[]
+  specialization String
+  subjects       String[]
+  email          String   @unique
+  phone          String
+  bio            String?  @db.Text
+  joinedDate     DateTime @default(now())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Attendance {
+  id        String           @id @default(cuid())
+  studentId String
+  subjectId String
+  date      DateTime
+  status    AttendanceStatus @default(PRESENT)
+  markedBy  String
+  createdAt DateTime         @default(now())
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, subjectId, date])
+}
+
+model Fee {
+  id            String    @id @default(cuid())
+  studentId     String
+  amount        Float
+  paidAmount    Float     @default(0)
+  dueDate       DateTime
+  paidDate      DateTime?
+  status        FeeStatus @default(UNPAID)
+  type          FeeType   @default(TUITION)
+  description   String
+  transactionId String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model Grade {
+  id           String   @id @default(cuid())
+  studentId    String
+  subjectId    String
+  semester     Int
+  internalMarks Float
+  finalMarks   Float
+  totalMarks   Float
+  gradePoint   Float
+  grade        String
+  academicYear String
+  createdAt    DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, subjectId, semester, academicYear])
+}
+
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String   @db.Text
+  content   String   @db.Text
+  type      NewsType @default(NEWS)
+  imageUrl  String?
+  published Boolean  @default(false)
+  authorId  String
+  tags      String[] @default([])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+}
+
+model Gallery {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  imageUrl    String
+  category    String
+  tags        String[] @default([])
+  uploadedBy  String
+  createdAt   DateTime @default(now())
+
+  uploader User @relation(fields: [uploadedBy], references: [id])
+}
+
+model Event {
+  id              String   @id @default(cuid())
+  title           String
+  description     String   @db.Text
+  type            EventType @default(OTHER)
+  startDate       DateTime
+  endDate         DateTime
+  location        String
+  maxParticipants Int?
+  fee             Float?
+  imageUrl        String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  registrations EventRegistration[]
+}
+
+model EventRegistration {
+  id            String             @id @default(cuid())
+  eventId       String
+  studentId     String
+  status        RegistrationStatus @default(REGISTERED)
+  paymentStatus PaymentStatus      @default(PENDING)
+  registeredAt  DateTime           @default(now())
+
+  event   Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, studentId])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String
+  subject    String
+  content    String   @db.Text
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  sender   User @relation("SentMessages", fields: [senderId], references: [id])
+  receiver User @relation("ReceivedMessages", fields: [receiverId], references: [id])
+}
+
+model LibraryBook {
+  id            String   @id @default(cuid())
+  title         String
+  author        String
+  isbn          String   @unique
+  publisher     String
+  category      String
+  quantity      Int      @default(1)
+  available     Int      @default(1)
+  shelfLocation String
+  coverUrl      String?
+  createdAt     DateTime @default(now())
+
+  borrows BookBorrow[]
+}
+
+model BookBorrow {
+  id           String       @id @default(cuid())
+  bookId       String
+  studentId    String
+  borrowedDate DateTime     @default(now())
+  dueDate      DateTime
+  returnedDate DateTime?
+  status       BorrowStatus @default(BORROWED)
+  fine         Float?
+
+  book    LibraryBook @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model Assignment {
+  id          String   @id @default(cuid())
+  subjectId   String
+  title       String
+  description String   @db.Text
+  dueDate     DateTime
+  maxScore    Int      @default(100)
+  fileUrl     String?
+  createdAt   DateTime @default(now())
+
+  subject     Subject               @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  submissions AssignmentSubmission[]
+}
+
+model AssignmentSubmission {
+  id           String           @id @default(cuid())
+  assignmentId String
+  studentId    String
+  fileUrl      String
+  score        Int?
+  feedback     String?          @db.Text
+  submittedAt  DateTime         @default(now())
+  status       SubmissionStatus @default(SUBMITTED)
+
+  assignment Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  student    Student    @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([assignmentId, studentId])
+}
+
+model Applicant {
+  id            String          @id @default(cuid())
+  firstName     String
+  lastName      String
+  email         String
+  phone         String
+  programId     String
+  address       String
+  dob           DateTime
+  gender        String
+  nationality   String          @default("Nepali")
+  previousSchool String
+  previousGrade String
+  documents     String[]        @default([])
+  status        ApplicantStatus @default(PENDING)
+  notes         String?         @db.Text
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  program Program @relation(fields: [programId], references: [id])
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  entity    String
+  entityId  String?
+  details   String?  @db.Text
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// ========== CMS / Theme System Models ==========
+
+model SiteSettings {
+  id String @id @default("singleton")
+
+  // Branding
+  collegeName    String  @default("Milton International College")
+  tagline        String  @default("Shape Your Future")
+  mission        String  @default("")
+  vision         String  @default("")
+  establishedYear String @default("2010")
+  affiliation    String  @default("Tribhuvan University")
+  address        String  @default("New Baneshwor, Kathmandu, Nepal")
+  phone          String  @default("+977-1-4XXXXXX")
+  email          String  @default("info@miltoncollege.edu.np")
+  workingHours   String  @default("Sun - Fri: 6:00 AM - 2:00 PM")
+
+  // Logo URLs
+  logoUrl        String? @default("/images/logo.png")
+  logoWhiteUrl   String? @default("/images/logo-white.png")
+  faviconUrl     String? @default("/images/favicon.ico")
+
+  // SEO
+  metaTitle       String @default("Milton International College | TU Affiliated | New Baneshwor, Kathmandu")
+  metaDescription String @default("Milton International College, affiliated with Tribhuvan University, offers BCA, BBM, BBS, and BASW programs in New Baneshwor, Kathmandu.")
+  metaKeywords    String @default("Milton International College, TU affiliated, BCA, BBM, BBS, BASW, New Baneshwor, Kathmandu")
+
+  // Color Theme
+  primaryColor   String @default("#1c3557")
+  secondaryColor String @default("#e31c23")
+  accentColor    String @default("#c9a84c")
+  backgroundColor String @default("#ffffff")
+  textColor      String @default("#1a1a2e")
+
+  // Fonts
+  fontHeading String @default("Playfair Display")
+  fontBody    String @default("Inter")
+
+  // Theme Variant Selections
+  navbarVariantId   String @default("navbar-default")
+  footerVariantId   String @default("footer-default")
+  heroVariantId     String @default("hero-default")
+  dashboardVariantId String @default("dashboard-default")
+  eventsVariantId    String @default("events-default")
+  newsVariantId      String @default("news-default")
+  noticeVariantId    String @default("notice-default")
+  galleryVariantId   String @default("gallery-default")
+  facultyVariantId   String @default("faculty-default")
+  programsVariantId  String @default("programs-default")
+
+  // Feature toggles
+  showStats        Boolean @default(true)
+  showTestimonials Boolean @default(true)
+  showNews         Boolean @default(true)
+  showEvents       Boolean @default(true)
+  darkModeEnabled  Boolean @default(true)
+  enablePwa        Boolean @default(true)
+
+  // Analytics
+  googleAnalyticsId String?
+  facebookPixelId   String?
+
+  // Social Links
+  facebookUrl  String? @default("https://facebook.com/miltoncollege")
+  instagramUrl String? @default("https://instagram.com/miltoncollege")
+  youtubeUrl   String? @default("https://youtube.com/@miltoncollege")
+  linkedinUrl  String? @default("https://linkedin.com/school/miltoncollege")
+  twitterUrl   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Banner {
+  id           String   @id @default(cuid())
+  imageUrl     String
+  headline     String
+  subtext      String?  @db.Text
+  buttonText   String?  @default("Learn More")
+  buttonLink   String?  @default("/admissions")
+  displayOrder Int      @default(0)
+  isActive     Boolean  @default(true)
+  scheduleStart DateTime?
+  scheduleEnd  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model NavMenuItem {
+  id           String  @id @default(cuid())
+  label        String
+  link         String  @default("#")
+  parentId     String?
+  displayOrder Int     @default(0)
+  isVisible    Boolean @default(true)
+  icon         String?
+  target       String? @default("_self")
+
+  parent   NavMenuItem?  @relation("NavMenuItemParent", fields: [parentId], references: [id])
+  children NavMenuItem[] @relation("NavMenuItemParent")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FooterSection {
+  id           String  @id @default(cuid())
+  columnTitle  String
+  links        String  @default("[]") // JSON array of {label, href}
+  displayOrder Int     @default(0)
+  isVisible    Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ThemeVariant {
+  id        String   @id @default(cuid())
+  section   String   // navbar, footer, hero, dashboard, events, news, notice, gallery, faculty, programs
+  name      String   // Display name e.g. "Centered Logo with Side Links"
+  slug      String   // Unique per section e.g. "navbar-centered-logo"
+  config    Json     // Full variant configuration as JSON
+  thumbnail String?  // URL to preview image
+  isBuiltIn Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([section, slug])
+}
+
+model ThemeHistory {
+  id        String   @id @default(cuid())
+  config    Json     // Snapshot of SiteSettings at this point
+  action    String   // "published", "saved_as_draft"
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id        String  @id @default(cuid())
+  name      String
+  role      String  // e.g. "BCA Student", "Alumni"
+  content   String  @db.Text
+  rating    Int     @default(5)
+  photoUrl  String?
+  isVisible Boolean @default(true)
+  displayOrder Int  @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StatCounter {
+  id           String  @id @default(cuid())
+  label        String  // e.g. "Students Enrolled"
+  value        Int     // e.g. 500
+  suffix       String? // e.g. "+"
+  icon         String? // lucide icon name
+  displayOrder Int     @default(0)
+  isVisible    Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partner {
+  id        String  @id @default(cuid())
+  name      String
+  logoUrl   String?
+  website   String?
+  category  String  // "education", "corporate", "media"
+  displayOrder Int  @default(0)
+  isVisible Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
