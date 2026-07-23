@@ -99,7 +99,7 @@ export default function LoginPage() {
               </Button>
             </form>
             <p className="text-xs text-gray-400 text-center mt-4">
-              Demo: student@milton.edu / password123
+              Demo: student@milton.edu.com / password123
             </p>
           </CardContent>
         </Card>

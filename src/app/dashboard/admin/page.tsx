@@ -128,7 +128,7 @@ import {
 
 const ADMIN = {
   name: "Dr. Rajesh Khadka",
-  email: "rajesh.khadka@milton.edu.np",
+  email: "rajesh.khadka@milton.edu.com",
   role: "Administrator",
   photo: "/images/admin-placeholder.jpg",
 }
@@ -176,13 +176,13 @@ const STUDENTS_DATA = [
 ]
 
 const FACULTY_DATA = [
-  { name: "Dr. Amit Shrestha", email: "amit.shrestha@milton.edu.np", specialization: "Database Systems", subjects: "DBMS, Data Structures", joined: "2019-03-15", role: "Senior Faculty" as const },
-  { name: "Ms. Sunita Poudel", email: "sunita.poudel@milton.edu.np", specialization: "Computer Networks", subjects: "Computer Networks, Cybersecurity", joined: "2020-06-01", role: "Faculty" as const },
-  { name: "Mr. Rajesh Khatiwada", email: "rajesh.khatiwada@milton.edu.np", specialization: "Algorithms", subjects: "DSA, C Programming", joined: "2018-09-12", role: "Senior Faculty" as const },
-  { name: "Dr. Anita Rijal", email: "anita.rijal@milton.edu.np", specialization: "Software Engineering", subjects: "Software Eng., Project Mgmt", joined: "2021-01-20", role: "Faculty" as const },
-  { name: "Mr. Prakash Mishra", email: "prakash.mishra@milton.edu.np", specialization: "Operating Systems", subjects: "OS, Computer Architecture", joined: "2020-11-05", role: "Faculty" as const },
-  { name: "Ms. Reema Ghimire", email: "reema.ghimire@milton.edu.np", specialization: "Web Technologies", subjects: "Web Tech, JavaScript", joined: "2022-04-18", role: "Junior Faculty" as const },
-  { name: "Mr. Deepak Tiwari", email: "deepak.tiwari@milton.edu.np", specialization: "Mathematics", subjects: "Math I, Math II, Statistics", joined: "2017-07-10", role: "Senior Faculty" as const },
+  { name: "Dr. Amit Shrestha", email: "amit.shrestha@milton.edu.com", specialization: "Database Systems", subjects: "DBMS, Data Structures", joined: "2019-03-15", role: "Senior Faculty" as const },
+  { name: "Ms. Sunita Poudel", email: "sunita.poudel@milton.edu.com", specialization: "Computer Networks", subjects: "Computer Networks, Cybersecurity", joined: "2020-06-01", role: "Faculty" as const },
+  { name: "Mr. Rajesh Khatiwada", email: "rajesh.khatiwada@milton.edu.com", specialization: "Algorithms", subjects: "DSA, C Programming", joined: "2018-09-12", role: "Senior Faculty" as const },
+  { name: "Dr. Anita Rijal", email: "anita.rijal@milton.edu.com", specialization: "Software Engineering", subjects: "Software Eng., Project Mgmt", joined: "2021-01-20", role: "Faculty" as const },
+  { name: "Mr. Prakash Mishra", email: "prakash.mishra@milton.edu.com", specialization: "Operating Systems", subjects: "OS, Computer Architecture", joined: "2020-11-05", role: "Faculty" as const },
+  { name: "Ms. Reema Ghimire", email: "reema.ghimire@milton.edu.com", specialization: "Web Technologies", subjects: "Web Tech, JavaScript", joined: "2022-04-18", role: "Junior Faculty" as const },
+  { name: "Mr. Deepak Tiwari", email: "deepak.tiwari@milton.edu.com", specialization: "Mathematics", subjects: "Math I, Math II, Statistics", joined: "2017-07-10", role: "Senior Faculty" as const },
 ]
 
 const COURSES_BY_PROGRAM = [
@@ -251,11 +251,11 @@ const EVENTS_DATA = [
 ]
 
 const EVENT_REGISTRATIONS = [
-  { name: "Aarav Sharma", program: "BCA", email: "aarav@milton.edu.np", paymentStatus: "paid" as const, registeredAt: "2026-07-10" },
-  { name: "Sita Rijal", program: "BCA", email: "sita@milton.edu.np", paymentStatus: "paid" as const, registeredAt: "2026-07-11" },
-  { name: "Binod Thapa", program: "BBM", email: "binod@milton.edu.np", paymentStatus: "pending" as const, registeredAt: "2026-07-12" },
-  { name: "Anita Gurung", program: "BBS", email: "anita@milton.edu.np", paymentStatus: "paid" as const, registeredAt: "2026-07-09" },
-  { name: "Krishna Maharjan", program: "BCA", email: "krishna@milton.edu.np", paymentStatus: "unpaid" as const, registeredAt: "2026-07-13" },
+  { name: "Aarav Sharma", program: "BCA", email: "aarav@milton.edu.com", paymentStatus: "paid" as const, registeredAt: "2026-07-10" },
+  { name: "Sita Rijal", program: "BCA", email: "sita@milton.edu.com", paymentStatus: "paid" as const, registeredAt: "2026-07-11" },
+  { name: "Binod Thapa", program: "BBM", email: "binod@milton.edu.com", paymentStatus: "pending" as const, registeredAt: "2026-07-12" },
+  { name: "Anita Gurung", program: "BBS", email: "anita@milton.edu.com", paymentStatus: "paid" as const, registeredAt: "2026-07-09" },
+  { name: "Krishna Maharjan", program: "BCA", email: "krishna@milton.edu.com", paymentStatus: "unpaid" as const, registeredAt: "2026-07-13" },
 ]
 
 const APPLICANTS_DATA = [
@@ -650,7 +650,7 @@ export default function AdminDashboard() {
                             <div className="grid grid-cols-2 gap-4">
                               <div className="space-y-2">
                                 <label className="text-sm font-medium">Email</label>
-                                <Input type="email" placeholder="student@milton.edu.np" />
+                                <Input type="email" placeholder="student@milton.edu.com" />
                               </div>
                               <div className="space-y-2">
                                 <label className="text-sm font-medium">Phone</label>
@@ -779,7 +779,7 @@ export default function AdminDashboard() {
                             </div>
                             <div className="space-y-2">
                               <label className="text-sm font-medium">Email</label>
-                              <Input type="email" placeholder="faculty@milton.edu.np" />
+                              <Input type="email" placeholder="faculty@milton.edu.com" />
                             </div>
                           </div>
                           <div className="space-y-2">

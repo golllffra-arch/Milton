@@ -31,7 +31,7 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     title: "Email",
-    lines: ["info@miltoncollege.edu.np", "admissions@miltoncollege.edu.np"],
+    lines: ["info@milton.edu.com", "admissions@milton.edu.com"],
     bg: "from-[#1c3557] to-[#0e1d31]",
   },
   {

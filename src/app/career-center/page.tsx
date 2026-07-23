@@ -420,7 +420,7 @@ export default function CareerCenterPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25">
                 <Mail className="mr-2 w-5 h-5" />
-                career@miltoncollege.edu.np
+                career@milton.edu.com
               </Button>
               <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10 hover:text-white">
                 <Phone className="mr-2 w-5 h-5" />

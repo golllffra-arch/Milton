@@ -60,7 +60,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#e31c23]" />
-                <span>info@miltoncollege.edu.np</span>
+                <span>info@milton.edu.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-[#e31c23]" />

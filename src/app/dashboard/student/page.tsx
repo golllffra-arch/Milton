@@ -66,7 +66,7 @@ const STUDENT = {
   program: "Bachelor of Computer Application (BCA)",
   batch: "2022-2026",
   semester: "4th Semester",
-  email: "aarav.sharma@milton.edu.np",
+  email: "aarav.sharma@milton.edu.com",
   phone: "+977 9841XXXXXX",
   photo: "/images/student-placeholder.jpg",
 }

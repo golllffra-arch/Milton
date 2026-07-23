@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: settings?.metaTitle || "Milton International College",
       description: settings?.metaDescription || "",
-      url: "https://miltoncollege.edu.np",
+      url: "https://milton.edu.com",
       siteName: settings?.collegeName || "Milton International College",
       locale: "en_US",
       type: "website",

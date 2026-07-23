@@ -25,7 +25,7 @@ const FACULTY = [
     specialization: "Data Structures, Algorithms, Database Systems",
     subjects: ["Data Structures", "Database Management", "Algorithm Analysis"],
     department: "BCA",
-    email: "rajesh.sharma@miltoncollege.edu.np",
+    email: "rajesh.sharma@milton.edu.com",
   },
   {
     name: "Dr. Sunita Koirala",
@@ -33,7 +33,7 @@ const FACULTY = [
     specialization: "Marketing Management, Organizational Behavior",
     subjects: ["Marketing Management", "Organizational Behavior", "Business Communication"],
     department: "BBM",
-    email: "sunita.koirala@miltoncollege.edu.np",
+    email: "sunita.koirala@milton.edu.com",
   },
   {
     name: "Asst. Prof. Bibek Thapa",
@@ -41,7 +41,7 @@ const FACULTY = [
     specialization: "Applied Mathematics, Statistics",
     subjects: ["Business Mathematics", "Statistics", "Quantitative Methods"],
     department: "BBS",
-    email: "bibek.thapa@miltoncollege.edu.np",
+    email: "bibek.thapa@milton.edu.com",
   },
   {
     name: "Ms. Anju Poudel",
@@ -49,7 +49,7 @@ const FACULTY = [
     specialization: "Community Development, Social Research",
     subjects: ["Social Work Practice", "Community Development", "Social Research Methods"],
     department: "BASW",
-    email: "anju.poudel@miltoncollege.edu.np",
+    email: "anju.poudel@milton.edu.com",
   },
   {
     name: "Er. Sagar Acharya",
@@ -57,7 +57,7 @@ const FACULTY = [
     specialization: "Web Technologies, Software Architecture",
     subjects: ["Web Development", "Software Engineering", "Object-Oriented Programming"],
     department: "BCA",
-    email: "sagar.acharya@miltoncollege.edu.np",
+    email: "sagar.acharya@milton.edu.com",
   },
   {
     name: "Mr. Krishna Dhungana",
@@ -65,7 +65,7 @@ const FACULTY = [
     specialization: "Microeconomics, Financial Management",
     subjects: ["Microeconomics", "Financial Management", "Business Environment"],
     department: "BBM",
-    email: "krishna.dhungana@miltoncollege.edu.np",
+    email: "krishna.dhungana@milton.edu.com",
   },
   {
     name: "Ms. Mamata Ghimire",
@@ -73,7 +73,7 @@ const FACULTY = [
     specialization: "English Literature, Academic Writing",
     subjects: ["English Composition", "Academic Writing", "Communication Skills"],
     department: "Administration",
-    email: "mamata.ghimire@miltoncollege.edu.np",
+    email: "mamata.ghimire@milton.edu.com",
   },
   {
     name: "Mr. Prakash Neupane",
@@ -81,7 +81,7 @@ const FACULTY = [
     specialization: "Physics, General Science",
     subjects: ["General Science", "Physics Fundamentals", "Environmental Studies"],
     department: "BBS",
-    email: "prakash.neupane@miltoncollege.edu.np",
+    email: "prakash.neupane@milton.edu.com",
   },
   {
     name: "Ms. Srijana Baral",
@@ -89,7 +89,7 @@ const FACULTY = [
     specialization: "Gender Studies, Counseling, Human Rights",
     subjects: ["Social Welfare", "Gender Studies", "Counseling Skills"],
     department: "BASW",
-    email: "srijana.baral@miltoncollege.edu.np",
+    email: "srijana.baral@milton.edu.com",
   },
   {
     name: "Mr. Anil Maharjan",
@@ -97,7 +97,7 @@ const FACULTY = [
     specialization: "Computer Networks, Cyber Security",
     subjects: ["Computer Networks", "Cyber Security", "Operating Systems"],
     department: "BCA",
-    email: "anil.maharjan@miltoncollege.edu.np",
+    email: "anil.maharjan@milton.edu.com",
   },
 ]
 
