@@ -630,3 +630,56 @@ model Partner {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+// ========== Section Builder Models ==========
+
+enum BlockType {
+  hero
+  text
+  image
+  gallery
+  video
+  stats
+  cardGrid
+  testimonial
+  cta
+  form
+  faq
+  map
+  customHtml
+  divider
+}
+
+model Page {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  metaTitle       String?
+  metaDescription String?  @db.Text
+  metaKeywords    String?
+  socialImageUrl  String?
+  isPublished     Boolean  @default(false)
+  isHomepage      Boolean  @default(false)
+  language        String   @default("en")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  blocks PageBlock[] @relation("PageBlocks")
+}
+
+model PageBlock {
+  id           String   @id @default(cuid())
+  pageId       String
+  blockType    BlockType
+  content      Json     // Flexible content per block type
+  displayOrder Int      @default(0)
+  isVisible    Boolean  @default(true)
+  styleSettings Json   @default("{}") // bg color, padding, alignment, etc.
+
+  page Page @relation("PageBlocks", fields: [pageId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId, displayOrder])
+}
