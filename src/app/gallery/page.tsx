@@ -1,18 +1,16 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import {
-  Image, Camera, X, MapPin, ChevronLeft, ChevronRight,
-  Maximize2, Calendar
+  Image, Camera, MapPin,
+  Maximize2, ExternalLink
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import {
-  Dialog, DialogContent, DialogTitle, DialogTrigger
-} from "@/components/ui/dialog"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { GALLERY_ALBUMS } from "@/lib/data/gallery"
 
 const CATEGORIES = [
   { value: "all", label: "All" },
@@ -21,24 +19,6 @@ const CATEGORIES = [
   { value: "sports", label: "Sports" },
   { value: "cultural", label: "Cultural" },
   { value: "tours", label: "Tours" },
-]
-
-const GALLERY_ITEMS = [
-  { id: 1, title: "Annual Sports Day 2026", category: "sports", color: "from-green-600 to-emerald-800", span: "md:col-span-2 md:row-span-2" },
-  { id: 2, title: "Tech Fest Coding Competition", category: "events", color: "from-blue-600 to-indigo-800", span: "" },
-  { id: 3, title: "College Library", category: "campus", color: "from-amber-600 to-yellow-800", span: "" },
-  { id: 4, title: "Dashain Celebration 2025", category: "cultural", color: "from-red-600 to-rose-800", span: "" },
-  { id: 5, title: "Singapore Study Tour", category: "tours", color: "from-cyan-600 to-teal-800", span: "" },
-  { id: 6, title: "Computer Lab Session", category: "campus", color: "from-purple-600 to-violet-800", span: "" },
-  { id: 7, title: "Inter-College Debate", category: "events", color: "from-orange-600 to-red-800", span: "" },
-  { id: 8, title: "Basketball Tournament", category: "sports", color: "from-emerald-600 to-green-800", span: "" },
-  { id: 9, title: "Cultural Day Performances", category: "cultural", color: "from-pink-600 to-rose-800", span: "md:col-span-2" },
-  { id: 10, title: "Dubai Industrial Visit", category: "tours", color: "from-sky-600 to-blue-800", span: "" },
-  { id: 11, title: "Classroom Discussion", category: "campus", color: "from-slate-600 to-gray-800", span: "" },
-  { id: 12, title: "Freshers' Party 2025", category: "events", color: "from-fuchsia-600 to-purple-800", span: "" },
-  { id: 13, title: "Volunteer at Orphanage", category: "cultural", color: "from-teal-600 to-cyan-800", span: "" },
-  { id: 14, title: "Malaysia University Visit", category: "tours", color: "from-indigo-600 to-blue-800", span: "" },
-  { id: 15, title: "Campus View - Main Building", category: "campus", color: "from-stone-600 to-neutral-800", span: "" },
 ]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -57,46 +37,37 @@ function FadeInSection({ children, className = "" }: { children: React.ReactNode
   )
 }
 
-function GalleryCard({ item, index }: { item: typeof GALLERY_ITEMS[0]; index: number }) {
-  const [open, setOpen] = useState(false)
-
+function GalleryCard({ item, index }: { item: typeof GALLERY_ALBUMS[0]; index: number }) {
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, delay: index * 0.05 }}
-          className={`relative group cursor-pointer overflow-hidden rounded-xl ${item.span}`}
-        >
-          <div className={`relative w-full h-64 bg-gradient-to-br ${item.color} flex items-center justify-center`}>
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 z-10" />
-            <Image className="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 z-30">
-              <Badge variant="secondary" className="mb-2 text-[10px] uppercase tracking-wider">
-                {item.category}
-              </Badge>
-              <h3 className="text-white font-semibold text-sm leading-tight">{item.title}</h3>
-            </div>
-            <div className="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <Maximize2 className="w-4 h-4 text-white" />
-              </div>
-            </div>
+    <Link href={`/gallery/${item.id}`}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, delay: index * 0.05 }}
+        className="relative group cursor-pointer overflow-hidden rounded-xl"
+      >
+        <div className={`relative w-full h-64 bg-gradient-to-br ${item.color} flex items-center justify-center`}>
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 z-10" />
+          <Image className="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20" />
+          <div className="absolute bottom-0 left-0 right-0 p-4 z-30">
+            <Badge variant="secondary" className="mb-2 text-[10px] uppercase tracking-wider">
+              {item.category}
+            </Badge>
+            <h3 className="text-white font-semibold text-sm leading-tight inline-flex items-center gap-1">
+              {item.title}
+              <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </h3>
+            <p className="text-white/50 text-[10px] mt-0.5">{item.images.length} photos</p>
           </div>
-        </motion.div>
-      </DialogTrigger>
-      <DialogContent className="max-w-4xl p-0 bg-transparent border-0 shadow-2xl">
-        <div className={`w-full aspect-video rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center relative overflow-hidden`}>
-          <Image className="w-20 h-20 text-white/40" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
-            <Badge variant="secondary" className="mb-2 text-xs">{item.category}</Badge>
-            <DialogTitle className="text-white text-2xl font-display font-bold">{item.title}</DialogTitle>
+          <div className="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+              <Maximize2 className="w-4 h-4 text-white" />
+            </div>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </motion.div>
+    </Link>
   )
 }
 
@@ -104,8 +75,8 @@ export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState("all")
 
   const filtered = activeTab === "all"
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter((item) => item.category === activeTab)
+    ? GALLERY_ALBUMS
+    : GALLERY_ALBUMS.filter((item) => item.category === activeTab)
 
   return (
     <div className="overflow-hidden">
@@ -166,21 +137,18 @@ export default function GalleryPage() {
             </Tabs>
           </FadeInSection>
 
-          <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((item, index) => (
               <motion.div
                 key={item.id}
-                layout
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="break-inside-avoid"
+                transition={{ duration: 0.4, delay: index * 0.03 }}
               >
                 <GalleryCard item={item} index={index} />
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
           {filtered.length === 0 && (
             <div className="text-center py-20">

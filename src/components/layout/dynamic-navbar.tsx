@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, Moon, Sun, GraduationCap, Search } from "lucide-react"
@@ -62,6 +62,18 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
     setIsOpen(false)
     setActiveDropdown(null)
   }, [pathname])
+
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (!target.closest("[data-nav-item]")) {
+      setActiveDropdown(null)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside)
+    return () => document.removeEventListener("click", handleClickOutside)
+  }, [handleClickOutside])
 
   // Fetch nav items from DB
   useEffect(() => {
@@ -131,24 +143,42 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <div
+                <div
                 key={item.href + item.label}
+                data-nav-item
                 className="relative"
                 onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
-                    pathname === item.href
-                      ? "text-[#e31c23]"
-                      : `${textColor} hover:text-[#e31c23] dark:hover:text-[#e31c23]`
-                  )}
-                >
-                  {item.label}
-                  {item.children && <ChevronDown className="w-3 h-3" />}
-                </Link>
+                {item.children ? (
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setActiveDropdown(activeDropdown === item.label ? null : item.label)
+                    }}
+                    className={cn(
+                      "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
+                      pathname === item.href
+                        ? "text-[#e31c23]"
+                        : `${textColor} hover:text-[#e31c23] dark:hover:text-[#e31c23]`
+                    )}
+                  >
+                    {item.label}
+                    <ChevronDown className="w-3 h-3" />
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
+                      pathname === item.href
+                        ? "text-[#e31c23]"
+                        : `${textColor} hover:text-[#e31c23] dark:hover:text-[#e31c23]`
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                )}
                 {item.children && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 py-2 animate-fade-in">
                     {item.children.map((child) => (
@@ -156,6 +186,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                         key={child.href}
                         href={child.href}
                         className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#e31c23] transition-colors"
+                        onClick={() => setActiveDropdown(null)}
                       >
                         {child.label}
                       </Link>
@@ -206,17 +237,29 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.href + item.label}>
-                <Link href={item.href} className="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="ml-4 space-y-1 pb-2">
-                    {item.children.map((child) => (
-                      <Link key={child.href} href={child.href} className="block px-3 py-2 text-sm text-gray-500 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
+                {item.children ? (
+                  <>
+                    <button
+                      onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                      className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      {item.label}
+                      <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeDropdown === item.label && "rotate-180")} />
+                    </button>
+                    {activeDropdown === item.label && (
+                      <div className="ml-4 space-y-1 pb-2">
+                        {item.children.map((child) => (
+                          <Link key={child.href} href={child.href} className="block px-3 py-2 text-sm text-gray-500 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link href={item.href} className="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}

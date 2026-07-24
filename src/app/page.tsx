@@ -4,12 +4,17 @@ import { useState, useEffect, useRef, type ReactNode } from "react"
 import { Loader2, GraduationCap, BookOpen, Users, Globe, Trophy,
   Shield, MapPin, ChevronRight, Star, ArrowRight,
   Calendar, Newspaper, Quote, Play, Award, Briefcase,
-  Building2, ChevronLeft, Sparkles, Monitor } from "lucide-react"
+  Building2, ChevronLeft, Sparkles, Monitor, X, Send, User, Mail, Phone, School } from "lucide-react"
 import { motion, useInView, useAnimation } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BlockRenderer } from "@/components/blocks/block-renderer"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 
 export default function HomePage() {
@@ -106,15 +111,25 @@ function HardcodedHomepage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#1c3557] via-[#1c3557] to-[#0e1d31] overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-[#e31c23]/10 blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-[#e31c23]/5 blur-3xl" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Video background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557]/85 via-[#1c3557]/80 to-[#0e1d31]/90 z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.2),transparent_70%)] z-10" />
+          <div className="absolute inset-0 bg-grid opacity-10 z-10" />
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&showinfo=0&rel=0"
+            className="absolute inset-0 w-full h-full object-cover scale-150"
+            style={{ pointerEvents: "none" }}
+            allow="autoplay; encrypted-media"
+            title="Milton College Campus"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
               <Badge variant="secondary" className="w-fit text-sm px-4 py-1.5 bg-white/10 text-white border-white/20 hover:bg-white/20">
-                <GraduationCap className="w-3.5 h-3.5 mr-1.5" /> Established 2010
+                <Play className="w-3.5 h-3.5 mr-1.5" /> Campus Tour Video
               </Badge>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
                 Shape Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e31c23] to-[#c9a84c]">Future</span>
@@ -126,7 +141,7 @@ function HardcodedHomepage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/programs"><Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-lg shadow-[#e31c23]/30">Explore Programs <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
-                <Link href="/admissions"><Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">Apply Now</Button></Link>
+                <ApplyDialog />
               </div>
               <div className="flex items-center gap-2 text-white/50 text-sm">
                 <MapPin className="w-4 h-4" /> New Baneshwor, Kathmandu, Nepal
@@ -183,23 +198,25 @@ function HardcodedHomepage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: <Award className="w-8 h-8" />, title: "Academic Excellence", desc: "TU-affiliated curriculum with experienced faculty and modern teaching methods.", color: "from-blue-600 to-blue-400" },
-                { icon: <Globe className="w-8 h-8" />, title: "Global Exposure", desc: "International tours to Singapore, Dubai, and Malaysia for real-world learning.", color: "from-emerald-600 to-emerald-400" },
-                { icon: <Building2 className="w-8 h-8" />, title: "Modern Campus", desc: "Well-equipped labs, library, sports facilities, and a vibrant learning environment.", color: "from-purple-600 to-purple-400" },
-                { icon: <Briefcase className="w-8 h-8" />, title: "Career Support", desc: "Dedicated career center with internships, placements, and counseling.", color: "from-[#e31c23] to-red-400" },
+                { icon: <Award className="w-8 h-8" />, title: "Academic Excellence", desc: "TU-affiliated curriculum with experienced faculty and modern teaching methods.", color: "from-blue-600 to-blue-400", href: "/about" },
+                { icon: <Globe className="w-8 h-8" />, title: "Global Exposure", desc: "International tours to Singapore, Dubai, and Malaysia for real-world learning.", color: "from-emerald-600 to-emerald-400", href: "/student-life" },
+                { icon: <Building2 className="w-8 h-8" />, title: "Modern Campus", desc: "Well-equipped labs, library, sports facilities, and a vibrant learning environment.", color: "from-purple-600 to-purple-400", href: "/virtual-tour" },
+                { icon: <Briefcase className="w-8 h-8" />, title: "Career Support", desc: "Dedicated career center with internships, placements, and counseling.", color: "from-[#e31c23] to-red-400", href: "/career-center" },
               ].map((item, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group">
-                  <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <div className={`h-2 bg-gradient-to-r ${item.color}`} />
-                    <CardContent className="p-8 space-y-4">
-                      <div className="w-14 h-14 rounded-xl bg-[#1c3557]/5 dark:bg-white/10 flex items-center justify-center text-[#1c3557] dark:text-white group-hover:scale-110 transition-transform">
-                        {item.icon}
-                      </div>
-                      <h3 className="font-display text-xl font-semibold">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                <Link key={i} href={item.href}>
+                  <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group cursor-pointer">
+                    <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                      <div className={`h-2 bg-gradient-to-r ${item.color}`} />
+                      <CardContent className="p-8 space-y-4">
+                        <div className="w-14 h-14 rounded-xl bg-[#1c3557]/5 dark:bg-white/10 flex items-center justify-center text-[#1c3557] dark:text-white group-hover:scale-110 transition-transform">
+                          {item.icon}
+                        </div>
+                        <h3 className="font-display text-xl font-semibold">{item.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </div>
@@ -361,6 +378,106 @@ function HardcodedHomepage() {
         </section>
       </FadeInSection>
     </>
+  )
+}
+
+function ApplyDialog() {
+  const [open, setOpen] = useState(false)
+  const [topic, setTopic] = useState("")
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
+  const topicFields: Record<string, { label: string; type: string; placeholder: string }[]> = {
+    BCA: [
+      { label: "Math Score (Grade 12)", type: "text", placeholder: "e.g. A, B+, 85%" },
+      { label: "Programming Experience", type: "text", placeholder: "Any coding experience" },
+    ],
+    BBM: [
+      { label: "English Score (Grade 12)", type: "text", placeholder: "e.g. A, B+, 85%" },
+      { label: "Why Business?", type: "textarea", placeholder: "Tell us why you want to study business" },
+    ],
+    BBS: [
+      { label: "Accountancy Score", type: "text", placeholder: "e.g. A, B+, 85%" },
+      { label: "Previous Stream", type: "text", placeholder: "e.g. Management, Science" },
+    ],
+    BASW: [
+      { label: "Social Work Interest", type: "textarea", placeholder: "Why are you interested in social work?" },
+      { label: "Volunteer Experience", type: "text", placeholder: "Any prior volunteer work" },
+    ],
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+          Apply Now
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
+        {submitted ? (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+              <Send className="w-8 h-8 text-green-600" />
+            </div>
+            <DialogTitle className="text-2xl font-display font-bold text-[#1c3557] mb-2">Application Submitted!</DialogTitle>
+            <p className="text-gray-500">We have received your application. Our admissions team will contact you within 48 hours.</p>
+            <Button variant="outline" className="mt-6" onClick={() => { setSubmitted(false); setTopic(""); setOpen(false) }}>Close</Button>
+          </div>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-display font-bold text-[#1c3557]">Apply to Milton</DialogTitle>
+              <p className="text-sm text-gray-500">Select your program and fill in the details below.</p>
+            </DialogHeader>
+            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              <div className="space-y-2">
+                <Label>Full Name</Label>
+                <Input required placeholder="Your full name" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Email</Label>
+                  <Input required type="email" placeholder="your@email.com" />
+                </div>
+                <div className="space-y-2">
+                  <Label>Phone</Label>
+                  <Input required placeholder="98XXXXXXXX" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label>Program</Label>
+                <Select onValueChange={setTopic} required>
+                  <SelectTrigger><SelectValue placeholder="Select a program" /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="BCA">BCA</SelectItem>
+                    <SelectItem value="BBM">BBM</SelectItem>
+                    <SelectItem value="BBS">BBS</SelectItem>
+                    <SelectItem value="BASW">BASW</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              {topic && topicFields[topic]?.map((field) => (
+                <div key={field.label} className="space-y-2">
+                  <Label>{field.label}</Label>
+                  {field.type === "textarea" ? (
+                    <Textarea required placeholder={field.placeholder} />
+                  ) : (
+                    <Input required placeholder={field.placeholder} />
+                  )}
+                </div>
+              ))}
+              <Button type="submit" className="w-full bg-[#e31c23] hover:bg-[#c4181e] text-white">
+                <Send className="w-4 h-4 mr-2" />Submit Application
+              </Button>
+            </form>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
   )
 }
 

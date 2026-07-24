@@ -1,10 +1,11 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import {
   Search, MapPin, GraduationCap, BookOpen, Users, ArrowRight,
-  Mail, ChevronDown, Filter
+  Mail, ChevronDown, Filter, ExternalLink
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,91 +16,9 @@ import {
 } from "@/components/ui/select"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { getInitials } from "@/lib/utils"
+import { FACULTY } from "@/lib/data/faculty"
 
 const DEPARTMENTS = ["All Departments", "BCA", "BBM", "BBS", "BASW", "Administration"]
-
-const FACULTY = [
-  {
-    name: "Prof. Dr. Rajesh Sharma",
-    qualifications: "Ph.D. in Computer Science, M.Sc. IT",
-    specialization: "Data Structures, Algorithms, Database Systems",
-    subjects: ["Data Structures", "Database Management", "Algorithm Analysis"],
-    department: "BCA",
-    email: "rajesh.sharma@milton.edu.com",
-  },
-  {
-    name: "Dr. Sunita Koirala",
-    qualifications: "Ph.D. in Management, MBA",
-    specialization: "Marketing Management, Organizational Behavior",
-    subjects: ["Marketing Management", "Organizational Behavior", "Business Communication"],
-    department: "BBM",
-    email: "sunita.koirala@milton.edu.com",
-  },
-  {
-    name: "Asst. Prof. Bibek Thapa",
-    qualifications: "M.Sc. in Mathematics, M.Phil.",
-    specialization: "Applied Mathematics, Statistics",
-    subjects: ["Business Mathematics", "Statistics", "Quantitative Methods"],
-    department: "BBS",
-    email: "bibek.thapa@milton.edu.com",
-  },
-  {
-    name: "Ms. Anju Poudel",
-    qualifications: "MSW, M.A. Sociology",
-    specialization: "Community Development, Social Research",
-    subjects: ["Social Work Practice", "Community Development", "Social Research Methods"],
-    department: "BASW",
-    email: "anju.poudel@milton.edu.com",
-  },
-  {
-    name: "Er. Sagar Acharya",
-    qualifications: "M.E. in Software Engineering, B.E. Computer",
-    specialization: "Web Technologies, Software Architecture",
-    subjects: ["Web Development", "Software Engineering", "Object-Oriented Programming"],
-    department: "BCA",
-    email: "sagar.acharya@milton.edu.com",
-  },
-  {
-    name: "Mr. Krishna Dhungana",
-    qualifications: "MBA, M.A. Economics",
-    specialization: "Microeconomics, Financial Management",
-    subjects: ["Microeconomics", "Financial Management", "Business Environment"],
-    department: "BBM",
-    email: "krishna.dhungana@milton.edu.com",
-  },
-  {
-    name: "Ms. Mamata Ghimire",
-    qualifications: "M.A. English, M.Ed.",
-    specialization: "English Literature, Academic Writing",
-    subjects: ["English Composition", "Academic Writing", "Communication Skills"],
-    department: "Administration",
-    email: "mamata.ghimire@milton.edu.com",
-  },
-  {
-    name: "Mr. Prakash Neupane",
-    qualifications: "M.Sc. Physics, B.Ed.",
-    specialization: "Physics, General Science",
-    subjects: ["General Science", "Physics Fundamentals", "Environmental Studies"],
-    department: "BBS",
-    email: "prakash.neupane@milton.edu.com",
-  },
-  {
-    name: "Ms. Srijana Baral",
-    qualifications: "MSW, M.A. Gender Studies",
-    specialization: "Gender Studies, Counseling, Human Rights",
-    subjects: ["Social Welfare", "Gender Studies", "Counseling Skills"],
-    department: "BASW",
-    email: "srijana.baral@milton.edu.com",
-  },
-  {
-    name: "Mr. Anil Maharjan",
-    qualifications: "M.C.A., B.Sc. IT",
-    specialization: "Computer Networks, Cyber Security",
-    subjects: ["Computer Networks", "Cyber Security", "Operating Systems"],
-    department: "BCA",
-    email: "anil.maharjan@milton.edu.com",
-  },
-]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -212,61 +131,65 @@ export default function FacultyPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filtered.map((faculty, index) => (
                 <FadeInSection key={faculty.name}>
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="group h-full"
-                  >
-                    <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
-                      <div className="bg-gradient-to-r from-[#1c3557] to-[#0e1d31] p-6 text-center relative">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,35,0.15),transparent_70%)]" />
-                        <Avatar className="w-20 h-20 mx-auto border-4 border-white/20 relative z-10">
-                          <AvatarFallback className="bg-[#c9a84c] text-white text-xl font-bold">
-                            {getInitials(faculty.name)}
-                          </AvatarFallback>
-                        </Avatar>
-                      </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-lg font-display font-bold text-[#1c3557] dark:text-white text-center">
-                          {faculty.name}
-                        </h3>
-                        <p className="text-xs text-[#e31c23] font-medium text-center mt-1">
-                          {faculty.qualifications}
-                        </p>
-                        <div className="mt-4 flex items-start gap-2">
-                          <GraduationCap className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
-                          <div>
-                            <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Specialization</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{faculty.specialization}</p>
-                          </div>
+                  <Link href={`/faculty/${faculty.id}`}>
+                    <motion.div
+                      whileHover={{ y: -6 }}
+                      transition={{ duration: 0.2 }}
+                      className="group h-full"
+                    >
+                      <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer">
+                        <div className="bg-gradient-to-r from-[#1c3557] to-[#0e1d31] p-6 text-center relative">
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,35,0.15),transparent_70%)]" />
+                          <Avatar className="w-20 h-20 mx-auto border-4 border-white/20 relative z-10">
+                            <AvatarFallback className="bg-[#c9a84c] text-white text-xl font-bold">
+                              {getInitials(faculty.name)}
+                            </AvatarFallback>
+                          </Avatar>
                         </div>
-                        <div className="mt-3 flex items-start gap-2">
-                          <BookOpen className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
-                          <div>
-                            <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Subjects</p>
-                            <div className="flex flex-wrap gap-1 mt-1">
-                              {faculty.subjects.map((s) => (
-                                <Badge key={s} variant="secondary" className="text-[10px] px-1.5 py-0">
-                                  {s}
-                                </Badge>
-                              ))}
+                        <CardContent className="p-6">
+                          <h3 className="text-lg font-display font-bold text-[#1c3557] dark:text-white text-center group-hover:text-[#e31c23] transition-colors inline-flex items-center gap-1">
+                            {faculty.name}
+                            <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </h3>
+                          <p className="text-xs text-[#e31c23] font-medium text-center mt-1">
+                            {faculty.qualifications}
+                          </p>
+                          <div className="mt-4 flex items-start gap-2">
+                            <GraduationCap className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Specialization</p>
+                              <p className="text-xs text-gray-500 dark:text-gray-400">{faculty.specialization}</p>
                             </div>
                           </div>
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
-                          <Badge variant={faculty.department === "Administration" ? "warning" : "info"} className="text-[10px]">
-                            {faculty.department}
-                          </Badge>
-                          <a
-                            href={`mailto:${faculty.email}`}
-                            className="text-[#e31c23] hover:text-[#c4181e] transition-colors"
-                          >
-                            <Mail className="w-4 h-4" />
-                          </a>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
+                          <div className="mt-3 flex items-start gap-2">
+                            <BookOpen className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Subjects</p>
+                              <div className="flex flex-wrap gap-1 mt-1">
+                                {faculty.subjects.map((s) => (
+                                  <Badge key={s} variant="secondary" className="text-[10px] px-1.5 py-0">
+                                    {s}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                            <Badge variant={faculty.department === "Administration" ? "warning" : "info"} className="text-[10px]">
+                              {faculty.department}
+                            </Badge>
+                            <a
+                              href={`mailto:${faculty.email}`}
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-[#e31c23] hover:text-[#c4181e] transition-colors"
+                            >
+                              <Mail className="w-4 h-4" />
+                            </a>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </Link>
                 </FadeInSection>
               ))}
             </div>
