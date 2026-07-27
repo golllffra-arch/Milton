@@ -31,7 +31,7 @@ const NEWS_ITEMS = [
     excerpt: "Applications are now being accepted for BCA, BBM, BBS, and BASW programs. Early bird scholarships available for meritorious students. Apply before September 15.",
     featured: true,
     icon: GraduationCap,
-    color: "from-[#1c3557] to-[#0e1d31]",
+    color: "from-[#ea580c] to-[#f97316]",
   },
   {
     id: 2,
@@ -150,6 +150,62 @@ function FadeInSection({ children, className = "" }: { children: React.ReactNode
   )
 }
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #7c3aed)" : i % 3 === 1 ? "var(--page-secondary, #ec4899)" : "var(--page-accent, #fbbf24)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #7c3aed)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #ec4899)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #fbbf24)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 export default function NewsPage() {
   const [activeTab, setActiveTab] = useState("all")
 
@@ -164,10 +220,11 @@ export default function NewsPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #ea580c), var(--page-hero-to, #f97316))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -175,7 +232,7 @@ export default function NewsPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Newspaper className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <Newspaper className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #f97316)" }} />
               Stay Informed
             </Badge>
           </motion.div>
@@ -199,7 +256,7 @@ export default function NewsPage() {
       </section>
 
       {/* ─── FILTERS ─── */}
-      <section className="py-8 bg-[#f8f6f0] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+      <section className="py-8 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800" style={{ background: "var(--page-bg, #fff7ed)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center">
@@ -208,7 +265,8 @@ export default function NewsPage() {
                   <TabsTrigger
                     key={cat.value}
                     value={cat.value}
-                    className="px-6 py-2 rounded-lg text-sm font-medium data-[state=active]:bg-[#1c3557] data-[state=active]:text-white"
+                    className="px-6 py-2 rounded-lg text-sm font-medium data-[state=active]:text-white"
+                    style={activeTab === cat.value ? { background: "var(--page-primary, #ea580c)" } : undefined}
                   >
                     {cat.label}
                   </TabsTrigger>
@@ -225,7 +283,7 @@ export default function NewsPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <Newspaper className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-2">No items found</h3>
+              <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #7c2d12)" }}>No items found</h3>
               <p className="text-gray-500">No news items in this category yet.</p>
             </div>
           ) : (
@@ -251,7 +309,7 @@ export default function NewsPage() {
                               {formatDate(featured.date)}
                             </span>
                           </div>
-                          <h2 className="text-2xl lg:text-3xl font-display font-bold text-[#1c3557] dark:text-white mb-4">
+                          <h2 className="text-2xl lg:text-3xl font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #7c2d12)" }}>
                             {featured.title}
                           </h2>
                           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
@@ -295,13 +353,13 @@ export default function NewsPage() {
                               <Calendar className="w-3.5 h-3.5" />
                               {formatDate(item.date)}
                             </div>
-                            <h3 className="text-lg font-display font-bold text-[#1c3557] dark:text-white mb-2 leading-snug">
+                            <h3 className="text-lg font-display font-bold dark:text-white mb-2 leading-snug" style={{ color: "var(--page-text, #7c2d12)" }}>
                               {item.title}
                             </h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                               {truncate(item.excerpt, 120)}
                             </p>
-                            <span className="inline-flex items-center text-sm font-semibold text-[#e31c23] group-hover:gap-2 transition-all">
+                            <span className="inline-flex items-center text-sm font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--page-secondary, #f97316)" }}>
                               Read More
                               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
@@ -319,20 +377,21 @@ export default function NewsPage() {
 
       {/* ─── CTA ─── */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557] to-[#0e1d31]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #ea580c), var(--page-hero-to, #f97316))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <Sparkles className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
+            <Sparkles className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #eab308)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Want to Share Your{" "}
-              <span className="text-[#e31c23]">Story?</span>
+              <span style={{ color: "var(--page-secondary, #f97316)" }}>Story?</span>
             </h2>
             <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
               If you have news, achievements, or events to share with the Milton community, we would love to hear from you.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25">
+              <Button size="xl" className="text-white shadow-xl" style={{ background: "var(--page-secondary, #f97316)" }}>
                 Submit News
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

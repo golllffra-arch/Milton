@@ -3,6 +3,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { DynamicNavbar } from "@/components/layout/dynamic-navbar"
 import { Footer } from "@/components/layout/footer"
+import { ThemeWatcher } from "@/components/layout/theme-watcher"
 import { Toaster } from "@/components/ui/toaster"
 import { prisma } from "@/lib/prisma"
 
@@ -64,6 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className="antialiased" style={{ fontFamily: `"${bodyFontFamily}", sans-serif`, backgroundColor: bgColor }}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeWatcher />
           <div className="flex flex-col min-h-screen">
             <DynamicNavbar
               variantSlug={settings?.navbarVariantId || "navbar-default"}

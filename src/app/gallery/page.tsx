@@ -21,6 +21,50 @@ const CATEGORIES = [
   { value: "tours", label: "Tours" },
 ]
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #7c3aed)" : i % 3 === 1 ? "var(--page-secondary, #d946ef)" : "var(--page-accent, #c026d3)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #7c3aed)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #d946ef)",
+          width: "200px",
+          height: "200px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "2s",
+        }}
+      />
+    </div>
+  )
+}
+
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
@@ -79,13 +123,14 @@ export default function GalleryPage() {
     : GALLERY_ALBUMS.filter((item) => item.category === activeTab)
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden" data-page-theme="projects">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--page-hero-from,#7c3aed)] via-[var(--page-hero-from,#7c3aed)]/95 to-[var(--page-hero-to,#d946ef)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -93,7 +138,7 @@ export default function GalleryPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Camera className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <Camera className="w-3.5 h-3.5 mr-1.5 text-[var(--page-secondary,#d946ef)]" />
               Moments at Milton
             </Badge>
           </motion.div>
@@ -117,17 +162,17 @@ export default function GalleryPage() {
       </section>
 
       {/* ─── GALLERY ─── */}
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-[var(--page-surface,white)] dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="mb-10">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <div className="flex justify-center">
-                <TabsList className="bg-[#f8f6f0] dark:bg-gray-800 p-1 rounded-xl">
+                <TabsList className="bg-[var(--page-bg,#f5f3ff)] dark:bg-gray-800 p-1 rounded-xl">
                   {CATEGORIES.map((cat) => (
                     <TabsTrigger
                       key={cat.value}
                       value={cat.value}
-                      className="px-5 py-2 rounded-lg text-sm font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[#1c3557] dark:data-[state=active]:text-white data-[state=active]:shadow-sm"
+                      className="px-5 py-2 rounded-lg text-sm font-medium data-[state=active]:bg-[var(--page-surface,white)] dark:data-[state=active]:bg-gray-700 data-[state=active]:text-[var(--page-text,#3b0764)] dark:data-[state=active]:text-white data-[state=active]:shadow-sm"
                     >
                       {cat.label}
                     </TabsTrigger>
@@ -153,7 +198,7 @@ export default function GalleryPage() {
           {filtered.length === 0 && (
             <div className="text-center py-20">
               <Image className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-2">No photos found</h3>
+              <h3 className="text-xl font-display font-bold text-[var(--page-text,#3b0764)] dark:text-white mb-2">No photos found</h3>
               <p className="text-gray-500">No gallery items in this category yet.</p>
             </div>
           )}
@@ -161,23 +206,23 @@ export default function GalleryPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 bg-[var(--page-bg,#f5f3ff)] dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <Camera className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+            <Camera className="w-12 h-12 text-[var(--page-accent,#c026d3)] mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--page-text,#3b0764)] dark:text-white leading-tight">
               Want to See More?{" "}
-              <span className="text-[#e31c23]">Visit Us!</span>
+              <span className="text-[var(--page-secondary,#d946ef)]">Visit Us!</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Experience the Milton campus in person. Schedule a campus tour and see our facilities firsthand.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25">
+              <Button size="xl" className="bg-[var(--page-secondary,#d946ef)] hover:bg-[#c4181e] text-white shadow-xl shadow-[var(--page-secondary,#d946ef)]/25">
                 Schedule a Tour
                 <MapPin className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" size="xl" className="border-[#1c3557]/20 text-[#1c3557] hover:bg-[#1c3557] hover:text-white">
+              <Button variant="outline" size="xl" className="border-[var(--page-primary,#7c3aed)]/20 text-[var(--page-text,#3b0764)] hover:bg-[var(--page-primary,#7c3aed)] hover:text-white">
                 Virtual Tour
               </Button>
             </div>

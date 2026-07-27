@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils"
 import { getVariant } from "@/lib/variants/renderers"
 import type { NavbarVariantConfig } from "@/lib/variants/types"
 
-// Default nav items used when DB isn't available
 const DEFAULT_NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about", children: [
@@ -52,6 +51,8 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
   const variant = getVariant("navbar", variantSlug)
   const config: NavbarVariantConfig = variant?.config || {}
 
+  const isHomePage = pathname === "/"
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
@@ -75,7 +76,6 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
     return () => document.removeEventListener("click", handleClickOutside)
   }, [handleClickOutside])
 
-  // Fetch nav items from DB
   useEffect(() => {
     fetch("/api/settings/nav-menu")
       .then((r) => r.json())
@@ -91,25 +91,23 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
           setNavItems(mapped)
         }
       })
-      .catch(() => {}) // Fall back to defaults
+      .catch(() => {})
   }, [])
 
-  const isTransparent = config.transparent && !scrolled
-  const isDark = config.style === "dark-mode"
-  const isCompact = config.height === "compact"
-  const textColor = isTransparent ? "text-white" : isDark ? "text-gray-200" : "text-gray-700"
+  const headerBg = scrolled
+    ? "bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl shadow-sm"
+    : isHomePage
+    ? "bg-transparent"
+    : "bg-transparent"
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isTransparent ? "bg-transparent" : scrolled || !config.transparent
-          ? "bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent",
-        isCompact ? "h-14" : "h-16 md:h-20"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        headerBg,
+        config.height === "compact" ? "h-14" : "h-16 md:h-20"
       )}
     >
-      {/* Announcement strip */}
       {config.style === "top-announcement" && config.announcementText && (
         <div
           className="text-white text-center text-sm py-2 px-4"
@@ -120,30 +118,33 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
       )}
 
       <div className={cn("mx-auto px-4 sm:px-6 lg:px-8", config.layout === "contained" ? "max-w-7xl" : "")}>
-        <div className={cn("flex items-center justify-between", isCompact ? "h-14" : "h-16 md:h-20")}>
-          {/* Logo */}
+        <div className={cn("flex items-center justify-between", config.height === "compact" ? "h-14" : "h-16 md:h-20")}>
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
-              style={{ backgroundColor: settings?.primaryColor || "#1c3557" }}
+            <div
+              className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+              style={{ backgroundColor: "var(--page-primary, #1c3557)" }}
             >
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <span className="font-display text-lg font-bold leading-tight" style={{ color: isTransparent ? "#fff" : settings?.primaryColor || "#1c3557" }}>
+              <span
+                className="font-display text-lg font-bold leading-tight transition-colors"
+                style={{ color: isHomePage && !scrolled ? "#fff" : "var(--page-primary, #1c3557)" }}
+              >
                 {settings?.collegeName || "Milton"}
               </span>
-              <span className="block text-[10px] uppercase tracking-widest font-medium -mt-1"
-                style={{ color: settings?.secondaryColor || "#e31c23" }}
+              <span
+                className="block text-[10px] uppercase tracking-widest font-medium -mt-1"
+                style={{ color: "var(--page-secondary, #e31c23)" }}
               >
                 International College
               </span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-                <div
+              <div
                 key={item.href + item.label}
                 data-nav-item
                 className="relative"
@@ -157,10 +158,12 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                       setActiveDropdown(activeDropdown === item.label ? null : item.label)
                     }}
                     className={cn(
-                      "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
+                      "px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-1",
                       pathname === item.href
-                        ? "text-[#e31c23]"
-                        : `${textColor} hover:text-[#e31c23] dark:hover:text-[#e31c23]`
+                        ? "text-[var(--page-secondary,#e31c23)]"
+                        : isHomePage && !scrolled
+                        ? "text-white/80 hover:text-white"
+                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#e31c23)] dark:hover:text-[var(--page-secondary,#e31c23)]"
                     )}
                   >
                     {item.label}
@@ -170,22 +173,34 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                   <Link
                     href={item.href}
                     className={cn(
-                      "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
+                      "px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-1",
                       pathname === item.href
-                        ? "text-[#e31c23]"
-                        : `${textColor} hover:text-[#e31c23] dark:hover:text-[#e31c23]`
+                        ? "text-[var(--page-secondary,#e31c23)]"
+                        : isHomePage && !scrolled
+                        ? "text-white/80 hover:text-white"
+                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#e31c23)] dark:hover:text-[var(--page-secondary,#e31c23)]"
                     )}
                   >
                     {item.label}
                   </Link>
                 )}
                 {item.children && activeDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 py-2 animate-fade-in">
+                  <div
+                    className="absolute top-full left-0 mt-1 w-56 rounded-xl shadow-xl py-2 animate-fade-in"
+                    style={{
+                      backgroundColor: "var(--page-surface, #ffffff)",
+                      borderColor: "var(--page-border, #e5e7eb)",
+                      borderWidth: "1px",
+                    }}
+                  >
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#e31c23] transition-colors"
+                        className="block px-4 py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
+                        style={{
+                          color: "var(--page-text, #1c3557)",
+                        }}
                         onClick={() => setActiveDropdown(null)}
                       >
                         {child.label}
@@ -197,25 +212,34 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
             ))}
           </nav>
 
-          {/* Right side */}
           <div className="flex items-center gap-3">
             {config.showSearch && (
-              <button className="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+              <button
+                className="p-2 rounded-lg transition-colors"
+                style={{
+                  color: isHomePage && !scrolled ? "rgba(255,255,255,0.7)" : "var(--page-muted, #6b7280)",
+                }}
+              >
                 <Search className="w-5 h-5" />
               </button>
             )}
             {config.showThemeToggle && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-lg transition-colors"
+                style={{
+                  color: isHomePage && !scrolled ? "rgba(255,255,255,0.7)" : "var(--page-muted, #6b7280)",
+                }}
               >
                 {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
             )}
             {config.showCta && (
               <Link href={config.ctaLink || "/login"}>
-                <Button size="sm" className="hidden sm:inline-flex"
-                  style={{ backgroundColor: settings?.secondaryColor || "#e31c23" }}
+                <Button
+                  size="sm"
+                  className="hidden sm:inline-flex text-white border-0"
+                  style={{ backgroundColor: "var(--page-secondary, #e31c23)" }}
                 >
                   {config.ctaLabel || "Student Portal"}
                 </Button>
@@ -223,7 +247,10 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
             )}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              className="lg:hidden p-2 rounded-lg transition-colors"
+              style={{
+                color: isHomePage && !scrolled ? "rgba(255,255,255,0.7)" : "var(--page-muted, #6b7280)",
+              }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -231,9 +258,14 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white dark:bg-gray-950 border-t dark:border-gray-800 animate-fade-in">
+        <div
+          className="lg:hidden border-t animate-fade-in"
+          style={{
+            backgroundColor: "var(--page-surface, #ffffff)",
+            borderColor: "var(--page-border, #e5e7eb)",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.href + item.label}>
@@ -241,7 +273,8 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                   <>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                      className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                      className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg"
+                      style={{ color: "var(--page-text, #1c3557)" }}
                     >
                       {item.label}
                       <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeDropdown === item.label && "rotate-180")} />
@@ -249,7 +282,12 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                     {activeDropdown === item.label && (
                       <div className="ml-4 space-y-1 pb-2">
                         {item.children.map((child) => (
-                          <Link key={child.href} href={child.href} className="block px-3 py-2 text-sm text-gray-500 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-3 py-2 text-sm rounded-lg"
+                            style={{ color: "var(--page-muted, #6b7280)" }}
+                          >
                             {child.label}
                           </Link>
                         ))}
@@ -257,14 +295,21 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                     )}
                   </>
                 ) : (
-                  <Link href={item.href} className="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#e31c23] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <Link
+                    href={item.href}
+                    className="block px-3 py-2.5 text-sm font-medium rounded-lg"
+                    style={{ color: "var(--page-text, #1c3557)" }}
+                  >
                     {item.label}
                   </Link>
                 )}
               </div>
             ))}
             <Link href="/login" className="block px-3 py-2.5 mt-2">
-              <Button className="w-full" style={{ backgroundColor: settings?.secondaryColor || "#e31c23" }}>
+              <Button
+                className="w-full text-white border-0"
+                style={{ backgroundColor: "var(--page-secondary, #e31c23)" }}
+              >
                 {config.ctaLabel || "Student Portal"}
               </Button>
             </Link>

@@ -63,6 +63,12 @@ const RELATED_PROGRAMS = [
   { code: "bbs", title: "BBS", fullName: "Bachelor of Business Studies", icon: Users, gradient: "from-[#1c3557] to-[#0e1d31]" },
 ]
 
+const programGradients: Record<string, React.CSSProperties> = {
+  bca: { background: "linear-gradient(135deg, var(--page-primary, #0891b2), #2c3e7a)" },
+  bbm: { background: "linear-gradient(135deg, var(--page-secondary, #06b6d4), #a51419)" },
+  bbs: { background: "linear-gradient(135deg, var(--page-primary, #0891b2), #0e1d31)" },
+}
+
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
@@ -84,16 +90,17 @@ export default function BASWPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/90 via-[#c9a84c]/80 to-[#a8882e] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(28,53,87,0.15),transparent_60%)] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(227,28,35,0.08),transparent_50%)] z-0" />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at top right, color-mix(in srgb, var(--page-primary, #0891b2) 15%, transparent), transparent 60%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--page-secondary, #06b6d4) 8%, transparent), transparent 50%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#c9a84c] to-[#a8882e] flex items-center justify-center shrink-0 shadow-xl"
+              className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 shadow-xl"
+              style={{ background: "linear-gradient(135deg, var(--page-accent, #0284c7), #a8882e)" }}
             >
               <Users className="w-12 h-12 text-white" />
             </motion.div>
@@ -114,7 +121,7 @@ export default function BASWPage() {
                 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight"
               >
                 BASW{" "}
-                <span className="text-[#1c3557]">Program</span>
+                <span style={{ color: "var(--page-text, #164e63)" }}>Program</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -135,7 +142,7 @@ export default function BASWPage() {
           <div className="lg:col-span-2 space-y-16">
             {/* Overview */}
             <FadeInSection>
-              <h2 className="text-3xl font-display font-bold text-[#1c3557] dark:text-white mb-6">Program Overview</h2>
+              <h2 className="text-3xl font-display font-bold mb-6 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Program Overview</h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   The Bachelor of Arts in Social Work (BASW) is a four-year, eight-semester
@@ -160,8 +167,8 @@ export default function BASWPage() {
             {/* Curriculum */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-6 h-6 text-[#e31c23]" />
-                <h2 className="text-3xl font-display font-bold text-[#1c3557] dark:text-white">Curriculum Structure</h2>
+                <BookOpen className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Curriculum Structure</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 The BASW program spans 8 semesters over 4 years. Below is a semester-wise
@@ -171,7 +178,7 @@ export default function BASWPage() {
                 {SEMESTERS.map((sem) => (
                   <Card key={sem.sem} className="border border-gray-200 dark:border-gray-700 shadow-sm">
                     <CardContent className="p-4">
-                      <h3 className="font-display font-bold text-[#1c3557] dark:text-white mb-3 text-lg">
+                      <h3 className="font-display font-bold mb-3 text-lg dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
                         Semester {sem.sem}
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -190,8 +197,8 @@ export default function BASWPage() {
             {/* Career Opportunities */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <Briefcase className="w-6 h-6 text-[#e31c23]" />
-                <h2 className="text-3xl font-display font-bold text-[#1c3557] dark:text-white">Career Opportunities</h2>
+                <Briefcase className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Career Opportunities</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 BASW graduates are in demand across social development sectors. Here are some
@@ -203,11 +210,11 @@ export default function BASWPage() {
                   return (
                     <Card key={career.title} className="border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                       <CardContent className="p-5 flex gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-[#c9a84c]/20 dark:bg-[#c9a84c]/30 flex items-center justify-center shrink-0">
-                          <Icon className="w-5 h-5 text-[#c9a84c]" />
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb, var(--page-accent, #0284c7) 20%, transparent)" }}>
+                          <Icon className="w-5 h-5" style={{ color: "var(--page-accent, #0284c7)" }} />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-[#1c3557] dark:text-white text-sm">{career.title}</h3>
+                          <h3 className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{career.title}</h3>
                           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{career.description}</p>
                         </div>
                       </CardContent>
@@ -220,8 +227,8 @@ export default function BASWPage() {
             {/* Eligibility */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="w-6 h-6 text-[#e31c23]" />
-                <h2 className="text-3xl font-display font-bold text-[#1c3557] dark:text-white">Eligibility Criteria</h2>
+                <CheckCircle className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Eligibility Criteria</h2>
               </div>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
@@ -234,7 +241,7 @@ export default function BASWPage() {
                       "Good moral character and commitment to social justice",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
-                        <CheckCircle className="w-4 h-4 text-[#e31c23] mt-0.5 shrink-0" />
+                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #06b6d4)" }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -245,7 +252,7 @@ export default function BASWPage() {
 
             {/* Download */}
             <FadeInSection>
-              <Card className="bg-gradient-to-r from-[#c9a84c] to-[#a8882e] text-white border-0 shadow-xl">
+              <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-accent, #0284c7), #a8882e)" }}>
                 <CardContent className="p-8 flex flex-col sm:flex-row items-center gap-6">
                   <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
                     <Download className="w-8 h-8 text-white" />
@@ -270,7 +277,7 @@ export default function BASWPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm sticky top-24">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold text-[#1c3557] dark:text-white mb-4">
+                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
                     Program at a Glance
                   </h3>
                   <div className="space-y-4">
@@ -284,7 +291,7 @@ export default function BASWPage() {
                     ].map((item) => (
                       <div key={item.label} className="flex justify-between text-sm">
                         <span className="text-gray-500 dark:text-gray-400">{item.label}</span>
-                        <span className="font-medium text-[#1c3557] dark:text-white text-right">{item.value}</span>
+                        <span className="font-medium text-right dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{item.value}</span>
                       </div>
                     ))}
                   </div>
@@ -295,7 +302,7 @@ export default function BASWPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold text-[#1c3557] dark:text-white mb-4">
+                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
                     Other Programs
                   </h3>
                   <div className="space-y-3">
@@ -304,14 +311,14 @@ export default function BASWPage() {
                       return (
                         <Link key={p.code} href={`/programs/${p.code}`}>
                           <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
-                            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${p.gradient} flex items-center justify-center shrink-0`}>
+                            <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={programGradients[p.code]}>
                               <Icon className="w-5 h-5 text-white" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-[#1c3557] dark:text-white text-sm">{p.title}</p>
+                              <p className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{p.title}</p>
                               <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{p.fullName}</p>
                             </div>
-                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#e31c23] group-hover:translate-x-1 transition-all shrink-0" />
+                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[var(--page-secondary)] group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
                       )
@@ -322,7 +329,7 @@ export default function BASWPage() {
             </FadeInSection>
 
             <FadeInSection>
-              <Card className="bg-gradient-to-br from-[#1c3557] to-[#0e1d31] text-white border-0 shadow-lg">
+              <Card className="text-white border-0 shadow-lg" style={{ background: "linear-gradient(135deg, var(--page-primary, #0891b2), #0e1d31)" }}>
                 <CardContent className="p-6 text-center">
                   <GraduationCap className="w-10 h-10 mx-auto mb-4 opacity-80" />
                   <h3 className="font-display font-bold text-lg mb-2">Apply for BASW</h3>
@@ -330,7 +337,7 @@ export default function BASWPage() {
                     Admissions open for 2026/27. Secure your seat today.
                   </p>
                   <Link href="/admissions">
-                    <Button className="w-full bg-[#c9a84c] hover:bg-[#b8973a] text-white">
+                    <Button className="w-full text-white" style={{ background: "var(--page-accent, #0284c7)" }}>
                       Apply Now
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

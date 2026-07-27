@@ -70,6 +70,16 @@ const config: Config = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        page: {
+          bg: "var(--page-bg)",
+          surface: "var(--page-surface)",
+          primary: "var(--page-primary)",
+          secondary: "var(--page-secondary)",
+          accent: "var(--page-accent)",
+          text: "var(--page-text)",
+          muted: "var(--page-muted)",
+          border: "var(--page-border)",
+        },
         success: "#10b981",
         warning: "#f59e0b",
         milton: {
@@ -106,6 +116,14 @@ const config: Config = {
           from: { opacity: "0", transform: "translateX(20px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.7" },
+        },
         "count-up": {
           from: { opacity: "0" },
           to: { opacity: "1" },
@@ -117,6 +135,8 @@ const config: Config = {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "fade-in-left": "fade-in-left 0.6s ease-out forwards",
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 4s ease-in-out infinite",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],

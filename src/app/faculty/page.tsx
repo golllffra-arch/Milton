@@ -20,6 +20,62 @@ import { FACULTY } from "@/lib/data/faculty"
 
 const DEPARTMENTS = ["All Departments", "BCA", "BBM", "BBS", "BASW", "Administration"]
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #16a34a)" : i % 3 === 1 ? "var(--page-secondary, #22c55e)" : "var(--page-accent, #65a30d)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #16a34a)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #22c55e)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #65a30d)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
@@ -53,7 +109,11 @@ export default function FacultyPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
+        <div
+          style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}
+          className="absolute inset-0 z-0"
+        />
+        <FloatingParticles />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
@@ -64,7 +124,7 @@ export default function FacultyPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Users className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <Users className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #22c55e)" }} />
               Our Team
             </Badge>
           </motion.div>
@@ -89,7 +149,10 @@ export default function FacultyPage() {
       </section>
 
       {/* ─── SEARCH & FILTER ─── */}
-      <section className="py-8 bg-[#f8f6f0] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+      <section
+        style={{ background: "var(--page-bg, #f0fdf4)" }}
+        className="py-8 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <div className="relative flex-1 w-full">
@@ -124,7 +187,12 @@ export default function FacultyPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-2">No faculty found</h3>
+              <h3
+                style={{ color: "var(--page-text, #14532d)" }}
+                className="text-xl font-display font-bold dark:text-white mb-2"
+              >
+                No faculty found
+              </h3>
               <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
             </div>
           ) : (
@@ -138,33 +206,61 @@ export default function FacultyPage() {
                       className="group h-full"
                     >
                       <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl overflow-hidden cursor-pointer">
-                        <div className="bg-gradient-to-r from-[#1c3557] to-[#0e1d31] p-6 text-center relative">
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,35,0.15),transparent_70%)]" />
+                        <div
+                          style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}
+                          className="p-6 text-center relative"
+                        >
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.15),transparent_70%)]" />
                           <Avatar className="w-20 h-20 mx-auto border-4 border-white/20 relative z-10">
-                            <AvatarFallback className="bg-[#c9a84c] text-white text-xl font-bold">
+                            <AvatarFallback
+                              style={{ background: "var(--page-accent, #65a30d)" }}
+                              className="text-white text-xl font-bold"
+                            >
                               {getInitials(faculty.name)}
                             </AvatarFallback>
                           </Avatar>
                         </div>
                         <CardContent className="p-6">
-                          <h3 className="text-lg font-display font-bold text-[#1c3557] dark:text-white text-center group-hover:text-[#e31c23] transition-colors inline-flex items-center gap-1">
+                          <h3
+                            style={{ color: "var(--page-text, #14532d)" }}
+                            className="text-lg font-display font-bold dark:text-white text-center group-hover:text-[var(--page-secondary,#22c55e)] transition-colors inline-flex items-center gap-1"
+                          >
                             {faculty.name}
                             <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </h3>
-                          <p className="text-xs text-[#e31c23] font-medium text-center mt-1">
+                          <p
+                            style={{ color: "var(--page-secondary, #22c55e)" }}
+                            className="text-xs font-medium text-center mt-1"
+                          >
                             {faculty.qualifications}
                           </p>
                           <div className="mt-4 flex items-start gap-2">
-                            <GraduationCap className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
+                            <GraduationCap
+                              style={{ color: "var(--page-accent, #65a30d)" }}
+                              className="w-4 h-4 mt-0.5 shrink-0"
+                            />
                             <div>
-                              <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Specialization</p>
+                              <p
+                                style={{ color: "var(--page-text, #14532d)" }}
+                                className="text-xs font-semibold dark:text-white"
+                              >
+                                Specialization
+                              </p>
                               <p className="text-xs text-gray-500 dark:text-gray-400">{faculty.specialization}</p>
                             </div>
                           </div>
                           <div className="mt-3 flex items-start gap-2">
-                            <BookOpen className="w-4 h-4 text-[#c9a84c] mt-0.5 shrink-0" />
+                            <BookOpen
+                              style={{ color: "var(--page-accent, #65a30d)" }}
+                              className="w-4 h-4 mt-0.5 shrink-0"
+                            />
                             <div>
-                              <p className="text-xs font-semibold text-[#1c3557] dark:text-white">Subjects</p>
+                              <p
+                                style={{ color: "var(--page-text, #14532d)" }}
+                                className="text-xs font-semibold dark:text-white"
+                              >
+                                Subjects
+                              </p>
                               <div className="flex flex-wrap gap-1 mt-1">
                                 {faculty.subjects.map((s) => (
                                   <Badge key={s} variant="secondary" className="text-[10px] px-1.5 py-0">
@@ -181,7 +277,8 @@ export default function FacultyPage() {
                             <a
                               href={`mailto:${faculty.email}`}
                               onClick={(e) => e.stopPropagation()}
-                              className="text-[#e31c23] hover:text-[#c4181e] transition-colors"
+                              style={{ color: "var(--page-secondary, #22c55e)" }}
+                              className="hover:text-[#c4181e] transition-colors"
                             >
                               <Mail className="w-4 h-4" />
                             </a>
@@ -199,7 +296,11 @@ export default function FacultyPage() {
 
       {/* ─── STATS ─── */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1c3557] via-[#1c3557] to-[#0e1d31]" />
+        <div
+          style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}
+          className="absolute inset-0"
+        />
+        <FloatingParticles />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -219,24 +320,42 @@ export default function FacultyPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section
+        style={{ background: "var(--page-bg, #f0fdf4)" }}
+        className="py-20 dark:bg-gray-900"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <GraduationCap className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+            <GraduationCap
+              style={{ color: "var(--page-accent, #65a30d)" }}
+              className="w-12 h-12 mx-auto mb-6"
+            />
+            <h2
+              style={{ color: "var(--page-text, #14532d)" }}
+              className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight"
+            >
               Learn from the{" "}
-              <span className="text-[#e31c23]">Best</span>
+              <span style={{ color: "var(--page-secondary, #22c55e)" }}>Best</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Our faculty bring a wealth of academic knowledge and industry experience to the classroom.
               Join Milton and learn from experts who genuinely care about your success.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25">
+              <Button
+                size="xl"
+                style={{ background: "var(--page-secondary, #22c55e)" }}
+                className="hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25"
+              >
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" size="xl" className="border-[#1c3557]/20 text-[#1c3557] hover:bg-[#1c3557] hover:text-white">
+              <Button
+                variant="outline"
+                size="xl"
+                style={{ color: "var(--page-text, #14532d)" }}
+                className="border-[var(--page-text,#14532d)]/20 hover:bg-[var(--page-primary,#16a34a)] hover:text-white"
+              >
                 Schedule a Visit
               </Button>
             </div>

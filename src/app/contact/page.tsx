@@ -15,30 +15,86 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #0369a1)" : i % 3 === 1 ? "var(--page-secondary, #0ea5e9)" : "var(--page-accent, #8b5cf6)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #0369a1)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #0ea5e9)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #8b5cf6)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 const CONTACT_INFO = [
   {
     icon: MapPin,
     title: "Our Address",
     lines: ["Milton International College", "New Baneshwor, Kathmandu", "Nepal"],
-    bg: "from-[#1c3557] to-[#0e1d31]",
+    bg: "from-[#0369a1] to-[#0ea5e9]",
   },
   {
     icon: Phone,
     title: "Phone",
     lines: ["+977-1-4XXXXXX", "+977-98XXXXXXXX"],
-    bg: "from-[#e31c23] to-[#a51419]",
+    bg: "from-[#0ea5e9] to-[#0284c7]",
   },
   {
     icon: Mail,
     title: "Email",
     lines: ["info@milton.edu.com", "admissions@milton.edu.com"],
-    bg: "from-[#1c3557] to-[#0e1d31]",
+    bg: "from-[#0369a1] to-[#0ea5e9]",
   },
   {
     icon: Clock,
     title: "Office Hours",
     lines: ["Sunday - Friday: 6:00 AM - 2:00 PM", "Saturday: Closed"],
-    bg: "from-[#c9a84c] to-[#a8882e]",
+    bg: "from-[#8b5cf6] to-[#7c3aed]",
   },
 ]
 
@@ -83,13 +139,14 @@ export default function ContactPage() {
     <div className="overflow-hidden">
       {/* HERO */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0369a1), var(--page-hero-to, #0ea5e9))" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(14,165,233,0.15),transparent_60%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.08),transparent_50%)] z-0" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <MapPin className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <MapPin className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #0ea5e9)" }} />
               Get in Touch
             </Badge>
           </motion.div>
@@ -97,7 +154,7 @@ export default function ContactPage() {
             className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight"
           >
             Contact{" "}
-            <span className="bg-gradient-to-r from-[#e31c23] via-[#f55959] to-[#c9a84c] bg-clip-text text-transparent">Us</span>
+            <span className="bg-gradient-to-r from-[#0ea5e9] via-[#38bdf8] to-[#8b5cf6] bg-clip-text text-transparent">Us</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
@@ -137,13 +194,13 @@ export default function ContactPage() {
       </section>
 
       {/* FORM & MAP */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #f0f9ff)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <FadeInSection>
               <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Send a Message</Badge>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#1c3557] dark:text-white mb-6">Drop Us a Line</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #0c4a6e)" }}>Drop Us a Line</h2>
               <Card className="border-0 shadow-lg bg-white dark:bg-gray-800 rounded-xl">
                 <CardContent className="p-6 md:p-8">
                   {submitted ? (
@@ -151,7 +208,7 @@ export default function ContactPage() {
                       <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                       </div>
-                      <h3 className="text-2xl font-display font-bold text-[#1c3557] dark:text-white mb-2">Message Sent!</h3>
+                      <h3 className="text-2xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #0c4a6e)" }}>Message Sent!</h3>
                       <p className="text-gray-600 dark:text-gray-400">Thank you for reaching out. We&apos;ll get back to you within 24 hours.</p>
                       <Button variant="outline" className="mt-6" onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", subject: "", message: "" }) }}>
                         Send Another Message
@@ -160,19 +217,19 @@ export default function ContactPage() {
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-[#1c3557] dark:text-white"><User className="w-4 h-4 inline mr-1.5" />Your Name</Label>
+                        <Label htmlFor="name" className="dark:text-white" style={{ color: "var(--page-text, #0c4a6e)" }}><User className="w-4 h-4 inline mr-1.5" />Your Name</Label>
                         <Input id="name" placeholder="John Doe" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} required className="bg-gray-50 dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-[#1c3557] dark:text-white"><Mail className="w-4 h-4 inline mr-1.5" />Your Email</Label>
+                        <Label htmlFor="email" className="dark:text-white" style={{ color: "var(--page-text, #0c4a6e)" }}><Mail className="w-4 h-4 inline mr-1.5" />Your Email</Label>
                         <Input id="email" type="email" placeholder="john@example.com" value={formData.email} onChange={(e) => handleChange("email", e.target.value)} required className="bg-gray-50 dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="subject" className="text-[#1c3557] dark:text-white"><FileText className="w-4 h-4 inline mr-1.5" />Subject</Label>
+                        <Label htmlFor="subject" className="dark:text-white" style={{ color: "var(--page-text, #0c4a6e)" }}><FileText className="w-4 h-4 inline mr-1.5" />Subject</Label>
                         <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={(e) => handleChange("subject", e.target.value)} required className="bg-gray-50 dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="message" className="text-[#1c3557] dark:text-white"><MessageSquare className="w-4 h-4 inline mr-1.5" />Message</Label>
+                        <Label htmlFor="message" className="dark:text-white" style={{ color: "var(--page-text, #0c4a6e)" }}><MessageSquare className="w-4 h-4 inline mr-1.5" />Message</Label>
                         <textarea
                           id="message"
                           rows={5}
@@ -183,7 +240,7 @@ export default function ContactPage() {
                           className="flex w-full rounded-md border border-input bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
                         />
                       </div>
-                      <Button type="submit" size="lg" className="w-full bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-lg shadow-[#e31c23]/25">
+                      <Button type="submit" size="lg" className="w-full text-white shadow-lg shadow-[#0ea5e9]/25 hover:brightness-110" style={{ background: "var(--page-secondary, #0ea5e9)" }}>
                         <Send className="w-4 h-4 mr-2" />Send Message
                       </Button>
                     </form>
@@ -196,11 +253,11 @@ export default function ContactPage() {
             <div className="space-y-8">
               <FadeInSection>
                 <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Find Us</Badge>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-[#1c3557] dark:text-white mb-6">Our Location</h2>
-                <div className="rounded-xl overflow-hidden shadow-lg h-[300px] bg-[#1c3557] flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] to-[#0e1d31] opacity-90" />
+                <h2 className="text-3xl md:text-4xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #0c4a6e)" }}>Our Location</h2>
+                <div className="rounded-xl overflow-hidden shadow-lg h-[300px] flex items-center justify-center relative" style={{ background: "var(--page-primary, #0369a1)" }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0369a1] to-[#0ea5e9] opacity-90" />
                   <div className="relative z-10 text-center p-8">
-                    <MapPin className="w-12 h-12 text-[#c9a84c] mx-auto mb-4" />
+                    <MapPin className="w-12 h-12 mx-auto mb-4" style={{ color: "var(--page-accent, #8b5cf6)" }} />
                     <p className="text-white text-lg font-display font-bold">Milton International College</p>
                     <p className="text-white/60 text-sm mt-2">New Baneshwor, Kathmandu, Nepal</p>
                     <p className="text-white/40 text-xs mt-4">Google Maps Integration</p>
@@ -211,7 +268,7 @@ export default function ContactPage() {
               <FadeInSection>
                 <Card className="border-0 shadow-lg bg-white dark:bg-gray-800 rounded-xl">
                   <CardContent className="p-6 md:p-8">
-                    <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-4">Connect With Us</h3>
+                    <h3 className="text-xl font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #0c4a6e)" }}>Connect With Us</h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">Follow us on social media for the latest updates, events, and college news.</p>
                     <div className="flex flex-wrap gap-4">
                       {SOCIAL_LINKS.map((social) => {
@@ -236,22 +293,23 @@ export default function ContactPage() {
 
       {/* CTA */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557] to-[#0e1d31]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0369a1), var(--page-hero-to, #0ea5e9))" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(14,165,233,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(139,92,246,0.08),transparent_50%)]" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <GraduationCap className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
+            <GraduationCap className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #8b5cf6)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Ready to Join{" "}
-              <span className="bg-gradient-to-r from-[#e31c23] to-[#c9a84c] bg-clip-text text-transparent">Milton?</span>
+              <span className="bg-gradient-to-r from-[#0ea5e9] to-[#8b5cf6] bg-clip-text text-transparent">Milton?</span>
             </h2>
             <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
               Visit our campus, talk to our counselors, and take the first step toward your future.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/admissions">
-                <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25 group">
+                <Button size="xl" className="text-white shadow-xl shadow-[#0ea5e9]/25 group hover:brightness-110" style={{ background: "var(--page-secondary, #0ea5e9)" }}>
                   Apply Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>

@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { GraduationCap, MapPin, Phone, Mail, Clock, ArrowUpRight } from "lucide-react"
 
 const FOOTER_LINKS = {
@@ -26,44 +28,75 @@ const FOOTER_LINKS = {
   ],
 }
 
+const darkPages = ["/virtual-tour"]
+
 export function Footer() {
+  const pathname = usePathname()
+  const isDark = darkPages.some((p) => pathname.startsWith(p))
+
   return (
-    <footer className="bg-[#0e1d31] text-white">
+    <footer
+      style={{
+        backgroundColor: isDark ? "var(--page-surface, #0e1d31)" : "var(--page-primary, #0e1d31)",
+      }}
+      className="text-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                <GraduationCap className="w-7 h-7 text-[#e31c23]" />
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center"
+                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+              >
+                <GraduationCap
+                  className="w-7 h-7"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                />
               </div>
               <div>
                 <span className="font-display text-xl font-bold">Milton</span>
-                <span className="block text-xs uppercase tracking-widest text-[#e31c23] font-medium -mt-1">
+                <span
+                  className="block text-xs uppercase tracking-widest font-medium -mt-1"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                >
                   International College
                 </span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-md">
-              Affiliated with Tribhuvan University, Milton International College has been 
-              providing quality education in New Baneshwor, Kathmandu since 2010. 
-              We offer BCA, BBM, BBS, and BASW programs designed for academic excellence 
+              Affiliated with Tribhuvan University, Milton International College has been
+              providing quality education in New Baneshwor, Kathmandu since 2010.
+              We offer BCA, BBM, BBS, and BASW programs designed for academic excellence
               and career success.
             </p>
             <div className="space-y-3 text-sm text-gray-400">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-[#e31c23]" />
+                <MapPin
+                  className="w-4 h-4 mt-0.5"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                />
                 <span>New Baneshwor, Kathmandu, Nepal</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#e31c23]" />
+                <Phone
+                  className="w-4 h-4"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                />
                 <span>+977-1-4XXXXXX</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#e31c23]" />
+                <Mail
+                  className="w-4 h-4"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                />
                 <span>info@milton.edu.com</span>
               </div>
               <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-[#e31c23]" />
+                <Clock
+                  className="w-4 h-4"
+                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                />
                 <span>Sun - Fri: 6:00 AM - 2:00 PM</span>
               </div>
             </div>
@@ -96,10 +129,15 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Milton International College. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">Facebook</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">Instagram</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">YouTube</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">LinkedIn</a>
+            {["Facebook", "Instagram", "YouTube", "LinkedIn"].map((s) => (
+              <a
+                key={s}
+                href="#"
+                className="text-gray-500 hover:text-white transition-colors text-sm"
+              >
+                {s}
+              </a>
+            ))}
           </div>
         </div>
       </div>

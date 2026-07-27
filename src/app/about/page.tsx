@@ -56,6 +56,62 @@ const STATS = [
   { value: 12, label: "Years Legacy", suffix: "+" },
 ]
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #c2410c)" : i % 3 === 1 ? "var(--page-secondary, #f59e0b)" : "var(--page-accent, #d97706)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #c2410c)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #f59e0b)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #d97706)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
@@ -75,10 +131,10 @@ function FadeInSection({ children, className = "" }: { children: React.ReactNode
 function StatItem({ value, label, suffix }: { value: number; label: string; suffix: string }) {
   return (
     <div className="text-center p-4">
-      <div className="text-3xl md:text-4xl font-bold font-display text-[#e31c23]">
+      <div className="text-3xl md:text-4xl font-bold font-display" style={{ color: "var(--page-secondary, #f59e0b)" }}>
         {value}{suffix}
       </div>
-      <div className="text-sm text-[#1c3557]/70 font-medium mt-1 uppercase tracking-wider">{label}</div>
+      <div className="text-sm font-medium mt-1 uppercase tracking-wider opacity-70" style={{ color: "var(--page-text, #7c2d12)" }}>{label}</div>
     </div>
   )
 }
@@ -88,10 +144,16 @@ export default function AboutPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))",
+          }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(194,65,12,0.15),transparent_60%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(217,119,6,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -99,7 +161,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <MapPin className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <MapPin className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #f59e0b)" }} />
               New Baneshwor, Kathmandu
             </Badge>
           </motion.div>
@@ -135,25 +197,25 @@ export default function AboutPage() {
               <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
                 Our History
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #7c2d12)" }}>
                 Inspired by{" "}
-                <span className="text-[#e31c23]">John Milton</span>
+                <span style={{ color: "var(--page-secondary, #f59e0b)" }}>John Milton</span>
               </h2>
               <div className="mt-6 space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   Milton International College draws its name and inspiration from{" "}
-                  <strong className="text-[#1c3557] dark:text-white">John Milton</strong>
+                  <strong className="dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>John Milton</strong>
                   (1608–1674), the renowned English poet and intellectual who championed
                   free thought, education reform, and the pursuit of knowledge. His famous
                   words —{" "}
-                  <em className="text-[#1c3557] dark:text-white">
+                  <em className="dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>
                     &ldquo;The mind is its own place, and in itself can make a heaven of hell,
                     a hell of heaven&rdquo;
                   </em>{" "}
                   — reflect our belief in the transformative power of education.
                 </p>
                 <p>
-                  Established in <strong className="text-[#1c3557] dark:text-white">2010</strong>,
+                  Established in <strong className="dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>2010</strong>,
                   Milton International College was founded with a vision to provide
                   world-class, affordable higher education in Nepal. Located in the heart of
                   New Baneshwor, Kathmandu, the college began with a single program and a
@@ -169,23 +231,23 @@ export default function AboutPage() {
             </FadeInSection>
             <FadeInSection>
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#c9a84c]/20 rounded-2xl" />
-                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#e31c23]/10 rounded-2xl" />
-                <div className="relative bg-[#f8f6f0] dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-                  <h3 className="text-2xl font-display font-bold text-[#1c3557] dark:text-white mb-6">
+                <div className="absolute -top-4 -left-4 w-24 h-24 rounded-2xl" style={{ background: "color-mix(in srgb, var(--page-accent, #d97706) 20%, transparent)" }} />
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl" style={{ background: "color-mix(in srgb, var(--page-secondary, #f59e0b) 10%, transparent)" }} />
+                <div className="relative rounded-2xl p-8 shadow-xl" style={{ background: "var(--page-bg, #fef7f0)" }}>
+                  <h3 className="text-2xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #7c2d12)" }}>
                     Our Journey
                   </h3>
                   <div className="space-y-6">
                     {MILESTONES.slice(0, 4).map((m, i) => (
                       <div key={m.year} className="flex gap-4">
                         <div className="flex flex-col items-center">
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold ${i === 0 ? 'bg-[#e31c23]' : 'bg-[#1c3557]'}`}>
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ background: i === 0 ? "var(--page-secondary, #f59e0b)" : "var(--page-primary, #c2410c)" }}>
                             {m.year.toString().slice(2)}
                           </div>
                           {i < 3 && <div className="w-0.5 h-8 bg-gray-300 dark:bg-gray-600" />}
                         </div>
                         <div className="pb-2">
-                          <h4 className="font-semibold text-[#1c3557] dark:text-white">{m.title}</h4>
+                          <h4 className="font-semibold dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>{m.title}</h4>
                           <p className="text-sm text-gray-500 dark:text-gray-400">{m.description}</p>
                         </div>
                       </div>
@@ -199,13 +261,13 @@ export default function AboutPage() {
       </section>
 
       {/* ─── MILESTONES TIMELINE ─── */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #fef7f0)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
               Milestones
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>
               Our Story So Far
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -217,8 +279,8 @@ export default function AboutPage() {
               <FadeInSection key={m.year}>
                 <Card className="h-full border-0 shadow-md bg-white dark:bg-gray-800 rounded-xl">
                   <CardContent className="p-6">
-                    <div className="text-3xl font-display font-bold text-[#e31c23] mb-2">{m.year}</div>
-                    <h3 className="text-lg font-semibold text-[#1c3557] dark:text-white mb-2">{m.title}</h3>
+                    <div className="text-3xl font-display font-bold mb-2" style={{ color: "var(--page-secondary, #f59e0b)" }}>{m.year}</div>
+                    <h3 className="text-lg font-semibold dark:text-white mb-2" style={{ color: "var(--page-text, #7c2d12)" }}>{m.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{m.description}</p>
                   </CardContent>
                 </Card>
@@ -235,16 +297,16 @@ export default function AboutPage() {
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
               Mission & Vision
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>
               Our Purpose & Direction
             </h2>
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeInSection>
-              <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-[#1c3557] to-[#0e1d31] text-white rounded-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#e31c23]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <Card className="h-full border-0 shadow-lg text-white rounded-2xl overflow-hidden relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}>
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full -translate-y-1/2 translate-x-1/2" style={{ background: "color-mix(in srgb, var(--page-secondary, #f59e0b) 10%, transparent)" }} />
                 <CardContent className="p-8 md:p-10 relative">
-                  <Target className="w-12 h-12 text-[#c9a84c] mb-6" />
+                  <Target className="w-12 h-12 mb-6" style={{ color: "var(--page-accent, #d97706)" }} />
                   <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">Our Mission</h3>
                   <p className="text-white/80 leading-relaxed">
                     To provide accessible, quality higher education that empowers students with
@@ -257,10 +319,10 @@ export default function AboutPage() {
               </Card>
             </FadeInSection>
             <FadeInSection>
-              <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-[#e31c23] to-[#a51419] text-white rounded-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c9a84c]/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <Card className="h-full border-0 shadow-lg text-white rounded-2xl overflow-hidden relative" style={{ background: "linear-gradient(135deg, var(--page-secondary), var(--page-accent))" }}>
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full -translate-y-1/2 translate-x-1/2" style={{ background: "color-mix(in srgb, var(--page-accent, #d97706) 10%, transparent)" }} />
                 <CardContent className="p-8 md:p-10 relative">
-                  <Award className="w-12 h-12 text-[#c9a84c] mb-6" />
+                  <Award className="w-12 h-12 mb-6" style={{ color: "var(--page-accent, #d97706)" }} />
                   <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">Our Vision</h3>
                   <p className="text-white/80 leading-relaxed">
                     To be a leading higher education institution in Nepal recognized for academic
@@ -277,13 +339,13 @@ export default function AboutPage() {
       </section>
 
       {/* ─── VALUES ─── */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #fef7f0)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
             <Badge variant="success" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
               Core Values
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>
               What We Stand For
             </h2>
           </FadeInSection>
@@ -295,10 +357,10 @@ export default function AboutPage() {
                   <motion.div whileHover={{ y: -6 }} className="group h-full">
                     <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl">
                       <CardContent className="p-8 text-center">
-                        <div className="w-16 h-16 rounded-2xl bg-[#1c3557]/10 dark:bg-[#1c3557]/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                          <Icon className="w-8 h-8 text-[#e31c23]" />
+                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: "color-mix(in srgb, var(--page-primary, #c2410c) 10%, transparent)" }}>
+                          <Icon className="w-8 h-8" style={{ color: "var(--page-secondary, #f59e0b)" }} />
                         </div>
-                        <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-3">{v.title}</h3>
+                        <h3 className="text-xl font-display font-bold dark:text-white mb-3" style={{ color: "var(--page-text, #7c2d12)" }}>{v.title}</h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{v.description}</p>
                       </CardContent>
                     </Card>
@@ -316,14 +378,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-full h-full bg-[#1c3557]/5 rounded-2xl" />
-                <div className="relative bg-[#f8f6f0] dark:bg-gray-800 rounded-2xl p-8 md:p-10 shadow-lg">
+                <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl" style={{ background: "color-mix(in srgb, var(--page-primary, #c2410c) 5%, transparent)" }} />
+                <div className="relative rounded-2xl p-8 md:p-10 shadow-lg" style={{ background: "var(--page-bg, #fef7f0)" }}>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-[#1c3557] flex items-center justify-center shrink-0">
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: "var(--page-primary, #c2410c)" }}>
                       <Shield className="w-8 h-8 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white">
+                      <h3 className="text-xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>
                         Tribhuvan University
                       </h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">Affiliated College</p>
@@ -331,7 +393,7 @@ export default function AboutPage() {
                   </div>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                     Milton International College is proudly affiliated with{" "}
-                    <strong className="text-[#1c3557] dark:text-white">Tribhuvan University (TU)</strong>,
+                    <strong className="dark:text-white" style={{ color: "var(--page-text, #7c2d12)" }}>Tribhuvan University (TU)</strong>,
                     the oldest and largest university in Nepal. Our affiliation ensures that our
                     curriculum meets national standards and our degrees are recognized worldwide.
                   </p>
@@ -344,7 +406,7 @@ export default function AboutPage() {
                       "Access to TU central library and resources",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
-                        <CheckCircle className="w-4 h-4 text-[#e31c23] mt-0.5 shrink-0" />
+                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #f59e0b)" }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -356,9 +418,9 @@ export default function AboutPage() {
               <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
                 Accreditation
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #7c2d12)" }}>
                 TU Affiliated &<br />
-                <span className="text-[#c9a84c]">Nationally Recognized</span>
+                <span style={{ color: "var(--page-accent, #d97706)" }}>Nationally Recognized</span>
               </h2>
               <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
                 Our affiliation with Tribhuvan University guarantees that every degree awarded
@@ -382,20 +444,20 @@ export default function AboutPage() {
       </section>
 
       {/* ─── LEADERSHIP MESSAGE ─── */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #fef7f0)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             <FadeInSection className="lg:col-span-2">
               <div className="relative">
-                <div className="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-[#1c3557] to-[#0e1d31] flex items-center justify-center shadow-xl">
+                <div className="w-full aspect-[4/5] rounded-2xl flex items-center justify-center shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}>
                   <div className="text-center p-8">
-                    <div className="w-24 h-24 rounded-full bg-[#c9a84c]/20 flex items-center justify-center mx-auto mb-6">
-                      <Quote className="w-10 h-10 text-[#c9a84c]" />
+                    <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: "color-mix(in srgb, var(--page-accent, #d97706) 20%, transparent)" }}>
+                      <Quote className="w-10 h-10" style={{ color: "var(--page-accent, #d97706)" }} />
                     </div>
                     <p className="text-white/60 text-sm">Photo Coming Soon</p>
                   </div>
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-[#e31c23] rounded-2xl px-6 py-3 shadow-lg">
+                <div className="absolute -bottom-4 -right-4 rounded-2xl px-6 py-3 shadow-lg" style={{ background: "var(--page-secondary, #f59e0b)" }}>
                   <p className="text-white font-semibold text-sm">Principal&apos;s Office</p>
                 </div>
               </div>
@@ -404,9 +466,9 @@ export default function AboutPage() {
               <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
                 From the Principal&apos;s Desk
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #7c2d12)" }}>
                 A Message from<br />
-                <span className="text-[#e31c23]">Our Leadership</span>
+                <span style={{ color: "var(--page-secondary, #f59e0b)" }}>Our Leadership</span>
               </h2>
               <div className="mt-6 space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
@@ -429,7 +491,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="mt-8">
-                <p className="font-display font-bold text-[#1c3557] dark:text-white text-lg">Prof. Dr. [Name]</p>
+                <p className="font-display font-bold dark:text-white text-lg" style={{ color: "var(--page-text, #7c2d12)" }}>Prof. Dr. [Name]</p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Principal, Milton International College</p>
               </div>
             </FadeInSection>
@@ -439,8 +501,8 @@ export default function AboutPage() {
 
       {/* ─── COLLEGE AT A GLANCE ─── */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1c3557] via-[#1c3557] to-[#0e1d31]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(194,65,12,0.12),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
@@ -459,27 +521,28 @@ export default function AboutPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-24 bg-white dark:bg-gray-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}>
+        <FloatingParticles />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <FadeInSection>
-            <ScrollText className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white leading-tight">
+            <ScrollText className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #d97706)" }} />
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Ready to Join{" "}
-              <span className="text-[#e31c23]">Milton?</span>
+              <span style={{ color: "var(--page-secondary, #f59e0b)" }}>Milton?</span>
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
               Take the first step toward a rewarding academic journey. Admissions are open for
               the 2026/27 academic year.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/admissions">
-                <Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25 group">
+                <Button size="xl" className="text-white shadow-xl shadow-[var(--page-glow)] group" style={{ background: "var(--page-secondary, #f59e0b)" }}>
                   Apply Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link href="/programs">
-                <Button variant="outline" size="xl" className="border-[#1c3557]/20 text-[#1c3557] hover:bg-[#1c3557] hover:text-white">
+                <Button variant="outline" size="xl" className="hover:[background:var(--page-primary)] hover:text-white" style={{ borderColor: "var(--page-border, #fde3cc)", color: "var(--page-text, #7c2d12)" }}>
                   Explore Programs
                 </Button>
               </Link>

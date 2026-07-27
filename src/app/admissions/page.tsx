@@ -118,6 +118,62 @@ function FadeInSection({ children, className = "" }: { children: React.ReactNode
   )
 }
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #7c3aed)" : i % 3 === 1 ? "var(--page-secondary, #ec4899)" : "var(--page-accent, #fbbf24)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #7c3aed)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #ec4899)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #fbbf24)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 export default function AdmissionsPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -143,13 +199,14 @@ export default function AdmissionsPage() {
     <div className="overflow-hidden">
       {/* HERO */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557]/95 to-[#0e1d31] z-0" />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e40af), var(--page-hero-to, #3b82f6))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <GraduationCap className="w-3.5 h-3.5 mr-1.5 text-[#e31c23]" />
+              <GraduationCap className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
               Admissions 2026/27
             </Badge>
           </motion.div>
@@ -172,7 +229,7 @@ export default function AdmissionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Admission Process</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">How to Apply</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>How to Apply</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Follow these simple steps to secure your place at Milton International College.</p>
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -182,11 +239,11 @@ export default function AdmissionsPage() {
                 <FadeInSection key={step.number}>
                   <motion.div whileHover={{ y: -4 }} className="group h-full">
                     <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all bg-white dark:bg-gray-800 rounded-xl relative overflow-hidden">
-                      <div className="absolute -top-6 -right-6 w-16 h-16 bg-[#1c3557]/5 dark:bg-[#1c3557]/20 rounded-full" />
+                      <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full" style={{ background: "var(--page-primary, #1e40af)" }} />
                       <CardContent className="p-6">
-                        <div className="w-12 h-12 rounded-xl bg-[#e31c23] flex items-center justify-center text-white font-display font-bold text-lg mb-4">{step.number}</div>
-                        <Icon className="w-6 h-6 text-[#1c3557] dark:text-white mb-3" />
-                        <h3 className="text-xl font-display font-bold text-[#1c3557] dark:text-white mb-2">{step.title}</h3>
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg mb-4" style={{ background: "var(--page-secondary, #3b82f6)" }}>{step.number}</div>
+                        <Icon className="w-6 h-6 dark:text-white mb-3" style={{ color: "var(--page-text, #1e3a5f)" }} />
+                        <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>{step.title}</h3>
                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{step.description}</p>
                       </CardContent>
                     </Card>
@@ -199,11 +256,11 @@ export default function AdmissionsPage() {
       </section>
 
       {/* ELIGIBILITY */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #f8fafc)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Eligibility</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">Program Requirements</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>Program Requirements</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Each program has specific eligibility criteria. Check the requirements for your desired program below.</p>
           </FadeInSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -214,13 +271,13 @@ export default function AdmissionsPage() {
                   <Card className="h-full border-0 shadow-md bg-white dark:bg-gray-800 rounded-xl">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-3 mb-4">
-                        <Icon className="w-8 h-8 text-[#e31c23]" />
-                        <h3 className="text-2xl font-display font-bold text-[#1c3557] dark:text-white">{item.program}</h3>
+                        <Icon className="w-8 h-8" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                        <h3 className="text-2xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>{item.program}</h3>
                       </div>
                       <ul className="space-y-2">
                         {item.requirements.map((req) => (
                           <li key={req} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#e31c23] mt-0.5 shrink-0" />
+                            <CheckCircle className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                             <span>{req}</span>
                           </li>
                         ))}
@@ -239,18 +296,18 @@ export default function AdmissionsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-12">
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Apply Online</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">Online Application</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>Online Application</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Fill out the form below to submit your application. We&apos;ll get back to you within 48 hours.</p>
           </FadeInSection>
           <FadeInSection>
-            <Card className="border-0 shadow-xl bg-[#f8f6f0] dark:bg-gray-800 rounded-2xl">
+            <Card className="border-0 shadow-xl dark:bg-gray-800 rounded-2xl" style={{ background: "var(--page-bg, #f8fafc)" }}>
               <CardContent className="p-8 md:p-10">
                 {submitted ? (
                   <div className="text-center py-12">
                     <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-[#1c3557] dark:text-white mb-2">Application Submitted!</h3>
+                    <h3 className="text-2xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>Application Submitted!</h3>
                     <p className="text-gray-600 dark:text-gray-400">Thank you, {formData.name}. We have received your application for {formData.program}. Our admissions team will contact you at {formData.email} within 48 hours.</p>
                     <Button variant="outline" className="mt-6" onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", phone: "", program: "", address: "", previousSchool: "", previousGrade: "" }) }}>
                       Submit Another Application
@@ -260,19 +317,19 @@ export default function AdmissionsPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-[#1c3557] dark:text-white"><User className="w-4 h-4 inline mr-1.5" />Full Name</Label>
+                        <Label htmlFor="name" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><User className="w-4 h-4 inline mr-1.5" />Full Name</Label>
                         <Input id="name" placeholder="Enter your full name" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-[#1c3557] dark:text-white"><Mail className="w-4 h-4 inline mr-1.5" />Email Address</Label>
+                        <Label htmlFor="email" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><Mail className="w-4 h-4 inline mr-1.5" />Email Address</Label>
                         <Input id="email" type="email" placeholder="your@email.com" value={formData.email} onChange={(e) => handleChange("email", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-[#1c3557] dark:text-white"><Phone className="w-4 h-4 inline mr-1.5" />Phone Number</Label>
+                        <Label htmlFor="phone" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><Phone className="w-4 h-4 inline mr-1.5" />Phone Number</Label>
                         <Input id="phone" placeholder="98XXXXXXXX" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="program" className="text-[#1c3557] dark:text-white"><GraduationCap className="w-4 h-4 inline mr-1.5" />Program</Label>
+                        <Label htmlFor="program" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><GraduationCap className="w-4 h-4 inline mr-1.5" />Program</Label>
                         <Select onValueChange={(v) => handleChange("program", v)} required>
                           <SelectTrigger className="bg-white dark:bg-gray-900"><SelectValue placeholder="Select a program" /></SelectTrigger>
                           <SelectContent>
@@ -284,19 +341,19 @@ export default function AdmissionsPage() {
                         </Select>
                       </div>
                       <div className="space-y-2 md:col-span-2">
-                        <Label htmlFor="address" className="text-[#1c3557] dark:text-white"><Pin className="w-4 h-4 inline mr-1.5" />Permanent Address</Label>
+                        <Label htmlFor="address" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><Pin className="w-4 h-4 inline mr-1.5" />Permanent Address</Label>
                         <Input id="address" placeholder="District, Municipality, Ward No." value={formData.address} onChange={(e) => handleChange("address", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="previousSchool" className="text-[#1c3557] dark:text-white"><School className="w-4 h-4 inline mr-1.5" />Previous School/College</Label>
+                        <Label htmlFor="previousSchool" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><School className="w-4 h-4 inline mr-1.5" />Previous School/College</Label>
                         <Input id="previousSchool" placeholder="Name of your Grade 12 institution" value={formData.previousSchool} onChange={(e) => handleChange("previousSchool", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="previousGrade" className="text-[#1c3557] dark:text-white"><BookOpen className="w-4 h-4 inline mr-1.5" />Previous Grade / GPA</Label>
+                        <Label htmlFor="previousGrade" className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><BookOpen className="w-4 h-4 inline mr-1.5" />Previous Grade / GPA</Label>
                         <Input id="previousGrade" placeholder="e.g. A, 3.2 GPA, 65%" value={formData.previousGrade} onChange={(e) => handleChange("previousGrade", e.target.value)} required className="bg-white dark:bg-gray-900" />
                       </div>
                       <div className="space-y-2 md:col-span-2">
-                        <Label className="text-[#1c3557] dark:text-white"><Upload className="w-4 h-4 inline mr-1.5" />Upload Documents</Label>
+                        <Label className="dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}><Upload className="w-4 h-4 inline mr-1.5" />Upload Documents</Label>
                         <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center bg-white dark:bg-gray-900">
                           <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                           <p className="text-sm text-gray-500 dark:text-gray-400">Drag and drop or click to upload your transcripts, certificates, and photos</p>
@@ -305,7 +362,7 @@ export default function AdmissionsPage() {
                         </div>
                       </div>
                     </div>
-                    <Button type="submit" size="xl" className="w-full bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-lg shadow-[#e31c23]/25">
+                    <Button type="submit" size="xl" className="w-full text-white shadow-lg" style={{ background: "var(--page-secondary, #3b82f6)" }}>
                       <Send className="w-5 h-5 mr-2" />Submit Application
                     </Button>
                   </form>
@@ -317,18 +374,18 @@ export default function AdmissionsPage() {
       </section>
 
       {/* FEE STRUCTURE */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #f8fafc)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-12">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Fee Structure</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">Fee Breakdown (Annual)</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>Fee Breakdown (Annual)</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Affordable and transparent fee structure for all programs. Fees are payable per academic year.</p>
           </FadeInSection>
           <FadeInSection>
             <div className="overflow-x-auto">
               <Table className="bg-white dark:bg-gray-800 rounded-xl shadow-md">
                 <TableHeader>
-                  <TableRow className="bg-[#1c3557] hover:bg-[#1c3557]">
+                  <TableRow className="hover:bg-transparent" style={{ background: "var(--page-primary, #1e40af)" }}>
                     <TableHead className="text-white font-semibold">Program</TableHead>
                     <TableHead className="text-white font-semibold">Tuition Fee</TableHead>
                     <TableHead className="text-white font-semibold">Admission Fee</TableHead>
@@ -339,11 +396,11 @@ export default function AdmissionsPage() {
                 <TableBody>
                   {FEE_STRUCTURE.map((fee) => (
                     <TableRow key={fee.program} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                      <TableCell className="font-medium text-[#1c3557] dark:text-white">{fee.program}</TableCell>
+                      <TableCell className="font-medium dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>{fee.program}</TableCell>
                       <TableCell>{fee.tuition}</TableCell>
                       <TableCell>{fee.admission}</TableCell>
                       <TableCell>{fee.exam}</TableCell>
-                      <TableCell className="font-bold text-[#e31c23]">{fee.total}</TableCell>
+                      <TableCell className="font-bold" style={{ color: "var(--page-secondary, #3b82f6)" }}>{fee.total}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -359,7 +416,7 @@ export default function AdmissionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
             <Badge variant="success" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Scholarships</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">Financial Aid & Scholarships</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>Financial Aid & Scholarships</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Milton International College offers various scholarships to support deserving students.</p>
           </FadeInSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -369,10 +426,10 @@ export default function AdmissionsPage() {
                 <FadeInSection key={s.title}>
                   <Card className="h-full border-0 shadow-md bg-white dark:bg-gray-800 rounded-xl">
                     <CardContent className="p-6 text-center">
-                      <div className="w-14 h-14 rounded-xl bg-[#c9a84c]/20 dark:bg-[#c9a84c]/30 flex items-center justify-center mx-auto mb-4">
-                        <Icon className="w-7 h-7 text-[#c9a84c]" />
+                      <div className="w-14 h-14 rounded-xl dark:bg-opacity-30 flex items-center justify-center mx-auto mb-4" style={{ background: "var(--page-accent, #f59e0b)" }}>
+                        <Icon className="w-7 h-7" style={{ color: "var(--page-accent, #f59e0b)" }} />
                       </div>
-                      <h3 className="text-lg font-display font-bold text-[#1c3557] dark:text-white mb-2">{s.title}</h3>
+                      <h3 className="text-lg font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>{s.title}</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{s.description}</p>
                     </CardContent>
                   </Card>
@@ -384,23 +441,23 @@ export default function AdmissionsPage() {
       </section>
 
       {/* IMPORTANT DATES */}
-      <section className="py-20 bg-[#f8f6f0] dark:bg-gray-900">
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #f8fafc)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-12">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Important Dates</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#1c3557] dark:text-white">Key Deadlines</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>Key Deadlines</h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Mark your calendar with these important dates for the 2026/27 admission cycle.</p>
           </FadeInSection>
           <FadeInSection>
             <div className="space-y-4">
               {IMPORTANT_DATES.map((d, i) => (
                 <div key={d.event} className="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-10 h-10 rounded-xl bg-[#1c3557] flex items-center justify-center text-white font-display font-bold shrink-0">{i + 1}</div>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-display font-bold shrink-0" style={{ background: "var(--page-primary, #1e40af)" }}>{i + 1}</div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#1c3557] dark:text-white">{d.event}</h3>
+                    <h3 className="font-semibold dark:text-white" style={{ color: "var(--page-text, #1e3a5f)" }}>{d.event}</h3>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm font-medium text-[#e31c23]">{d.date}</span>
+                    <span className="text-sm font-medium" style={{ color: "var(--page-secondary, #3b82f6)" }}>{d.date}</span>
                   </div>
                 </div>
               ))}
@@ -411,12 +468,13 @@ export default function AdmissionsPage() {
 
       {/* CTA */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557] via-[#1c3557] to-[#0e1d31]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e40af), var(--page-hero-to, #3b82f6))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.08),transparent_50%)]" />
+        <FloatingParticles />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <GraduationCap className="w-12 h-12 text-[#c9a84c] mx-auto mb-6" />
+            <GraduationCap className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #f59e0b)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Start Your{" "}
               <span className="bg-gradient-to-r from-[#e31c23] to-[#c9a84c] bg-clip-text text-transparent">Journey</span> Today

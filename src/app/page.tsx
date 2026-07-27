@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, type ReactNode } from "react"
 import { Loader2, GraduationCap, BookOpen, Users, Globe, Trophy,
   Shield, MapPin, ChevronRight, Star, ArrowRight,
   Calendar, Newspaper, Quote, Play, Award, Briefcase,
-  Building2, ChevronLeft, Sparkles, Monitor, X, Send, User, Mail, Phone, School } from "lucide-react"
+  Building2, ChevronLeft,   Sparkles, Monitor, X, Send, User, Mail, Phone, School } from "lucide-react"
 import { motion, useInView, useAnimation } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -17,6 +17,62 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="atmosphere-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "var(--page-primary, #7c3aed)" : i % 3 === 1 ? "var(--page-secondary, #ec4899)" : "var(--page-accent, #fbbf24)",
+            width: `${2 + Math.random() * 4}px`,
+            height: `${2 + Math.random() * 4}px`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+          }}
+        />
+      ))}
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-primary, #7c3aed)",
+          width: "300px",
+          height: "300px",
+          top: "-10%",
+          left: "-5%",
+          animationDelay: "0s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-secondary, #ec4899)",
+          width: "250px",
+          height: "250px",
+          bottom: "-10%",
+          right: "-5%",
+          animationDelay: "-3s",
+        }}
+      />
+      <div
+        className="atmosphere-blob"
+        style={{
+          background: "var(--page-accent, #fbbf24)",
+          width: "200px",
+          height: "200px",
+          top: "30%",
+          left: "50%",
+          animationDelay: "-6s",
+          opacity: 0.15,
+        }}
+      />
+    </div>
+  )
+}
+
 export default function HomePage() {
   const [pageData, setPageData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -28,7 +84,7 @@ export default function HomePage() {
         if (data?.blocks?.length) {
           setPageData(data)
         } else {
-          setPageData(null) // Will use fallback
+          setPageData(null)
         }
       })
       .catch(() => setPageData(null))
@@ -37,13 +93,15 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#1c3557]" />
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--page-bg, #faf5ff)" }}>
+        <Loader2
+          className="w-8 h-8 animate-spin"
+          style={{ color: "var(--page-primary, #7c3aed)" }}
+        />
       </div>
     )
   }
 
-  // If DB has blocks, render them
   if (pageData?.blocks?.length) {
     return (
       <div>
@@ -60,11 +118,8 @@ export default function HomePage() {
     )
   }
 
-  // Fallback: render hardcoded homepage
   return <HardcodedHomepage />
 }
-
-// ============ FALLBACK HOMEPAGE ============
 
 function FadeInSection({ children, className = "" }: { children: ReactNode; className?: string }) {
   const controls = useAnimation()
@@ -96,51 +151,56 @@ function AnimatedCounter({ end, suffix = "", duration = 2000 }: { end: number; s
   return <span ref={ref}>{count}{suffix}</span>
 }
 
-function useCounterAnimation() {
-  const controls = useAnimation()
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-  useEffect(() => { if (inView) controls.start("visible") }, [inView, controls])
-  return { ref, controls }
-}
-
 function HardcodedHomepage() {
   const statsRef = useRef(null)
   const statsInView = useInView(statsRef, { once: true })
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO - Dreamy Fantasy */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Video background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1c3557]/85 via-[#1c3557]/80 to-[#0e1d31]/90 z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.2),transparent_70%)] z-10" />
-          <div className="absolute inset-0 bg-grid opacity-10 z-10" />
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&showinfo=0&rel=0"
-            className="absolute inset-0 w-full h-full object-cover scale-150"
-            style={{ pointerEvents: "none" }}
-            allow="autoplay; encrypted-media"
-            title="Milton College Campus"
-          />
-        </div>
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: "linear-gradient(135deg, var(--page-hero-from, #7c3aed), var(--page-hero-to, #a855f7))",
+          }}
+        />
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background: "radial-gradient(ellipse at 20% 50%, rgba(236,72,153,0.25), transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(251,191,36,0.15), transparent 60%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-grid opacity-[0.08] z-[1]" />
+        <FloatingParticles />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
-              <Badge variant="secondary" className="w-fit text-sm px-4 py-1.5 bg-white/10 text-white border-white/20 hover:bg-white/20">
+              <Badge
+                variant="outline"
+                className="w-fit text-sm px-4 py-1.5 backdrop-blur-sm border-white/20 text-white/80"
+                style={{ background: "rgba(255,255,255,0.1)" }}
+              >
                 <Play className="w-3.5 h-3.5 mr-1.5" /> Campus Tour Video
               </Badge>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Shape Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e31c23] to-[#c9a84c]">Future</span>
+                Shape Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] via-[#f472b6] to-[#a78bfa]">Future</span>
                 <br />at Milton
               </h1>
               <p className="text-xl text-white/70 max-w-xl leading-relaxed">
-                Tribhuvan University affiliated college in New Baneshwor, Kathmandu. 
+                Tribhuvan University affiliated college in New Baneshwor, Kathmandu.
                 Offering BCA, BBM, BBS, and BASW programs since 2010.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/programs"><Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-lg shadow-[#e31c23]/30">Explore Programs <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
+                <Link href="/programs">
+                  <Button
+                    size="xl"
+                    className="text-white border-0 shadow-lg group"
+                    style={{ background: "linear-gradient(135deg, var(--page-secondary, #ec4899), var(--page-accent, #fbbf24))" }}
+                  >
+                    Explore Programs <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <ApplyDialog />
               </div>
               <div className="flex items-center gap-2 text-white/50 text-sm">
@@ -155,7 +215,13 @@ function HardcodedHomepage() {
                   { value: 500, label: "Students", suffix: "+" },
                   { value: 50, label: "Faculty", suffix: "+" },
                 ].map((stat, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.1 }} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center">
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
+                    className="glass-card rounded-2xl p-6 text-center"
+                  >
                     <div className="text-4xl md:text-5xl font-bold font-display text-white mb-1">
                       {statsInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : "0"}
                     </div>
@@ -172,7 +238,7 @@ function HardcodedHomepage() {
               { value: 500, label: "Students", suffix: "+" },
               { value: 50, label: "Faculty", suffix: "+" },
             ].map((stat, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 text-center">
+              <div key={i} className="glass-card rounded-2xl p-4 text-center">
                 <div className="text-3xl font-bold font-display text-white mb-1">
                   {statsInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : "0"}
                 </div>
@@ -185,11 +251,11 @@ function HardcodedHomepage() {
 
       {/* WHY MILTON */}
       <FadeInSection>
-        <section className="py-24 bg-cream dark:bg-gray-900/50">
+        <section className="py-24" style={{ background: "var(--page-bg, #faf5ff)" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4">Why Milton</Badge>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1c3557] dark:text-white mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--page-text, #2e1065)" }}>
                 Why Choose Milton International College?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -198,20 +264,23 @@ function HardcodedHomepage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: <Award className="w-8 h-8" />, title: "Academic Excellence", desc: "TU-affiliated curriculum with experienced faculty and modern teaching methods.", color: "from-blue-600 to-blue-400", href: "/about" },
-                { icon: <Globe className="w-8 h-8" />, title: "Global Exposure", desc: "International tours to Singapore, Dubai, and Malaysia for real-world learning.", color: "from-emerald-600 to-emerald-400", href: "/student-life" },
-                { icon: <Building2 className="w-8 h-8" />, title: "Modern Campus", desc: "Well-equipped labs, library, sports facilities, and a vibrant learning environment.", color: "from-purple-600 to-purple-400", href: "/virtual-tour" },
-                { icon: <Briefcase className="w-8 h-8" />, title: "Career Support", desc: "Dedicated career center with internships, placements, and counseling.", color: "from-[#e31c23] to-red-400", href: "/career-center" },
+                { icon: <Award className="w-8 h-8" />, title: "Academic Excellence", desc: "TU-affiliated curriculum with experienced faculty and modern teaching methods.", accent: "from-purple-500 to-pink-500", href: "/about" },
+                { icon: <Globe className="w-8 h-8" />, title: "Global Exposure", desc: "International tours to Singapore, Dubai, and Malaysia for real-world learning.", accent: "from-pink-500 to-yellow-500", href: "/student-life" },
+                { icon: <Building2 className="w-8 h-8" />, title: "Modern Campus", desc: "Well-equipped labs, library, sports facilities, and a vibrant learning environment.", accent: "from-yellow-500 to-purple-500", href: "/virtual-tour" },
+                { icon: <Briefcase className="w-8 h-8" />, title: "Career Support", desc: "Dedicated career center with internships, placements, and counseling.", accent: "from-purple-500 to-pink-500", href: "/career-center" },
               ].map((item, i) => (
                 <Link key={i} href={item.href}>
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group cursor-pointer">
                     <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-                      <div className={`h-2 bg-gradient-to-r ${item.color}`} />
+                      <div className={`h-2 bg-gradient-to-r ${item.accent}`} />
                       <CardContent className="p-8 space-y-4">
-                        <div className="w-14 h-14 rounded-xl bg-[#1c3557]/5 dark:bg-white/10 flex items-center justify-center text-[#1c3557] dark:text-white group-hover:scale-110 transition-transform">
+                        <div
+                          className="w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                          style={{ background: "var(--page-primary, #7c3aed)", color: "white" }}
+                        >
                           {item.icon}
                         </div>
-                        <h3 className="font-display text-xl font-semibold">{item.title}</h3>
+                        <h3 className="font-display text-xl font-semibold" style={{ color: "var(--page-text, #2e1065)" }}>{item.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                       </CardContent>
                     </Card>
@@ -225,11 +294,11 @@ function HardcodedHomepage() {
 
       {/* PROGRAMS */}
       <FadeInSection>
-        <section className="py-24">
+        <section className="py-24 bg-white dark:bg-gray-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4">Our Programs</Badge>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1c3557] dark:text-white mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--page-text, #2e1065)" }}>
                 Programs We Offer
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -238,10 +307,10 @@ function HardcodedHomepage() {
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { code: "BCA", full: "Bachelor of Computer Application", duration: "4 Years", color: "from-blue-600 to-blue-500", bg: "bg-blue-50 dark:bg-blue-950/30", icon: <Monitor className="w-8 h-8" />, desc: "Comprehensive program covering programming, database, networking, and software development." },
-                { code: "BBM", full: "Bachelor of Business Management", duration: "4 Years", color: "from-emerald-600 to-emerald-500", bg: "bg-emerald-50 dark:bg-emerald-950/30", icon: <Briefcase className="w-8 h-8" />, desc: "Business management, marketing, finance, entrepreneurship, and organizational leadership." },
-                { code: "BBS", full: "Bachelor of Business Studies", duration: "3 Years", color: "from-purple-600 to-purple-500", bg: "bg-purple-50 dark:bg-purple-950/30", icon: <Building2 className="w-8 h-8" />, desc: "Foundation in accounting, economics, business law, and management principles." },
-                { code: "BASW", full: "Bachelor of Arts in Social Work", duration: "4 Years", color: "from-[#e31c23] to-red-400", bg: "bg-red-50 dark:bg-red-950/30", icon: <Shield className="w-8 h-8" />, desc: "Community development, social justice, counseling, and human rights advocacy." },
+                { code: "BCA", full: "Bachelor of Computer Application", duration: "4 Years", color: "from-purple-500 to-purple-400", bg: "bg-purple-50 dark:bg-purple-950/30", icon: <Monitor className="w-8 h-8" />, desc: "Comprehensive program covering programming, database, networking, and software development." },
+                { code: "BBM", full: "Bachelor of Business Management", duration: "4 Years", color: "from-pink-500 to-pink-400", bg: "bg-pink-50 dark:bg-pink-950/30", icon: <Briefcase className="w-8 h-8" />, desc: "Business management, marketing, finance, entrepreneurship, and organizational leadership." },
+                { code: "BBS", full: "Bachelor of Business Studies", duration: "3 Years", color: "from-yellow-500 to-amber-400", bg: "bg-amber-50 dark:bg-amber-950/30", icon: <Building2 className="w-8 h-8" />, desc: "Foundation in accounting, economics, business law, and management principles." },
+                { code: "BASW", full: "Bachelor of Arts in Social Work", duration: "4 Years", color: "from-purple-500 to-pink-400", bg: "bg-purple-50 dark:bg-purple-950/30", icon: <Shield className="w-8 h-8" />, desc: "Community development, social justice, counseling, and human rights advocacy." },
               ].map((p, i) => (
                 <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                   <Link href={`/programs/${p.code.toLowerCase()}`}>
@@ -250,7 +319,10 @@ function HardcodedHomepage() {
                         <div className={`w-2 bg-gradient-to-b ${p.color} flex-shrink-0`} />
                         <CardContent className="p-6 flex-1">
                           <div className="flex items-start justify-between mb-4">
-                            <div className="w-14 h-14 rounded-xl flex items-center justify-center text-white" style={{ background: `linear-gradient(135deg, ${p.color.split(" ")[0].replace("from-", "")}, ${p.color.split(" ")[1].replace("to-", "")})` }}>
+                            <div
+                              className="w-14 h-14 rounded-xl flex items-center justify-center text-white"
+                              style={{ background: `linear-gradient(135deg, ${p.color.split(" ")[0].replace("from-", "")}, ${p.color.split(" ")[1].replace("to-", "")})` }}
+                            >
                               {p.icon}
                             </div>
                             <Badge variant="outline" className="text-xs">{p.duration}</Badge>
@@ -258,7 +330,10 @@ function HardcodedHomepage() {
                           <h3 className="font-display text-2xl font-bold mb-1">{p.code}</h3>
                           <p className="text-sm font-medium text-muted-foreground mb-3">{p.full}</p>
                           <p className="text-sm text-muted-foreground mb-4">{p.desc}</p>
-                          <span className="text-sm font-medium text-[#e31c23] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                          <span
+                            className="text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                            style={{ color: "var(--page-secondary, #ec4899)" }}
+                          >
                             Learn More <ChevronRight className="w-4 h-4" />
                           </span>
                         </CardContent>
@@ -273,8 +348,13 @@ function HardcodedHomepage() {
       </FadeInSection>
 
       {/* STATS BAR */}
-      <section ref={statsRef} className="py-20 bg-gradient-to-r from-[#1c3557] to-[#0e1d31] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        ref={statsRef}
+        className="py-20 relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, var(--page-hero-from, #7c3aed), var(--page-hero-to, #a855f7))" }}
+      >
+        <FloatingParticles />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { icon: "calendar", value: 15, suffix: "+", label: "Years of Excellence" },
@@ -283,7 +363,7 @@ function HardcodedHomepage() {
               { icon: "trophy", value: 50, suffix: "+", label: "Expert Faculty" },
             ].map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <div className="text-4xl md:text-5xl font-bold font-display mb-2">
+                <div className="text-4xl md:text-5xl font-bold font-display text-white mb-2">
                   {statsInView ? <AnimatedCounter end={stat.value} suffix={stat.suffix} /> : "0"}
                 </div>
                 <div className="text-white/60 text-sm uppercase tracking-wider">{stat.label}</div>
@@ -295,20 +375,20 @@ function HardcodedHomepage() {
 
       {/* NEWS */}
       <FadeInSection>
-        <section className="py-24 bg-cream dark:bg-gray-900/50">
+        <section className="py-24" style={{ background: "var(--page-bg, #faf5ff)" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
               <div>
                 <Badge variant="secondary" className="mb-4">News & Updates</Badge>
-                <h2 className="font-display text-4xl font-bold text-[#1c3557] dark:text-white">Latest from Milton</h2>
+                <h2 className="font-display text-4xl font-bold" style={{ color: "var(--page-text, #2e1065)" }}>Latest from Milton</h2>
               </div>
               <Link href="/news"><Button variant="outline" className="mt-4 md:mt-0">View All News <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: "Admissions Open for 2026", date: "Jan 15, 2026", type: "Notice", excerpt: "Applications are now open for all programs. Apply online before the deadline.", color: "from-[#e31c23] to-red-400" },
-                { title: "BCA Team Wins National Hackathon", date: "Dec 20, 2025", type: "Achievement", excerpt: "Our BCA students secured first place at the National Level Inter-College Hackathon.", color: "from-emerald-600 to-emerald-400" },
-                { title: "International Tour to Singapore", date: "Nov 5, 2025", type: "Event", excerpt: "Students explored Singapore's tech hub and cultural landmarks during the annual tour.", color: "from-blue-600 to-blue-400" },
+                { title: "Admissions Open for 2026", date: "Jan 15, 2026", type: "Notice", excerpt: "Applications are now open for all programs. Apply online before the deadline.", color: "from-purple-500 to-pink-400" },
+                { title: "BCA Team Wins National Hackathon", date: "Dec 20, 2025", type: "Achievement", excerpt: "Our BCA students secured first place at the National Level Inter-College Hackathon.", color: "from-pink-500 to-yellow-400" },
+                { title: "International Tour to Singapore", date: "Nov 5, 2025", type: "Event", excerpt: "Students explored Singapore's tech hub and cultural landmarks during the annual tour.", color: "from-yellow-500 to-purple-400" },
               ].map((news, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                   <Card className="group border-0 shadow-sm hover:shadow-lg transition-all h-full">
@@ -317,7 +397,7 @@ function HardcodedHomepage() {
                       <div className="flex items-center justify-between"><Badge>{news.type}</Badge><span className="text-xs text-muted-foreground">{news.date}</span></div>
                       <h3 className="font-display text-lg font-semibold">{news.title}</h3>
                       <p className="text-sm text-muted-foreground">{news.excerpt}</p>
-                      <Link href="/news" className="text-sm font-medium text-[#e31c23] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read More <ChevronRight className="w-3 h-3" /></Link>
+                      <Link href="/news" className="text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: "var(--page-secondary, #ec4899)" }}>Read More <ChevronRight className="w-3 h-3" /></Link>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -329,11 +409,11 @@ function HardcodedHomepage() {
 
       {/* TESTIMONIALS */}
       <FadeInSection>
-        <section className="py-24">
+        <section className="py-24 bg-white dark:bg-gray-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4">Testimonials</Badge>
-              <h2 className="font-display text-4xl font-bold text-[#1c3557] dark:text-white mb-4">What Our Students Say</h2>
+              <h2 className="font-display text-4xl font-bold mb-4" style={{ color: "var(--page-text, #2e1065)" }}>What Our Students Say</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -343,11 +423,16 @@ function HardcodedHomepage() {
               ].map((t, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                   <Card className="relative border-0 shadow-sm hover:shadow-lg transition-all h-full">
-                    <Quote className="absolute top-4 left-4 w-8 h-8 text-[#e31c23]/10" />
+                    <Quote className="absolute top-4 left-4 w-8 h-8" style={{ color: "var(--page-secondary, #ec4899)", opacity: 0.15 }} />
                     <CardContent className="p-6 pt-12 space-y-4">
                       <p className="text-muted-foreground italic">"{t.content}"</p>
                       <div className="flex items-center gap-3 pt-4 border-t">
-                        <div className="w-10 h-10 rounded-full bg-[#1c3557] flex items-center justify-center text-white font-bold text-sm">{t.name.split(" ").map(n=>n[0]).join("")}</div>
+                        <div
+                          className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                          style={{ background: "var(--page-primary, #7c3aed)" }}
+                        >
+                          {t.name.split(" ").map(n=>n[0]).join("")}
+                        </div>
                         <div><p className="font-semibold text-sm">{t.name}</p><p className="text-xs text-muted-foreground">{t.role}</p></div>
                       </div>
                       <div className="flex gap-0.5">{Array.from({length: t.rating}).map((_,j)=><Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>
@@ -362,17 +447,32 @@ function HardcodedHomepage() {
 
       {/* CTA */}
       <FadeInSection>
-        <section className="py-24 bg-gradient-to-br from-[#1c3557] to-[#0e1d31] text-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 25px 25px, white 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+        <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #7c3aed), var(--page-hero-to, #a855f7))" }}>
+          <FloatingParticles />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#e31c23]/20 mb-4">
-              <Sparkles className="w-8 h-8 text-[#e31c23]" />
+            <div
+              className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
+              style={{ background: "var(--page-secondary, #ec4899)" }}
+            >
+              <Sparkles className="w-8 h-8 text-white" />
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold">Begin Your Journey at Milton</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Begin Your Journey at Milton</h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">Take the first step towards a brighter future. Join Milton International College and unlock your full potential.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/admissions"><Button size="xl" className="bg-[#e31c23] hover:bg-[#c4181e] text-white shadow-lg shadow-[#e31c23]/30">Apply Now <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
-              <Link href="/contact"><Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">Contact Us</Button></Link>
+              <Link href="/admissions">
+                <Button
+                  size="xl"
+                  className="text-white border-0 shadow-lg group"
+                  style={{ background: "linear-gradient(135deg, var(--page-secondary, #ec4899), var(--page-accent, #fbbf24))" }}
+                >
+                  Apply Now <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -413,7 +513,11 @@ function ApplyDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+        <Button
+          size="xl"
+          variant="outline"
+          className="border-white/30 text-white hover:bg-white/10"
+        >
           Apply Now
         </Button>
       </DialogTrigger>
@@ -423,14 +527,14 @@ function ApplyDialog() {
             <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
               <Send className="w-8 h-8 text-green-600" />
             </div>
-            <DialogTitle className="text-2xl font-display font-bold text-[#1c3557] mb-2">Application Submitted!</DialogTitle>
+            <DialogTitle className="text-2xl font-display font-bold mb-2" style={{ color: "var(--page-text, #2e1065)" }}>Application Submitted!</DialogTitle>
             <p className="text-gray-500">We have received your application. Our admissions team will contact you within 48 hours.</p>
             <Button variant="outline" className="mt-6" onClick={() => { setSubmitted(false); setTopic(""); setOpen(false) }}>Close</Button>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-display font-bold text-[#1c3557]">Apply to Milton</DialogTitle>
+              <DialogTitle className="text-2xl font-display font-bold" style={{ color: "var(--page-text, #2e1065)" }}>Apply to Milton</DialogTitle>
               <p className="text-sm text-gray-500">Select your program and fill in the details below.</p>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -470,7 +574,11 @@ function ApplyDialog() {
                   )}
                 </div>
               ))}
-              <Button type="submit" className="w-full bg-[#e31c23] hover:bg-[#c4181e] text-white">
+              <Button
+                type="submit"
+                className="w-full text-white border-0"
+                style={{ background: "var(--page-secondary, #ec4899)" }}
+              >
                 <Send className="w-4 h-4 mr-2" />Submit Application
               </Button>
             </form>
@@ -480,4 +588,3 @@ function ApplyDialog() {
     </Dialog>
   )
 }
-
