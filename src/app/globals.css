@@ -402,3 +402,43 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ─── Milton palette ─── */
+
+:root {
+  --ink: #17163a;
+  --indigo: #2e2a72;
+  --sakura: #ff6f91;
+  --gold: #ffb53d;
+  --sky: #f1f0fb;
+  --paper: #fffdf8;
+}
+
+body {
+  background: var(--sky);
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Petal animation override (home page only) */
+[data-page-theme="home"] .atmosphere-blob {
+  opacity: 0.12;
+}

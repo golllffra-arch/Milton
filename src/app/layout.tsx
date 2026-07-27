@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
-import { DynamicNavbar } from "@/components/layout/dynamic-navbar"
+import SiteHeader from "@/components/SiteHeader"
 import { Footer } from "@/components/layout/footer"
 import { ThemeWatcher } from "@/components/layout/theme-watcher"
 import { Toaster } from "@/components/ui/toaster"
@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" suppressHydrationWarning>
       <head>
         <link
-          href={`https://fonts.googleapis.com/css2?family=${headingFontFamily.replace(" ", "+")}:wght@400;500;600;700;900&family=${bodyFontFamily.replace(" ", "+")}:wght@300;400;500;600;700&display=swap`}
+          href={`https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=${headingFontFamily.replace(" ", "+")}:wght@400;500;600;700;900&family=${bodyFontFamily.replace(" ", "+")}:wght@300;400;500;600;700&display=swap`}
           rel="stylesheet"
         />
         <style>{`
@@ -67,10 +67,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ThemeWatcher />
           <div className="flex flex-col min-h-screen">
-            <DynamicNavbar
-              variantSlug={settings?.navbarVariantId || "navbar-default"}
-              settings={settings}
-            />
+            <SiteHeader />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>

@@ -83,7 +83,7 @@ export function Footer() {
                   className="w-4 h-4"
                   style={{ color: "var(--page-secondary, #e31c23)" }}
                 />
-                <span>+977-1-4XXXXXX</span>
+                <span>01-4791974</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail
