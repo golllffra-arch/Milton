@@ -368,7 +368,7 @@ export default function CareerCenterPage() {
             <FadeInSection>
               <div className="relative">
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#c9a84c]/20 rounded-2xl" />
-                <div className="relative rounded-2xl p-8 md:p-10 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1d4ed8), var(--page-hero-to, #2563eb))" }}
+                <div className="relative rounded-2xl p-8 md:p-10 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1d4ed8), var(--page-hero-to, #2563eb))" }}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,35,0.1),transparent_60%)]" />
                   <FileText className="w-16 h-16 mb-6 relative z-10" style={{ color: "var(--page-accent, #059669)" }} />
                   <h3 className="text-2xl font-display font-bold text-white relative z-10">Pro Tip</h3>

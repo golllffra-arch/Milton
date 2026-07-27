@@ -254,7 +254,7 @@ export default function BCAPage() {
 
             {/* Download */}
             <FadeInSection>
-              <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0891b2), var(--page-hero-to, #0284c7))" }}
+              <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0891b2), var(--page-hero-to, #0284c7))" }}>
                 <CardContent className="p-8 flex flex-col sm:flex-row items-center gap-6">
                   <div className="w-16 h-16 rounded-2xl bg-[#c9a84c]/20 flex items-center justify-center shrink-0">
                     <Download className="w-8 h-8" style={{ color: "var(--page-accent, #0284c7)" }} />

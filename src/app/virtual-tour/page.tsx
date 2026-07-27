@@ -154,7 +154,7 @@ export default function VirtualTourPage() {
           </FadeInSection>
           <FadeInSection>
             <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
-              <div className="aspect-video flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}
+              <div className="aspect-video flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                   <motion.div
@@ -253,7 +253,7 @@ export default function VirtualTourPage() {
             <FadeInSection>
               <div className="relative">
                 <div className="absolute -top-4 -right-4 w-32 h-32 bg-[#c9a84c]/20 rounded-2xl" />
-                <div className="relative rounded-2xl p-6 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}
+                <div className="relative rounded-2xl p-6 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}>
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.08),transparent_60%)]" />
                   <div className="relative z-10">
                     <MapPin className="w-8 h-8 mb-4" style={{ color: "var(--page-accent, #3b82f6)" }} />
