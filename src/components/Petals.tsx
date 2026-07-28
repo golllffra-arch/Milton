@@ -10,7 +10,7 @@ export default function Petals({ className = "" }: { className?: string }) {
       aria-hidden
       className={`pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden ${className}`}
     >
-      {Array.from({ length: PETAL_COUNT }).map((_, i) => {
+      {Array.from({ length: PETAL_COUNT }).map((_: unknown, i: number) => {
         const left = (i * 97) % 100
         const delay = (i * 1.7) % 9
         const dur = 14 + ((i * 3) % 10)

@@ -58,7 +58,7 @@ function FadeInSection({ children, className = "" }: { children: React.ReactNode
 function FloatingParticles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {Array.from({ length: 20 }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_: unknown, i: number) => (
         <div
           key={i}
           className="atmosphere-particle"
@@ -378,7 +378,7 @@ export default function StudentLifePage() {
               <p className="text-white font-display font-bold text-lg">Riya Shrestha</p>
               <p className="text-white/60 text-sm">BCA Graduate, Class of 2025</p>
               <div className="flex justify-center gap-1 mt-3">
-                {Array.from({ length: 5 }).map((_, i) => (
+                {Array.from({ length: 5 }).map((_: unknown, i: number) => (
                   <Star key={i} className="w-5 h-5 fill-[#c9a84c]" style={{ color: "var(--page-accent, #fbbf24)" }} />
                 ))}
               </div>

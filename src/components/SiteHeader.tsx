@@ -177,7 +177,7 @@ function Dropdown({
 function NavParticles() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {Array.from({ length: 6 }).map((_, i) => (
+      {Array.from({ length: 6 }).map((_: unknown, i) => (
         <div
           key={i}
           className="nav-particle absolute h-[2px] w-[2px] rounded-full"

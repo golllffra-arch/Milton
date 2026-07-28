@@ -320,7 +320,7 @@ function GlassCard({ children, className = "" }: { children: React.ReactNode; cl
 function FloatingParticles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {Array.from({ length: 20 }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_: unknown, i: number) => (
         <div
           key={i}
           className="atmosphere-particle"
@@ -507,7 +507,7 @@ function EligibilitySection() {
                   Completed Education
                 </h4>
                 <ul className="space-y-2">
-                  {s.details.map((d) => (
+                  {s.details.map((d: string) => (
                     <li key={d} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                       <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                       {d}
@@ -521,7 +521,7 @@ function EligibilitySection() {
                   Minimum Criteria
                 </h4>
                 <ul className="space-y-2">
-                  {s.criteria.map((c) => (
+                  {s.criteria.map((c: string) => (
                     <li key={c} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                       <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #c9a84c)" }} />
                       {c}
@@ -551,7 +551,7 @@ function EligibilitySection() {
             Program-Specific Eligibility
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {s.programs.map((p) => {
+            {s.programs.map((p: any) => {
               const PIcon = p.icon
               return (
                 <motion.div
@@ -565,7 +565,7 @@ function EligibilitySection() {
                       <PIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                       <h4 className="text-2xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>{p.code}</h4>
                       <ul className="space-y-2">
-                        {p.reqs.map((r) => (
+                        {p.reqs.map((r: string) => (
                           <li key={r} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                             <CheckSquare className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                             {r}
@@ -606,7 +606,7 @@ function ApplySection() {
         </FadeInSection>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {s.methods.map((m) => {
+          {s.methods.map((m: any) => {
             const MIcon = m.icon
             return (
               <FadeInSection key={m.title}>
@@ -616,7 +616,7 @@ function ApplySection() {
                       <MIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                       <h3 className="text-xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>{m.title}</h3>
                       <ul className="space-y-3 mb-6">
-                        {m.steps.map((step) => (
+                        {m.steps.map((step: string) => (
                           <li key={step} className="flex items-start gap-3 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                             <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5" style={{ background: "var(--page-secondary, #3b82f6)" }}>
                               {m.steps.indexOf(step) + 1}
@@ -652,7 +652,7 @@ function ApplySection() {
               </Badge>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {s.deadlines.map((d) => (
+              {s.deadlines.map((d: any) => (
                 <div
                   key={d.label}
                   className="rounded-xl border p-5 text-center transition-all hover:shadow-md"
@@ -698,7 +698,7 @@ function DocumentsSection() {
                 Required Documents Checklist
               </h4>
               <div className="grid sm:grid-cols-2 gap-y-3 gap-x-6">
-                {s.checklist.map((item) => (
+                {s.checklist.map((item: string) => (
                   <div key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                     {item}
@@ -715,7 +715,7 @@ function DocumentsSection() {
                 Upload Guidelines
               </h4>
               <ul className="space-y-3 mb-8">
-                {s.guidelines.map((g) => (
+                {s.guidelines.map((g: string) => (
                   <li key={g} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #c9a84c)" }} />
                     {g}
@@ -768,7 +768,7 @@ function FeeSection() {
               </h4>
               <p className="text-sm mb-4" style={{ color: "var(--page-muted, #6b7280)" }}>Choose a convenient payment method:</p>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-8">
-                {s.paymentMethods.map((pm) => (
+                {s.paymentMethods.map((pm: any) => (
                   <div
                     key={pm.name}
                     className="rounded-xl border p-3 text-center transition-all hover:shadow-md hover:-translate-y-1 cursor-default"
@@ -791,7 +791,7 @@ function FeeSection() {
                 borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                 background: "color-mix(in srgb, var(--page-surface, #ffffff) 30%, transparent)",
               }}>
-                {Object.entries(s.bankDetails).map(([k, v]) => (
+                {Object.entries(s.bankDetails).map(([k, v]: [string, string]) => (
                   <div key={k} className="flex justify-between">
                     <span className="font-medium capitalize" style={{ color: "var(--page-text, #1e3a5f)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
@@ -838,7 +838,7 @@ function ExamSection() {
 
               <h4 className="font-semibold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Requirements</h4>
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {s.examPrograms.map((ep) => (
+                {s.examPrograms.map((ep: any) => (
                   <div
                     key={ep.program}
                     className="rounded-xl border p-5 transition-all hover:shadow-md"
@@ -856,7 +856,7 @@ function ExamSection() {
 
               <h4 className="font-semibold mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Information</h4>
               <div className="grid grid-cols-3 gap-4 mb-6">
-                {Object.entries(s.examInfo).map(([k, v]) => (
+                {Object.entries(s.examInfo).map(([k, v]: [string, any]) => (
                   <div key={k} className="text-center rounded-xl border p-4" style={{
                     borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                   }}>
@@ -887,7 +887,7 @@ function ExamSection() {
 
               <h4 className="font-semibold mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>Items to Carry</h4>
               <ul className="space-y-2">
-                {s.instructions.map((inst) => (
+                {s.instructions.map((inst: string) => (
                   <li key={inst} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #c9a84c)" }} />
                     {inst}
@@ -937,7 +937,7 @@ function EnrollmentSection() {
               </h4>
               <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Bring original copies of:</p>
               <ul className="space-y-2">
-                {s.verificationDocs.map((doc) => (
+                {s.verificationDocs.map((doc: string) => (
                   <li key={doc} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                     {doc}
@@ -955,7 +955,7 @@ function EnrollmentSection() {
               </h4>
               <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Students must pay:</p>
               <ul className="space-y-2">
-                {s.fees.map((fee) => (
+                {s.fees.map((fee: string) => (
                   <li key={fee} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <DollarSign className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #c9a84c)" }} />
                     {fee}
@@ -973,7 +973,7 @@ function EnrollmentSection() {
               </h4>
               <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>You will receive:</p>
               <ul className="space-y-2">
-                {s.confirmationItems.map((item) => (
+                {s.confirmationItems.map((item: string) => (
                   <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
                     <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
                     {item}

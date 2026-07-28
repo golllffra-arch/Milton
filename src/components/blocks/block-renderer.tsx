@@ -223,7 +223,7 @@ function TestimonialBlock({ content }: { content: any }) {
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
               </div>
-              {t.rating && <div className="flex gap-0.5">{Array.from({length: t.rating}).map((_,j)=><Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>}
+              {t.rating && <div className="flex gap-0.5">{Array.from({length: t.rating}).map((_: unknown, j: number)=><Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>}
             </CardContent>
           </Card>
         ))}

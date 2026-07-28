@@ -23,7 +23,7 @@ const DEPARTMENTS = ["All Departments", "BCA", "BBM", "BBS", "BASW", "Administra
 function FloatingParticles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {Array.from({ length: 20 }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_: unknown, i: number) => (
         <div
           key={i}
           className="atmosphere-particle"
