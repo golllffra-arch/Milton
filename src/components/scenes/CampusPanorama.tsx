@@ -24,14 +24,14 @@ interface Marker {
 }
 
 export function CampusPanorama() {
-  const dots = useMemo<Dot[]>(() => Array.from({ length: 15 }, (_, i) => ({
+  const dots = useMemo<Dot[]>(() => Array.from({ length: 15 }, (_: unknown, i) => ({
     id: i,
     x: 20 + Math.random() * 60,
     y: 60 + Math.random() * 30,
     delay: Math.random() * 4,
   })), [])
 
-  const stars = useMemo<Star[]>(() => Array.from({ length: 40 }, (_, i) => ({
+  const stars = useMemo<Star[]>(() => Array.from({ length: 40 }, (_: unknown, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 40,
@@ -81,10 +81,10 @@ export function CampusPanorama() {
         
         {/* Grid Lines */}
         <g stroke="#06b6d4" strokeWidth="1" opacity="0.15">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(20)].map((_: unknown, i) => (
             <line key={`h-${i}`} x1="0" y1={700 + i*15} x2="1440" y2={700 + i*15} />
           ))}
-          {[...Array(40)].map((_, i) => (
+          {[...Array(40)].map((_: unknown, i) => (
             <line key={`v-${i}`} x1={i*40} y1="700" x2={i*60 - 400} y2="900" />
           ))}
         </g>

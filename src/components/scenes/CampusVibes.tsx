@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 
 export function CampusVibes() {
-  const notes = useMemo(() => Array.from({ length: 8 }, (_, i) => ({
+  const notes = useMemo(() => Array.from({ length: 8 }, (_: unknown, i) => ({
     x: Math.random() * 400 + 100,
     y: Math.random() * 200 + 500,
     duration: Math.random() * 6 + 4,
@@ -11,7 +11,7 @@ export function CampusVibes() {
     type: i % 2 === 0 ? 'single' : 'double'
   })), [])
 
-  const confetti = useMemo(() => Array.from({ length: 25 }, (_, i) => {
+  const confetti = useMemo(() => Array.from({ length: 25 }, (_: unknown, i) => {
     const colors = ['#f43f5e', '#fbbf24', '#38bdf8', '#a78bfa', '#34d399']
     return {
       x: Math.random() * 1440,
@@ -50,10 +50,10 @@ export function CampusVibes() {
         <path d="M50,600 L50,350 L250,300 L450,350 L450,600 Z" fill="#2e1065" opacity="0.7"/>
         <path d="M900,600 L900,250 L1150,250 L1150,600 Z" fill="#2e1065" opacity="0.7"/>
         {/* Building windows */}
-        {Array.from({length: 12}).map((_, i) => (
+        {Array.from({length: 12}).map((_: unknown, i) => (
           <rect key={`win1-${i}`} x={100 + (i%3)*80} y={380 + Math.floor(i/3)*50} width="30" height="30" fill="#fbbf24" opacity="0.3"/>
         ))}
-        {Array.from({length: 15}).map((_, i) => (
+        {Array.from({length: 15}).map((_: unknown, i) => (
           <rect key={`win2-${i}`} x={940 + (i%3)*70} y={300 + Math.floor(i/3)*60} width="35" height="40" fill="#fbbf24" opacity="0.3"/>
         ))}
 

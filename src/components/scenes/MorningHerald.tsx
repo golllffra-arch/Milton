@@ -29,7 +29,7 @@ interface Scroll {
 }
 
 export function MorningHerald() {
-  const particles = useMemo<Particle[]>(() => Array.from({ length: 30 }, (_, i) => ({
+  const particles = useMemo<Particle[]>(() => Array.from({ length: 30 }, (_: unknown, i) => ({
     id: i,
     x: 10 + Math.random() * 80,
     y: 60 + Math.random() * 40,
@@ -38,7 +38,7 @@ export function MorningHerald() {
     delay: Math.random() * 5,
   })), [])
 
-  const birds = useMemo<Bird[]>(() => Array.from({ length: 3 }, (_, i) => ({
+  const birds = useMemo<Bird[]>(() => Array.from({ length: 3 }, (_: unknown, i) => ({
     id: i,
     y: 15 + Math.random() * 20,
     duration: 15 + Math.random() * 10,
@@ -46,7 +46,7 @@ export function MorningHerald() {
     scale: 0.6 + Math.random() * 0.4,
   })), [])
 
-  const scrolls = useMemo<Scroll[]>(() => Array.from({ length: 4 }, (_, i) => ({
+  const scrolls = useMemo<Scroll[]>(() => Array.from({ length: 4 }, (_: unknown, i) => ({
     id: i,
     x: 20 + Math.random() * 60,
     y: 30 + Math.random() * 40,
@@ -88,7 +88,7 @@ export function MorningHerald() {
 
         {/* Sun and Rays */}
         <g className="herald-sun-group">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(8)].map((_: unknown, i) => (
             <polygon 
               key={i}
               points="720,400 420,100 520,50" 

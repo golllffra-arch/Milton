@@ -37,7 +37,7 @@ interface Butterfly {
 }
 
 export function CampusMemories() {
-  const frames = useMemo<Frame[]>(() => Array.from({ length: 5 }, (_, i) => ({
+  const frames = useMemo<Frame[]>(() => Array.from({ length: 5 }, (_: unknown, i) => ({
     id: i,
     x: 10 + i * 18 + Math.random() * 5,
     y: 20 + Math.random() * 40,
@@ -46,7 +46,7 @@ export function CampusMemories() {
     rotation: -15 + Math.random() * 30,
   })), [])
 
-  const sparkles = useMemo<Sparkle[]>(() => Array.from({ length: 20 }, (_, i) => ({
+  const sparkles = useMemo<Sparkle[]>(() => Array.from({ length: 20 }, (_: unknown, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 80,
@@ -54,7 +54,7 @@ export function CampusMemories() {
     delay: Math.random() * 2,
   })), [])
 
-  const bokeh = useMemo<Bokeh[]>(() => Array.from({ length: 8 }, (_, i) => ({
+  const bokeh = useMemo<Bokeh[]>(() => Array.from({ length: 8 }, (_: unknown, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -63,7 +63,7 @@ export function CampusMemories() {
     delay: Math.random() * 5,
   })), [])
 
-  const butterflies = useMemo<Butterfly[]>(() => Array.from({ length: 4 }, (_, i) => ({
+  const butterflies = useMemo<Butterfly[]>(() => Array.from({ length: 4 }, (_: unknown, i) => ({
     id: i,
     x: Math.random() * 80,
     y: 40 + Math.random() * 40,
@@ -123,7 +123,7 @@ export function CampusMemories() {
         <g opacity="0.2">
           <path d="M-20,300 Q200,400 400,200 T800,250 T1200,100 T1500,200 L1500,280 T1200,180 T800,330 T400,280 T-20,380 Z" fill="#1a0533" />
           {/* Add some strip holes */}
-          {[...Array(30)].map((_, i) => (
+          {[...Array(30)].map((_: unknown, i) => (
             <rect key={i} x={i * 50} y={250 + Math.sin(i*0.5)*50} width="10" height="15" fill="#e9d5ff" transform={`rotate(${Math.cos(i*0.5)*20} ${i*50} ${250 + Math.sin(i*0.5)*50})`} />
           ))}
         </g>

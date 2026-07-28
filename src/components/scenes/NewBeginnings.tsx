@@ -3,14 +3,14 @@
 import { useMemo } from "react"
 
 export function NewBeginnings() {
-  const petals = useMemo(() => Array.from({ length: 12 }, (_, i) => ({
+  const petals = useMemo(() => Array.from({ length: 12 }, (_: unknown, i) => ({
     x: Math.random() * 100,
     delay: Math.random() * 10,
     duration: 8 + Math.random() * 7,
     scale: 0.5 + Math.random() * 0.8
   })), [])
 
-  const planes = useMemo(() => Array.from({ length: 5 }, (_, i) => ({
+  const planes = useMemo(() => Array.from({ length: 5 }, (_: unknown, i) => ({
     y: 40 + Math.random() * 40,
     delay: Math.random() * 15,
     duration: 15 + Math.random() * 10,

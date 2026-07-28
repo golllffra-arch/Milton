@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 
 export function BridgeToMilton() {
-  const shimmers = useMemo(() => Array.from({ length: 20 }, (_, i) => ({
+  const shimmers = useMemo(() => Array.from({ length: 20 }, (_: unknown, i) => ({
     width: Math.random() * 60 + 20,
     x: Math.random() * 1440,
     y: 720 + Math.random() * 150,
@@ -11,7 +11,7 @@ export function BridgeToMilton() {
     delay: Math.random() * 2
   })), [])
 
-  const leaves = useMemo(() => Array.from({ length: 8 }, (_, i) => ({
+  const leaves = useMemo(() => Array.from({ length: 8 }, (_: unknown, i) => ({
     x: Math.random() * 1000 + 200,
     startY: -50,
     delay: Math.random() * 10,
@@ -19,7 +19,7 @@ export function BridgeToMilton() {
     size: Math.random() * 0.5 + 0.5
   })), [])
 
-  const birds = useMemo(() => Array.from({ length: 5 }, (_, i) => ({
+  const birds = useMemo(() => Array.from({ length: 5 }, (_: unknown, i) => ({
     y: Math.random() * 250 + 50,
     delay: Math.random() * 10,
     duration: Math.random() * 20 + 15,
@@ -65,7 +65,7 @@ export function BridgeToMilton() {
         <rect x="1150" y="695" width="50" height="205" fill="#020617" />
         
         {/* Bridge Railings & details */}
-        {Array.from({ length: 38 }).map((_, i) => (
+        {Array.from({ length: 38 }).map((_: unknown, i) => (
            <rect key={i} x={i * 40 - 20} y={690 + Math.abs(i - 19) * 1.5} width="6" height="25" fill="#0f172a" />
         ))}
         <path d="M-100,700 Q720,600 1540,700 L1540,705 Q720,605 -100,705 Z" fill="#1e293b" opacity="0.5"/>

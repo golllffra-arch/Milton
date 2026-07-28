@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 
 export function ScholarsSanctuary() {
-  const particles = useMemo(() => Array.from({ length: 30 }, (_, i) => ({
+  const particles = useMemo(() => Array.from({ length: 30 }, (_: unknown, i) => ({
     x: Math.random() * 1440,
     y: Math.random() * 900,
     duration: Math.random() * 5 + 5,
@@ -11,7 +11,7 @@ export function ScholarsSanctuary() {
     size: Math.random() * 3 + 1
   })), [])
 
-  const clouds = useMemo(() => Array.from({ length: 3 }, (_, i) => ({
+  const clouds = useMemo(() => Array.from({ length: 3 }, (_: unknown, i) => ({
     y: Math.random() * 200 + 50,
     delay: Math.random() * 20,
     duration: Math.random() * 40 + 40,
@@ -64,10 +64,10 @@ export function ScholarsSanctuary() {
         <path d="M350,700 Q370,650 340,600 T360,500 T340,400" fill="none" stroke="#064e3b" strokeWidth="8" strokeLinecap="round"/>
         <path d="M1090,700 Q1070,680 1100,600 T1080,520 T1100,450" fill="none" stroke="#064e3b" strokeWidth="10" strokeLinecap="round"/>
         {/* Leaf dots on vines */}
-        {Array.from({length: 40}).map((_, i) => (
+        {Array.from({length: 40}).map((_: unknown, i) => (
           <circle key={`ivy1-${i}`} cx={345 + Math.random()*20 - 10} cy={400 + i*8} r={Math.random()*4+2} fill="#14532d" opacity="0.8"/>
         ))}
-        {Array.from({length: 40}).map((_, i) => (
+        {Array.from({length: 40}).map((_: unknown, i) => (
           <circle key={`ivy2-${i}`} cx={1085 + Math.random()*20 - 10} cy={450 + i*7} r={Math.random()*4+2} fill="#14532d" opacity="0.8"/>
         ))}
 

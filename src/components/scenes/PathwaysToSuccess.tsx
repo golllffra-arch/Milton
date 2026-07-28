@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 
 export function PathwaysToSuccess() {
-  const stars = useMemo(() => Array.from({ length: 40 }, (_, i) => ({
+  const stars = useMemo(() => Array.from({ length: 40 }, (_: unknown, i) => ({
     x: Math.random() * 100,
     y: Math.random() * 60,
     size: 1 + Math.random() * 2,
@@ -11,7 +11,7 @@ export function PathwaysToSuccess() {
     delay: Math.random() * 5
   })), [])
 
-  const shootingStars = useMemo(() => Array.from({ length: 3 }, (_, i) => ({
+  const shootingStars = useMemo(() => Array.from({ length: 3 }, (_: unknown, i) => ({
     top: 10 + Math.random() * 30,
     delay: 5 + Math.random() * 15,
     duration: 1 + Math.random() * 1

@@ -17,14 +17,14 @@ interface Star {
 }
 
 export function MinimalCampus() {
-  const dots = useMemo<Dot[]>(() => Array.from({ length: 3 }, (_, i) => ({
+  const dots = useMemo<Dot[]>(() => Array.from({ length: 3 }, (_: unknown, i) => ({
     id: i,
     x: 30 + i * 20,
     y: 70 + Math.random() * 10,
     delay: i * 1.5,
   })), [])
 
-  const stars = useMemo<Star[]>(() => Array.from({ length: 10 }, (_, i) => ({
+  const stars = useMemo<Star[]>(() => Array.from({ length: 10 }, (_: unknown, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 50,

@@ -3,13 +3,13 @@
 import { useMemo } from "react"
 
 export function FutureHorizon() {
-  const cars = useMemo(() => Array.from({ length: 15 }, (_, i) => ({
+  const cars = useMemo(() => Array.from({ length: 15 }, (_: unknown, i) => ({
     delay: Math.random() * 15,
     duration: Math.random() * 8 + 4,
     type: i % 2 === 0 ? 'headlight' : 'taillight'
   })), [])
 
-  const caps = useMemo(() => Array.from({ length: 5 }, (_, i) => ({
+  const caps = useMemo(() => Array.from({ length: 5 }, (_: unknown, i) => ({
     x: Math.random() * 400 + 200,
     y: Math.random() * 200 + 300,
     delay: Math.random() * 8,
@@ -75,7 +75,7 @@ export function FutureHorizon() {
         </g>
 
         {/* City Window Lights */}
-        {Array.from({length: 30}).map((_, i) => (
+        {Array.from({length: 30}).map((_: unknown, i) => (
           <rect key={`win-${i}`} 
             x={160 + (i*45) % 1100} 
             y={350 + (i*37) % 300} 

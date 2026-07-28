@@ -3,14 +3,14 @@
 import { useMemo } from "react"
 
 export function CampusSunrise() {
-  const birds = useMemo(() => Array.from({ length: 8 }, (_, i) => ({
+  const birds = useMemo(() => Array.from({ length: 8 }, (_: unknown, i) => ({
     y: 100 + Math.random() * 200,
     delay: Math.random() * 10,
     duration: 15 + Math.random() * 10,
     scale: 0.4 + Math.random() * 0.4
   })), [])
 
-  const clouds = useMemo(() => Array.from({ length: 5 }, (_, i) => ({
+  const clouds = useMemo(() => Array.from({ length: 5 }, (_: unknown, i) => ({
     y: 50 + Math.random() * 150,
     delay: Math.random() * 20,
     duration: 80 + Math.random() * 40,

@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 
 export function KnowledgeGarden() {
-  const fireflies = useMemo(() => Array.from({ length: 20 }, (_, i) => ({
+  const fireflies = useMemo(() => Array.from({ length: 20 }, (_: unknown, i) => ({
     x: 10 + Math.random() * 80,
     y: 40 + Math.random() * 50,
     size: 2 + Math.random() * 4,
@@ -11,7 +11,7 @@ export function KnowledgeGarden() {
     delay: Math.random() * 5
   })), [])
 
-  const books = useMemo(() => Array.from({ length: 4 }, (_, i) => ({
+  const books = useMemo(() => Array.from({ length: 4 }, (_: unknown, i) => ({
     x: 30 + Math.random() * 30,
     y: 20 + Math.random() * 40,
     scale: 0.5 + Math.random() * 0.4,
