@@ -200,9 +200,16 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* ── Wave divider: Hero → Programs ── */}
+      <div className="relative -mt-px bg-[var(--sky)]">
+        <svg className="block w-full" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C240,70 480,70 720,35 C960,0 1200,50 1440,20 L1440,0 Z" fill="var(--indigo)" opacity="0.6" />
+          <path d="M0,0 C320,50 640,60 960,25 C1120,10 1280,40 1440,30 L1440,0 Z" fill="var(--indigo)" opacity="0.3" />
+        </svg>
+      </div>
 
       {/* ================= PROGRAMS ================= */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 pt-16 pb-32">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -255,9 +262,16 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* ── Wave divider: Programs → Why Milton ── */}
+      <div className="relative">
+        <svg className="block w-full" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C360,10 720,50 1080,15 C1200,5 1320,25 1440,20 L1440,60 Z" fill="white" opacity="0.5" />
+          <path d="M0,60 C480,20 960,45 1440,10 L1440,60 Z" fill="var(--indigo)" opacity="0.04" />
+        </svg>
+      </div>
 
       {/* ================= WHY MILTON (real campus photo + real copy) ================= */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section className="mx-auto max-w-6xl px-6 pt-8 pb-32">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <motion.div
             variants={fadeUp}
@@ -339,9 +353,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Wave divider: Why Milton → Leadership ── */}
+      <div className="relative">
+        <svg className="block w-full" viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,50 C360,15 720,40 1080,10 L1440,30 L1440,50 Z" fill="white" opacity="0.7" />
+        </svg>
+      </div>
 
       {/* ================= LEADERSHIP ================= */}
-      <section className="border-y border-black/5 bg-white py-24">
+      <section className="border-y border-black/5 bg-white pt-16 pb-28">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-[0.8fr_1.2fr]">
           <motion.div
             variants={fadeUp}
@@ -391,9 +411,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Wave divider: Leadership → CTA ── */}
+      <div className="relative bg-white">
+        <svg className="block w-full" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,70 C240,20 480,50 720,15 C960,45 1200,10 1440,40 L1440,70 Z" fill="var(--indigo)" />
+          <path d="M0,70 C360,30 720,55 1080,20 L1440,50 L1440,70 Z" fill="var(--indigo)" opacity="0.7" />
+        </svg>
+      </div>
 
       {/* ================= CTA ================= */}
-      <section className="relative overflow-hidden bg-[var(--indigo)] py-24 text-white">
+      <section className="relative overflow-hidden bg-[var(--indigo)] py-28 text-white">
         <Petals />
         <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
           <motion.div

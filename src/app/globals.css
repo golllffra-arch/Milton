@@ -105,19 +105,19 @@
 /* ========== PAGE THEMES ========== */
 
 [data-page-theme="home"] {
-  --page-bg: #faf5ff;
+  --page-bg: #f8fafc;
   --page-surface: #ffffff;
-  --page-primary: #7c3aed;
-  --page-secondary: #ec4899;
-  --page-accent: #fbbf24;
-  --page-text: #2e1065;
-  --page-muted: #a78bfa;
-  --page-border: #e9d5ff;
-  --page-hero-from: #7c3aed;
-  --page-hero-to: #a855f7;
-  --page-glow: rgba(124,58,237,0.25);
-  --page-primary-rgb: 124,58,237;
-  --page-secondary-rgb: 236,72,153;
+  --page-primary: #1c3557;
+  --page-secondary: #e31c23;
+  --page-accent: #c9a84c;
+  --page-text: #1e293b;
+  --page-muted: #64748b;
+  --page-border: #e2e8f0;
+  --page-hero-from: #1c3557;
+  --page-hero-to: #0e1d31;
+  --page-glow: rgba(28,53,87,0.25);
+  --page-primary-rgb: 28,53,87;
+  --page-secondary-rgb: 227,28,35;
 }
 
 [data-page-theme="about"] {
@@ -406,12 +406,12 @@ html {
 /* ─── Milton palette ─── */
 
 :root {
-  --ink: #17163a;
-  --indigo: #2e2a72;
-  --sakura: #ff6f91;
-  --gold: #ffb53d;
-  --sky: #f1f0fb;
-  --paper: #fffdf8;
+  --ink: #1e293b;
+  --indigo: #1c3557;
+  --sakura: #e31c23;
+  --gold: #c9a84c;
+  --sky: #f8fafc;
+  --paper: #ffffff;
 }
 
 body {
