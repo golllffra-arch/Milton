@@ -791,7 +791,7 @@ function FeeSection() {
                 borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                 background: "color-mix(in srgb, var(--page-surface, #ffffff) 30%, transparent)",
               }}>
-                {Object.entries(s.bankDetails).map(([k, v]: [string, string]) => (
+                {Object.entries(s.bankDetails).map(([k, v]: [string, unknown]) => (
                   <div key={k} className="flex justify-between">
                     <span className="font-medium capitalize" style={{ color: "var(--page-text, #1e3a5f)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
@@ -856,7 +856,7 @@ function ExamSection() {
 
               <h4 className="font-semibold mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Information</h4>
               <div className="grid grid-cols-3 gap-4 mb-6">
-                {Object.entries(s.examInfo).map(([k, v]: [string, any]) => (
+                {Object.entries(s.examInfo).map(([k, v]: [string, unknown]) => (
                   <div key={k} className="text-center rounded-xl border p-4" style={{
                     borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                   }}>
