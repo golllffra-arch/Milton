@@ -480,7 +480,7 @@ function TimelineBar() {
 
 /* ─── Step 1: Eligibility ─── */
 function EligibilitySection() {
-  const s = STEPS_DATA[0]
+  const s = STEPS_DATA[0] as any
   const Icon = s.icon
 
   return (

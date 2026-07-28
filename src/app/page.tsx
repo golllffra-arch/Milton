@@ -142,14 +142,8 @@ export default function HomePage() {
           >
             <TiltCard className="mx-auto aspect-[4/5] w-full max-w-sm rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--paper)]">
-                {/*
-                  IMAGE SLOT — anime-style campus/students illustration.
-                  Drop a file at /public/images/hero-campus.jpg
-                  Suggested source search: "anime style university campus
-                  illustration", cherry-blossom campus, students studying.
-                */}
                 <img
-                  src="/images/hero-campus.jpg"
+                  src="/images/liverpool.png"
                   alt="Anime-style illustration of Milton International College's campus"
                   className="h-full w-full object-cover"
                 />
