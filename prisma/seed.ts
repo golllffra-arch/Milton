@@ -46,33 +46,13 @@ async function main() {
   const startTime = Date.now();
 
   // ──────────────────────────────────────────────
-  // 1. CLEAR EXISTING DATA
+  // 1. CHECK IF ALREADY SEEDED
   // ──────────────────────────────────────────────
-  console.log("🧹 Clearing existing data...");
-  await prisma.$transaction([
-    prisma.bookBorrow.deleteMany(),
-    prisma.assignmentSubmission.deleteMany(),
-    prisma.assignment.deleteMany(),
-    prisma.eventRegistration.deleteMany(),
-    prisma.attendance.deleteMany(),
-    prisma.grade.deleteMany(),
-    prisma.fee.deleteMany(),
-    prisma.message.deleteMany(),
-    prisma.activityLog.deleteMany(),
-    prisma.applicant.deleteMany(),
-    prisma.gallery.deleteMany(),
-    prisma.news.deleteMany(),
-    prisma.session.deleteMany(),
-    prisma.account.deleteMany(),
-    prisma.student.deleteMany(),
-    prisma.faculty.deleteMany(),
-    prisma.subject.deleteMany(),
-    prisma.event.deleteMany(),
-    prisma.libraryBook.deleteMany(),
-    prisma.program.deleteMany(),
-    prisma.user.deleteMany(),
-  ]);
-  console.log("✅ Existing data cleared.");
+  const existingUsers = await prisma.user.count();
+  if (existingUsers > 0) {
+    console.log("✅ Database already seeded, skipping.");
+    return;
+  }
 
   // ──────────────────────────────────────────────
   // 2. HASH PASSWORD
