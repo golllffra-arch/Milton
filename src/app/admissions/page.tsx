@@ -586,7 +586,7 @@ function EligibilitySection() {
 
 /* ─── Step 2: Submit Application ─── */
 function ApplySection() {
-  const s = STEPS_DATA[1]
+  const s = STEPS_DATA[1] as any
   const Icon = s.icon
 
   return (
@@ -675,7 +675,7 @@ function ApplySection() {
 
 /* ─── Step 3: Upload Documents ─── */
 function DocumentsSection() {
-  const s = STEPS_DATA[2]
+  const s = STEPS_DATA[2] as any
   const Icon = s.icon
 
   return (
@@ -742,7 +742,7 @@ function DocumentsSection() {
 
 /* ─── Step 4: Pay Application Fee ─── */
 function FeeSection() {
-  const s = STEPS_DATA[3]
+  const s = STEPS_DATA[3] as any
   const Icon = s.icon
 
   return (
@@ -818,7 +818,7 @@ function FeeSection() {
 
 /* ─── Step 5: Entrance Examination ─── */
 function ExamSection() {
-  const s = STEPS_DATA[4]
+  const s = STEPS_DATA[4] as any
   const Icon = s.icon
 
   return (
@@ -904,7 +904,7 @@ function ExamSection() {
 
 /* ─── Step 6: Final Enrollment ─── */
 function EnrollmentSection() {
-  const s = STEPS_DATA[5]
+  const s = STEPS_DATA[5] as any
   const Icon = s.icon
 
   return (
