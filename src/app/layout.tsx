@@ -19,6 +19,7 @@ async function getSettings() {
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings()
   return {
+    metadataBase: new URL("https://college-an43jtbof-newar-xtha.vercel.app"),
     title: {
       default: settings?.metaTitle || "Milton International College | TU Affiliated | New Baneshwor, Kathmandu",
       template: `%s | ${settings?.collegeName || "Milton International College"}`,
