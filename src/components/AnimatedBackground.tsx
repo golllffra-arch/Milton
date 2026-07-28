@@ -35,9 +35,9 @@ export function AnimatedBackground() {
       {gradients.map((g, i) => (
         <div
           key={i}
-          className="absolute inset-0 transition-opacity duration-\[2000ms\] ease-in-out"
-          style={{}
+          className="absolute inset-0"
           style={{
+            transition: "opacity 2000ms ease-in-out",
             backgroundImage: g,
             opacity:
               i === visible ? 1

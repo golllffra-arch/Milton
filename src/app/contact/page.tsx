@@ -99,11 +99,11 @@ const CONTACT_INFO = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: Facebook, href: "#", label: "Facebook", color: "hover:text-blue-600" },
-  { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-sky-500" },
-  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-700" },
-  { icon: Instagram, href: "#", label: "Instagram", color: "hover:text-pink-600" },
-  { icon: Youtube, href: "#", label: "YouTube", color: "hover:text-red-600" },
+  { icon: Facebook, href: "https://facebook.com/miltoncollege", label: "Facebook", color: "hover:text-blue-600" },
+  { icon: Twitter, href: "https://twitter.com/miltoncollege", label: "Twitter", color: "hover:text-sky-500" },
+  { icon: Linkedin, href: "https://linkedin.com/school/miltoncollege", label: "LinkedIn", color: "hover:text-blue-700" },
+  { icon: Instagram, href: "https://instagram.com/miltoncollege", label: "Instagram", color: "hover:text-pink-600" },
+  { icon: Youtube, href: "https://youtube.com/@miltoncollege", label: "YouTube", color: "hover:text-red-600" },
 ]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {

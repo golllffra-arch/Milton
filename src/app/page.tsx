@@ -272,12 +272,11 @@ export default function HomePage() {
                 (the flyer version is too compressed for web use).
                 Save it at /public/images/campus-building.jpg
               */}
-              <div className="relative aspect-[4/3] w-full">
-                <img
-                  src="/images/campus-building.jpg"
-                  alt="Milton International College campus building, New Baneshwor"
-                  className="h-full w-full object-cover"
-                />
+              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-6">
+                <div className="text-center">
+                  <span className="text-white/60 font-display text-lg">Campus Building Photo</span>
+                  <p className="text-white/40 text-sm mt-1">Placeholder — add your image</p>
+                </div>
                 <span className="absolute left-4 top-4 rounded-full bg-[var(--gold)] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-[var(--ink)] shadow">
                   Open for Visit
                 </span>
@@ -356,11 +355,12 @@ export default function HomePage() {
                 Principal. Until a real portrait/name is provided, this
                 stays a clearly-labelled placeholder (per your request).
               */}
-              <img
-                src="/images/principal-portrait.jpg"
-                alt="Illustrated portrait placeholder for the Principal"
-                className="h-full w-full rounded-full object-cover"
-              />
+              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-8">
+                <div className="text-center">
+                  <span className="text-white/50 font-display text-base">Principal</span>
+                  <p className="text-white/30 text-xs mt-1">Portrait placeholder</p>
+                </div>
+              </div>
             </TiltCard>
           </motion.div>
           <motion.div
@@ -428,11 +428,12 @@ export default function HomePage() {
                 Suggested search: "anime graduation illustration",
                 "anime students celebrating graduation".
               */}
-              <img
-                src="/images/graduation.jpg"
-                alt="Anime-style illustration of graduating students celebrating"
-                className="h-full w-full object-cover"
-              />
+              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-8">
+                <div className="text-center">
+                  <span className="text-white/60 font-display text-lg">Graduation</span>
+                  <p className="text-white/40 text-sm mt-1">Anime-style illustration</p>
+                </div>
+              </div>
             </TiltCard>
           </motion.div>
         </div>

@@ -315,9 +315,11 @@ export default function NewsPage() {
                           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                             {featured.excerpt}
                           </p>
-                          <Button variant="navy" className="group">
-                            Read Full Article
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <Button variant="navy" asChild className="group">
+                            <Link href={`#news-${featured.id}`}>
+                              Read Full Article
+                              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                           </Button>
                         </div>
                       </div>
@@ -391,12 +393,16 @@ export default function NewsPage() {
               If you have news, achievements, or events to share with the Milton community, we would love to hear from you.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" className="text-white shadow-xl" style={{ background: "var(--page-secondary, #f97316)" }}>
-                Submit News
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #f97316)" }}>
+                <Link href="/contact">
+                  Submit News
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10 hover:text-white">
-                Contact Us
+              <Button variant="outline" size="xl" asChild className="border-white/20 text-white hover:bg-white/10 hover:text-white">
+                <Link href="/contact">
+                  Contact Us
+                </Link>
               </Button>
             </div>
           </FadeInSection>

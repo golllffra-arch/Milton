@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import {
@@ -400,12 +401,16 @@ export default function StudentLifePage() {
               Come visit our campus, meet our students, and see why Milton is the place to be.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" className="text-white shadow-xl" style={{ background: "var(--page-secondary, #14b8a6)" }}>
-                Schedule a Visit
-                <MapPin className="ml-2 w-5 h-5" />
+              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #14b8a6)" }}>
+                <Link href="/contact">
+                  Schedule a Visit
+                  <MapPin className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
-              <Button variant="outline" size="xl" className="hover:text-white" style={{ borderColor: "var(--page-primary, #db2777)", color: "var(--page-primary, #db2777)" }} onMouseEnter={undefined}>
-                Take Virtual Tour
+              <Button variant="outline" size="xl" asChild className="hover:text-white" style={{ borderColor: "var(--page-primary, #db2777)", color: "var(--page-primary, #db2777)" }}>
+                <Link href="/virtual-tour">
+                  Take Virtual Tour
+                </Link>
               </Button>
             </div>
           </FadeInSection>

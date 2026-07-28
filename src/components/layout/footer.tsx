@@ -129,13 +129,20 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Milton International College. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            {["Facebook", "Instagram", "YouTube", "LinkedIn"].map((s) => (
+            {[
+              { name: "Facebook", url: "https://facebook.com/miltoncollege" },
+              { name: "Instagram", url: "https://instagram.com/miltoncollege" },
+              { name: "YouTube", url: "https://youtube.com/@miltoncollege" },
+              { name: "LinkedIn", url: "https://linkedin.com/school/miltoncollege" },
+            ].map((s) => (
               <a
-                key={s}
-                href="#"
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 hover:text-white transition-colors text-sm"
               >
-                {s}
+                {s.name}
               </a>
             ))}
           </div>

@@ -280,9 +280,11 @@ export default function CareerCenterPage() {
               </h2>
               <p className="mt-2 text-gray-600 dark:text-gray-400">Current opportunities from our partner organizations</p>
             </div>
-            <Button variant="outline" className="mt-4 md:mt-0 border-[#1c3557]/20" style={{ color: "var(--page-text, #1e3a5f)" }}>
-              View All Openings
-              <ArrowRight className="ml-2 w-4 h-4" />
+            <Button variant="outline" asChild className="mt-4 md:mt-0 border-[#1c3557]/20" style={{ color: "var(--page-text, #1e3a5f)" }}>
+              <Link href="#jobs">
+                View All Openings
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </Button>
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -311,9 +313,11 @@ export default function CareerCenterPage() {
                       </div>
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
                         <span className="text-xs text-gray-400">Deadline: {job.deadline}</span>
-                        <Button variant="ghost" size="sm" className="p-0 h-auto font-semibold text-sm" style={{ color: "var(--page-secondary, #2563eb)" }}>
-                          Apply Now
-                          <ArrowRight className="ml-1 w-3.5 h-3.5" />
+                        <Button variant="ghost" size="sm" asChild className="p-0 h-auto font-semibold text-sm" style={{ color: "var(--page-secondary, #2563eb)" }}>
+                          <a href={`mailto:career@milton.edu.com?subject=Application for ${job.role} at ${job.company}`}>
+                            Apply Now
+                            <ArrowRight className="ml-1 w-3.5 h-3.5" />
+                          </a>
                         </Button>
                       </div>
                     </CardContent>
@@ -356,12 +360,16 @@ export default function CareerCenterPage() {
                 ))}
               </ul>
               <div className="mt-8 flex gap-3">
-                <Button variant="navy" className="group">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Download Template
+                <Button variant="navy" asChild className="group">
+                  <a href="#" download>
+                    <FileText className="w-4 h-4 mr-2" />
+                    Download Template
+                  </a>
                 </Button>
-                <Button variant="outline" className="border-[#1c3557]/20" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                  Book Appointment
+                <Button variant="outline" asChild className="border-[#1c3557]/20" style={{ color: "var(--page-text, #1e3a5f)" }}>
+                  <Link href="/contact">
+                    Book Appointment
+                  </Link>
                 </Button>
               </div>
             </FadeInSection>
@@ -476,13 +484,17 @@ export default function CareerCenterPage() {
               Visit the Career Center in person or book an online counseling session. We are here to help you succeed.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="xl" className="text-white shadow-xl" style={{ background: "var(--page-secondary, #2563eb)" }}>
-                <Mail className="mr-2 w-5 h-5" />
-                career@milton.edu.com
+              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #2563eb)" }}>
+                <a href="mailto:career@milton.edu.com">
+                  <Mail className="mr-2 w-5 h-5" />
+                  career@milton.edu.com
+                </a>
               </Button>
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10 hover:text-white">
-                <Phone className="mr-2 w-5 h-5" />
-                01-4XXXXXX
+              <Button variant="outline" size="xl" asChild className="border-white/20 text-white hover:bg-white/10 hover:text-white">
+                <a href="tel:014791974">
+                  <Phone className="mr-2 w-5 h-5" />
+                  01-4791974
+                </a>
               </Button>
             </div>
             <p className="mt-6 text-white/50 text-sm">
