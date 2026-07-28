@@ -796,7 +796,7 @@ function FeeSection() {
                     <span className="font-medium capitalize" style={{ color: "var(--page-text, #1e3a5f)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
                     </span>
-                    <span style={{ color: "var(--page-muted, #6b7280)" }}>{v}</span>
+                    <span style={{ color: "var(--page-muted, #6b7280)" }}>{String(v)}</span>
                   </div>
                 ))}
               </div>
@@ -860,7 +860,7 @@ function ExamSection() {
                   <div key={k} className="text-center rounded-xl border p-4" style={{
                     borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                   }}>
-                    <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1e40af)" }}>{v}</p>
+                    <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1e40af)" }}>{String(v)}</p>
                     <p className="text-[10px] font-semibold uppercase tracking-wider mt-1" style={{ color: "var(--page-muted, #6b7280)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
                     </p>
