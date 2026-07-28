@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import SiteHeader from "@/components/SiteHeader"
+import { AnimatedBackground } from "@/components/AnimatedBackground"
 import { Footer } from "@/components/layout/footer"
 import { ThemeWatcher } from "@/components/layout/theme-watcher"
 import { Toaster } from "@/components/ui/toaster"
@@ -66,6 +67,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="antialiased" style={{ fontFamily: `"${bodyFontFamily}", sans-serif`, backgroundColor: bgColor }}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ThemeWatcher />
+          <AnimatedBackground />
           <div className="flex flex-col min-h-screen">
             <SiteHeader />
             <main className="flex-1">{children}</main>
