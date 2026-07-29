@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")    // pooled, port 6543 — for the app at runtime
-  directUrl = env("DIRECT_URL")      // direct, port 5432 — for migrations/db push
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum Role {
