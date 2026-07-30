@@ -34,7 +34,7 @@ const AnimeBackground: React.FC = () => {
       </div>
 
       <div className="anime-layer petals" aria-hidden>
-        {Array.from({ length: 12 }).map((_, i) => (
+        {Array.from({ length: 12 }).map((_: unknown, i) => (
           <span key={i} className={`petal petal-${(i % 6) + 1}`} />
         ))}
       </div>
