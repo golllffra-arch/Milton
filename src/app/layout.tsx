@@ -3,6 +3,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import SiteHeader from "@/components/SiteHeader"
 import AnimeBackground from "@/components/AnimeBackground"
+import { PageBackground } from "@/components/PageBackground"
 import "@/styles/animated-background.css"
 import { Footer } from "@/components/layout/footer"
 import { ThemeWatcher } from "@/components/layout/theme-watcher"
@@ -70,6 +71,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ThemeWatcher />
           <AnimeBackground />
+          <PageBackground />
           <div className="flex flex-col min-h-screen">
             <SiteHeader />
             <main className="flex-1">{children}</main>

@@ -15,7 +15,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none; /* allow clicks through */
-  z-index: -1; /* place behind app content; adjust if needed */
+  z-index: -20; /* behind scene overlays */
   overflow: hidden;
   will-change: transform;
   background: linear-gradient(180deg, #1b0b37 0%, #4e2aa6 50%, #ffc8b3 100%);

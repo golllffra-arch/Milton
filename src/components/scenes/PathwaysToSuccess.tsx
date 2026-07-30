@@ -19,7 +19,6 @@ export function PathwaysToSuccess() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden opacity-40">
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #050a18 0%, #0a2540 50%, #0f1a3a 100%)" }} />
       
       {/* Twinkling Stars */}
       {stars.map((s, i) => (

@@ -19,7 +19,6 @@ export function NewBeginnings() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden opacity-40">
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #0e1a3a 0%, #1e3a5f 40%, #3b82f6 70%, #fbbf24 100%)" }} />
       
       <svg className="absolute bottom-0 w-full min-w-[1440px] min-h-[900px]" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
         <defs>
