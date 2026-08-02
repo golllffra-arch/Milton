@@ -42,7 +42,7 @@ export const NAVBAR_VARIANTS: Record<string, { name: string; description: string
   "navbar-top-announcement": {
     name: "Top Announcement Strip",
     description: "Colored announcement bar above the main navbar, ideal for urgent notices",
-    config: { style: "top-announcement", sticky: true, transparent: false, showSearch: true, showCta: true, ctaLabel: "Admissions Open", ctaLink: "/admissions", announcementText: "🎓 Admissions Open for 2026 — Apply Now!", announcementColor: "#e31c23", menuAnimation: "fade", mobileBreakpoint: "lg", layout: "contained", height: "default", showThemeToggle: true, showLanguageToggle: false },
+    config: { style: "top-announcement", sticky: true, transparent: false, showSearch: true, showCta: true, ctaLabel: "Admissions Open", ctaLink: "/admissions", announcementText: "🎓 Admissions Open for 2026 — Apply Now!", announcementColor: "#d93a2b", menuAnimation: "fade", mobileBreakpoint: "lg", layout: "contained", height: "default", showThemeToggle: true, showLanguageToggle: false },
   },
   "navbar-search-bar": {
     name: "Navbar with Search Bar",
@@ -61,37 +61,37 @@ export const FOOTER_VARIANTS: Record<string, { name: string; description: string
   "footer-default": {
     name: "Multi-Column Footer",
     description: "Standard 4-column footer with links, contact info, social icons, and newsletter",
-    config: { style: "multi-column", columns: 4, showNewsletter: true, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: false },
+    config: { style: "multi-column", columns: 4, showNewsletter: true, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: false },
   },
   "footer-minimal": {
     name: "Minimal Single Line",
     description: "Clean, minimal footer with just copyright and essential links in one line",
-    config: { style: "minimal", columns: 1, showNewsletter: false, showSocialIcons: true, showContactInfo: false, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: true },
+    config: { style: "minimal", columns: 1, showNewsletter: false, showSocialIcons: true, showContactInfo: false, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: true },
   },
   "footer-newsletter": {
     name: "Newsletter Signup Focus",
     description: "Footer with prominent newsletter signup form taking up half the space",
-    config: { style: "newsletter", columns: 2, showNewsletter: true, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: false },
+    config: { style: "newsletter", columns: 2, showNewsletter: true, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: false },
   },
   "footer-social-prominent": {
     name: "Social Media Prominent",
     description: "Large social media icons at the top of the footer, quick link row below",
-    config: { style: "social-prominent", columns: 3, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: false },
+    config: { style: "social-prominent", columns: 3, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: false },
   },
   "footer-cta-block": {
     name: "Quick Contact CTA Block",
     description: "Footer starts with a CTA section (phone/email/visit), then links below",
-    config: { style: "cta-block", columns: 3, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: false },
+    config: { style: "cta-block", columns: 3, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: false },
   },
   "footer-compact": {
     name: "Compact Dark Footer",
     description: "Space-efficient footer with two columns of links and a small copyright bar",
-    config: { style: "compact", columns: 2, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: true },
+    config: { style: "compact", columns: 2, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: true },
   },
   "footer-centered": {
     name: "Centered Content Footer",
     description: "All content centered — logo, social icons, links, copyright in a single column",
-    config: { style: "centered", columns: 1, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#0e1d31", textColor: "#ffffff", borderTop: false },
+    config: { style: "centered", columns: 1, showNewsletter: false, showSocialIcons: true, showContactInfo: true, showMap: false, layout: "contained", backgroundColor: "#12283f", textColor: "#ffffff", borderTop: false },
   },
 };
 
@@ -100,12 +100,12 @@ export const HERO_VARIANTS: Record<string, { name: string; description: string; 
   "hero-default": {
     name: "Full Image with Overlay",
     description: "Full-width background image with dark gradient overlay, text centered",
-    config: { style: "full-image", overlayColor: "#1c3557", overlayOpacity: 0.7, textAlign: "center", showStats: true, showCta: true, ctaPrimaryLabel: "Explore Programs", ctaPrimaryLink: "/programs", ctaSecondaryLabel: "Apply Now", ctaSecondaryLink: "/admissions", animationType: "fade", height: "large" },
+    config: { style: "full-image", overlayColor: "#1b3a5c", overlayOpacity: 0.7, textAlign: "center", showStats: true, showCta: true, ctaPrimaryLabel: "Explore Programs", ctaPrimaryLink: "/programs", ctaSecondaryLabel: "Apply Now", ctaSecondaryLink: "/admissions", animationType: "fade", height: "large" },
   },
   "hero-split": {
     name: "Split Layout (Text Left / Image Right)",
     description: "Equal split of text content on left, image/graphic on right side",
-    config: { style: "split-left", overlayColor: "#1c3557", overlayOpacity: 0.5, textAlign: "left", showStats: true, showCta: true, ctaPrimaryLabel: "Get Started", ctaPrimaryLink: "/admissions", ctaSecondaryLabel: "Learn More", ctaSecondaryLink: "/about", animationType: "slide-up", height: "medium" },
+    config: { style: "split-left", overlayColor: "#1b3a5c", overlayOpacity: 0.5, textAlign: "left", showStats: true, showCta: true, ctaPrimaryLabel: "Get Started", ctaPrimaryLink: "/admissions", ctaSecondaryLabel: "Learn More", ctaSecondaryLink: "/about", animationType: "slide-up", height: "medium" },
   },
   "hero-video-bg": {
     name: "Video Background",
@@ -115,22 +115,22 @@ export const HERO_VARIANTS: Record<string, { name: string; description: string; 
   "hero-animated-stats": {
     name: "Animated Stats Counter",
     description: "Hero with large animated counter numbers (years, students, programs) as focal point",
-    config: { style: "animated-stats", overlayColor: "#1c3557", overlayOpacity: 0.6, textAlign: "center", showStats: true, showCta: true, ctaPrimaryLabel: "Our Programs", ctaPrimaryLink: "/programs", animationType: "zoom", height: "medium" },
+    config: { style: "animated-stats", overlayColor: "#1b3a5c", overlayOpacity: 0.6, textAlign: "center", showStats: true, showCta: true, ctaPrimaryLabel: "Our Programs", ctaPrimaryLink: "/programs", animationType: "zoom", height: "medium" },
   },
   "hero-carousel": {
     name: "Carousel/Slider Hero",
     description: "Rotating carousel of multiple hero slides with navigation dots and arrows",
-    config: { style: "carousel", overlayColor: "#1c3557", overlayOpacity: 0.6, textAlign: "center", showStats: false, showCta: true, ctaPrimaryLabel: "Learn More", ctaPrimaryLink: "/about", animationType: "fade", height: "large" },
+    config: { style: "carousel", overlayColor: "#1b3a5c", overlayOpacity: 0.6, textAlign: "center", showStats: false, showCta: true, ctaPrimaryLabel: "Learn More", ctaPrimaryLink: "/about", animationType: "fade", height: "large" },
   },
   "hero-minimal-text": {
     name: "Minimal Text-Only Hero",
     description: "Clean hero with just headline and subtitle, no background image or large visual",
-    config: { style: "minimal-text", overlayColor: "#1c3557", overlayOpacity: 0, textAlign: "center", showStats: false, showCta: true, ctaPrimaryLabel: "Explore", ctaPrimaryLink: "/programs", animationType: "fade", height: "small" },
+    config: { style: "minimal-text", overlayColor: "#1b3a5c", overlayOpacity: 0, textAlign: "center", showStats: false, showCta: true, ctaPrimaryLabel: "Explore", ctaPrimaryLink: "/programs", animationType: "fade", height: "small" },
   },
   "hero-gradient-overlay": {
     name: "Gradient Overlay Pattern",
     description: "Geometric pattern background with gradient color overlay for modern look",
-    config: { style: "gradient-overlay", overlayColor: "#1c3557", overlayOpacity: 0.8, textAlign: "left", showStats: true, showCta: true, ctaPrimaryLabel: "Discover More", ctaPrimaryLink: "/about", animationType: "slide-up", height: "medium" },
+    config: { style: "gradient-overlay", overlayColor: "#1b3a5c", overlayOpacity: 0.8, textAlign: "left", showStats: true, showCta: true, ctaPrimaryLabel: "Discover More", ctaPrimaryLink: "/about", animationType: "slide-up", height: "medium" },
   },
 };
 
@@ -139,37 +139,37 @@ export const DASHBOARD_VARIANTS: Record<string, { name: string; description: str
   "dashboard-default": {
     name: "Sidebar Left (Standard)",
     description: "Collapsible sidebar on the left with icon+text menu items, top bar with user menu",
-    config: { style: "sidebar-left", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-text", accentColor: "#1c3557" },
+    config: { style: "sidebar-left", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-text", accentColor: "#1b3a5c" },
   },
   "dashboard-sidebar-right": {
     name: "Sidebar Right",
     description: "Sidebar on the right side, useful for RTL workflows or preference",
-    config: { style: "sidebar-right", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-text", accentColor: "#1c3557" },
+    config: { style: "sidebar-right", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-text", accentColor: "#1b3a5c" },
   },
   "dashboard-top-nav": {
     name: "Top Navigation Only",
     description: "No sidebar — horizontal top navigation bar with dropdown menus",
-    config: { style: "top-nav-only", sidebarCollapsed: true, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "contained", menuStyle: "text-only", accentColor: "#1c3557" },
+    config: { style: "top-nav-only", sidebarCollapsed: true, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "contained", menuStyle: "text-only", accentColor: "#1b3a5c" },
   },
   "dashboard-collapsible": {
     name: "Collapsible Icon Sidebar",
     description: "Sidebar collapses to icons-only on hover, maximizing content space",
-    config: { style: "icon-sidebar", sidebarCollapsed: true, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-only", accentColor: "#1c3557" },
+    config: { style: "icon-sidebar", sidebarCollapsed: true, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "system", layout: "full-width", menuStyle: "icons-only", accentColor: "#1b3a5c" },
   },
   "dashboard-card-grid": {
     name: "Card Grid Dashboard",
     description: "Dashboard home as a grid of colorful quick-action cards, no sidebar",
-    config: { style: "card-grid", sidebarCollapsed: true, showBreadcrumbs: false, showNotifications: true, showSearch: true, theme: "light", layout: "contained", menuStyle: "icons-only", accentColor: "#e31c23" },
+    config: { style: "card-grid", sidebarCollapsed: true, showBreadcrumbs: false, showNotifications: true, showSearch: true, theme: "light", layout: "contained", menuStyle: "icons-only", accentColor: "#d93a2b" },
   },
   "dashboard-dark-theme": {
     name: "Dark Theme Dashboard",
     description: "Dark mode default dashboard with light text on dark backgrounds",
-    config: { style: "dark-theme", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "dark", layout: "full-width", menuStyle: "icons-text", accentColor: "#c9a84c" },
+    config: { style: "dark-theme", sidebarCollapsed: false, showBreadcrumbs: true, showNotifications: true, showSearch: true, theme: "dark", layout: "full-width", menuStyle: "icons-text", accentColor: "#d93a2b" },
   },
   "dashboard-bottom-nav": {
     name: "Bottom Navigation (Mobile-First)",
     description: "Bottom tab bar navigation ideal for mobile/tablet usage",
-    config: { style: "bottom-nav", sidebarCollapsed: true, showBreadcrumbs: false, showNotifications: true, showSearch: false, theme: "system", layout: "full-width", menuStyle: "icons-only", accentColor: "#1c3557" },
+    config: { style: "bottom-nav", sidebarCollapsed: true, showBreadcrumbs: false, showNotifications: true, showSearch: false, theme: "system", layout: "full-width", menuStyle: "icons-only", accentColor: "#1b3a5c" },
   },
 };
 

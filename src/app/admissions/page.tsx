@@ -285,7 +285,7 @@ function SectionBadge({ children, className = "" }: { children: React.ReactNode;
     <Badge
       variant="outline"
       className={`mb-5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] border-white/10 bg-white/5 backdrop-blur-sm ${className}`}
-      style={{ color: "var(--nav-accent, #c9a84c)" }}
+      style={{ color: "var(--nav-accent, #d93a2b)" }}
     >
       {children}
     </Badge>
@@ -296,7 +296,7 @@ function SectionHeading({ title, subtitle }: { title: string; subtitle: string }
   return (
     <div className="text-center mb-16">
       <SectionBadge>{subtitle}</SectionBadge>
-      <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight" style={{ color: "var(--page-text, #1e3a5f)" }}>
+      <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight" style={{ color: "var(--page-text, #1a1a1a)" }}>
         {title}
       </h2>
     </div>
@@ -327,7 +327,7 @@ function FloatingParticles() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "var(--page-primary, #7c3aed)" : i % 3 === 1 ? "var(--page-secondary, #ec4899)" : "var(--page-accent, #fbbf24)",
+            background: i % 3 === 0 ? "var(--page-primary, #1b3a5c)" : i % 3 === 1 ? "var(--page-secondary, #d93a2b)" : "var(--page-accent, #d93a2b)",
             width: `${2 + Math.random() * 4}px`,
             height: `${2 + Math.random() * 4}px`,
             animationDelay: `${Math.random() * 5}s`,
@@ -338,7 +338,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-primary, #1e40af)",
+          background: "var(--page-primary, #1b3a5c)",
           width: "300px",
           height: "300px",
           top: "-10%",
@@ -349,7 +349,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-secondary, #3b82f6)",
+          background: "var(--page-secondary, #1b3a5c)",
           width: "250px",
           height: "250px",
           bottom: "-10%",
@@ -360,7 +360,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-accent, #c9a84c)",
+          background: "var(--page-accent, #d93a2b)",
           width: "200px",
           height: "200px",
           top: "30%",
@@ -380,7 +380,7 @@ function FloatingParticles() {
 function HeroSection() {
   return (
     <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e40af), var(--page-hero-to, #3b82f6))" }} />
+      <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
       <FloatingParticles />
@@ -399,7 +399,7 @@ function HeroSection() {
         >
           {HERO.title.split(" ").map((word, i) =>
             word === "Process" ? (
-              <span key={i} className="bg-gradient-to-r from-[#e31c23] via-[#f55959] to-[#c9a84c] bg-clip-text text-transparent">{word} </span>
+              <span key={i} className="bg-gradient-to-r from-[#d93a2b] via-[#f55959] to-[#d93a2b] bg-clip-text text-transparent">{word} </span>
             ) : (
               <span key={i}>{word} </span>
             )
@@ -420,7 +420,7 @@ function HeroSection() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link href={HERO.ctaPrimary.href}>
-            <Button size="xl" className="text-white shadow-xl shadow-black/20 text-base px-8 py-6 rounded-full" style={{ background: "var(--page-accent, #c9a84c)" }}>
+            <Button size="xl" className="text-white shadow-xl shadow-black/20 text-base px-8 py-6 rounded-full" style={{ background: "var(--page-accent, #d93a2b)" }}>
               {HERO.ctaPrimary.label}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -446,16 +446,16 @@ function TimelineBar() {
   const items = ["Check Eligibility", "Submit Application", "Upload Documents", "Pay Fee", "Entrance Exam", "Enrollment"]
 
   return (
-    <section className="py-16 relative z-10" style={{ background: "var(--page-bg, #f8fafc)" }}>
+    <section className="py-16 relative z-10" style={{ background: "var(--page-bg, #ffffff)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection>
           <div className="hidden lg:flex items-center justify-between relative">
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2" style={{ background: "color-mix(in srgb, var(--page-primary, #1e40af) 20%, transparent)" }} />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2" style={{ background: "color-mix(in srgb, var(--page-primary, #1b3a5c) 20%, transparent)" }} />
             {items.map((label, i) => (
               <div key={label} className="relative z-10 flex flex-col items-center">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg mb-2"
-                  style={{ background: "var(--page-primary, #1e40af)" }}
+                  style={{ background: "var(--page-primary, #1b3a5c)" }}
                 >
                   {i + 1}
                 </div>
@@ -467,7 +467,7 @@ function TimelineBar() {
           </div>
           <div className="flex lg:hidden flex-wrap justify-center gap-3">
             {items.map((label, i) => (
-              <Badge key={label} variant="outline" className="px-3 py-1.5 text-xs font-medium border-primary/20" style={{ borderColor: "var(--page-primary, #1e40af)", color: "var(--page-primary, #1e40af)" }}>
+              <Badge key={label} variant="outline" className="px-3 py-1.5 text-xs font-medium border-primary/20" style={{ borderColor: "var(--page-primary, #1b3a5c)", color: "var(--page-primary, #1b3a5c)" }}>
                 {i + 1}. {label}
               </Badge>
             ))}
@@ -484,46 +484,46 @@ function EligibilitySection() {
   const Icon = s.icon
 
   return (
-    <section className="py-20" style={{ background: "var(--page-bg, #f8fafc)" }}>
+    <section className="py-20" style={{ background: "var(--page-bg, #ffffff)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title={s.title} subtitle={s.subtitle} />
 
         <FadeInSection>
           <GlassCard className="p-8 md:p-10 mb-10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1e40af)" }}>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                 <Icon className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-bold" style={{ color: "var(--page-text, #1e3a5f)" }}>Academic Requirements</h3>
+                <h3 className="text-2xl font-display font-bold" style={{ color: "var(--page-text, #1a1a1a)" }}>Academic Requirements</h3>
                 <p className="mt-3 leading-relaxed" style={{ color: "var(--page-muted, #6b7280)" }}>{s.description}</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mt-8">
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                  <School className="w-4 h-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                  <School className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                   Completed Education
                 </h4>
                 <ul className="space-y-2">
                   {s.details.map((d: string) => (
                     <li key={d} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                      <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                      <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                       {d}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                  <Star className="w-4 h-4" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                  <Star className="w-4 h-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
                   Minimum Criteria
                 </h4>
                 <ul className="space-y-2">
                   {s.criteria.map((c: string) => (
                     <li key={c} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                      <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                      <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #d93a2b)" }} />
                       {c}
                     </li>
                   ))}
@@ -534,12 +534,12 @@ function EligibilitySection() {
             <div
               className="mt-6 rounded-xl border px-5 py-4 flex items-start gap-3 text-sm"
               style={{
-                backgroundColor: "color-mix(in srgb, var(--page-accent, #c9a84c) 10%, transparent)",
-                borderColor: "color-mix(in srgb, var(--page-accent, #c9a84c) 25%, transparent)",
-                color: "var(--page-text, #1e3a5f)",
+                backgroundColor: "color-mix(in srgb, var(--page-accent, #d93a2b) 10%, transparent)",
+                borderColor: "color-mix(in srgb, var(--page-accent, #d93a2b) 25%, transparent)",
+                color: "var(--page-text, #1a1a1a)",
               }}
             >
-              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #d93a2b)" }} />
               {s.note}
             </div>
           </GlassCard>
@@ -547,7 +547,7 @@ function EligibilitySection() {
 
         {/* Program-specific eligibility */}
         <FadeInSection>
-          <h3 className="text-2xl font-display font-bold text-center mb-8" style={{ color: "var(--page-text, #1e3a5f)" }}>
+          <h3 className="text-2xl font-display font-bold text-center mb-8" style={{ color: "var(--page-text, #1a1a1a)" }}>
             Program-Specific Eligibility
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -560,14 +560,14 @@ function EligibilitySection() {
                   className="group"
                 >
                   <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all rounded-2xl overflow-hidden" style={{ background: "var(--page-surface, #ffffff)" }}>
-                    <div className="h-2" style={{ background: "var(--page-secondary, #3b82f6)" }} />
+                    <div className="h-2" style={{ background: "var(--page-secondary, #1b3a5c)" }} />
                     <CardContent className="p-6">
-                      <PIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
-                      <h4 className="text-2xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>{p.code}</h4>
+                      <PIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                      <h4 className="text-2xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>{p.code}</h4>
                       <ul className="space-y-2">
                         {p.reqs.map((r: string) => (
                           <li key={r} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                            <CheckSquare className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                            <CheckSquare className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                             {r}
                           </li>
                         ))}
@@ -597,7 +597,7 @@ function ApplySection() {
         <FadeInSection>
           <GlassCard className="p-8 md:p-10 mb-10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1e40af)" }}>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                 <Icon className="w-7 h-7 text-white" />
               </div>
               <p className="leading-relaxed pt-3" style={{ color: "var(--page-muted, #6b7280)" }}>{s.description}</p>
@@ -613,12 +613,12 @@ function ApplySection() {
                 <motion.div whileHover={{ y: -4 }} className="h-full">
                   <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all rounded-2xl overflow-hidden" style={{ background: "var(--page-surface, #ffffff)" }}>
                     <CardContent className="p-8">
-                      <MIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
-                      <h3 className="text-xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>{m.title}</h3>
+                      <MIcon className="w-10 h-10 mb-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                      <h3 className="text-xl font-display font-bold mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>{m.title}</h3>
                       <ul className="space-y-3 mb-6">
                         {m.steps.map((step: string) => (
                           <li key={step} className="flex items-start gap-3 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                            <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5" style={{ background: "var(--page-secondary, #3b82f6)" }}>
+                            <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5" style={{ background: "var(--page-secondary, #1b3a5c)" }}>
                               {m.steps.indexOf(step) + 1}
                             </span>
                             {step}
@@ -626,7 +626,7 @@ function ApplySection() {
                         ))}
                       </ul>
                       <Link href={m.cta.href}>
-                        <Button className="w-full text-white rounded-full" style={{ background: "var(--page-primary, #1e40af)" }}>
+                        <Button className="w-full text-white rounded-full" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                           {m.cta.label}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -643,11 +643,11 @@ function ApplySection() {
         <FadeInSection>
           <GlassCard className="p-8 md:p-10">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-display font-bold flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <CalendarCheck className="w-5 h-5" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <h3 className="text-xl font-display font-bold flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <CalendarCheck className="w-5 h-5" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 Important Deadlines
               </h3>
-              <Badge className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider" style={{ background: "var(--page-accent, #c9a84c)", color: "#1e3a5f" }}>
+              <Badge className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider" style={{ background: "var(--page-accent, #d93a2b)", color: "#1a1a1a" }}>
                 Admissions Open
               </Badge>
             </div>
@@ -662,7 +662,7 @@ function ApplySection() {
                   }}
                 >
                   <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--page-muted, #6b7280)" }}>{d.label}</p>
-                  <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1e40af)" }}>{d.date}</p>
+                  <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1b3a5c)" }}>{d.date}</p>
                 </div>
               ))}
             </div>
@@ -679,7 +679,7 @@ function DocumentsSection() {
   const Icon = s.icon
 
   return (
-    <section className="py-20" style={{ background: "var(--page-bg, #f8fafc)" }}>
+    <section className="py-20" style={{ background: "var(--page-bg, #ffffff)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title={s.title} subtitle={s.subtitle} />
 
@@ -687,20 +687,20 @@ function DocumentsSection() {
           <FadeInSection className="lg:col-span-3">
             <GlassCard className="p-8 md:p-10">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1e40af)" }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                   <Icon className="w-7 h-7 text-white" />
                 </div>
                 <p className="leading-relaxed pt-3" style={{ color: "var(--page-muted, #6b7280)" }}>{s.description}</p>
               </div>
 
-              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <CheckSquare className="w-4 h-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <CheckSquare className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 Required Documents Checklist
               </h4>
               <div className="grid sm:grid-cols-2 gap-y-3 gap-x-6">
                 {s.checklist.map((item: string) => (
                   <div key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                    <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                     {item}
                   </div>
                 ))}
@@ -710,14 +710,14 @@ function DocumentsSection() {
 
           <FadeInSection className="lg:col-span-2">
             <GlassCard className="p-8 md:p-10 h-full">
-              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <Upload className="w-4 h-4" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Upload className="w-4 h-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 Upload Guidelines
               </h4>
               <ul className="space-y-3 mb-8">
                 {s.guidelines.map((g: string) => (
                   <li key={g} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #d93a2b)" }} />
                     {g}
                   </li>
                 ))}
@@ -725,7 +725,7 @@ function DocumentsSection() {
 
               <div className="rounded-xl border-2 border-dashed p-8 text-center transition-colors hover:border-primary/50" style={{ borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)" }}>
                 <Upload className="w-10 h-10 mx-auto mb-3" style={{ color: "var(--page-muted, #6b7280)" }} />
-                <p className="text-sm font-medium mb-1" style={{ color: "var(--page-text, #1e3a5f)" }}>Drag & drop your files here</p>
+                <p className="text-sm font-medium mb-1" style={{ color: "var(--page-text, #1a1a1a)" }}>Drag & drop your files here</p>
                 <p className="text-xs mb-4" style={{ color: "var(--page-muted, #6b7280)" }}>or click to browse</p>
                 <Button variant="outline" size="sm" className="rounded-full">
                   <Upload className="w-4 h-4 mr-2" />
@@ -753,17 +753,17 @@ function FeeSection() {
         <div className="grid lg:grid-cols-5 gap-8">
           <FadeInSection className="lg:col-span-2">
             <GlassCard className="p-8 text-center">
-              <Icon className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+              <Icon className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
               <p className="text-sm font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--page-muted, #6b7280)" }}>Application Fee</p>
-              <p className="text-5xl font-display font-bold mb-2" style={{ color: "var(--page-primary, #1e40af)" }}>{s.feeAmount}</p>
+              <p className="text-5xl font-display font-bold mb-2" style={{ color: "var(--page-primary, #1b3a5c)" }}>{s.feeAmount}</p>
               <Badge variant="destructive" className="mt-2 px-3 py-1 text-xs">{s.feeNote}</Badge>
             </GlassCard>
           </FadeInSection>
 
           <FadeInSection className="lg:col-span-3">
             <GlassCard className="p-8 md:p-10 h-full">
-              <h4 className="font-semibold mb-2 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <Wallet className="w-4 h-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+              <h4 className="font-semibold mb-2 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Wallet className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 Payment Methods
               </h4>
               <p className="text-sm mb-4" style={{ color: "var(--page-muted, #6b7280)" }}>Choose a convenient payment method:</p>
@@ -777,14 +777,14 @@ function FeeSection() {
                       background: "color-mix(in srgb, var(--page-surface, #ffffff) 50%, transparent)",
                     }}
                   >
-                    <pm.icon className="w-6 h-6 mx-auto mb-1" style={{ color: "var(--page-secondary, #3b82f6)" }} />
-                    <p className="text-[10px] font-medium leading-tight" style={{ color: "var(--page-text, #1e3a5f)" }}>{pm.name}</p>
+                    <pm.icon className="w-6 h-6 mx-auto mb-1" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                    <p className="text-[10px] font-medium leading-tight" style={{ color: "var(--page-text, #1a1a1a)" }}>{pm.name}</p>
                   </div>
                 ))}
               </div>
 
-              <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <Landmark className="w-4 h-4" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Landmark className="w-4 h-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 Bank Details
               </h4>
               <div className="rounded-xl border p-5 space-y-2 text-sm mb-6" style={{
@@ -793,7 +793,7 @@ function FeeSection() {
               }}>
                 {Object.entries(s.bankDetails).map(([k, v]: [string, unknown]) => (
                   <div key={k} className="flex justify-between">
-                    <span className="font-medium capitalize" style={{ color: "var(--page-text, #1e3a5f)" }}>
+                    <span className="font-medium capitalize" style={{ color: "var(--page-text, #1a1a1a)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
                     </span>
                     <span style={{ color: "var(--page-muted, #6b7280)" }}>{String(v)}</span>
@@ -802,10 +802,10 @@ function FeeSection() {
               </div>
 
               <div className="rounded-xl p-5 text-sm flex items-start gap-3" style={{
-                background: "color-mix(in srgb, var(--page-secondary, #3b82f6) 8%, transparent)",
-                color: "var(--page-text, #1e3a5f)",
+                background: "color-mix(in srgb, var(--page-secondary, #1b3a5c) 8%, transparent)",
+                color: "var(--page-text, #1a1a1a)",
               }}>
-                <Send className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                <Send className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 {s.confirmationNote}
               </div>
             </GlassCard>
@@ -822,7 +822,7 @@ function ExamSection() {
   const Icon = s.icon
 
   return (
-    <section className="py-20" style={{ background: "var(--page-bg, #f8fafc)" }}>
+    <section className="py-20" style={{ background: "var(--page-bg, #ffffff)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title={s.title} subtitle={s.subtitle} />
 
@@ -830,13 +830,13 @@ function ExamSection() {
           <FadeInSection className="lg:col-span-3">
             <GlassCard className="p-8 md:p-10 h-full">
               <div className="flex items-start gap-4 mb-8">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1e40af)" }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                   <Icon className="w-7 h-7 text-white" />
                 </div>
                 <p className="leading-relaxed pt-3" style={{ color: "var(--page-muted, #6b7280)" }}>{s.description}</p>
               </div>
 
-              <h4 className="font-semibold mb-4" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Requirements</h4>
+              <h4 className="font-semibold mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>Examination Requirements</h4>
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 {s.examPrograms.map((ep: any) => (
                   <div
@@ -847,20 +847,20 @@ function ExamSection() {
                       background: "color-mix(in srgb, var(--page-surface, #ffffff) 50%, transparent)",
                     }}
                   >
-                    <ep.icon className="w-6 h-6 mb-2" style={{ color: "var(--page-secondary, #3b82f6)" }} />
-                    <p className="font-bold text-sm" style={{ color: "var(--page-text, #1e3a5f)" }}>{ep.program}</p>
+                    <ep.icon className="w-6 h-6 mb-2" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                    <p className="font-bold text-sm" style={{ color: "var(--page-text, #1a1a1a)" }}>{ep.program}</p>
                     <p className="text-xs mt-1" style={{ color: "var(--page-muted, #6b7280)" }}>{ep.exam}</p>
                   </div>
                 ))}
               </div>
 
-              <h4 className="font-semibold mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Information</h4>
+              <h4 className="font-semibold mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>Examination Information</h4>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {Object.entries(s.examInfo).map(([k, v]: [string, unknown]) => (
                   <div key={k} className="text-center rounded-xl border p-4" style={{
                     borderColor: "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                   }}>
-                    <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1e40af)" }}>{String(v)}</p>
+                    <p className="text-lg font-bold font-display" style={{ color: "var(--page-primary, #1b3a5c)" }}>{String(v)}</p>
                     <p className="text-[10px] font-semibold uppercase tracking-wider mt-1" style={{ color: "var(--page-muted, #6b7280)" }}>
                       {k.replace(/([A-Z])/g, " $1").trim()}
                     </p>
@@ -872,8 +872,8 @@ function ExamSection() {
 
           <FadeInSection className="lg:col-span-2">
             <GlassCard className="p-8 md:p-10 h-full">
-              <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <Download className="w-4 h-4" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <h4 className="font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Download className="w-4 h-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 Admit Card
               </h4>
               <p className="text-sm mb-4" style={{ color: "var(--page-muted, #6b7280)" }}>{s.admitCardNote}</p>
@@ -882,14 +882,14 @@ function ExamSection() {
                 Download Admit Card
               </Button>
 
-              <h4 className="font-semibold mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>Examination Center</h4>
+              <h4 className="font-semibold mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>Examination Center</h4>
               <p className="text-sm mb-4" style={{ color: "var(--page-muted, #6b7280)" }}>{s.examCenter}</p>
 
-              <h4 className="font-semibold mb-2" style={{ color: "var(--page-text, #1e3a5f)" }}>Items to Carry</h4>
+              <h4 className="font-semibold mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>Items to Carry</h4>
               <ul className="space-y-2">
                 {s.instructions.map((inst: string) => (
                   <li key={inst} className="flex items-center gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                    <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--page-accent, #d93a2b)" }} />
                     {inst}
                   </li>
                 ))}
@@ -919,11 +919,11 @@ function EnrollmentSection() {
               whileInView={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
               className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
-              style={{ background: "var(--page-secondary, #3b82f6)" }}
+              style={{ background: "var(--page-secondary, #1b3a5c)" }}
             >
               <Sparkles className="w-10 h-10 text-white" />
             </motion.div>
-            <Icon className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+            <Icon className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
             <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--page-muted, #6b7280)" }}>{s.description}</p>
           </GlassCard>
         </FadeInSection>
@@ -931,15 +931,15 @@ function EnrollmentSection() {
         <div className="grid md:grid-cols-3 gap-8">
           <FadeInSection>
             <GlassCard className="p-8 h-full">
-              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <CheckCircle className="w-4 h-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <CheckCircle className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 Verification Process
               </h4>
-              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Bring original copies of:</p>
+              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>Bring original copies of:</p>
               <ul className="space-y-2">
                 {s.verificationDocs.map((doc: string) => (
                   <li key={doc} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                     {doc}
                   </li>
                 ))}
@@ -949,15 +949,15 @@ function EnrollmentSection() {
 
           <FadeInSection>
             <GlassCard className="p-8 h-full">
-              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <DollarSign className="w-4 h-4" style={{ color: "var(--page-accent, #c9a84c)" }} />
+              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <DollarSign className="w-4 h-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 Fee Submission
               </h4>
-              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>Students must pay:</p>
+              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>Students must pay:</p>
               <ul className="space-y-2">
                 {s.fees.map((fee: string) => (
                   <li key={fee} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <DollarSign className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                    <DollarSign className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-accent, #d93a2b)" }} />
                     {fee}
                   </li>
                 ))}
@@ -967,15 +967,15 @@ function EnrollmentSection() {
 
           <FadeInSection>
             <GlassCard className="p-8 h-full">
-              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1e3a5f)" }}>
-                <Award className="w-4 h-4" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+              <h4 className="font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Award className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 Admission Confirmation
               </h4>
-              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1e3a5f)" }}>You will receive:</p>
+              <p className="text-sm font-medium mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>You will receive:</p>
               <ul className="space-y-2">
                 {s.confirmationItems.map((item: string) => (
                   <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--page-muted, #6b7280)" }}>
-                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                    <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                     {item}
                   </li>
                 ))}
@@ -991,7 +991,7 @@ function EnrollmentSection() {
             transition={{ duration: 0.6 }}
             className="mt-10 rounded-2xl border p-10 text-center"
             style={{
-              background: "linear-gradient(135deg, var(--page-primary, #1e40af), var(--page-secondary, #3b82f6))",
+              background: "linear-gradient(135deg, var(--page-primary, #1b3a5c), var(--page-secondary, #1b3a5c))",
               borderColor: "transparent",
             }}
           >
@@ -1012,14 +1012,14 @@ function FAQSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null)
 
   return (
-    <section className="py-20" style={{ background: "var(--page-bg, #f8fafc)" }}>
+    <section className="py-20" style={{ background: "var(--page-bg, #ffffff)" }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection>
           <SectionBadge>
             <HelpCircle className="w-3.5 h-3.5 inline mr-1.5" />
             FAQ
           </SectionBadge>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12" style={{ color: "var(--page-text, #1e3a5f)" }}>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12" style={{ color: "var(--page-text, #1a1a1a)" }}>
             Frequently Asked Questions
           </h2>
         </FadeInSection>
@@ -1030,7 +1030,7 @@ function FAQSection() {
               <div
                 className="rounded-xl border overflow-hidden transition-all"
                 style={{
-                  borderColor: openIdx === i ? "var(--page-primary, #1e40af)" : "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
+                  borderColor: openIdx === i ? "var(--page-primary, #1b3a5c)" : "color-mix(in srgb, var(--page-border, #e5e7eb) 60%, transparent)",
                   background: "var(--page-surface, #ffffff)",
                 }}
               >
@@ -1038,10 +1038,10 @@ function FAQSection() {
                   onClick={() => setOpenIdx(openIdx === i ? null : i)}
                   className="w-full flex items-center justify-between p-5 text-left"
                 >
-                  <span className="font-medium pr-4" style={{ color: "var(--page-text, #1e3a5f)" }}>{faq.q}</span>
+                  <span className="font-medium pr-4" style={{ color: "var(--page-text, #1a1a1a)" }}>{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 shrink-0 transition-transform duration-300 ${openIdx === i ? "rotate-180" : ""}`}
-                    style={{ color: "var(--page-primary, #1e40af)" }}
+                    style={{ color: "var(--page-primary, #1b3a5c)" }}
                   />
                 </button>
                 <motion.div
@@ -1076,7 +1076,7 @@ function HelplineSection() {
             <Phone className="w-3.5 h-3.5 inline mr-1.5" />
             Helpline
           </SectionBadge>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12" style={{ color: "var(--page-text, #1e3a5f)" }}>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12" style={{ color: "var(--page-text, #1a1a1a)" }}>
             Admissions Helpline
           </h2>
         </FadeInSection>
@@ -1085,40 +1085,40 @@ function HelplineSection() {
           <GlassCard className="p-8 md:p-10 max-w-4xl mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <Phone className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                <Phone className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-muted, #6b7280)" }}>Hotline</p>
-                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1e3a5f)" }}>{HELPLINE.hotline}</p>
+                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1a1a1a)" }}>{HELPLINE.hotline}</p>
               </div>
               <div className="text-center">
-                <MessageCircle className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                <MessageCircle className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-muted, #6b7280)" }}>WhatsApp</p>
-                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1e3a5f)" }}>{HELPLINE.whatsapp}</p>
+                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1a1a1a)" }}>{HELPLINE.whatsapp}</p>
               </div>
               <div className="text-center">
-                <Mail className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-secondary, #3b82f6)" }} />
+                <Mail className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-muted, #6b7280)" }}>Email</p>
-                <p className="font-bold mt-1 text-sm" style={{ color: "var(--page-text, #1e3a5f)" }}>{HELPLINE.email}</p>
+                <p className="font-bold mt-1 text-sm" style={{ color: "var(--page-text, #1a1a1a)" }}>{HELPLINE.email}</p>
               </div>
               <div className="text-center">
-                <MapPin className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-accent, #c9a84c)" }} />
+                <MapPin className="w-8 h-8 mx-auto mb-2" style={{ color: "var(--page-accent, #d93a2b)" }} />
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-muted, #6b7280)" }}>Address</p>
-                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1e3a5f)" }}>{HELPLINE.address}</p>
+                <p className="font-bold mt-1" style={{ color: "var(--page-text, #1a1a1a)" }}>{HELPLINE.address}</p>
               </div>
             </div>
 
             <div className="text-center mb-6">
-              <Badge variant="outline" className="px-4 py-1.5 text-xs font-medium" style={{ borderColor: "var(--page-primary, #1e40af)", color: "var(--page-primary, #1e40af)" }}>
+              <Badge variant="outline" className="px-4 py-1.5 text-xs font-medium" style={{ borderColor: "var(--page-primary, #1b3a5c)", color: "var(--page-primary, #1b3a5c)" }}>
                 <Clock className="w-3 h-3 inline mr-1" />
                 {HELPLINE.hours}
               </Badge>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="rounded-full text-white" style={{ background: "var(--page-primary, #1e40af)" }}>
+              <Button className="rounded-full text-white" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </Button>
-              <Button variant="outline" className="rounded-full" style={{ borderColor: "var(--page-accent, #c9a84c)", color: "var(--page-accent, #c9a84c)" }}>
+              <Button variant="outline" className="rounded-full" style={{ borderColor: "var(--page-accent, #d93a2b)", color: "var(--page-accent, #d93a2b)" }}>
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Chat on WhatsApp
               </Button>
@@ -1142,13 +1142,13 @@ function HelplineSection() {
 function FooterCTA() {
   return (
     <section className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e40af), var(--page-hero-to, #3b82f6))" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.08),transparent_50%)]" />
       <FloatingParticles />
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <FadeInSection>
-          <Target className="w-14 h-14 mx-auto mb-6" style={{ color: "var(--page-accent, #c9a84c)" }} />
+          <Target className="w-14 h-14 mx-auto mb-6" style={{ color: "var(--page-accent, #d93a2b)" }} />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
             Ready to Shape Your Future?
           </h2>
@@ -1157,7 +1157,7 @@ function FooterCTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#apply-form">
-              <Button size="xl" className="text-white shadow-xl shadow-black/20 text-base px-8 py-6 rounded-full" style={{ background: "var(--page-accent, #c9a84c)" }}>
+              <Button size="xl" className="text-white shadow-xl shadow-black/20 text-base px-8 py-6 rounded-full" style={{ background: "var(--page-accent, #d93a2b)" }}>
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -1200,9 +1200,9 @@ export default function AdmissionsPage() {
             transition={{ delay: 1, duration: 0.5 }}
             className="rounded-full shadow-2xl px-6 py-3 flex items-center gap-2 text-sm font-medium backdrop-blur-xl border"
             style={{
-              background: "color-mix(in srgb, var(--page-accent, #c9a84c) 90%, transparent)",
-              borderColor: "var(--page-accent, #c9a84c)",
-              color: "#1e3a5f",
+              background: "color-mix(in srgb, var(--page-accent, #d93a2b) 90%, transparent)",
+              borderColor: "var(--page-accent, #d93a2b)",
+              color: "#1a1a1a",
             }}
           >
             <GraduationCap className="w-4 h-4" />

@@ -84,7 +84,7 @@ export default function HomePage() {
   return (
     <main className="bg-[var(--sky)] text-[var(--ink)]">
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[var(--sky)]">
+      <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[#12283f]">
         <Petals />
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           {/* Copy */}
@@ -119,7 +119,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-4">
               <a
                 href="/admissions"
-                className="rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-[var(--ink)] shadow-[0_8px_30px_-8px_rgba(255,181,61,0.6)] transition-transform hover:-translate-y-0.5"
+                className="rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white shadow-[0_8px_30px_-8px_rgba(217,58,43,0.6)] transition-all hover:-translate-y-0.5 hover:bg-[#b82e21]"
               >
                 Apply for 2026/27
               </a>
@@ -244,7 +244,7 @@ export default function HomePage() {
                     <span className="font-display text-2xl font-semibold text-[var(--indigo)]">
                       {p.code}
                     </span>
-                    <span className="rounded-full bg-[var(--sky)] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[var(--ink)]/60">
+                    <span className="rounded-full bg-[#e8eef7] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[#1b3a5c]">
                       {p.track} · {p.duration}
                     </span>
                   </div>
@@ -286,12 +286,12 @@ export default function HomePage() {
                 (the flyer version is too compressed for web use).
                 Save it at /public/images/campus-building.jpg
               */}
-              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-6">
+              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-6">
                 <div className="text-center">
                   <span className="text-white/60 font-display text-lg">Campus Building Photo</span>
                   <p className="text-white/40 text-sm mt-1">Placeholder — add your image</p>
                 </div>
-                <span className="absolute left-4 top-4 rounded-full bg-[var(--gold)] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-[var(--ink)] shadow">
+                <span className="absolute left-4 top-4 rounded-full bg-[var(--gold)] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-white shadow">
                   Open for Visit
                 </span>
               </div>
@@ -375,7 +375,7 @@ export default function HomePage() {
                 Principal. Until a real portrait/name is provided, this
                 stays a clearly-labelled placeholder (per your request).
               */}
-              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-8">
+              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-8">
                 <div className="text-center">
                   <span className="text-white/50 font-display text-base">Principal</span>
                   <p className="text-white/30 text-xs mt-1">Portrait placeholder</p>
@@ -403,7 +403,7 @@ export default function HomePage() {
             </p>
             <p className="mt-4 font-semibold text-[var(--ink)]">
               Prof. Dr. [Name] <span className="font-normal text-[var(--ink)]/50">— Principal</span>
-              <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-normal uppercase tracking-wide text-amber-700">
+              <span className="ml-2 rounded-full bg-[#e2e5ea] px-2 py-0.5 text-[10px] font-normal uppercase tracking-wide text-[#4b5563]">
                 Placeholder — update before launch
               </span>
             </p>
@@ -438,7 +438,7 @@ export default function HomePage() {
             </p>
             <a
               href="/admissions"
-              className="mt-8 inline-block rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-[var(--ink)] transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-block rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#b82e21]"
             >
               Start Your Application
             </a>
@@ -455,7 +455,7 @@ export default function HomePage() {
                 Suggested search: "anime graduation illustration",
                 "anime students celebrating graduation".
               */}
-              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[var(--sakura)] p-8">
+              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-8">
                 <div className="text-center">
                   <span className="text-white/60 font-display text-lg">Graduation</span>
                   <p className="text-white/40 text-sm mt-1">Anime-style illustration</p>

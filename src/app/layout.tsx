@@ -44,9 +44,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   const headingFontFamily = settings?.fontHeading || "Playfair Display"
   const bodyFontFamily = settings?.fontBody || "Inter"
-  const primaryColor = settings?.primaryColor || "#1c3557"
-  const secondaryColor = settings?.secondaryColor || "#e31c23"
-  const accentColor = settings?.accentColor || "#c9a84c"
+  const primaryColor = settings?.primaryColor || "#1b3a5c"
+  const secondaryColor = settings?.secondaryColor || "#d93a2b"
+  const accentColor = settings?.accentColor || "#d93a2b"
   const bgColor = settings?.backgroundColor || "#ffffff"
 
   return (

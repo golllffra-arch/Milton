@@ -28,7 +28,7 @@ const PROGRAMS = [
       "Industry internship & projects",
     ],
     careerPaths: "Software Developer, Data Analyst, IT Manager, Web Developer, System Analyst",
-    gradient: "from-[#0891b2] to-[#06b6d4]",
+    gradient: "from-[#1b3a5c] to-[#d93a2b]",
     icon: GraduationCap,
     badge: "Tech",
   },
@@ -47,7 +47,7 @@ const PROGRAMS = [
       "Entrepreneurship development",
     ],
     careerPaths: "Business Manager, Marketing Executive, Financial Analyst, HR Manager, Entrepreneur",
-    gradient: "from-[#e31c23] to-[#a51419]",
+    gradient: "from-[#d93a2b] to-[#b82e21]",
     icon: BookOpen,
     badge: "Business",
   },
@@ -66,7 +66,7 @@ const PROGRAMS = [
       "Auditing & assurance",
     ],
     careerPaths: "Accountant, Auditor, Bank Officer, Business Analyst, Public Administrator",
-    gradient: "from-[#0891b2] to-[#0e7490]",
+    gradient: "from-[#1b3a5c] to-[#12283f]",
     icon: Shield,
     badge: "Commerce",
   },
@@ -85,7 +85,7 @@ const PROGRAMS = [
       "Field work & community engagement",
     ],
     careerPaths: "Social Worker, NGO Manager, Community Developer, Counselor, Policy Analyst",
-    gradient: "from-[#c9a84c] to-[#a8882e]",
+    gradient: "from-[#d93a2b] to-[#b82e21]",
     icon: Users,
     badge: "Social",
   },
@@ -130,7 +130,7 @@ export default function ProgramsPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0891b2), var(--page-hero-to, #0284c7))" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(2,132,199,0.08),transparent_50%)] z-0" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
@@ -140,7 +140,7 @@ export default function ProgramsPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <GraduationCap className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+              <GraduationCap className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
               Academic Programs
             </Badge>
           </motion.div>
@@ -151,7 +151,7 @@ export default function ProgramsPage() {
             className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight"
           >
             Our{" "}
-            <span className="bg-gradient-to-r from-[#e31c23] via-[#f55959] to-[#c9a84c] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#d93a2b] via-[#f55959] to-[#d93a2b] bg-clip-text text-transparent">
               Programs
             </span>
           </motion.h1>
@@ -202,7 +202,7 @@ export default function ProgramsPage() {
                           <div className="space-y-2 mb-6">
                             {program.highlights.map((h) => (
                               <div key={h} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#e31c23] shrink-0" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#d93a2b] shrink-0" />
                                 <span>{h}</span>
                               </div>
                             ))}
@@ -211,7 +211,7 @@ export default function ProgramsPage() {
                             <span className="text-xs text-gray-400 dark:text-gray-500">
                               Careers: {program.careerPaths}
                             </span>
-                            <span className="inline-flex items-center text-sm font-semibold text-[#e31c23] group-hover:gap-2 transition-all whitespace-nowrap">
+                            <span className="inline-flex items-center text-sm font-semibold text-[#d93a2b] group-hover:gap-2 transition-all whitespace-nowrap">
                               View Details
                               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
@@ -234,7 +234,7 @@ export default function ProgramsPage() {
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
               Why Our Programs
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold" style={{ color: "var(--page-text, #164e63)" }}>
+            <h2 className="text-4xl md:text-5xl font-display font-bold" style={{ color: "var(--page-text, #1a1a1a)" }}>
               Designed for Your Success
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -247,12 +247,12 @@ export default function ProgramsPage() {
               const Icon = item.icon
               return (
                 <FadeInSection key={item.title}>
-                  <Card className="h-full border-0 shadow-md rounded-xl" style={{ background: "var(--page-bg, #ecfeff)" }}>
+                  <Card className="h-full border-0 shadow-md rounded-xl" style={{ background: "var(--page-bg, #ffffff)" }}>
                     <CardContent className="p-8 text-center">
-                      <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5" style={{ background: "var(--page-primary, #0891b2)" }}>
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                         <Icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="text-xl font-display font-bold mb-3" style={{ color: "var(--page-text, #164e63)" }}>{item.title}</h3>
+                      <h3 className="text-xl font-display font-bold mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>{item.title}</h3>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">{item.description}</p>
                     </CardContent>
                   </Card>
@@ -264,12 +264,12 @@ export default function ProgramsPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #0891b2), var(--page-hero-to, #0284c7))" }}>
+      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }}>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(6,182,212,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(2,132,199,0.08),transparent_50%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <GraduationCap className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #0284c7)" }} />
+            <GraduationCap className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #1b3a5c)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Ready to Start Your<br />
               <span className="gradient-text">
@@ -282,7 +282,7 @@ export default function ProgramsPage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/admissions">
-                <Button size="xl" className="text-white border-0 shadow-xl group" style={{ background: "var(--page-secondary, #06b6d4)" }}>
+                <Button size="xl" className="text-white border-0 shadow-xl group" style={{ background: "var(--page-secondary, #d93a2b)" }}>
                   Apply Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>

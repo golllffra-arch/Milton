@@ -228,12 +228,12 @@ const NAV_ITEMS = [
 ]
 
 function getGradeInfo(total: number) {
-  if (total >= 90) return { grade: "A+", gradePoint: 4.0, color: "text-green-600" }
-  if (total >= 80) return { grade: "A", gradePoint: 3.6, color: "text-green-500" }
+  if (total >= 90) return { grade: "A+", gradePoint: 4.0, color: "text-[#1b3a5c]" }
+  if (total >= 80) return { grade: "A", gradePoint: 3.6, color: "text-[#1b3a5c]" }
   if (total >= 70) return { grade: "B+", gradePoint: 3.2, color: "text-blue-500" }
-  if (total >= 60) return { grade: "B", gradePoint: 2.8, color: "text-yellow-500" }
-  if (total >= 50) return { grade: "C+", gradePoint: 2.4, color: "text-orange-500" }
-  if (total >= 40) return { grade: "C", gradePoint: 2.0, color: "text-red-500" }
+  if (total >= 60) return { grade: "B", gradePoint: 2.8, color: "text-[#d93a2b]" }
+  if (total >= 50) return { grade: "C+", gradePoint: 2.4, color: "text-[#d93a2b]" }
+  if (total >= 40) return { grade: "C", gradePoint: 2.0, color: "text-[#d93a2b]" }
   return { grade: "F", gradePoint: 0.0, color: "text-red-600" }
 }
 
@@ -281,7 +281,7 @@ function CircularProgress({ value, size = 120, strokeWidth = 8, color }: { value
   const radius = (size - strokeWidth) / 2
   const circumference = 2 * Math.PI * radius
   const offset = circumference - (value / 100) * circumference
-  const strokeColor = value >= 75 ? "#10b981" : value >= 60 ? "#f59e0b" : "#ef4444"
+  const strokeColor = value >= 75 ? "#1b3a5c" : value >= 60 ? "#d93a2b" : "#d93a2b"
 
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
@@ -393,7 +393,7 @@ export default function StudentDashboard() {
                 Settings
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-red-500">
+              <DropdownMenuItem className="text-[#d93a2b]">
                 <LogOut className="mr-2 h-4 w-4" />
                 Logout
               </DropdownMenuItem>
@@ -465,10 +465,10 @@ export default function StudentDashboard() {
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  <Card className="border-l-4 border-l-green-500 shadow-md">
+                  <Card className="border-l-4 border-l-[#1b3a5c] shadow-md">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                       <CardTitle className="text-sm font-medium">Attendance</CardTitle>
-                      <CalendarCheck className="h-4 w-4 text-green-500" />
+                      <CalendarCheck className="h-4 w-4 text-[#1b3a5c]" />
                     </CardHeader>
                     <CardContent className="flex flex-col items-center pb-4">
                       <CircularProgress value={QUICK_STATS.attendance} size={100} strokeWidth={7} />
@@ -493,13 +493,13 @@ export default function StudentDashboard() {
                     </CardContent>
                   </Card>
 
-                  <Card className="border-l-4 border-l-amber-500 shadow-md">
+                  <Card className="border-l-4 border-l-[#d93a2b] shadow-md">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                       <CardTitle className="text-sm font-medium">Deadlines</CardTitle>
-                      <Clock className="h-4 w-4 text-amber-500" />
+                      <Clock className="h-4 w-4 text-[#d93a2b]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-3xl font-bold text-amber-500">{QUICK_STATS.upcomingDeadlines}</div>
+                      <div className="text-3xl font-bold text-[#d93a2b]">{QUICK_STATS.upcomingDeadlines}</div>
                       <p className="text-xs text-muted-foreground">Upcoming assignments</p>
                       <Button variant="link" className="mt-1 h-auto p-0 text-xs" onClick={() => setActiveTab("assignments")}>
                         View assignments <ChevronRight className="ml-1 h-3 w-3" />
@@ -510,10 +510,10 @@ export default function StudentDashboard() {
                   <Card className="border-l-4 border-l-red-500 shadow-md">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                       <CardTitle className="text-sm font-medium">Pending Fees</CardTitle>
-                      <DollarSign className="h-4 w-4 text-red-500" />
+                      <DollarSign className="h-4 w-4 text-[#d93a2b]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-3xl font-bold text-red-500">{formatCurrency(QUICK_STATS.pendingFees)}</div>
+                      <div className="text-3xl font-bold text-[#d93a2b]">{formatCurrency(QUICK_STATS.pendingFees)}</div>
                       <p className="text-xs text-muted-foreground">Due amount</p>
                       <Button variant="link" className="mt-1 h-auto p-0 text-xs" onClick={() => setActiveTab("fees")}>
                         Pay now <ArrowUpRight className="ml-1 h-3 w-3" />
@@ -593,8 +593,8 @@ export default function StudentDashboard() {
                         {QUICK_STATS.attendance >= 75 ? "Excellent! Keep it up." : QUICK_STATS.attendance >= 60 ? "Needs improvement." : "Critical - please attend classes regularly."}
                       </p>
                       <div className="mt-4 flex gap-4 text-xs">
-                        <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-green-400" /> {">"}75% Good</span>
-                        <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-yellow-400" /> 60-75% Avg</span>
+                        <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-[#1b3a5c]" /> {">"}75% Good</span>
+                        <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-[#d93a2b]" /> 60-75% Avg</span>
                         <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-red-400" /> {"<"}60% Low</span>
                       </div>
                     </div>
@@ -620,8 +620,8 @@ export default function StudentDashboard() {
                       <TableBody>
                         {ATTENDANCE_DATA.map((row) => {
                           const pct = Math.round((row.attended / row.total) * 100)
-                          const color = pct >= 75 ? "text-green-600" : pct >= 60 ? "text-yellow-500" : "text-red-500"
-                          const bg = pct >= 75 ? "bg-green-100 text-green-800 dark:bg-green-900/30" : pct >= 60 ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30" : "bg-red-100 text-red-800 dark:bg-red-900/30"
+                          const color = pct >= 75 ? "text-[#1b3a5c]" : pct >= 60 ? "text-[#d93a2b]" : "text-[#d93a2b]"
+                          const bg = pct >= 75 ? "bg-[#e8eef7] text-[#1b3a5c] dark:bg-[#12283f]/60" : pct >= 60 ? "bg-[#fde9e6] text-[#b82e21] dark:bg-[#7a1f16]/60" : "bg-[#fde9e6] text-[#b82e21] dark:bg-[#7a1f16]/60"
                           return (
                             <TableRow key={row.subject}>
                               <TableCell className="font-medium">{row.subject}</TableCell>
@@ -813,7 +813,7 @@ export default function StudentDashboard() {
                               <TableCell className="font-medium">{fee.type}</TableCell>
                               <TableCell className="text-right">{formatCurrency(fee.amount)}</TableCell>
                               <TableCell className="text-right">{formatCurrency(fee.paid)}</TableCell>
-                              <TableCell className={cn("text-right font-semibold", due > 0 && "text-red-500")}>{formatCurrency(due)}</TableCell>
+                              <TableCell className={cn("text-right font-semibold", due > 0 && "text-[#d93a2b]")}>{formatCurrency(due)}</TableCell>
                               <TableCell>{formatDate(fee.dueDate)}</TableCell>
                               <TableCell className="text-center">
                                 <Badge variant={variant}>{label}</Badge>
@@ -864,7 +864,7 @@ export default function StudentDashboard() {
                                 Due: {formatDate(a.dueDate)}
                               </span>
                               {a.status !== "submitted" && (
-                                <span className={cn("font-semibold", isOverdue ? "text-red-500" : "text-amber-500")}>
+                                <span className={cn("font-semibold", isOverdue ? "text-[#d93a2b]" : "text-[#d93a2b]")}>
                                   {isOverdue ? `${Math.abs(daysLeft)} days overdue` : `${daysLeft} days remaining`}
                                 </span>
                               )}
@@ -935,7 +935,7 @@ export default function StudentDashboard() {
                               <TableCell>{formatDate(b.due)}</TableCell>
                               <TableCell className="text-center">
                                 {b.fine > 0 ? (
-                                  <span className="font-semibold text-red-500">{formatCurrency(b.fine)}</span>
+                                  <span className="font-semibold text-[#d93a2b]">{formatCurrency(b.fine)}</span>
                                 ) : (
                                   <span className="text-muted-foreground">-</span>
                                 )}
@@ -964,10 +964,10 @@ export default function StudentDashboard() {
                   <Card className="border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950/30">
                     <CardContent className="flex items-center justify-between p-4">
                       <div className="flex items-center gap-2">
-                        <AlertCircle className="h-5 w-5 text-red-500" />
+                        <AlertCircle className="h-5 w-5 text-[#d93a2b]" />
                         <div>
                           <p className="font-semibold text-red-600 dark:text-red-400">Pending Library Fine</p>
-                          <p className="text-xs text-red-500/70">Please return overdue books and pay fine</p>
+                          <p className="text-xs text-[#d93a2b]/70">Please return overdue books and pay fine</p>
                         </div>
                       </div>
                       <p className="text-xl font-bold text-red-600 dark:text-red-400">
@@ -1001,7 +1001,7 @@ export default function StudentDashboard() {
                           <div className={cn(
                             "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
                             n.type === "urgent" ? "bg-red-100 text-red-600 dark:bg-red-900/30" :
-                            n.type === "warning" ? "bg-amber-100 text-amber-600 dark:bg-amber-900/30" :
+                            n.type === "warning" ? "bg-[#fde9e6] text-[#b82e21] dark:bg-[#7a1f16]/60" :
                             "bg-blue-100 text-blue-600 dark:bg-blue-900/30"
                           )}>
                             {n.type === "urgent" ? <AlertCircle className="h-5 w-5" /> :

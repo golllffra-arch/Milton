@@ -37,7 +37,7 @@ export function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: isDark ? "var(--page-surface, #0e1d31)" : "var(--page-primary, #0e1d31)",
+        backgroundColor: isDark ? "var(--page-surface, #12283f)" : "var(--page-primary, #12283f)",
       }}
       className="text-white"
     >
@@ -51,14 +51,14 @@ export function Footer() {
               >
                 <GraduationCap
                   className="w-7 h-7"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 />
               </div>
               <div>
                 <span className="font-display text-xl font-bold">Milton</span>
                 <span
                   className="block text-xs uppercase tracking-widest font-medium -mt-1"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 >
                   International College
                 </span>
@@ -74,28 +74,28 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin
                   className="w-4 h-4 mt-0.5"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 />
                 <span>New Baneshwor, Kathmandu, Nepal</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone
                   className="w-4 h-4"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 />
                 <span>01-4791974</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail
                   className="w-4 h-4"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 />
                 <span>info@milton.edu.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Clock
                   className="w-4 h-4"
-                  style={{ color: "var(--page-secondary, #e31c23)" }}
+                  style={{ color: "var(--page-secondary, #d93a2b)" }}
                 />
                 <span>Sun - Fri: 6:00 AM - 2:00 PM</span>
               </div>

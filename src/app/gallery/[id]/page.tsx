@@ -22,7 +22,7 @@ export default function GalleryAlbumPage() {
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950 pt-20">
         <div className="text-center">
           <ImageIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h1 className="text-2xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #3b0764)" }}>Album Not Found</h1>
+          <h1 className="text-2xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>Album Not Found</h1>
           <p className="text-gray-500 mb-6">The gallery album you are looking for does not exist.</p>
           <Link href="/gallery"><Button variant="outline"><ArrowLeft className="w-4 h-4 mr-2" />Back to Gallery</Button></Link>
         </div>
@@ -33,10 +33,10 @@ export default function GalleryAlbumPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 pt-20">
       {/* Back bar */}
-      <div className="border-b border-gray-100 dark:border-gray-800 dark:bg-gray-900" style={{ background: "var(--page-bg, #f5f3ff)" }}>
+      <div className="border-b border-gray-100 dark:border-gray-800 dark:bg-gray-900" style={{ background: "var(--page-bg, #ffffff)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/gallery" className="inline-flex items-center text-sm text-gray-500 transition-colors"
-            style={{ color: "var(--page-secondary, #d946ef)" }}>
+            style={{ color: "var(--page-secondary, #d93a2b)" }}>
             <ArrowLeft className="w-4 h-4 mr-1.5" />Back to Gallery
           </Link>
         </div>
@@ -84,7 +84,7 @@ export default function GalleryAlbumPage() {
 
           <div className="text-center mt-12">
             <Link href="/gallery">
-              <Button variant="outline" style={{ borderColor: "var(--page-primary, #7c3aed)", color: "var(--page-text, #3b0764)" }}>
+              <Button variant="outline" style={{ borderColor: "var(--page-primary, #1b3a5c)", color: "var(--page-text, #1a1a1a)" }}>
                 <ArrowLeft className="w-4 h-4 mr-2" />Back to All Albums
               </Button>
             </Link>

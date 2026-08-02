@@ -101,64 +101,64 @@ const SECTION_LABELS: Record<SectionKey, string> = {
 
 const SECTION_VARIANTS: Record<SectionKey, VariantItem[]> = {
   navbar: [
-    { id: "default", name: "Default", colors: ["#1c3557", "#ffffff", "#e31c23"], description: "Solid navy bar" },
-    { id: "transparent", name: "Transparent", colors: ["transparent", "#ffffff", "#e31c23"], description: "Floating overlay" },
-    { id: "centered", name: "Centered", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "White centered" },
-    { id: "minimal", name: "Minimal", colors: ["#1c3557", "#94a3b8", "#e31c23"], description: "Compact minimal" },
+    { id: "default", name: "Default", colors: ["#1b3a5c", "#ffffff", "#d93a2b"], description: "Solid navy bar" },
+    { id: "transparent", name: "Transparent", colors: ["transparent", "#ffffff", "#d93a2b"], description: "Floating overlay" },
+    { id: "centered", name: "Centered", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "White centered" },
+    { id: "minimal", name: "Minimal", colors: ["#1b3a5c", "#6b7280", "#d93a2b"], description: "Compact minimal" },
   ],
   footer: [
-    { id: "dark", name: "Dark", colors: ["#0f172a", "#ffffff", "#e31c23"], description: "Dark navy footer" },
-    { id: "light", name: "Light", colors: ["#f8fafc", "#1c3557", "#e31c23"], description: "Light footer" },
-    { id: "split", name: "Split", colors: ["#1c3557", "#ffffff", "#334155"], description: "Split design" },
-    { id: "minimal", name: "Minimal", colors: ["#ffffff", "#64748b", "#1c3557"], description: "Minimal layout" },
+    { id: "dark", name: "Dark", colors: ["#0b1522", "#ffffff", "#d93a2b"], description: "Dark navy footer" },
+    { id: "light", name: "Light", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Light footer" },
+    { id: "split", name: "Split", colors: ["#1b3a5c", "#ffffff", "#1e3a5c"], description: "Split design" },
+    { id: "minimal", name: "Minimal", colors: ["#ffffff", "#6b7280", "#1b3a5c"], description: "Minimal layout" },
   ],
   hero: [
-    { id: "gradient", name: "Gradient", colors: ["#1c3557", "#ffffff", "#e31c23"], description: "Navy gradient bg" },
-    { id: "image", name: "Image Focus", colors: ["#0f172a", "#ffffff", "#e31c23"], description: "Dark overlay bg" },
-    { id: "minimal", name: "Minimal", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Clean white hero" },
-    { id: "split", name: "Split Screen", colors: ["#1c3557", "#ffffff", "#e31c23"], description: "Split layout" },
+    { id: "gradient", name: "Gradient", colors: ["#1b3a5c", "#ffffff", "#d93a2b"], description: "Navy gradient bg" },
+    { id: "image", name: "Image Focus", colors: ["#0b1522", "#ffffff", "#d93a2b"], description: "Dark overlay bg" },
+    { id: "minimal", name: "Minimal", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Clean white hero" },
+    { id: "split", name: "Split Screen", colors: ["#1b3a5c", "#ffffff", "#d93a2b"], description: "Split layout" },
   ],
   dashboard: [
-    { id: "default", name: "Default", colors: ["#1c3557", "#ffffff", "#e31c23"], description: "Standard admin" },
-    { id: "compact", name: "Compact", colors: ["#1c3557", "#f1f5f9", "#e31c23"], description: "Dense layout" },
-    { id: "light", name: "Light", colors: ["#ffffff", "#1c3557", "#3b82f6"], description: "Light theme" },
-    { id: "modern", name: "Modern", colors: ["#0f172a", "#ffffff", "#6366f1"], description: "Glass morphism" },
+    { id: "default", name: "Default", colors: ["#1b3a5c", "#ffffff", "#d93a2b"], description: "Standard admin" },
+    { id: "compact", name: "Compact", colors: ["#1b3a5c", "#f1f2f4", "#d93a2b"], description: "Dense layout" },
+    { id: "light", name: "Light", colors: ["#ffffff", "#1b3a5c", "#1b3a5c"], description: "Light theme" },
+    { id: "modern", name: "Modern", colors: ["#0b1522", "#ffffff", "#1b3a5c"], description: "Glass morphism" },
   ],
   events: [
-    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Grid of cards" },
-    { id: "list", name: "List View", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Horizontal list" },
-    { id: "calendar", name: "Calendar", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Calendar layout" },
-    { id: "timeline", name: "Timeline", colors: ["#f8fafc", "#1c3557", "#e31c23"], description: "Chronological" },
+    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Grid of cards" },
+    { id: "list", name: "List View", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Horizontal list" },
+    { id: "calendar", name: "Calendar", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Calendar layout" },
+    { id: "timeline", name: "Timeline", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Chronological" },
   ],
   news: [
-    { id: "magazine", name: "Magazine", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Feature grid" },
-    { id: "blog", name: "Blog Style", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "List with sidebar" },
-    { id: "modern", name: "Modern", colors: ["#f8fafc", "#1c3557", "#3b82f6"], description: "Clean modern" },
-    { id: "compact", name: "Compact", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Dense layout" },
+    { id: "magazine", name: "Magazine", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Feature grid" },
+    { id: "blog", name: "Blog Style", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "List with sidebar" },
+    { id: "modern", name: "Modern", colors: ["#ffffff", "#1b3a5c", "#1b3a5c"], description: "Clean modern" },
+    { id: "compact", name: "Compact", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Dense layout" },
   ],
   notice: [
-    { id: "banner", name: "Banner", colors: ["#e31c23", "#ffffff", "#1c3557"], description: "Red banner alerts" },
-    { id: "sidebar", name: "Sidebar", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Side panel list" },
-    { id: "modal", name: "Popover", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Modal notifications" },
-    { id: "marquee", name: "Marquee", colors: ["#1c3557", "#ffffff", "#e31c23"], description: "Scrolling ticker" },
+    { id: "banner", name: "Banner", colors: ["#d93a2b", "#ffffff", "#1b3a5c"], description: "Red banner alerts" },
+    { id: "sidebar", name: "Sidebar", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Side panel list" },
+    { id: "modal", name: "Popover", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Modal notifications" },
+    { id: "marquee", name: "Marquee", colors: ["#1b3a5c", "#ffffff", "#d93a2b"], description: "Scrolling ticker" },
   ],
   gallery: [
-    { id: "grid", name: "Grid", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Masonry grid" },
-    { id: "slider", name: "Slider", colors: ["#0f172a", "#ffffff", "#e31c23"], description: "Fullscreen slider" },
-    { id: "carousel", name: "Carousel", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Horizontal carousel" },
-    { id: "lightbox", name: "Lightbox", colors: ["#0f172a", "#ffffff", "#e31c23"], description: "Grid + lightbox" },
+    { id: "grid", name: "Grid", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Masonry grid" },
+    { id: "slider", name: "Slider", colors: ["#0b1522", "#ffffff", "#d93a2b"], description: "Fullscreen slider" },
+    { id: "carousel", name: "Carousel", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Horizontal carousel" },
+    { id: "lightbox", name: "Lightbox", colors: ["#0b1522", "#ffffff", "#d93a2b"], description: "Grid + lightbox" },
   ],
   faculty: [
-    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Profile cards" },
-    { id: "list", name: "List", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Directory list" },
-    { id: "table", name: "Table", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Data table" },
-    { id: "modern", name: "Modern", colors: ["#f8fafc", "#1c3557", "#6366f1"], description: "Modern profiles" },
+    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Profile cards" },
+    { id: "list", name: "List", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Directory list" },
+    { id: "table", name: "Table", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Data table" },
+    { id: "modern", name: "Modern", colors: ["#ffffff", "#1b3a5c", "#1b3a5c"], description: "Modern profiles" },
   ],
   programs: [
-    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Program cards" },
-    { id: "accordion", name: "Accordion", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Expandable list" },
-    { id: "tabs", name: "Tabbed", colors: ["#ffffff", "#1c3557", "#e31c23"], description: "Tab navigation" },
-    { id: "detailed", name: "Detailed", colors: ["#f8fafc", "#1c3557", "#e31c23"], description: "Full detail view" },
+    { id: "cards", name: "Card Grid", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Program cards" },
+    { id: "accordion", name: "Accordion", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Expandable list" },
+    { id: "tabs", name: "Tabbed", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Tab navigation" },
+    { id: "detailed", name: "Detailed", colors: ["#ffffff", "#1b3a5c", "#d93a2b"], description: "Full detail view" },
   ],
 }
 
@@ -176,7 +176,7 @@ const FEATURES_CONFIG: { id: string; label: string; description: string }[] = [
 ]
 
 const DEFAULT_SETTINGS: Settings = {
-  colors: { primary: "#1c3557", secondary: "#e31c23", accent: "#3b82f6", background: "#ffffff" },
+  colors: { primary: "#1b3a5c", secondary: "#d93a2b", accent: "#1b3a5c", background: "#ffffff" },
   fonts: { heading: "Playfair Display", body: "Inter" },
   variants: Object.fromEntries(SECTIONS.map((s) => [s, SECTION_VARIANTS[s][0].id])),
   features: Object.fromEntries(FEATURES_CONFIG.map((f) => [f.id, f.id === "stats" || f.id === "darkMode" || f.id === "backToTop"])),
@@ -197,11 +197,11 @@ function VariantPreview({ colors, selected }: { colors: [string, string, string]
     <div
       className={cn(
         "relative h-20 w-full overflow-hidden rounded-lg border-2 transition-all duration-200",
-        selected ? "border-[#e31c23] shadow-md shadow-red-500/20" : "border-border hover:border-muted-foreground/40"
+        selected ? "border-[#d93a2b] shadow-md shadow-red-500/20" : "border-border hover:border-muted-foreground/40"
       )}
     >
       <div className="flex h-full flex-col">
-        <div className="flex h-2 items-center gap-1 px-2" style={{ backgroundColor: colors[0] === "transparent" ? "#1c3557" : colors[0] }}>
+        <div className="flex h-2 items-center gap-1 px-2" style={{ backgroundColor: colors[0] === "transparent" ? "#1b3a5c" : colors[0] }}>
           <div className="h-1 w-1 rounded-full bg-white/60" />
           <div className="h-1 w-4 rounded-sm bg-white/40" />
           <div className="ml-auto flex gap-1">
@@ -209,17 +209,17 @@ function VariantPreview({ colors, selected }: { colors: [string, string, string]
             <div className="h-1 w-1 rounded-full bg-white/40" />
           </div>
         </div>
-        <div className="flex flex-1 items-center justify-center gap-2 px-2" style={{ backgroundColor: colors[0] === "transparent" ? "oklch(0.967 0.003 264.542)" : "#f8fafc" }}>
+        <div className="flex flex-1 items-center justify-center gap-2 px-2" style={{ backgroundColor: colors[0] === "transparent" ? "oklch(0.967 0.003 264.542)" : "#ffffff" }}>
           <div className="h-2 w-6 rounded-sm" style={{ backgroundColor: colors[2] }} />
           <div className="h-2 w-6 rounded-sm bg-muted-foreground/30" />
           <div className="h-2 w-6 rounded-sm bg-muted-foreground/30" />
         </div>
-        <div className="flex h-2 items-center px-2" style={{ backgroundColor: colors[0] === "transparent" ? "#1c3557" : colors[0] }}>
+        <div className="flex h-2 items-center px-2" style={{ backgroundColor: colors[0] === "transparent" ? "#1b3a5c" : colors[0] }}>
           <div className="h-1 w-1 rounded-full bg-white/40" />
         </div>
       </div>
       {selected && (
-        <div className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#e31c23]">
+        <div className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#d93a2b]">
           <Check className="h-3 w-3 text-white" />
         </div>
       )}
@@ -557,7 +557,7 @@ export default function AppearancePage() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-[#1c3557]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#1b3a5c]" />
           <p className="text-sm text-muted-foreground">Loading appearance settings...</p>
         </div>
       </div>
@@ -572,7 +572,7 @@ export default function AppearancePage() {
         className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
       >
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-[#1c3557] dark:text-white md:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[#1b3a5c] dark:text-white md:text-3xl">
             Appearance
           </h1>
           <p className="mt-1 text-muted-foreground">
@@ -628,8 +628,8 @@ export default function AppearancePage() {
             <Card className="border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Palette className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Palette className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Site Colors</CardTitle>
@@ -658,8 +658,8 @@ export default function AppearancePage() {
             <Card className="mt-6 border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Type className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Type className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Typography</CardTitle>
@@ -707,8 +707,8 @@ export default function AppearancePage() {
             <Card className="border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Layout className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Layout className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Section Variants</CardTitle>
@@ -725,7 +725,7 @@ export default function AppearancePage() {
                       return (
                         <div key={section}>
                           <div className="mb-3 flex items-center gap-2">
-                            <Badge variant="outline" className="bg-[#1c3557]/5 px-2 py-0 text-xs font-medium text-[#1c3557] dark:text-white">
+                            <Badge variant="outline" className="bg-[#1b3a5c]/5 px-2 py-0 text-xs font-medium text-[#1b3a5c] dark:text-white">
                               {SECTION_LABELS[section]}
                             </Badge>
                           </div>
@@ -737,7 +737,7 @@ export default function AppearancePage() {
                                 className={cn(
                                   "group w-[160px] shrink-0 rounded-xl border-2 p-2 text-left transition-all duration-200",
                                   selected === v.id
-                                    ? "border-[#e31c23] bg-red-50 dark:bg-red-950/20"
+                                    ? "border-[#d93a2b] bg-red-50 dark:bg-red-950/20"
                                     : "border-border bg-card hover:border-muted-foreground/40 hover:shadow-md"
                                 )}
                               >
@@ -768,8 +768,8 @@ export default function AppearancePage() {
             <Card className="border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Image className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Image className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Logo & Favicon</CardTitle>
@@ -802,8 +802,8 @@ export default function AppearancePage() {
             <Card className="border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Sparkles className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Sparkles className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Feature Toggles</CardTitle>
@@ -821,7 +821,7 @@ export default function AppearancePage() {
                           key={feature.id}
                           className={cn(
                             "flex items-center justify-between rounded-lg px-4 py-3 transition-colors",
-                            enabled ? "bg-green-50/50 dark:bg-green-950/10" : "hover:bg-muted/30"
+                            enabled ? "bg-[#e8eef7]/50 dark:bg-[#12283f]/10" : "hover:bg-muted/30"
                           )}
                         >
                           <div>
@@ -848,8 +848,8 @@ export default function AppearancePage() {
             <Card className="border-0 shadow-md">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-[#1c3557]/10 p-2">
-                    <Eye className="h-5 w-5 text-[#1c3557]" />
+                  <div className="rounded-lg bg-[#1b3a5c]/10 p-2">
+                    <Eye className="h-5 w-5 text-[#1b3a5c]" />
                   </div>
                   <div>
                     <CardTitle>Live Preview</CardTitle>

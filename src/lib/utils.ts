@@ -48,6 +48,14 @@ export function getInitials(name: string): string {
     .slice(0, 2);
 }
 
+export const DEPARTMENT_BADGE_STYLES: Record<string, { background: string; color: string }> = {
+  BCA: { background: "#E8EEF7", color: "#1B3A5C" },
+  BBM: { background: "#FDE9E6", color: "#B82E21" },
+  BBS: { background: "#E8EEF7", color: "#1B3A5C" },
+  BASW: { background: "#FDE9E6", color: "#B82E21" },
+  Administration: { background: "#F1F2F4", color: "#4B5563" },
+};
+
 export function truncate(str: string, length: number): string {
   return str.length > length ? str.slice(0, length) + "..." : str;
 }

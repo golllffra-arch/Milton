@@ -73,7 +73,7 @@ function HoverUnderline() {
   return (
     <motion.span
       className="absolute inset-x-[20%] -bottom-0.5 h-[2px] origin-center rounded-full"
-      style={{ background: "var(--nav-accent, #ffb53d)" }}
+      style={{ background: "var(--nav-accent, #d93a2b)" }}
       initial={{ scaleX: 0, opacity: 0 }}
       whileHover={{ scaleX: 1, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -89,7 +89,7 @@ function ActivePill() {
       layoutId="active-pill"
       className="absolute inset-0 rounded-full"
       style={{
-        background: "linear-gradient(135deg, var(--nav-accent, #ffb53d), var(--nav-accent, #ffb53d)/80)",
+        background: "linear-gradient(135deg, var(--nav-accent, #d93a2b), var(--nav-accent, #d93a2b)/80)",
         boxShadow: "0 0 20px var(--nav-glow, rgba(255,181,61,0.3))",
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -156,7 +156,7 @@ function Dropdown({
                   style={{ color: "var(--nav-muted, rgba(255,255,255,0.65))" }}
                   onClick={() => setOpen(false)}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--nav-accent, #ffb53d)"
+                    e.currentTarget.style.color = "var(--nav-accent, #d93a2b)"
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = "var(--nav-muted, rgba(255,255,255,0.65))"
@@ -182,7 +182,7 @@ function NavParticles() {
           key={i}
           className="nav-particle absolute h-[2px] w-[2px] rounded-full"
           style={{
-            background: "var(--nav-accent, #ffb53d)",
+            background: "var(--nav-accent, #d93a2b)",
             left: `${10 + i * 18}%`,
             top: `${30 + (i % 3) * 25}%`,
             animationDelay: `${i * 1.2}s`,
@@ -273,8 +273,8 @@ export default function SiteHeader() {
   const navStyle: React.CSSProperties = theme
     ? {
         "--nav-bg": scrolled
-          ? "rgba(23,22,58,0.92)"
-          : "rgba(23,22,58,0.25)",
+          ? "rgba(18,40,63,0.92)"
+          : "rgba(18,40,63,0.25)",
         "--nav-text": "#ffffff",
         "--nav-muted": "rgba(255,255,255,0.6)",
         "--nav-accent": theme.accent,
@@ -295,7 +295,7 @@ export default function SiteHeader() {
       className={`sticky top-0 left-0 right-0 z-50 transition-all duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}
       style={{
         ...navStyle,
-        backgroundColor: "var(--nav-bg, rgba(23,22,58,0.25))",
+        backgroundColor: "var(--nav-bg, rgba(18,40,63,0.25))",
         backdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
         WebkitBackdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
         borderBottom: scrolled ? "1px solid var(--nav-border, rgba(255,255,255,0.1))" : "1px solid transparent",
@@ -341,7 +341,7 @@ export default function SiteHeader() {
                   className="relative flex items-center px-3 py-2 text-sm font-medium transition-colors"
                   style={{
                     color: isActive(item.href)
-                      ? "#17163a"
+                      ? "#12283f"
                       : "var(--nav-text, #ffffff)",
                     zIndex: 1,
                   }}
@@ -433,7 +433,7 @@ export default function SiteHeader() {
                       className="block rounded-lg px-3 py-3 text-lg font-medium transition-colors"
                       style={{
                         color: isActive(item.href)
-                          ? "var(--nav-accent, #ffb53d)"
+                          ? "var(--nav-accent, #d93a2b)"
                           : "var(--nav-text, #ffffff)",
                       }}
                     >
@@ -448,8 +448,8 @@ export default function SiteHeader() {
                   href="/login"
                   className="flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-all"
                   style={{
-                    borderColor: "var(--nav-accent, #ffb53d)",
-                    color: "var(--nav-accent, #ffb53d)",
+                    borderColor: "var(--nav-accent, #d93a2b)",
+                    color: "var(--nav-accent, #d93a2b)",
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden fill="none">

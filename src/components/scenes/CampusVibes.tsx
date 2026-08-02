@@ -12,7 +12,7 @@ export function CampusVibes() {
   })), [])
 
   const confetti = useMemo(() => Array.from({ length: 25 }, (_: unknown, i) => {
-    const colors = ['#f43f5e', '#fbbf24', '#38bdf8', '#a78bfa', '#34d399']
+    const colors = ['#d93a2b', '#e8b4ac', '#1b3a5c', '#dce5f0', '#12283f']
     return {
       x: Math.random() * 1440,
       startY: -50,
@@ -28,59 +28,59 @@ export function CampusVibes() {
       {/* 1. Gradient background */}
       <div 
         className="absolute inset-0" 
-        style={{ background: "linear-gradient(to bottom, #831843 0%, #db2777 30%, #f43f5e 60%, #fbbf24 100%)" }} 
+        style={{ background: "linear-gradient(to bottom, #7a1f16 0%, #b82e21 30%, #d93a2b 60%, #e8b4ac 100%)" }} 
       />
       
       {/* 2. SVG scene layers */}
       <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
         {/* Sun/Glow */}
-        <circle cx="1200" cy="500" r="150" fill="#fef08a" opacity="0.2" className="vibes-sun" />
+        <circle cx="1200" cy="500" r="150" fill="#f5c9c4" opacity="0.2" className="vibes-sun" />
         
         {/* Background Trees */}
         {[100, 300, 500, 800, 1100, 1300].map((x, i) => (
           <g key={`bg-tree-${i}`} transform={`translate(${x}, 550) scale(${Math.random() * 0.4 + 0.6})`}>
-            <rect x="-10" y="0" width="20" height="150" fill="#4c0519" opacity="0.6"/>
-            <circle cx="0" cy="-20" r="60" fill="#881337" opacity="0.5"/>
-            <circle cx="-30" cy="10" r="40" fill="#881337" opacity="0.5"/>
-            <circle cx="30" cy="10" r="40" fill="#881337" opacity="0.5"/>
+            <rect x="-10" y="0" width="20" height="150" fill="#7a1f16" opacity="0.6"/>
+            <circle cx="0" cy="-20" r="60" fill="#b82e21" opacity="0.5"/>
+            <circle cx="-30" cy="10" r="40" fill="#b82e21" opacity="0.5"/>
+            <circle cx="30" cy="10" r="40" fill="#b82e21" opacity="0.5"/>
           </g>
         ))}
 
         {/* Campus Buildings / Quad */}
-        <path d="M50,600 L50,350 L250,300 L450,350 L450,600 Z" fill="#2e1065" opacity="0.7"/>
-        <path d="M900,600 L900,250 L1150,250 L1150,600 Z" fill="#2e1065" opacity="0.7"/>
+        <path d="M50,600 L50,350 L250,300 L450,350 L450,600 Z" fill="#12283f" opacity="0.7"/>
+        <path d="M900,600 L900,250 L1150,250 L1150,600 Z" fill="#12283f" opacity="0.7"/>
         {/* Building windows */}
         {Array.from({length: 12}).map((_: unknown, i) => (
-          <rect key={`win1-${i}`} x={100 + (i%3)*80} y={380 + Math.floor(i/3)*50} width="30" height="30" fill="#fbbf24" opacity="0.3"/>
+          <rect key={`win1-${i}`} x={100 + (i%3)*80} y={380 + Math.floor(i/3)*50} width="30" height="30" fill="#e8b4ac" opacity="0.3"/>
         ))}
         {Array.from({length: 15}).map((_: unknown, i) => (
-          <rect key={`win2-${i}`} x={940 + (i%3)*70} y={300 + Math.floor(i/3)*60} width="35" height="40" fill="#fbbf24" opacity="0.3"/>
+          <rect key={`win2-${i}`} x={940 + (i%3)*70} y={300 + Math.floor(i/3)*60} width="35" height="40" fill="#e8b4ac" opacity="0.3"/>
         ))}
 
         {/* Sports Field Mid-ground */}
-        <ellipse cx="720" cy="700" rx="500" ry="100" fill="#be123c" opacity="0.4" />
-        <ellipse cx="720" cy="700" rx="480" ry="90" fill="none" stroke="#fecdd3" strokeWidth="4" opacity="0.3" />
-        <line x1="720" y1="600" x2="720" y2="800" stroke="#fecdd3" strokeWidth="4" opacity="0.3" />
-        <circle cx="720" cy="700" r="30" fill="none" stroke="#fecdd3" strokeWidth="4" opacity="0.3" />
+        <ellipse cx="720" cy="700" rx="500" ry="100" fill="#b82e21" opacity="0.4" />
+        <ellipse cx="720" cy="700" rx="480" ry="90" fill="none" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
+        <line x1="720" y1="600" x2="720" y2="800" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
+        <circle cx="720" cy="700" r="30" fill="none" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
 
         {/* Basketball Hoop */}
         <g transform="translate(300, 650)">
-          <rect x="-3" y="-120" width="6" height="120" fill="#0f172a" />
-          <rect x="-25" y="-140" width="50" height="40" fill="#0f172a" />
-          <rect x="-15" y="-130" width="30" height="20" fill="#334155" />
-          <path d="M-10,-110 L10,-110 L5,-80 L-5,-80 Z" fill="none" stroke="#0f172a" strokeWidth="2"/>
+          <rect x="-3" y="-120" width="6" height="120" fill="#0b1522" />
+          <rect x="-25" y="-140" width="50" height="40" fill="#0b1522" />
+          <rect x="-15" y="-130" width="30" height="20" fill="#12283f" />
+          <path d="M-10,-110 L10,-110 L5,-80 L-5,-80 Z" fill="none" stroke="#0b1522" strokeWidth="2"/>
         </g>
 
         {/* Waving Flag */}
         <g transform="translate(1300, 500)">
-          <rect x="-3" y="-150" width="6" height="250" fill="#0f172a" />
-          <path d="M0,-140 Q40,-160 80,-140 Q120,-120 160,-140 L160,-80 Q120,-60 80,-80 Q40,-100 0,-80 Z" fill="#b91c1c" className="vibes-flag"/>
+          <rect x="-3" y="-150" width="6" height="250" fill="#0b1522" />
+          <path d="M0,-140 Q40,-160 80,-140 Q120,-120 160,-140 L160,-80 Q120,-60 80,-80 Q40,-100 0,-80 Z" fill="#d93a2b" className="vibes-flag"/>
         </g>
 
         {/* Foreground Trees */}
         {[200, 600, 1000, 1350].map((x, i) => (
           <g key={`fg-tree-${i}`} transform={`translate(${x}, 750) scale(${Math.random() * 0.3 + 0.8})`}>
-            <path d="M-10,150 Q0,0 0,-50 Q0,0 10,150 Z" fill="#0f172a" />
+            <path d="M-10,150 Q0,0 0,-50 Q0,0 10,150 Z" fill="#0b1522" />
             <circle cx="0" cy="-60" r="70" fill="#020617" opacity="0.9"/>
             <circle cx="-40" cy="-20" r="50" fill="#020617" opacity="0.9"/>
             <circle cx="40" cy="-20" r="50" fill="#020617" opacity="0.9"/>
@@ -118,7 +118,7 @@ export function CampusVibes() {
               '--start-y': `${n.y}px`,
               animation: `vibes-float-up ${n.duration}s infinite ease-in-out ${n.delay}s`
             } as React.CSSProperties}
-            fill="#0f172a"
+            fill="#0b1522"
           >
             {n.type === 'single' ? (
               <path d="M0,20 A8,6 0 1,1 -16,20 A8,6 0 1,1 0,20 M0,20 L0,-10 L15,-5" />

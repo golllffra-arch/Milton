@@ -88,7 +88,7 @@ function HeroBlock({ content }: { content: any }) {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-xl">{content.subtext || "Excellence in Education since 2010"}</p>
         <div className="flex flex-wrap gap-4 pt-2">
-          {content.primaryCta && <Button size="lg" className="bg-[#e31c23] hover:bg-[#c4181e]">{content.primaryCta} <ArrowRight className="ml-2 w-4 h-4" /></Button>}
+          {content.primaryCta && <Button size="lg" className="bg-[#d93a2b] hover:bg-[#b82e21]">{content.primaryCta} <ArrowRight className="ml-2 w-4 h-4" /></Button>}
           {content.secondaryCta && <Button size="lg" variant="outline">{content.secondaryCta}</Button>}
         </div>
       </div>
@@ -146,7 +146,7 @@ function VideoBlock({ content }: { content: any }) {
         {content.embedUrl ? (
           <iframe src={content.embedUrl} className="absolute inset-0 w-full h-full" allowFullScreen />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1c3557] to-[#e31c23]">
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1b3a5c] to-[#12283f]">
             <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
               <Play className="w-10 h-10 text-white ml-1" />
             </div>
@@ -168,7 +168,7 @@ function StatsBlock({ content }: { content: any }) {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
       {stats.map((stat: any, i: number) => (
         <div key={i} className="text-center space-y-2">
-          <div className="text-4xl md:text-5xl font-bold font-display text-[#1c3557] dark:text-white">
+          <div className="text-4xl md:text-5xl font-bold font-display text-[#1b3a5c] dark:text-white">
             {stat.value}{stat.suffix || ""}
           </div>
           <div className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
@@ -189,11 +189,11 @@ function CardGridBlock({ content }: { content: any }) {
         {cards.map((card: any, i: number) => (
           <Card key={i} className="group hover:shadow-lg transition-shadow">
             <CardContent className="p-6 space-y-4">
-              {card.icon && <div className="w-12 h-12 rounded-lg bg-[#e31c23]/10 flex items-center justify-center text-[#e31c23]">{getIcon(card.icon)}</div>}
+              {card.icon && <div className="w-12 h-12 rounded-lg bg-[#d93a2b]/10 flex items-center justify-center text-[#d93a2b]">{getIcon(card.icon)}</div>}
               {card.image && <img src={card.image} alt={card.title} className="w-full h-40 object-cover rounded-lg" />}
               {card.title && <h3 className="font-display text-xl font-semibold">{card.title}</h3>}
               {card.description && <p className="text-muted-foreground text-sm">{card.description}</p>}
-              {card.link && <a href={card.link} className="text-[#e31c23] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></a>}
+              {card.link && <a href={card.link} className="text-[#d93a2b] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Learn More <ChevronRight className="w-3 h-3" /></a>}
             </CardContent>
           </Card>
         ))}
@@ -213,17 +213,17 @@ function TestimonialBlock({ content }: { content: any }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((t: any, i: number) => (
           <Card key={i} className="relative">
-            <Quote className="absolute top-4 left-4 w-8 h-8 text-[#e31c23]/20" />
+            <Quote className="absolute top-4 left-4 w-8 h-8 text-[#d93a2b]/20" />
             <CardContent className="p-6 pt-12 space-y-4">
               <p className="text-muted-foreground italic">"{t.content}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1c3557] flex items-center justify-center text-white font-bold text-sm">{t.name.split(" ").map((n:string)=>n[0]).join("")}</div>
+                <div className="w-10 h-10 rounded-full bg-[#1b3a5c] flex items-center justify-center text-white font-bold text-sm">{t.name.split(" ").map((n:string)=>n[0]).join("")}</div>
                 <div>
                   <p className="font-semibold text-sm">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
               </div>
-              {t.rating && <div className="flex gap-0.5">{Array.from({length: t.rating}).map((_: unknown, j: number)=><Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>}
+              {t.rating && <div className="flex gap-0.5">{Array.from({length: t.rating}).map((_: unknown, j: number)=><Star key={j} className="w-4 h-4 fill-[#d93a2b] text-[#d93a2b]" />)}</div>}
             </CardContent>
           </Card>
         ))}
@@ -234,11 +234,11 @@ function TestimonialBlock({ content }: { content: any }) {
 
 function CtaBlock({ content }: { content: any }) {
   return (
-    <div className="rounded-2xl p-12 text-center space-y-6 bg-gradient-to-br from-[#1c3557] to-[#0e1d31] text-white">
+    <div className="rounded-2xl p-12 text-center space-y-6 bg-gradient-to-br from-[#1b3a5c] to-[#12283f] text-white">
       <h2 className="font-display text-3xl md:text-4xl font-bold">{content.heading || "Begin Your Journey at Milton"}</h2>
       <p className="text-white/80 max-w-2xl mx-auto">{content.subtext || "Apply now and shape your future with quality education"}</p>
       <div className="flex flex-wrap justify-center gap-4">
-        {content.primaryCta && <Button size="lg" className="bg-[#e31c23] hover:bg-[#c4181e] text-white">{content.primaryCta}</Button>}
+        {content.primaryCta && <Button size="lg" className="bg-[#d93a2b] hover:bg-[#b82e21] text-white">{content.primaryCta}</Button>}
         {content.secondaryCta && <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">{content.secondaryCta}</Button>}
       </div>
     </div>
@@ -262,7 +262,7 @@ function FormBlock({ content }: { content: any }) {
               {field.type === "textarea" ? <Textarea rows={4} placeholder={field.placeholder || ""} /> : <Input type={field.type} placeholder={field.placeholder || ""} />}
             </div>
           ))}
-          <Button className="w-full bg-[#1c3557] hover:bg-[#152944]">{content.submitLabel || "Submit"}</Button>
+          <Button className="w-full bg-[#1b3a5c] hover:bg-[#12283f]">{content.submitLabel || "Submit"}</Button>
         </CardContent>
       </Card>
     </div>
@@ -275,7 +275,7 @@ function FaqBlock({ content }: { content: any }) {
     <div className="max-w-3xl mx-auto space-y-4">
       {content.title && <h2 className="font-display text-3xl font-bold text-center mb-8">{content.title}</h2>}
       {items.map((item: any, i: number) => (
-        <details key={i} className="group border rounded-xl p-4 [&[open]]:border-[#e31c23]">
+        <details key={i} className="group border rounded-xl p-4 [&[open]]:border-[#d93a2b]">
           <summary className="cursor-pointer font-medium flex items-center justify-between">{item.question}<ChevronRight className="w-4 h-4 group-open:rotate-90 transition-transform" /></summary>
           <p className="mt-3 text-muted-foreground text-sm">{item.answer}</p>
         </details>

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { getInitials } from "@/lib/utils"
+import { getInitials, DEPARTMENT_BADGE_STYLES } from "@/lib/utils"
 import { FACULTY } from "@/lib/data/faculty"
 
 export default function FacultyDetailPage() {
@@ -24,7 +24,7 @@ export default function FacultyDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950">
         <div className="text-center">
           <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h1 className="text-2xl font-display font-bold mb-2" style={{ color: "var(--page-text, #14532d)" }}>Faculty Not Found</h1>
+          <h1 className="text-2xl font-display font-bold mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>Faculty Not Found</h1>
           <p className="text-gray-500 mb-6">The faculty member you are looking for does not exist.</p>
           <Link href="/faculty"><Button variant="outline"><ArrowLeft className="w-4 h-4 mr-2" />Back to Faculty</Button></Link>
         </div>
@@ -49,10 +49,10 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 pt-20">
       {/* Back bar */}
-      <div className="border-b border-gray-100 dark:border-gray-800 dark:bg-gray-900" style={{ background: "var(--page-bg, #f0fdf4)" }}>
+      <div className="border-b border-gray-100 dark:border-gray-800 dark:bg-gray-900" style={{ background: "var(--page-bg, #ffffff)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/faculty" className="inline-flex items-center text-sm text-gray-500 transition-colors"
-            style={{ color: "var(--page-secondary, #22c55e)" }}>
+            style={{ color: "var(--page-secondary, #d93a2b)" }}>
             <ArrowLeft className="w-4 h-4 mr-1.5" />Back to Faculty
           </Link>
         </div>
@@ -63,8 +63,8 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[var(--page-accent,#c9962f)]/40 shadow-xl">
-                <AvatarFallback className="text-[var(--page-accent,#c9962f)] text-4xl font-bold" style={{ background: "var(--page-primary, #0f2a47)" }}>
+              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[var(--page-accent,#d93a2b)]/40 shadow-xl">
+                <AvatarFallback className="text-white text-4xl font-bold" style={{ background: "var(--page-primary, #1b3a5c)" }}>
                   {getInitials(member.name)}
                 </AvatarFallback>
               </Avatar>
@@ -72,7 +72,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center md:text-left flex-1">
               <Badge variant="outline" className="mb-3 border-white/20 text-white/80 bg-white/5">{member.department}</Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">{member.name}</h1>
-              <p className="text-lg mt-2" style={{ color: "var(--page-secondary, #d4a017)" }}>{member.qualifications}</p>
+              <p className="text-lg mt-2" style={{ color: "var(--page-secondary, #d93a2b)" }}>{member.qualifications}</p>
               <p className="text-white/60 mt-3 max-w-2xl">{member.bio || member.specialization}</p>
               <div className="flex flex-wrap items-center gap-4 mt-6 justify-center md:justify-start">
                 <a href={`mailto:${member.email}`}>
@@ -94,17 +94,17 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
               <FadeInSection>
                 <Card className="border-0 shadow-md">
                   <CardContent className="p-6">
-                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #14532d)" }}>
-                      <Briefcase className="w-5 h-5" style={{ color: "var(--page-secondary, #22c55e)" }} />Experience
+                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                      <Briefcase className="w-5 h-5" style={{ color: "var(--page-secondary, #d93a2b)" }} />Experience
                     </h2>
                     <div className="space-y-4">
                       {member.experience.map((exp, i) => (
                         <div key={i} className="flex gap-4 pb-4 border-b border-gray-100 dark:border-gray-700 last:border-0 last:pb-0">
-                          <div className="w-10 h-10 rounded-lg dark:bg-white/5 flex items-center justify-center shrink-0" style={{ background: "var(--page-primary, #16a34a)" }}>
-                            <Briefcase className="w-5 h-5 dark:text-white" style={{ color: "var(--page-text, #14532d)" }} />
+                          <div className="w-10 h-10 rounded-lg dark:bg-white/5 flex items-center justify-center shrink-0" style={{ background: "var(--page-primary, #1b3a5c)" }}>
+                            <Briefcase className="w-5 h-5 dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }} />
                           </div>
                           <div>
-                            <h3 className="font-semibold dark:text-white" style={{ color: "var(--page-text, #14532d)" }}>{exp.role}</h3>
+                            <h3 className="font-semibold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{exp.role}</h3>
                             <p className="text-sm text-gray-500">{exp.institution}</p>
                             <p className="text-xs text-gray-400 mt-1">{exp.years}</p>
                           </div>
@@ -120,13 +120,13 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
               <FadeInSection>
                 <Card className="border-0 shadow-md">
                   <CardContent className="p-6">
-                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #14532d)" }}>
-                      <GraduationCap className="w-5 h-5" style={{ color: "var(--page-secondary, #22c55e)" }} />Education
+                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                      <GraduationCap className="w-5 h-5" style={{ color: "var(--page-secondary, #d93a2b)" }} />Education
                     </h2>
                     <ul className="space-y-3">
                       {member.education.map((edu, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="w-2 h-2 rounded-full mt-2 shrink-0" style={{ background: "var(--page-secondary, #22c55e)" }} />
+                          <div className="w-2 h-2 rounded-full mt-2 shrink-0" style={{ background: "var(--page-secondary, #d93a2b)" }} />
                           <span className="text-gray-700 dark:text-gray-300">{edu}</span>
                         </li>
                       ))}
@@ -140,13 +140,13 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
               <FadeInSection>
                 <Card className="border-0 shadow-md">
                   <CardContent className="p-6">
-                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #14532d)" }}>
-                      <Award className="w-5 h-5" style={{ color: "var(--page-secondary, #22c55e)" }} />Achievements
+                    <h2 className="text-xl font-display font-bold dark:text-white flex items-center gap-2 mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                      <Award className="w-5 h-5" style={{ color: "var(--page-secondary, #d93a2b)" }} />Achievements
                     </h2>
                     <ul className="space-y-3">
                       {member.achievements.map((ach, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <Award className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-accent, #65a30d)" }} />
+                          <Award className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-accent, #d93a2b)" }} />
                           <span className="text-gray-700 dark:text-gray-300">{ach}</span>
                         </li>
                       ))}
@@ -162,15 +162,21 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
             <FadeInSection>
               <Card className="border-0 shadow-md">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #14532d)" }}>Quick Info</h3>
+                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>Quick Info</h3>
                   <div className="space-y-4">
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Specialization</p>
-                      <p className="text-sm font-medium dark:text-white" style={{ color: "var(--page-text, #14532d)" }}>{member.specialization}</p>
+                      <p className="text-sm font-medium dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{member.specialization}</p>
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Department</p>
-                      <Badge variant="info">{member.department}</Badge>
+                      <Badge
+                        variant="outline"
+                        className="border-transparent"
+                        style={DEPARTMENT_BADGE_STYLES[member.department] ?? { background: "#F1F2F4", color: "#4B5563" }}
+                      >
+                        {member.department}
+                      </Badge>
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Subjects</p>
@@ -182,7 +188,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Contact</p>
-                      <a href={`mailto:${member.email}`} className="text-sm hover:underline" style={{ color: "var(--page-secondary, #22c55e)" }}>{member.email}</a>
+                      <a href={`mailto:${member.email}`} className="text-sm hover:underline" style={{ color: "var(--page-secondary, #d93a2b)" }}>{member.email}</a>
                     </div>
                   </div>
                 </CardContent>
@@ -192,11 +198,11 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
             <FadeInSection>
               <Card className="border-0 shadow-md text-white" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}>
                 <CardContent className="p-6 text-center">
-                  <GraduationCap className="w-10 h-10 mx-auto mb-3" style={{ color: "var(--page-accent, #65a30d)" }} />
+                  <GraduationCap className="w-10 h-10 mx-auto mb-3" style={{ color: "var(--page-accent, #d93a2b)" }} />
                   <h3 className="font-display font-bold text-lg mb-2">Learn from the Best</h3>
                   <p className="text-white/60 text-sm mb-4">Join Milton and study under experienced faculty dedicated to your success.</p>
                   <Link href="/admissions">
-                    <Button size="sm" className="w-full" style={{ background: "var(--page-secondary, #d4a017)", color: "#0f2a47" }}>Apply Now</Button>
+                    <Button size="sm" className="w-full" style={{ background: "var(--page-secondary, #d93a2b)", color: "#ffffff" }}>Apply Now</Button>
                   </Link>
                 </CardContent>
               </Card>

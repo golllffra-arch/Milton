@@ -27,14 +27,14 @@
 
     --page-bg: #ffffff;
     --page-surface: #ffffff;
-    --page-primary: #1c3557;
-    --page-secondary: #e31c23;
-    --page-accent: #c9a84c;
-    --page-text: #1c3557;
+    --page-primary: #1b3a5c;
+    --page-secondary: #d93a2b;
+    --page-accent: #d93a2b;
+    --page-text: #1b3a5c;
     --page-muted: #6b7280;
-    --page-border: #e5e7eb;
-    --page-hero-from: #1c3557;
-    --page-hero-to: #0e1d31;
+    --page-border: #e2e5ea;
+    --page-hero-from: #1b3a5c;
+    --page-hero-to: #12283f;
     --page-glow: rgba(28,53,87,0.2);
   }
 
@@ -105,179 +105,179 @@
 /* ========== PAGE THEMES ========== */
 
 [data-page-theme="home"] {
-  --page-bg: #f8fafc;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1c3557;
-  --page-secondary: #e31c23;
-  --page-accent: #c9a84c;
-  --page-text: #1e293b;
-  --page-muted: #64748b;
-  --page-border: #e2e8f0;
-  --page-hero-from: #1c3557;
-  --page-hero-to: #0e1d31;
-  --page-glow: rgba(28,53,87,0.25);
-  --page-primary-rgb: 28,53,87;
-  --page-secondary-rgb: 227,28,35;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="about"] {
-  --page-bg: #fef7f0;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #c2410c;
-  --page-secondary: #f59e0b;
-  --page-accent: #d97706;
-  --page-text: #7c2d12;
-  --page-muted: #d4a574;
-  --page-border: #fde3cc;
-  --page-hero-from: #c2410c;
-  --page-hero-to: #f59e0b;
-  --page-glow: rgba(194,65,12,0.25);
-  --page-primary-rgb: 194,65,12;
-  --page-secondary-rgb: 245,158,11;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="services"] {
-  --page-bg: #ecfeff;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #0891b2;
-  --page-secondary: #06b6d4;
-  --page-accent: #0284c7;
-  --page-text: #164e63;
-  --page-muted: #22d3ee;
-  --page-border: #cffafe;
-  --page-hero-from: #0891b2;
-  --page-hero-to: #0284c7;
-  --page-glow: rgba(8,145,178,0.25);
-  --page-primary-rgb: 8,145,178;
-  --page-secondary-rgb: 6,182,212;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="projects"] {
-  --page-bg: #f5f3ff;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #7c3aed;
-  --page-secondary: #d946ef;
-  --page-accent: #c026d3;
-  --page-text: #3b0764;
-  --page-muted: #c4b5fd;
-  --page-border: #ede9fe;
-  --page-hero-from: #7c3aed;
-  --page-hero-to: #d946ef;
-  --page-glow: rgba(124,58,237,0.25);
-  --page-primary-rgb: 124,58,237;
-  --page-secondary-rgb: 217,70,239;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="coor"] {
-  --page-bg: #f7f8fa;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #0f2a47;
-  --page-secondary: #d4a017;
-  --page-accent: #c9962f;
-  --page-text: #1a1d23;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #0f2a47;
-  --page-hero-to: #081b30;
-  --page-glow: rgba(15,42,71,0.25);
-  --page-primary-rgb: 15,42,71;
-  --page-secondary-rgb: 212,160,23;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="contact"] {
-  --page-bg: #f0f9ff;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #0369a1;
-  --page-secondary: #0ea5e9;
-  --page-accent: #8b5cf6;
-  --page-text: #0c4a6e;
-  --page-muted: #7dd3fc;
-  --page-border: #e0f2fe;
-  --page-hero-from: #0369a1;
-  --page-hero-to: #0ea5e9;
-  --page-glow: rgba(3,105,161,0.25);
-  --page-primary-rgb: 3,105,161;
-  --page-secondary-rgb: 14,165,233;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="admissions"] {
-  --page-bg: #f8fafc;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1e40af;
-  --page-secondary: #3b82f6;
-  --page-accent: #f59e0b;
-  --page-text: #1e3a5f;
-  --page-muted: #93c5fd;
-  --page-border: #e2e8f0;
-  --page-hero-from: #1e40af;
-  --page-hero-to: #3b82f6;
-  --page-glow: rgba(30,64,175,0.25);
-  --page-primary-rgb: 30,64,175;
-  --page-secondary-rgb: 59,130,246;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="news"] {
-  --page-bg: #fff7ed;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #ea580c;
-  --page-secondary: #f97316;
-  --page-accent: #eab308;
-  --page-text: #7c2d12;
-  --page-muted: #fdba74;
-  --page-border: #ffedd5;
-  --page-hero-from: #ea580c;
-  --page-hero-to: #f97316;
-  --page-glow: rgba(234,88,12,0.25);
-  --page-primary-rgb: 234,88,12;
-  --page-secondary-rgb: 249,115,22;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="student-life"] {
-  --page-bg: #fdf2f8;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #db2777;
-  --page-secondary: #14b8a6;
-  --page-accent: #fbbf24;
-  --page-text: #831843;
-  --page-muted: #f472b6;
-  --page-border: #fce7f3;
-  --page-hero-from: #db2777;
-  --page-hero-to: #14b8a6;
-  --page-glow: rgba(219,39,119,0.25);
-  --page-primary-rgb: 219,39,119;
-  --page-secondary-rgb: 20,184,166;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="career-center"] {
-  --page-bg: #eff6ff;
+  --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1d4ed8;
-  --page-secondary: #2563eb;
-  --page-accent: #059669;
-  --page-text: #1e3a5f;
-  --page-muted: #93c5fd;
-  --page-border: #dbeafe;
-  --page-hero-from: #1d4ed8;
-  --page-hero-to: #2563eb;
-  --page-glow: rgba(29,78,216,0.25);
-  --page-primary-rgb: 29,78,216;
-  --page-secondary-rgb: 37,99,235;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #1a1a1a;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #1b3a5c;
+  --page-hero-to: #12283f;
+  --page-glow: rgba(27,58,92,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 [data-page-theme="virtual-tour"] {
-  --page-bg: #0f172a;
-  --page-surface: #1e293b;
-  --page-primary: #a855f7;
-  --page-secondary: #06b6d4;
-  --page-accent: #3b82f6;
-  --page-text: #f1f5f9;
-  --page-muted: #64748b;
-  --page-border: #334155;
-  --page-hero-from: #1e293b;
-  --page-hero-to: #0f172a;
-  --page-glow: rgba(168,85,247,0.25);
-  --page-primary-rgb: 168,85,247;
-  --page-secondary-rgb: 6,182,212;
+  --page-bg: #0b1522;
+  --page-surface: #12283f;
+  --page-primary: #1b3a5c;
+  --page-secondary: #d93a2b;
+  --page-accent: #d93a2b;
+  --page-text: #ffffff;
+  --page-muted: #94a3b8;
+  --page-border: #1e3a5c;
+  --page-hero-from: #12283f;
+  --page-hero-to: #0b1522;
+  --page-glow: rgba(217,58,43,0.25);
+  --page-primary-rgb: 27,58,92;
+  --page-secondary-rgb: 217,58,43;
 }
 
 /* ========== ATMOSPHERE ANIMATIONS ========== */
@@ -406,11 +406,11 @@ html {
 /* ─── Milton palette ─── */
 
 :root {
-  --ink: #1e293b;
-  --indigo: #1c3557;
-  --sakura: #e31c23;
-  --gold: #c9a84c;
-  --sky: #f8fafc;
+  --ink: #1a1a1a;
+  --indigo: #1b3a5c;
+  --sakura: #d93a2b;
+  --gold: #d93a2b;
+  --sky: #ffffff;
   --paper: #ffffff;
 }
 

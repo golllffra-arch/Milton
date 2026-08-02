@@ -50,15 +50,15 @@ const CAREERS = [
 ]
 
 const RELATED_PROGRAMS = [
-  { code: "bca", title: "BCA", fullName: "Bachelor of Computer Applications", icon: BookOpen, gradient: "from-[#1c3557] to-[#2c3e7a]" },
-  { code: "bbm", title: "BBM", fullName: "Bachelor of Business Management", icon: BookOpen, gradient: "from-[#e31c23] to-[#a51419]" },
-  { code: "basw", title: "BASW", fullName: "Bachelor of Arts in Social Work", icon: Users, gradient: "from-[#c9a84c] to-[#a8882e]" },
+  { code: "bca", title: "BCA", fullName: "Bachelor of Computer Applications", icon: BookOpen, gradient: "from-[#1b3a5c] to-[#12283f]" },
+  { code: "bbm", title: "BBM", fullName: "Bachelor of Business Management", icon: BookOpen, gradient: "from-[#d93a2b] to-[#b82e21]" },
+  { code: "basw", title: "BASW", fullName: "Bachelor of Arts in Social Work", icon: Users, gradient: "from-[#d93a2b] to-[#b82e21]" },
 ]
 
 const programGradients: Record<string, React.CSSProperties> = {
-  bca: { background: "linear-gradient(135deg, var(--page-primary, #0891b2), #2c3e7a)" },
-  bbm: { background: "linear-gradient(135deg, var(--page-secondary, #06b6d4), #a51419)" },
-  basw: { background: "linear-gradient(135deg, var(--page-accent, #0284c7), #a8882e)" },
+  bca: { background: "linear-gradient(135deg, var(--page-primary, #1b3a5c), #12283f)" },
+  bbm: { background: "linear-gradient(135deg, var(--page-secondary, #d93a2b), #b82e21)" },
+  basw: { background: "linear-gradient(135deg, var(--page-primary, #1b3a5c), #12283f)" },
 }
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -83,8 +83,8 @@ export default function BBSPage() {
       {/* ─── HERO ─── */}
       <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at top right, color-mix(in srgb, var(--page-secondary, #06b6d4) 15%, transparent), transparent 60%)" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--page-accent, #0284c7) 8%, transparent), transparent 50%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at top right, color-mix(in srgb, var(--page-secondary, #d93a2b) 15%, transparent), transparent 60%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--page-accent, #1b3a5c) 8%, transparent), transparent 50%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <motion.div
@@ -113,7 +113,7 @@ export default function BBSPage() {
                 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight"
               >
                 BBS{" "}
-                <span className="bg-clip-text text-transparent" style={{ background: "linear-gradient(to right, var(--page-secondary, #06b6d4), var(--page-accent, #0284c7))" }}>
+                <span className="bg-clip-text text-transparent" style={{ background: "linear-gradient(to right, var(--page-secondary, #d93a2b), var(--page-accent, #1b3a5c))" }}>
                   Program
                 </span>
               </motion.h1>
@@ -136,7 +136,7 @@ export default function BBSPage() {
           <div className="lg:col-span-2 space-y-16">
             {/* Overview */}
             <FadeInSection>
-              <h2 className="text-3xl font-display font-bold mb-6 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Program Overview</h2>
+              <h2 className="text-3xl font-display font-bold mb-6 dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Program Overview</h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   The Bachelor of Business Studies (BBS) is a three-year, six-semester
@@ -161,8 +161,8 @@ export default function BBSPage() {
             {/* Curriculum */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Curriculum Structure</h2>
+                <BookOpen className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Curriculum Structure</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 The BBS program spans 6 semesters over 3 years. Below is a semester-wise
@@ -172,12 +172,12 @@ export default function BBSPage() {
                 {SEMESTERS.map((sem) => (
                   <Card key={sem.sem} className="border border-gray-200 dark:border-gray-700 shadow-sm">
                     <CardContent className="p-4">
-                      <h3 className="font-display font-bold mb-3 text-lg dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
+                      <h3 className="font-display font-bold mb-3 text-lg dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
                         Semester {sem.sem}
                       </h3>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="space-y-2">
                         {sem.subjects.map((subj) => (
-                          <Badge key={subj} variant="secondary" className="text-xs px-3 py-1">
+                          <Badge key={subj} variant="secondary" className="text-xs px-3 py-1.5 w-full justify-start text-left">
                             {subj}
                           </Badge>
                         ))}
@@ -191,8 +191,8 @@ export default function BBSPage() {
             {/* Career Opportunities */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <Briefcase className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Career Opportunities</h2>
+                <Briefcase className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Career Opportunities</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 BBS graduates have excellent career prospects in finance, banking, and commerce.
@@ -203,11 +203,11 @@ export default function BBSPage() {
                   return (
                     <Card key={career.title} className="border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                       <CardContent className="p-5 flex gap-4">
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb, var(--page-primary, #0891b2) 10%, transparent)" }}>
-                          <Icon className="w-5 h-5" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb, var(--page-primary, #1b3a5c) 10%, transparent)" }}>
+                          <Icon className="w-5 h-5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{career.title}</h3>
+                          <h3 className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{career.title}</h3>
                           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{career.description}</p>
                         </div>
                       </CardContent>
@@ -220,8 +220,8 @@ export default function BBSPage() {
             {/* Eligibility */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="w-6 h-6" style={{ color: "var(--page-secondary, #06b6d4)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>Eligibility Criteria</h2>
+                <CheckCircle className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Eligibility Criteria</h2>
               </div>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
@@ -234,7 +234,7 @@ export default function BBSPage() {
                       "Good moral character and commitment to academic integrity",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
-                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #06b6d4)" }} />
+                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #d93a2b)" }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -247,8 +247,8 @@ export default function BBSPage() {
             <FadeInSection>
               <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}>
                 <CardContent className="p-8 flex flex-col sm:flex-row items-center gap-6">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb, var(--page-accent, #0284c7) 20%, transparent)" }}>
-                    <Download className="w-8 h-8" style={{ color: "var(--page-accent, #0284c7)" }} />
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb, var(--page-accent, #1b3a5c) 20%, transparent)" }}>
+                    <Download className="w-8 h-8" style={{ color: "var(--page-accent, #1b3a5c)" }} />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
                     <h3 className="text-xl font-display font-bold mb-2">Download Syllabus</h3>
@@ -270,7 +270,7 @@ export default function BBSPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm sticky top-24">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
+                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
                     Program at a Glance
                   </h3>
                   <div className="space-y-4">
@@ -284,7 +284,7 @@ export default function BBSPage() {
                     ].map((item) => (
                       <div key={item.label} className="flex justify-between text-sm">
                         <span className="text-gray-500 dark:text-gray-400">{item.label}</span>
-                        <span className="font-medium text-right dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{item.value}</span>
+                        <span className="font-medium text-right dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{item.value}</span>
                       </div>
                     ))}
                   </div>
@@ -295,7 +295,7 @@ export default function BBSPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>
+                  <h3 className="font-display font-bold mb-4 dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
                     Other Programs
                   </h3>
                   <div className="space-y-3">
@@ -308,7 +308,7 @@ export default function BBSPage() {
                               <Icon className="w-5 h-5 text-white" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #164e63)" }}>{p.title}</p>
+                              <p className="font-semibold text-sm dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{p.title}</p>
                               <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{p.fullName}</p>
                             </div>
                             <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[var(--page-secondary)] group-hover:translate-x-1 transition-all shrink-0" />
@@ -322,7 +322,7 @@ export default function BBSPage() {
             </FadeInSection>
 
             <FadeInSection>
-              <Card className="text-white border-0 shadow-lg" style={{ background: "linear-gradient(135deg, var(--page-accent, #0284c7), #a8882e)" }}>
+              <Card className="text-white border-0 shadow-lg" style={{ background: "linear-gradient(135deg, var(--page-primary, #1b3a5c), #12283f)" }}>
                 <CardContent className="p-6 text-center">
                   <GraduationCap className="w-10 h-10 mx-auto mb-4 opacity-80" />
                   <h3 className="font-display font-bold text-lg mb-2">Apply for BBS</h3>
@@ -330,7 +330,7 @@ export default function BBSPage() {
                     Admissions open for 2026/27. Secure your seat today.
                   </p>
                   <Link href="/admissions">
-                    <Button className="w-full bg-white hover:bg-white/90" style={{ color: "var(--page-accent, #0284c7)" }}>
+                    <Button className="w-full bg-white hover:bg-white/90" style={{ color: "var(--page-accent, #1b3a5c)" }}>
                       Apply Now
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
