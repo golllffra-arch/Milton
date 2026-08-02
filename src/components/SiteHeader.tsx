@@ -72,13 +72,9 @@ const mobileItemVariants = {
 /* ─── Underline component ─── */
 function HoverUnderline() {
   return (
-    <motion.span
-      className="absolute inset-x-[20%] -bottom-0.5 h-[2px] origin-center rounded-full"
+    <span
+      className="absolute inset-x-2 -bottom-0.5 h-[2px] origin-center scale-x-0 rounded-full transition-transform duration-300 group-hover:scale-x-100"
       style={{ background: "var(--nav-accent, #d93a2b)" }}
-      initial={{ scaleX: 0, opacity: 0 }}
-      whileHover={{ scaleX: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      layoutId="nav-underline"
     />
   )
 }
@@ -90,8 +86,8 @@ function ActivePill() {
       layoutId="active-pill"
       className="absolute inset-0 rounded-full"
       style={{
-        background: "linear-gradient(135deg, var(--nav-accent, #d93a2b), var(--nav-accent, #d93a2b)/80)",
-        boxShadow: "0 0 20px var(--nav-glow, rgba(255,181,61,0.3))",
+        background: "linear-gradient(135deg, var(--nav-accent, #d93a2b), color-mix(in srgb, var(--nav-accent, #d93a2b) 80%, transparent))",
+        boxShadow: "0 0 24px color-mix(in srgb, var(--nav-accent, #d93a2b) 40%, transparent)",
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     />
@@ -123,7 +119,7 @@ function Dropdown({
         aria-haspopup="true"
         onClick={() => setOpen((o) => !o)}
         className={cn(
-          "group relative flex items-center gap-1 py-2 text-sm font-medium transition-colors",
+          "group relative flex items-center gap-1 rounded-full py-2 text-sm font-medium transition-colors hover:bg-white/10",
           rightPad && "pr-3"
         )}
         style={{ color: "var(--nav-text, #ffffff)" }}
@@ -279,7 +275,7 @@ export default function SiteHeader() {
   const navStyle: React.CSSProperties = theme
     ? {
         "--nav-bg": scrolled
-          ? "rgba(18,40,63,0.92)"
+          ? "rgba(18,40,63,0.97)"
           : "rgba(18,40,63,0.25)",
         "--nav-text": "#ffffff",
         "--nav-muted": "rgba(255,255,255,0.6)",
@@ -344,10 +340,10 @@ export default function SiteHeader() {
               <motion.div key={item.href} variants={itemVariants} className="relative">
                 <Link
                   href={item.href}
-                  className="relative flex items-center px-3 py-2 text-sm font-medium transition-colors"
+                  className="group relative flex items-center rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10"
                   style={{
                     color: isActive(item.href)
-                      ? "#12283f"
+                      ? "#ffffff"
                       : "var(--nav-text, #ffffff)",
                     zIndex: 1,
                   }}
