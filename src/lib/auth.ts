@@ -18,8 +18,10 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid credentials");
         }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+        const user = await prisma.user.findFirst({
+          where: {
+            OR: [{ email: credentials.email }, { studentId: credentials.email }],
+          },
         });
 
         if (!user || !user.password) {
@@ -40,6 +42,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           name: user.name,
           role: user.role,
+          studentId: user.studentId,
           image: user.image,
         };
       },
@@ -50,6 +53,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.role = (user as any).role;
         token.id = user.id;
+        token.studentId = (user as any).studentId;
       }
       return token;
     },
@@ -57,6 +61,7 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         (session.user as any).role = token.role;
         (session.user as any).id = token.id;
+        (session.user as any).studentId = token.studentId;
       }
       return session;
     },

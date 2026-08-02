@@ -21,6 +21,7 @@ const pageThemeMap: Record<string, string> = {
   "/virtual-tour": "virtual-tour",
   "/contact": "contact",
   "/login": "login",
+  "/register": "login",
   "/dashboard": "dashboard",
   "/dashboard/student": "dashboard",
   "/dashboard/admin": "dashboard",

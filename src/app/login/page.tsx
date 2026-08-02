@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import Link from "next/link"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { GraduationCap, Eye, EyeOff, Loader2 } from "lucide-react"
@@ -33,7 +34,15 @@ export default function LoginPage() {
         return
       }
 
-      router.push("/dashboard/student")
+      const sessionRes = await fetch("/api/auth/session")
+      const session = await sessionRes.json()
+      const role = session?.user?.role
+
+      if (role === "ADMIN" || role === "SUPER_ADMIN" || role === "ACCOUNTANT" || role === "FACULTY") {
+        router.push("/dashboard/admin")
+      } else {
+        router.push("/dashboard/student")
+      }
       router.refresh()
     } catch {
       toast({ title: "Error", description: "Something went wrong", variant: "destructive" })
@@ -63,11 +72,11 @@ export default function LoginPage() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">Student ID or Email</Label>
                 <Input
                   id="email"
-                  type="email"
-                  placeholder="you@example.com"
+                  type="text"
+                  placeholder="MICMS001"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -99,7 +108,13 @@ export default function LoginPage() {
               </Button>
             </form>
             <p className="text-xs text-gray-400 text-center mt-4">
-              Demo: aarav.sharma@milton.edu / password123
+              College password for all students: <span className="font-semibold">milton</span>
+            </p>
+            <p className="text-sm text-gray-500 text-center mt-3">
+              New student?{" "}
+              <Link href="/register" className="font-medium hover:underline" style={{ color: "var(--page-accent, #d93a2b)" }}>
+                Get your student ID
+              </Link>
             </p>
           </CardContent>
         </Card>

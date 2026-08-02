@@ -60,7 +60,7 @@ async function main() {
   // 2. HASH PASSWORD
   // ──────────────────────────────────────────────
   console.log("🔑 Hashing passwords...");
-  const hashedPassword = await bcrypt.hash("password123", 10);
+  const hashedPassword = await bcrypt.hash("milton", 10);
   console.log("✅ Passwords hashed.");
 
   // ──────────────────────────────────────────────
@@ -130,20 +130,20 @@ async function main() {
         },
       });
 
-      const studentData = [
-        { email: "aarav.sharma@milton.edu", name: "Aarav Sharma", studentId: "MIL-2024-BCA-001" },
-        { email: "priya.thapa@milton.edu", name: "Priya Thapa", studentId: "MIL-2024-BCA-002" },
-        { email: "rohan.gurung@milton.edu", name: "Rohan Gurung", studentId: "MIL-2024-BCA-003" },
-        { email: "sita.poudel@milton.edu", name: "Sita Poudel", studentId: "MIL-2024-BBM-001" },
-        { email: "bibek.khadka@milton.edu", name: "Bibek Khadka", studentId: "MIL-2024-BBM-002" },
-        { email: "anjali.karki@milton.edu", name: "Anjali Karki", studentId: "MIL-2024-BBS-001" },
-        { email: "sandesh.adhikari@milton.edu", name: "Sandesh Adhikari", studentId: "MIL-2024-BASW-001" },
-        { email: "deepa.neupane@milton.edu", name: "Deepa Neupane", studentId: "MIL-2023-BCA-004" },
-        { email: "sagar.basnet@milton.edu", name: "Sagar Basnet", studentId: "MIL-2023-BCA-005" },
-        { email: "nisha.tamang@milton.edu", name: "Nisha Tamang", studentId: "MIL-2023-BBM-003" },
-        { email: "amrit.rai@milton.edu", name: "Amrit Rai", studentId: "MIL-2024-BCA-006" },
-        { email: "kabita.shrestha@milton.edu", name: "Kabita Shrestha", studentId: "MIL-2023-BCA-007" },
-      ];
+  const studentData = [
+    { email: "aarav.sharma@milton.edu", name: "Aarav Sharma", studentId: "MICAS001" },
+    { email: "priya.thapa@milton.edu", name: "Priya Thapa", studentId: "MICPT001" },
+    { email: "rohan.gurung@milton.edu", name: "Rohan Gurung", studentId: "MICRG001" },
+    { email: "sita.poudel@milton.edu", name: "Sita Poudel", studentId: "MICSP001" },
+    { email: "bibek.khadka@milton.edu", name: "Bibek Khadka", studentId: "MICBK001" },
+    { email: "anjali.karki@milton.edu", name: "Anjali Karki", studentId: "MICAK001" },
+    { email: "sandesh.adhikari@milton.edu", name: "Sandesh Adhikari", studentId: "MICSA001" },
+    { email: "deepa.neupane@milton.edu", name: "Deepa Neupane", studentId: "MICDN001" },
+    { email: "sagar.basnet@milton.edu", name: "Sagar Basnet", studentId: "MICSB001" },
+    { email: "nisha.tamang@milton.edu", name: "Nisha Tamang", studentId: "MICNT001" },
+    { email: "amrit.rai@milton.edu", name: "Amrit Rai", studentId: "MICAR001" },
+    { email: "kabita.shrestha@milton.edu", name: "Kabita Shrestha", studentId: "MICKS001" },
+  ];
 
       const sus = await Promise.all(
         studentData.map((s) =>

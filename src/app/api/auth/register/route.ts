@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { DEFAULT_STUDENT_PASSWORD, studentIdPrefix } from "@/lib/student-id";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, password, role } = await req.json();
+    const { name, email } = await req.json();
 
-    if (!name || !email || !password) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    if (!name || !email) {
+      return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
     }
 
     const existing = await prisma.user.findUnique({ where: { email } });
@@ -15,19 +16,27 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email already exists" }, { status: 409 });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
+    const prefix = studentIdPrefix(name);
+    const samePrefixCount = await prisma.user.count({
+      where: { studentId: { startsWith: prefix } },
+    });
+
+    const studentId = `${prefix}${(samePrefixCount + 1).toString().padStart(3, "0")}`;
+
+    const hashedPassword = await bcrypt.hash(DEFAULT_STUDENT_PASSWORD, 12);
 
     const user = await prisma.user.create({
       data: {
         name,
         email,
         password: hashedPassword,
-        role: role || "STUDENT",
+        role: "STUDENT",
+        studentId,
       },
     });
 
     return NextResponse.json(
-      { id: user.id, name: user.name, email: user.email, role: user.role },
+      { id: user.id, name: user.name, email: user.email, studentId: user.studentId },
       { status: 201 }
     );
   } catch (error) {
