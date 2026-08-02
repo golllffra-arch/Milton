@@ -1,6 +1,14 @@
+"use client"
+
 import React from 'react';
+import { usePathname } from "next/navigation"
+
+const PROGRAM_PAGES = ["/programs/bca", "/programs/bbm", "/programs/bbs", "/programs/basw"]
 
 const AnimeBackground: React.FC = () => {
+  const pathname = usePathname()
+  if (PROGRAM_PAGES.includes(pathname)) return null
+
   return (
     <div className="anime-bg-outer" aria-hidden>
       <div className="anime-layer gradient"></div>

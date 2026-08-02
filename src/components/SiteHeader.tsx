@@ -79,21 +79,6 @@ function HoverUnderline() {
   )
 }
 
-/* ─── Active pill indicator ─── */
-function ActivePill() {
-  return (
-    <motion.span
-      layoutId="active-pill"
-      className="absolute inset-0 rounded-full"
-      style={{
-        background: "linear-gradient(135deg, var(--nav-accent, #d93a2b), color-mix(in srgb, var(--nav-accent, #d93a2b) 80%, transparent))",
-        boxShadow: "0 0 24px color-mix(in srgb, var(--nav-accent, #d93a2b) 40%, transparent)",
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    />
-  )
-}
-
 /* ─── Dropdown ─── */
 function Dropdown({
   label,
@@ -329,7 +314,7 @@ export default function SiteHeader() {
           initial="hidden"
           animate={mounted ? "show" : "hidden"}
           variants={containerVariants}
-          className="hidden items-center gap-1 md:flex"
+          className="hidden items-center gap-4 md:flex"
         >
           {allItems.map((item) =>
             item.children ? (
@@ -343,15 +328,22 @@ export default function SiteHeader() {
                   className="group relative flex items-center rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10"
                   style={{
                     color: isActive(item.href)
-                      ? "#ffffff"
+                      ? "var(--nav-accent, #d93a2b)"
                       : "var(--nav-text, #ffffff)",
                     zIndex: 1,
                   }}
                 >
-                  {isActive(item.href) && <ActivePill />}
+                  <span
+                    className={cn(
+                      "absolute inset-x-2 -bottom-0.5 h-[2px] origin-center rounded-full transition-transform duration-300",
+                      isActive(item.href)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    )}
+                    style={{ background: "var(--nav-accent, #d93a2b)" }}
+                  />
                   <span className="relative z-10">{item.label}</span>
                 </Link>
-                {!isActive(item.href) && <HoverUnderline />}
               </motion.div>
             )
           )}

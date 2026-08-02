@@ -20,9 +20,13 @@ function getRootPath(pathname: string): string {
   return segments.length === 0 ? "/" : `/${segments[0]}`
 }
 
+const PROGRAM_PAGES = ["/programs/bca", "/programs/bbm", "/programs/bbs", "/programs/basw"]
+
 export function PageBackground() {
   const pathname = usePathname()
   const rootPath = getRootPath(pathname)
+
+  if (PROGRAM_PAGES.includes(pathname)) return null
 
   switch (rootPath) {
     case "/":
