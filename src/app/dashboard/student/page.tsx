@@ -9,18 +9,14 @@ import {
   DollarSign,
   FileText,
   BookOpen,
-  Bell,
   Calendar,
   BadgeCheck,
-  Menu,
-  X,
+  Bell,
   Search,
   Sun,
   Moon,
-  ChevronDown,
   LogOut,
-  User,
-  Settings,
+  ChevronLeft,
   ChevronRight,
   ArrowUpRight,
   ExternalLink,
@@ -32,6 +28,7 @@ import {
   BookMarked,
   MapPin,
 } from "lucide-react"
+import { signOut } from "next-auth/react"
 import { useTheme } from "next-themes"
 
 import { cn, formatDate, formatCurrency, getInitials } from "@/lib/utils"
@@ -45,14 +42,6 @@ import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Select,
   SelectContent,
@@ -317,26 +306,9 @@ export default function StudentDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [selectedSemester, setSelectedSemester] = useState("Semester 4")
   const [searchQuery, setSearchQuery] = useState("")
-  const [headerHidden, setHeaderHidden] = useState(false)
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
 
   const [student, setStudent] = useState(DEFAULT_STUDENT)
-
-  useEffect(() => { setMounted(true) }, [])
-
-  /* Hide header on scroll down, show on scroll up — frees view space for the overview */
-  useEffect(() => {
-    let lastY = window.scrollY
-    const onScroll = () => {
-      const y = window.scrollY
-      if (y > lastY && y > 120) setHeaderHidden(true)
-      else setHeaderHidden(false)
-      lastY = y
-    }
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -376,77 +348,11 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-milton-cream to-white dark:from-gray-950 dark:to-gray-900">
-      {/* Top Bar */}
-      <header className={cn("sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur-xl dark:bg-gray-950/80 md:px-6 transition-transform duration-300", headerHidden && "-translate-y-full")}>
-        <Button variant="ghost" size="icon" className="shrink-0 h-9 w-9 md:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
-        <Button variant="ghost" size="icon" className="hidden shrink-0 h-9 w-9 md:inline-flex" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          <Menu className="h-5 w-5" />
-        </Button>
-
-        <div className="relative hidden flex-1 sm:block">
-          <GlobalSearch variant="input" className="max-w-md" placeholder="Search courses, programs, news..." />
-        </div>
-
-        <div className="ml-auto flex items-center gap-2">
-          {mounted && (
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="relative h-9 w-9">
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-          )}
-
-          <Button variant="ghost" size="icon" className="relative h-9 w-9" onClick={() => setActiveTab("notifications")}>
-            <Bell className="h-5 w-5" />
-            {unreadCount > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-milton-red text-[10px] font-bold text-white">
-                {unreadCount}
-              </span>
-            )}
-          </Button>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center gap-2 px-2 h-9 py-2">
-                <Avatar className="h-7 w-7 border-2 border-milton-navy/20">
-                  <AvatarImage src={student.photo} alt={student.name} />
-                  <AvatarFallback className="bg-milton-navy text-xs text-white">{getInitials(student.name)}</AvatarFallback>
-                </Avatar>
-                <span className="hidden text-sm font-medium md:inline">{student.name}</span>
-                <ChevronDown className="hidden h-4 w-4 text-muted-foreground md:block" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel>
-                <div className="flex flex-col">
-                  <span>{student.name}</span>
-                  <span className="text-xs font-normal text-muted-foreground">{student.enrollment}</span>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Settings className="mr-2 h-4 w-4" />
-                Settings
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-[#d93a2b]">
-                <LogOut className="mr-2 h-4 w-4" />
-                Logout
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </header>
-
       <div className="flex">
         {/* Sidebar - Desktop */}
         <aside
           className={cn(
-            "fixed left-0 top-14 z-40 hidden h-[calc(100vh-3.5rem)] flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
+            "fixed left-0 top-0 z-40 hidden h-screen flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
             sidebarOpen ? "w-60" : "w-16"
           )}
         >
@@ -480,6 +386,34 @@ export default function StudentDashboard() {
                 </div>
               )}
             </div>
+            <div className={cn("mt-3 flex gap-2", !sidebarOpen && "flex-col")}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn("h-9 w-9 shrink-0", !sidebarOpen && "mx-auto")}
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                title={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+              >
+                {sidebarOpen ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className={cn("h-9 w-9 shrink-0", !sidebarOpen && "mx-auto")}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className={cn("h-9 w-9 shrink-0", !sidebarOpen && "mx-auto")}
+                onClick={() => signOut({ callbackUrl: "/login" })}
+                title="Logout"
+              >
+                <LogOut className="h-4 w-4 text-red-500" />
+              </Button>
+            </div>
           </div>
         </aside>
 
@@ -498,10 +432,16 @@ export default function StudentDashboard() {
                       {student.program} &middot; {student.semester}
                     </p>
                   </div>
-                  <Avatar className="h-12 w-12 border-2 border-milton-navy/10 shadow-lg">
-                    <AvatarImage src={student.photo} alt={student.name} />
-                    <AvatarFallback className="bg-milton-navy text-sm text-white">{getInitials(student.name)}</AvatarFallback>
-                  </Avatar>
+                  <div className="flex items-center gap-2">
+                    <div className="hidden w-56 sm:block md:w-72">
+                      <GlobalSearch variant="input" placeholder="Search courses, programs, news..." />
+                    </div>
+                    <GlobalSearch variant="icon" className="border bg-white/70 p-2 sm:hidden" />
+                    <Avatar className="h-12 w-12 border-2 border-milton-navy/10 shadow-lg">
+                      <AvatarImage src={student.photo} alt={student.name} />
+                      <AvatarFallback className="bg-milton-navy text-sm text-white">{getInitials(student.name)}</AvatarFallback>
+                    </Avatar>
+                  </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
