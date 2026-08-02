@@ -317,12 +317,26 @@ export default function StudentDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [selectedSemester, setSelectedSemester] = useState("Semester 4")
   const [searchQuery, setSearchQuery] = useState("")
+  const [headerHidden, setHeaderHidden] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   const [student, setStudent] = useState(DEFAULT_STUDENT)
 
   useEffect(() => { setMounted(true) }, [])
+
+  /* Hide header on scroll down, show on scroll up — frees view space for the overview */
+  useEffect(() => {
+    let lastY = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      if (y > lastY && y > 120) setHeaderHidden(true)
+      else setHeaderHidden(false)
+      lastY = y
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -363,11 +377,11 @@ export default function StudentDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-milton-cream to-white dark:from-gray-950 dark:to-gray-900">
       {/* Top Bar */}
-      <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur-xl dark:bg-gray-950/80 md:px-6">
-        <Button variant="ghost" size="icon" className="shrink-0 md:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
+      <header className={cn("sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur-xl dark:bg-gray-950/80 md:px-6 transition-transform duration-300", headerHidden && "-translate-y-full")}>
+        <Button variant="ghost" size="icon" className="shrink-0 h-9 w-9 md:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
           {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
-        <Button variant="ghost" size="icon" className="hidden shrink-0 md:inline-flex" onClick={() => setSidebarOpen(!sidebarOpen)}>
+        <Button variant="ghost" size="icon" className="hidden shrink-0 h-9 w-9 md:inline-flex" onClick={() => setSidebarOpen(!sidebarOpen)}>
           <Menu className="h-5 w-5" />
         </Button>
 
@@ -377,12 +391,12 @@ export default function StudentDashboard() {
 
         <div className="ml-auto flex items-center gap-2">
           {mounted && (
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="relative">
+            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="relative h-9 w-9">
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           )}
 
-          <Button variant="ghost" size="icon" className="relative" onClick={() => setActiveTab("notifications")}>
+          <Button variant="ghost" size="icon" className="relative h-9 w-9" onClick={() => setActiveTab("notifications")}>
             <Bell className="h-5 w-5" />
             {unreadCount > 0 && (
               <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-milton-red text-[10px] font-bold text-white">
@@ -393,8 +407,8 @@ export default function StudentDashboard() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center gap-2 px-2">
-                <Avatar className="h-8 w-8 border-2 border-milton-navy/20">
+              <Button variant="ghost" className="flex items-center gap-2 px-2 h-9 py-2">
+                <Avatar className="h-7 w-7 border-2 border-milton-navy/20">
                   <AvatarImage src={student.photo} alt={student.name} />
                   <AvatarFallback className="bg-milton-navy text-xs text-white">{getInitials(student.name)}</AvatarFallback>
                 </Avatar>
@@ -432,7 +446,7 @@ export default function StudentDashboard() {
         {/* Sidebar - Desktop */}
         <aside
           className={cn(
-            "fixed left-0 top-16 z-40 hidden h-[calc(100vh-4rem)] flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
+            "fixed left-0 top-14 z-40 hidden h-[calc(100vh-3.5rem)] flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
             sidebarOpen ? "w-60" : "w-16"
           )}
         >

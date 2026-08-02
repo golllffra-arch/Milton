@@ -344,6 +344,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("overview")
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
+  const [headerHidden, setHeaderHidden] = useState(false)
   const [studentSearch, setStudentSearch] = useState("")
   const [studentProgram, setStudentProgram] = useState("all")
   const [studentSemester, setStudentSemester] = useState("all")
@@ -359,6 +360,19 @@ export default function AdminDashboard() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => { setMounted(true) }, [])
+
+  /* Hide header on scroll down, show on scroll up — frees view space for the overview */
+  useEffect(() => {
+    let lastY = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      if (y > lastY && y > 120) setHeaderHidden(true)
+      else setHeaderHidden(false)
+      lastY = y
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   const totalCollected = FEE_RECORDS.reduce((s, f) => s + f.paid, 0)
   const totalPending = FEE_RECORDS.reduce((s, f) => s + (f.status === "unpaid" || f.status === "partial" ? f.amount - f.paid : 0), 0)
@@ -382,8 +396,8 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-gray-950 dark:to-gray-900">
       {/* Top Bar */}
-      <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur-xl dark:bg-gray-950/80 md:px-6">
-        <Button variant="ghost" size="icon" className="shrink-0" onClick={() => setSidebarOpen(!sidebarOpen)}>
+      <header className={cn("sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur-xl dark:bg-gray-950/80 md:px-6 transition-transform duration-300", headerHidden && "-translate-y-full")}>
+        <Button variant="ghost" size="icon" className="shrink-0 h-9 w-9" onClick={() => setSidebarOpen(!sidebarOpen)}>
           {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
 
@@ -401,26 +415,26 @@ export default function AdminDashboard() {
               setStudentSearch(e.target.value)
               if (e.target.value && activeTab !== "students") setActiveTab("students")
             }}
-            className="w-full border-0 bg-muted/50 pl-9 focus-visible:ring-1"
+            className="w-full border-0 bg-muted/50 pl-9 h-9 focus-visible:ring-1"
           />
         </div>
 
         <div className="ml-auto flex items-center gap-2">
           {mounted && (
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+            <Button variant="ghost" size="icon" className="h-9 w-9" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           )}
 
-          <Button variant="ghost" size="icon" className="relative">
+          <Button variant="ghost" size="icon" className="relative h-9 w-9">
             <Bell className="h-5 w-5" />
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#d93a2b] text-[10px] font-bold text-white">5</span>
           </Button>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center gap-2 px-2">
-                <Avatar className="h-8 w-8 border-2 border-[#1b3a5c]/20">
+              <Button variant="ghost" className="flex items-center gap-2 px-2 h-9 py-2">
+                <Avatar className="h-7 w-7 border-2 border-[#1b3a5c]/20">
                   <AvatarImage src={ADMIN.photo} alt={ADMIN.name} />
                   <AvatarFallback className="bg-[#1b3a5c] text-xs text-white">{getInitials(ADMIN.name)}</AvatarFallback>
                 </Avatar>
@@ -450,7 +464,7 @@ export default function AdminDashboard() {
         {/* Sidebar */}
         <aside
           className={cn(
-            "fixed left-0 top-16 z-40 hidden h-[calc(100vh-4rem)] flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
+            "fixed left-0 top-14 z-40 hidden h-[calc(100vh-3.5rem)] flex-col border-r bg-white transition-all duration-300 dark:bg-gray-950 md:flex",
             sidebarOpen ? "w-60" : "w-16"
           )}
         >
