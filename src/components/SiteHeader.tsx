@@ -6,6 +6,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { getPageTheme } from "@/lib/page-themes"
 import type { PageTheme } from "@/lib/page-themes"
+import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [{ label: "Home", href: "/" }]
 
@@ -102,10 +103,12 @@ function Dropdown({
   label,
   items,
   scrolled,
+  rightPad,
 }: {
   label: string
   items: { label: string; href: string }[]
   scrolled: boolean
+  rightPad?: boolean
 }) {
   const [open, setOpen] = useState(false)
   return (
@@ -119,7 +122,10 @@ function Dropdown({
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((o) => !o)}
-        className="group relative flex items-center gap-1 py-2 text-sm font-medium transition-colors"
+        className={cn(
+          "group relative flex items-center gap-1 py-2 text-sm font-medium transition-colors",
+          rightPad && "pr-3"
+        )}
         style={{ color: "var(--nav-text, #ffffff)" }}
       >
         {label}
@@ -332,7 +338,7 @@ export default function SiteHeader() {
           {allItems.map((item) =>
             item.children ? (
               <motion.div key={item.label} variants={itemVariants}>
-                <Dropdown label={item.label} items={item.children} scrolled={scrolled} />
+                <Dropdown label={item.label} items={item.children} scrolled={scrolled} rightPad={item.label === "About"} />
               </motion.div>
             ) : (
               <motion.div key={item.href} variants={itemVariants} className="relative">

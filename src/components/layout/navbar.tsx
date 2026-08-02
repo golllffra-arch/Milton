@@ -100,6 +100,7 @@ export function Navbar() {
                       href={item.href}
                       className={cn(
                         "px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1.5",
+                        item.label === "About" && "pr-3",
                     pathname === item.href
                       ? "text-[#d93a2b]"
                       : "text-gray-700 dark:text-gray-200 hover:text-[#d93a2b] dark:hover:text-[#d93a2b]"
