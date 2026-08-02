@@ -35,6 +35,7 @@ import {
 import { useTheme } from "next-themes"
 
 import { cn, formatDate, formatCurrency, getInitials } from "@/lib/utils"
+import GlobalSearch from "@/components/global-search"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -324,6 +325,10 @@ export default function StudentDashboard() {
   useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [activeTab])
+
+  useEffect(() => {
     fetch("/api/auth/session")
       .then((r) => r.json())
       .then((s) => {
@@ -367,8 +372,7 @@ export default function StudentDashboard() {
         </Button>
 
         <div className="relative hidden flex-1 sm:block">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input placeholder="Search courses, assignments..." className="w-full max-w-md border-0 bg-muted/50 pl-9 focus-visible:ring-1" />
+          <GlobalSearch variant="input" className="max-w-md" placeholder="Search courses, programs, news..." />
         </div>
 
         <div className="ml-auto flex items-center gap-2">
@@ -466,23 +470,23 @@ export default function StudentDashboard() {
         </aside>
 
         {/* Main Content */}
-        <main className={cn("flex-1 transition-all duration-300", sidebarOpen ? "md:ml-60" : "md:ml-16")}>
+        <main className={cn("flex-1 transition-all duration-300 pb-20 md:pb-0", sidebarOpen ? "md:ml-60" : "md:ml-16")}>
           <div className="container mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
             {/* ==================== OVERVIEW ==================== */}
             {activeTab === "overview" && (
-              <div className="animate-fade-in space-y-6">
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="animate-fade-in space-y-5">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <h1 className="font-display text-2xl font-bold tracking-tight text-milton-navy dark:text-white md:text-3xl">
+                    <h1 className="font-display text-xl font-bold tracking-tight text-milton-navy dark:text-white md:text-2xl">
                       Welcome back, {student.name.split(" ")[0]}!
                     </h1>
-                    <p className="mt-1 text-muted-foreground">
+                    <p className="mt-0.5 text-sm text-muted-foreground">
                       {student.program} &middot; {student.semester}
                     </p>
                   </div>
-                  <Avatar className="h-16 w-16 border-2 border-milton-navy/10 shadow-lg">
+                  <Avatar className="h-12 w-12 border-2 border-milton-navy/10 shadow-lg">
                     <AvatarImage src={student.photo} alt={student.name} />
-                    <AvatarFallback className="bg-milton-navy text-lg text-white">{getInitials(student.name)}</AvatarFallback>
+                    <AvatarFallback className="bg-milton-navy text-sm text-white">{getInitials(student.name)}</AvatarFallback>
                   </Avatar>
                 </div>
 

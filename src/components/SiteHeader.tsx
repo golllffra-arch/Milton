@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { getPageTheme } from "@/lib/page-themes"
 import type { PageTheme } from "@/lib/page-themes"
 import { cn } from "@/lib/utils"
+import GlobalSearch from "@/components/global-search"
 
 const NAV_LINKS = [{ label: "Home", href: "/" }]
 
@@ -365,6 +366,13 @@ export default function SiteHeader() {
               Student Portal
             </Link>
           </motion.div>
+
+          {/* Global Search */}
+          <motion.div variants={itemVariants}>
+            <GlobalSearch
+              className="hover:bg-white/10"
+            />
+          </motion.div>
         </motion.nav>
 
         {/* Mobile toggle */}
@@ -393,6 +401,9 @@ export default function SiteHeader() {
             }}
           >
             <nav className="flex-1 overflow-y-auto px-6 py-6">
+              <div className="mb-6">
+                <GlobalSearch variant="input" className="bg-white/10 hover:bg-white/15" placeholder="Search the site..." />
+              </div>
               {allItems.map((item, i) => (
                 <motion.div
                   key={item.label}
