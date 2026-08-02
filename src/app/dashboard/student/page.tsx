@@ -60,7 +60,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const STUDENT = {
+const DEFAULT_STUDENT = {
   name: "Aarav Sharma",
   enrollment: "BCA-2022-047",
   program: "Bachelor of Computer Application (BCA)",
@@ -319,7 +319,29 @@ export default function StudentDashboard() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
+  const [student, setStudent] = useState(DEFAULT_STUDENT)
+
   useEffect(() => { setMounted(true) }, [])
+
+  useEffect(() => {
+    fetch("/api/auth/session")
+      .then((r) => r.json())
+      .then((s) => {
+        if (s?.user?.name) {
+          setStudent({
+            name: s.user.name,
+            enrollment: s.user.studentId || DEFAULT_STUDENT.enrollment,
+            program: DEFAULT_STUDENT.program,
+            batch: DEFAULT_STUDENT.batch,
+            semester: DEFAULT_STUDENT.semester,
+            email: s.user.email || DEFAULT_STUDENT.email,
+            phone: DEFAULT_STUDENT.phone,
+            photo: s.user.image || DEFAULT_STUDENT.photo,
+          })
+        }
+      })
+      .catch(() => {})
+  }, [])
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   const todayName = days[new Date().getDay()]
@@ -369,18 +391,18 @@ export default function StudentDashboard() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="flex items-center gap-2 px-2">
                 <Avatar className="h-8 w-8 border-2 border-milton-navy/20">
-                  <AvatarImage src={STUDENT.photo} alt={STUDENT.name} />
-                  <AvatarFallback className="bg-milton-navy text-xs text-white">{getInitials(STUDENT.name)}</AvatarFallback>
+                  <AvatarImage src={student.photo} alt={student.name} />
+                  <AvatarFallback className="bg-milton-navy text-xs text-white">{getInitials(student.name)}</AvatarFallback>
                 </Avatar>
-                <span className="hidden text-sm font-medium md:inline">{STUDENT.name}</span>
+                <span className="hidden text-sm font-medium md:inline">{student.name}</span>
                 <ChevronDown className="hidden h-4 w-4 text-muted-foreground md:block" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               <DropdownMenuLabel>
                 <div className="flex flex-col">
-                  <span>{STUDENT.name}</span>
-                  <span className="text-xs font-normal text-muted-foreground">{STUDENT.enrollment}</span>
+                  <span>{student.name}</span>
+                  <span className="text-xs font-normal text-muted-foreground">{student.enrollment}</span>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -431,12 +453,12 @@ export default function StudentDashboard() {
           <div className={cn("border-t p-3", !sidebarOpen && "text-center")}>
             <div className={cn("flex items-center gap-3", !sidebarOpen && "justify-center")}>
               <Avatar className="h-8 w-8 border-2 border-milton-navy/20">
-                <AvatarFallback className="bg-milton-navy text-[10px] text-white">{getInitials(STUDENT.name)}</AvatarFallback>
+                <AvatarFallback className="bg-milton-navy text-[10px] text-white">{getInitials(student.name)}</AvatarFallback>
               </Avatar>
               {sidebarOpen && (
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium">{STUDENT.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">{STUDENT.program}</p>
+                  <p className="truncate text-sm font-medium">{student.name}</p>
+                  <p className="truncate text-xs text-muted-foreground">{student.program}</p>
                 </div>
               )}
             </div>
@@ -452,15 +474,15 @@ export default function StudentDashboard() {
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h1 className="font-display text-2xl font-bold tracking-tight text-milton-navy dark:text-white md:text-3xl">
-                      Welcome back, {STUDENT.name.split(" ")[0]}!
+                      Welcome back, {student.name.split(" ")[0]}!
                     </h1>
                     <p className="mt-1 text-muted-foreground">
-                      {STUDENT.program} &middot; {STUDENT.semester}
+                      {student.program} &middot; {student.semester}
                     </p>
                   </div>
                   <Avatar className="h-16 w-16 border-2 border-milton-navy/10 shadow-lg">
-                    <AvatarImage src={STUDENT.photo} alt={STUDENT.name} />
-                    <AvatarFallback className="bg-milton-navy text-lg text-white">{getInitials(STUDENT.name)}</AvatarFallback>
+                    <AvatarImage src={student.photo} alt={student.name} />
+                    <AvatarFallback className="bg-milton-navy text-lg text-white">{getInitials(student.name)}</AvatarFallback>
                   </Avatar>
                 </div>
 
@@ -604,7 +626,7 @@ export default function StudentDashboard() {
                 <Card className="shadow-md">
                   <CardHeader>
                     <CardTitle>Subject-wise Breakdown</CardTitle>
-                    <CardDescription>Attendance details for {STUDENT.semester}</CardDescription>
+                    <CardDescription>Attendance details for {student.semester}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Table>
@@ -648,7 +670,7 @@ export default function StudentDashboard() {
               <div className="animate-fade-in space-y-6">
                 <div>
                   <h1 className="font-display text-2xl font-bold text-milton-navy dark:text-white">Class Routine</h1>
-                  <p className="mt-1 text-muted-foreground">Weekly timetable for {STUDENT.semester}</p>
+                  <p className="mt-1 text-muted-foreground">Weekly timetable for {student.semester}</p>
                 </div>
 
                 <div className="overflow-x-auto rounded-xl border shadow-md">
@@ -1139,11 +1161,11 @@ export default function StudentDashboard() {
                     {/* Photo & name */}
                     <div className="flex flex-col items-center px-6 pt-6">
                       <Avatar className="h-24 w-24 border-4 border-milton-navy/10 shadow-lg">
-                        <AvatarImage src={STUDENT.photo} alt={STUDENT.name} />
-                        <AvatarFallback className="bg-milton-navy text-2xl text-white">{getInitials(STUDENT.name)}</AvatarFallback>
+                        <AvatarImage src={student.photo} alt={student.name} />
+                        <AvatarFallback className="bg-milton-navy text-2xl text-white">{getInitials(student.name)}</AvatarFallback>
                       </Avatar>
-                      <h3 className="mt-3 font-display text-xl font-bold text-milton-navy dark:text-white">{STUDENT.name}</h3>
-                      <p className="text-sm text-muted-foreground">{STUDENT.enrollment}</p>
+                      <h3 className="mt-3 font-display text-xl font-bold text-milton-navy dark:text-white">{student.name}</h3>
+                      <p className="text-sm text-muted-foreground">{student.enrollment}</p>
                     </div>
 
                     <div className="space-y-3 px-6 py-5">
@@ -1153,15 +1175,15 @@ export default function StudentDashboard() {
                       </div>
                       <div className="flex justify-between border-b pb-2">
                         <span className="text-sm text-muted-foreground">Batch</span>
-                        <span className="text-sm font-medium">{STUDENT.batch}</span>
+                        <span className="text-sm font-medium">{student.batch}</span>
                       </div>
                       <div className="flex justify-between border-b pb-2">
                         <span className="text-sm text-muted-foreground">Semester</span>
-                        <span className="text-sm font-medium">{STUDENT.semester}</span>
+                        <span className="text-sm font-medium">{student.semester}</span>
                       </div>
                       <div className="flex justify-between pb-2">
                         <span className="text-sm text-muted-foreground">Email</span>
-                        <span className="text-sm font-medium">{STUDENT.email}</span>
+                        <span className="text-sm font-medium">{student.email}</span>
                       </div>
                     </div>
 
