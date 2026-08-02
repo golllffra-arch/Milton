@@ -114,8 +114,8 @@ export default function FacultyPage() {
           className="absolute inset-0 z-0"
         />
         <FloatingParticles />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,160,23,0.14),transparent_60%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.06),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           <motion.div
@@ -210,11 +210,11 @@ export default function FacultyPage() {
                           style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}
                           className="p-6 text-center relative"
                         >
-                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.15),transparent_70%)]" />
-                          <Avatar className="w-20 h-20 mx-auto border-4 border-white/20 relative z-10">
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,23,0.12),transparent_70%)]" />
+                          <Avatar className="w-20 h-20 mx-auto border-4 border-[var(--page-accent,#c9962f)]/40 relative z-10">
                             <AvatarFallback
-                              style={{ background: "var(--page-accent, #65a30d)" }}
-                              className="text-white text-xl font-bold"
+                              style={{ background: "var(--page-primary, #0f2a47)" }}
+                              className="text-[var(--page-accent,#c9962f)] text-xl font-bold"
                             >
                               {getInitials(faculty.name)}
                             </AvatarFallback>
@@ -277,8 +277,8 @@ export default function FacultyPage() {
                             <a
                               href={`mailto:${faculty.email}`}
                               onClick={(e) => e.stopPropagation()}
-                              style={{ color: "var(--page-secondary, #22c55e)" }}
-                              className="hover:text-[#c4181e] transition-colors"
+                              style={{ color: "var(--page-secondary, #d4a017)" }}
+                              className="hover:text-[#0f2a47] transition-colors"
                             >
                               <Mail className="w-4 h-4" />
                             </a>
@@ -301,7 +301,7 @@ export default function FacultyPage() {
           className="absolute inset-0"
         />
         <FloatingParticles />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,23,0.1),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -311,7 +311,7 @@ export default function FacultyPage() {
               { value: "5:1", label: "Student-Faculty Ratio" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="text-3xl md:text-4xl font-bold font-display text-white">{s.value}</div>
+                <div className="text-3xl md:text-4xl font-bold font-display" style={{ color: "var(--page-accent, #d4a017)" }}>{s.value}</div>
                 <div className="text-sm text-white/70 mt-1 font-medium uppercase tracking-wider">{s.label}</div>
               </div>
             ))}
@@ -344,8 +344,8 @@ export default function FacultyPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="xl"
-                style={{ background: "var(--page-secondary, #22c55e)" }}
-                className="hover:bg-[#c4181e] text-white shadow-xl shadow-[#e31c23]/25"
+                style={{ background: "var(--page-secondary, #d4a017)", color: "#0f2a47" }}
+                className="hover:bg-[#b8860b] shadow-xl shadow-[#d4a017]/30"
               >
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -353,8 +353,8 @@ export default function FacultyPage() {
               <Button
                 variant="outline"
                 size="xl"
-                style={{ color: "var(--page-text, #14532d)" }}
-                className="border-[var(--page-text,#14532d)]/20 hover:bg-[var(--page-primary,#16a34a)] hover:text-white"
+                style={{ color: "var(--page-primary, #0f2a47)", borderColor: "var(--page-primary, #0f2a47)" }}
+                className="hover:bg-[var(--page-primary,#0f2a47)] hover:text-white"
               >
                 Schedule a Visit
               </Button>

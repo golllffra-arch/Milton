@@ -88,7 +88,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-4">
             {NAV_ITEMS.map((item) => (
               <div
                 key={item.href}
@@ -96,10 +96,10 @@ export function Navbar() {
                 onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "px-3 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1",
+                  <Link
+                      href={item.href}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1.5",
                     pathname === item.href
                       ? "text-[#e31c23]"
                       : "text-gray-700 dark:text-gray-200 hover:text-[#e31c23] dark:hover:text-[#e31c23]"

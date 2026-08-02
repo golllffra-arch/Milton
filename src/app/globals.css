@@ -168,20 +168,20 @@
   --page-secondary-rgb: 217,70,239;
 }
 
-[data-page-theme="team"] {
-  --page-bg: #f0fdf4;
+[data-page-theme="coor"] {
+  --page-bg: #f7f8fa;
   --page-surface: #ffffff;
-  --page-primary: #16a34a;
-  --page-secondary: #22c55e;
-  --page-accent: #65a30d;
-  --page-text: #14532d;
-  --page-muted: #86efac;
-  --page-border: #dcfce7;
-  --page-hero-from: #16a34a;
-  --page-hero-to: #22c55e;
-  --page-glow: rgba(22,163,74,0.25);
-  --page-primary-rgb: 22,163,74;
-  --page-secondary-rgb: 34,197,94;
+  --page-primary: #0f2a47;
+  --page-secondary: #d4a017;
+  --page-accent: #c9962f;
+  --page-text: #1a1d23;
+  --page-muted: #6b7280;
+  --page-border: #e2e5ea;
+  --page-hero-from: #0f2a47;
+  --page-hero-to: #081b30;
+  --page-glow: rgba(15,42,71,0.25);
+  --page-primary-rgb: 15,42,71;
+  --page-secondary-rgb: 212,160,23;
 }
 
 [data-page-theme="contact"] {

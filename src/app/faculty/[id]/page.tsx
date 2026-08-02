@@ -63,8 +63,8 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-white/20 shadow-xl">
-                <AvatarFallback className="text-white text-4xl font-bold" style={{ background: "var(--page-accent, #65a30d)" }}>
+              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[var(--page-accent,#c9962f)]/40 shadow-xl">
+                <AvatarFallback className="text-[var(--page-accent,#c9962f)] text-4xl font-bold" style={{ background: "var(--page-primary, #0f2a47)" }}>
                   {getInitials(member.name)}
                 </AvatarFallback>
               </Avatar>
@@ -72,7 +72,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center md:text-left flex-1">
               <Badge variant="outline" className="mb-3 border-white/20 text-white/80 bg-white/5">{member.department}</Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">{member.name}</h1>
-              <p className="text-lg mt-2" style={{ color: "var(--page-accent, #65a30d)" }}>{member.qualifications}</p>
+              <p className="text-lg mt-2" style={{ color: "var(--page-secondary, #d4a017)" }}>{member.qualifications}</p>
               <p className="text-white/60 mt-3 max-w-2xl">{member.bio || member.specialization}</p>
               <div className="flex flex-wrap items-center gap-4 mt-6 justify-center md:justify-start">
                 <a href={`mailto:${member.email}`}>
@@ -196,7 +196,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
                   <h3 className="font-display font-bold text-lg mb-2">Learn from the Best</h3>
                   <p className="text-white/60 text-sm mb-4">Join Milton and study under experienced faculty dedicated to your success.</p>
                   <Link href="/admissions">
-                    <Button size="sm" className="text-white w-full" style={{ background: "var(--page-secondary, #22c55e)" }}>Apply Now</Button>
+                    <Button size="sm" className="w-full" style={{ background: "var(--page-secondary, #d4a017)", color: "#0f2a47" }}>Apply Now</Button>
                   </Link>
                 </CardContent>
               </Card>
