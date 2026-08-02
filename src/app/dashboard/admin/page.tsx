@@ -392,9 +392,17 @@ export default function AdminDashboard() {
           <span className="text-sm font-semibold text-[#1b3a5c] dark:text-white">Admin Panel</span>
         </div>
 
-        <div className="relative hidden flex-1 sm:block max-w-md ml-8">
+        <div className="relative hidden sm:block ml-8 w-44 transition-all duration-300 focus-within:w-80 lg:w-56 lg:focus-within:w-96">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input placeholder="Search students, faculty, records..." className="w-full border-0 bg-muted/50 pl-9 focus-visible:ring-1" />
+          <Input
+            placeholder="Search students, faculty, records..."
+            value={studentSearch}
+            onChange={(e) => {
+              setStudentSearch(e.target.value)
+              if (e.target.value && activeTab !== "students") setActiveTab("students")
+            }}
+            className="w-full border-0 bg-muted/50 pl-9 focus-visible:ring-1"
+          />
         </div>
 
         <div className="ml-auto flex items-center gap-2">
