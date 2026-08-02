@@ -55,7 +55,7 @@ const PROGRAMS = [
     code: "bbs",
     title: "BBS",
     fullName: "Bachelor of Business Studies",
-    duration: "3 Years (6 Semesters)",
+    duration: "4 Years (Year 1 – 4)",
     description:
       "A foundational business degree focused on accounting, economics, business law, and organizational management. Ideal for students seeking careers in accounting, finance, and public administration.",
     highlights: [

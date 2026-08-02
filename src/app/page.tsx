@@ -52,7 +52,7 @@ const PROGRAMS = [
     code: "BBS",
     name: "Bachelor of Business Studies",
     track: "Commerce",
-    duration: "3 Years",
+    duration: "4 Years",
     blurb:
       "Accounting, economics, and business law for careers in finance and administration.",
     href: "/programs/bbs",

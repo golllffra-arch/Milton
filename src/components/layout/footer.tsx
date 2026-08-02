@@ -130,10 +130,10 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             {[
-              { name: "Facebook", url: "https://facebook.com/miltoncollege" },
-              { name: "Instagram", url: "https://instagram.com/miltoncollege" },
-              { name: "YouTube", url: "https://youtube.com/@miltoncollege" },
-              { name: "LinkedIn", url: "https://linkedin.com/school/miltoncollege" },
+              { name: "Facebook", url: "https://www.facebook.com/MiltonInternationalCollege/" },
+              { name: "Instagram", url: "https://www.instagram.com/" },
+              { name: "YouTube", url: "https://www.youtube.com/" },
+              { name: "LinkedIn", url: "https://www.linkedin.com/in/golll-ffra-169309427/" },
             ].map((s) => (
               <a
                 key={s.name}

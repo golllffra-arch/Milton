@@ -13,30 +13,22 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-const SEMESTERS = [
+const YEARS = [
   {
-    sem: 1,
-    subjects: ["English I", "Principles of Management", "Financial Accounting I", "Business Mathematics I", "Microeconomics"],
+    year: 1,
+    subjects: ["English I", "Principles of Management", "Financial Accounting I", "Business Mathematics", "Microeconomics"],
   },
   {
-    sem: 2,
-    subjects: ["English II", "Organizational Behavior", "Financial Accounting II", "Business Mathematics II", "Macroeconomics"],
+    year: 2,
+    subjects: ["English II", "Organizational Behavior", "Financial Accounting II", "Business Statistics", "Macroeconomics"],
   },
   {
-    sem: 3,
-    subjects: ["Cost Accounting", "Business Statistics", "Business Law", "Corporate Finance", "Taxation"],
+    year: 3,
+    subjects: ["Cost Accounting", "Business Law", "Corporate Finance", "Taxation", "Fundamentals of Marketing"],
   },
   {
-    sem: 4,
-    subjects: ["Fundamentals of Marketing", "Human Resource Management", "Auditing", "Computer Applications", "Entrepreneurship"],
-  },
-  {
-    sem: 5,
-    subjects: ["Financial Management", "Accounting for Business", "Business Research Methods", "International Business", "Elective I"],
-  },
-  {
-    sem: 6,
-    subjects: ["Strategic Management", "Corporate Governance", "Project Work", "Elective II", "Professional Ethics"],
+    year: 4,
+    subjects: ["Human Resource Management", "Auditing", "Financial Management", "Entrepreneurship", "Strategic Management"],
   },
 ]
 
@@ -103,7 +95,7 @@ export default function BBSPage() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <Badge variant="outline" className="mb-4 px-3 py-1.5 text-xs border-white/20 text-white/80 bg-white/5">
-                  TU Affiliated &middot; 3 Years
+                  TU Affiliated &middot; 4 Years
                 </Badge>
               </motion.div>
               <motion.h1
@@ -139,7 +131,7 @@ export default function BBSPage() {
               <h2 className="text-3xl font-display font-bold mb-6 dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Program Overview</h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
-                  The Bachelor of Business Studies (BBS) is a three-year, six-semester
+                  The Bachelor of Business Studies (BBS) is a four-year
                   undergraduate program affiliated with Tribhuvan University. It offers a solid
                   foundation in business, accounting, finance, and economics, preparing students
                   for careers in commerce, banking, and public administration.
@@ -165,18 +157,18 @@ export default function BBSPage() {
                 <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Curriculum Structure</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                The BBS program spans 6 semesters over 3 years. Below is a semester-wise
+                The BBS program spans 4 years of study (Year 1 to Year 4). Below is a year-wise
                 breakdown of key subjects.
               </p>
               <div className="space-y-4">
-                {SEMESTERS.map((sem) => (
-                  <Card key={sem.sem} className="border border-gray-200 dark:border-gray-700 shadow-sm">
+                {YEARS.map((yr) => (
+                  <Card key={yr.year} className="border border-gray-200 dark:border-gray-700 shadow-sm">
                     <CardContent className="p-4">
                       <h3 className="font-display font-bold mb-3 text-lg dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
-                        Semester {sem.sem}
+                        Year {yr.year}
                       </h3>
                       <div className="space-y-2">
-                        {sem.subjects.map((subj) => (
+                        {yr.subjects.map((subj) => (
                           <Badge key={subj} variant="secondary" className="text-xs px-3 py-1.5 w-full justify-start text-left">
                             {subj}
                           </Badge>
@@ -275,7 +267,7 @@ export default function BBSPage() {
                   </h3>
                   <div className="space-y-4">
                     {[
-                      { label: "Duration", value: "3 Years (6 Semesters)" },
+                      { label: "Duration", value: "4 Years (Year 1 – 4)" },
                       { label: "Credit Hours", value: "90" },
                       { label: "Affiliation", value: "Tribhuvan University" },
                       { label: "Level", value: "Bachelor" },

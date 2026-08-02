@@ -99,11 +99,10 @@ const CONTACT_INFO = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: Facebook, href: "https://facebook.com/miltoncollege", label: "Facebook", color: "hover:text-[#d93a2b]" },
-  { icon: Twitter, href: "https://twitter.com/miltoncollege", label: "Twitter", color: "hover:text-[#d93a2b]" },
-  { icon: Linkedin, href: "https://linkedin.com/school/miltoncollege", label: "LinkedIn", color: "hover:text-[#d93a2b]" },
-  { icon: Instagram, href: "https://instagram.com/miltoncollege", label: "Instagram", color: "hover:text-[#d93a2b]" },
-  { icon: Youtube, href: "https://youtube.com/@miltoncollege", label: "YouTube", color: "hover:text-red-600" },
+  { icon: Facebook, href: "https://www.facebook.com/MiltonInternationalCollege/", label: "Facebook", color: "hover:text-[#d93a2b]" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/golll-ffra-169309427/", label: "LinkedIn", color: "hover:text-[#d93a2b]" },
+  { icon: Instagram, href: "https://www.instagram.com/", label: "Instagram", color: "hover:text-[#d93a2b]" },
+  { icon: Youtube, href: "https://www.youtube.com/", label: "YouTube", color: "hover:text-red-600" },
 ]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -254,14 +253,25 @@ export default function ContactPage() {
               <FadeInSection>
                 <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Find Us</Badge>
                 <h2 className="text-3xl md:text-4xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #1a1a1a)" }}>Our Location</h2>
-                <div className="rounded-xl overflow-hidden shadow-lg h-[300px] flex items-center justify-center relative" style={{ background: "var(--page-primary, #1b3a5c)" }}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1b3a5c] to-[#d93a2b] opacity-90" />
-                  <div className="relative z-10 text-center p-8">
-                    <MapPin className="w-12 h-12 mx-auto mb-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
-                    <p className="text-white text-lg font-display font-bold">Milton International College</p>
-                    <p className="text-white/60 text-sm mt-2">New Baneshwor, Kathmandu, Nepal</p>
-                    <p className="text-white/40 text-xs mt-4">Google Maps Integration</p>
-                  </div>
+                <div className="rounded-xl overflow-hidden shadow-lg h-[300px] relative" style={{ background: "var(--page-primary, #1b3a5c)" }}>
+                  <iframe
+                    src="https://maps.google.com/maps?q=27.6875904,85.3345481&z=17&output=embed"
+                    title="Milton International College Location"
+                    className="absolute inset-0 w-full h-full border-0"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <a
+                    href="https://maps.app.goo.gl/maHTtZXk2rJhdiY76"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white shadow-lg hover:opacity-90 transition-opacity"
+                    style={{ background: "var(--page-secondary, #d93a2b)" }}
+                  >
+                    <MapPin className="w-4 h-4" />
+                    Open in Google Maps
+                  </a>
                 </div>
               </FadeInSection>
 
