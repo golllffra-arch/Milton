@@ -1,7 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  transactionOptions: { timeout: 120000, maxWait: 20000 },
+});
 
 function generateSlug(title: string): string {
   return title
@@ -769,36 +771,44 @@ async function main() {
   ];
 
   let attendanceCount = 0;
-  await prisma.$transaction(async (tx) => {
-    for (const student of createdStudents) {
-      const programCode = student.enrollmentNumber.includes("BCA")
-        ? "BCA"
-        : student.enrollmentNumber.includes("BBM")
-          ? "BBM"
-          : student.enrollmentNumber.includes("BBS")
-            ? "BBS"
-            : "BASW";
-      const subjects = getSubjectsForProgramSemester(programCode, student.semester);
+  const attendanceRows: {
+    studentId: string;
+    subjectId: string;
+    date: Date;
+    status: "PRESENT" | "ABSENT" | "LATE" | "HOLIDAY";
+    markedBy: string;
+  }[] = [];
 
-      for (const subject of subjects) {
-        for (const date of weekdays) {
-          const status = randomItem(attendanceStatuses) as any;
-          const markedBy =
-            student.semester <= 2 ? faculty1.id : randomItem([faculty1.id, faculty2.id, faculty3.id]);
-          await tx.attendance.create({
-            data: {
-              studentId: student.id,
-              subjectId: subject.id,
-              date,
-              status,
-              markedBy,
-            },
-          });
-          attendanceCount++;
-        }
+  for (const student of createdStudents) {
+    const programCode = student.enrollmentNumber.includes("BCA")
+      ? "BCA"
+      : student.enrollmentNumber.includes("BBM")
+        ? "BBM"
+        : student.enrollmentNumber.includes("BBS")
+          ? "BBS"
+          : "BASW";
+    const subjects = getSubjectsForProgramSemester(programCode, student.semester);
+
+    for (const subject of subjects) {
+      for (const date of weekdays) {
+        const status = randomItem(attendanceStatuses) as any;
+        const markedBy =
+          student.semester <= 2 ? faculty1.id : randomItem([faculty1.id, faculty2.id, faculty3.id]);
+        attendanceRows.push({
+          studentId: student.id,
+          subjectId: subject.id,
+          date,
+          status,
+          markedBy,
+        });
+        attendanceCount++;
       }
     }
-  });
+  }
+
+  for (let i = 0; i < attendanceRows.length; i += 500) {
+    await prisma.attendance.createMany({ data: attendanceRows.slice(i, i + 500) });
+  }
 
   console.log(`✅ Created ${attendanceCount} attendance records.`);
 
