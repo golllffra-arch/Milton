@@ -347,20 +347,24 @@ export default function FacultyPage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
+                asChild
                 size="xl"
                 style={{ background: "var(--page-secondary, #d93a2b)", color: "#ffffff" }}
                 className="hover:bg-[#b82e21] shadow-xl shadow-[#d93a2b]/30"
               >
-                Apply Now
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <Link href="/admissions">
+                  Apply Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 size="xl"
                 style={{ color: "var(--page-primary, #1b3a5c)", borderColor: "var(--page-primary, #1b3a5c)" }}
                 className="hover:bg-[var(--page-primary,#1b3a5c)] hover:text-white"
               >
-                Schedule a Visit
+                <Link href="/contact">Schedule a Visit</Link>
               </Button>
             </div>
           </FadeInSection>

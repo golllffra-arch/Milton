@@ -76,7 +76,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
               <p className="text-white/60 mt-3 max-w-2xl">{member.bio || member.specialization}</p>
               <div className="flex flex-wrap items-center gap-4 mt-6 justify-center md:justify-start">
                 <a href={`mailto:${member.email}`}>
-                  <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  <Button size="sm" variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
                     <Mail className="w-4 h-4 mr-2" />{member.email}
                   </Button>
                 </a>

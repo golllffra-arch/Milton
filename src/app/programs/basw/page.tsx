@@ -263,7 +263,7 @@ export default function BASWPage() {
                       Get the complete BASW curriculum syllabus including detailed course content and credit hours.
                     </p>
                   </div>
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white shrink-0">
+                  <Button variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 shrink-0">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </Button>

@@ -1163,7 +1163,7 @@ function FooterCTA() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="xl" className="border-white/20 text-white hover:bg-white/10 hover:text-white text-base px-8 py-6 rounded-full">
+              <Button variant="outline" size="xl" className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 text-base px-8 py-6 rounded-full">
                 <Mail className="mr-2 w-5 h-5" />
                 Request Information
               </Button>

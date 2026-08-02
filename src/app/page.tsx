@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { motion } from "framer-motion"
 import TiltCard from "@/components/TiltCard"
 import AnimatedCounter from "@/components/AnimatedCounter"
@@ -319,12 +320,13 @@ export default function HomePage() {
 
             <div className="mt-8 flex flex-wrap gap-2">
               {CONTACT.courses.map((c) => (
-                <span
+                <Link
                   key={c}
-                  className="rounded-full border border-[var(--indigo)]/15 bg-white px-4 py-1.5 text-sm font-semibold text-[var(--indigo)]"
+                  href={`/programs/${c.toLowerCase()}`}
+                  className="rounded-full border border-[var(--indigo)]/15 bg-white px-4 py-1.5 text-sm font-semibold text-[var(--indigo)] transition-colors hover:bg-[var(--indigo)] hover:text-white"
                 >
                   {c}
-                </span>
+                </Link>
               ))}
             </div>
 

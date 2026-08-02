@@ -490,7 +490,7 @@ export default function CareerCenterPage() {
                   career@milton.edu.com
                 </a>
               </Button>
-              <Button variant="outline" size="xl" asChild className="border-white/20 text-white hover:bg-white/10 hover:text-white">
+              <Button variant="outline" size="xl" asChild className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20">
                 <a href="tel:014791974">
                   <Phone className="mr-2 w-5 h-5" />
                   01-4791974

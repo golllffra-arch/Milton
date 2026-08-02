@@ -357,7 +357,7 @@ export default function VirtualTourPage() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-white/20 text-white hover:bg-white/10 hover:text-white"
+                  className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
                 >
                   Apply Online
                   <ArrowRight className="ml-2 w-5 h-5" />
