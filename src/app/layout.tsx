@@ -68,7 +68,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         `}</style>
       </head>
       <body className="antialiased" style={{ fontFamily: `"${bodyFontFamily}", sans-serif`, backgroundColor: bgColor }}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <ThemeWatcher />
           <AnimeBackground />
           <PageBackground />
