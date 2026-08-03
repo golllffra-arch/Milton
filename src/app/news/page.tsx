@@ -31,7 +31,7 @@ const NEWS_ITEMS = [
     excerpt: "Applications are now being accepted for BCA, BBM, BBS, and BASW programs. Early bird scholarships available for meritorious students. Apply before September 15.",
     featured: true,
     icon: GraduationCap,
-    color: "from-[#d93a2b] to-[#d93a2b]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const NEWS_ITEMS = [
     excerpt: "Our students secured first place at the National Inter-College Technology Championship 2026, beating 25 teams from across Nepal in coding and project categories.",
     featured: false,
     icon: Trophy,
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const NEWS_ITEMS = [
     excerpt: "Milton International College announces merit-based scholarships for outstanding students across all programs. Scholarships cover up to 50% of tuition fees.",
     featured: false,
     icon: Award,
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     id: 5,
@@ -75,7 +75,7 @@ const NEWS_ITEMS = [
     excerpt: "The biggest cultural event of the year featuring music performances, dance competitions, food stalls, art exhibitions, and guest appearances from renowned artists.",
     featured: false,
     icon: Star,
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     id: 6,
@@ -86,7 +86,7 @@ const NEWS_ITEMS = [
     excerpt: "A team of BCA final-year students built a comprehensive campus management application that digitizes attendance, notices, and grade tracking for the college.",
     featured: false,
     icon: BookOpen,
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     id: 7,
@@ -97,7 +97,7 @@ const NEWS_ITEMS = [
     excerpt: "BASW and BBM students organized a day of community service at Bishnumati Care Home, engaging with residents and contributing essential supplies.",
     featured: false,
     icon: Heart,
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     id: 8,
@@ -108,7 +108,7 @@ const NEWS_ITEMS = [
     excerpt: "The end-semester examination schedule for all programs has been published. Students are requested to check the notice board and download the timetable.",
     featured: false,
     icon: Megaphone,
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     id: 9,
@@ -119,7 +119,7 @@ const NEWS_ITEMS = [
     excerpt: "BCA graduate Arjun Khadka (Class of 2022) has been hired by Google as a Software Engineer, making Milton proud with his remarkable achievement.",
     featured: false,
     icon: Trophy,
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     id: 10,
@@ -130,7 +130,7 @@ const NEWS_ITEMS = [
     excerpt: "A series of guest lectures by industry leaders from banking, IT, and social sectors to bridge the gap between academic learning and professional practice.",
     featured: false,
     icon: Users,
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
 ]
 
@@ -160,7 +160,7 @@ function FloatingParticles() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "var(--page-primary, #1b3a5c)" : i % 3 === 1 ? "var(--page-secondary, #d93a2b)" : "var(--page-accent, #d93a2b)",
+            background: i % 3 === 0 ? "var(--page-primary, #1b3f63)" : i % 3 === 1 ? "var(--page-secondary, #fe0000)" : "var(--page-accent, #fe0000)",
             width: `${2 + Math.random() * 4}px`,
             height: `${2 + Math.random() * 4}px`,
             animationDelay: `${Math.random() * 5}s`,
@@ -171,7 +171,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-primary, #1b3a5c)",
+          background: "var(--page-primary, #1b3f63)",
           width: "300px",
           height: "300px",
           top: "-10%",
@@ -182,7 +182,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-secondary, #d93a2b)",
+          background: "var(--page-secondary, #fe0000)",
           width: "250px",
           height: "250px",
           bottom: "-10%",
@@ -193,7 +193,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-accent, #d93a2b)",
+          background: "var(--page-accent, #fe0000)",
           width: "200px",
           height: "200px",
           top: "30%",
@@ -220,7 +220,7 @@ export default function NewsPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #d93a2b), var(--page-hero-to, #d93a2b))" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #fe0000), var(--page-hero-to, #fe0000))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
@@ -232,7 +232,7 @@ export default function NewsPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Newspaper className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+              <Newspaper className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #fe0000)" }} />
               Stay Informed
             </Badge>
           </motion.div>
@@ -266,7 +266,7 @@ export default function NewsPage() {
                     key={cat.value}
                     value={cat.value}
                     className="px-6 py-2 rounded-lg text-sm font-medium data-[state=active]:text-white"
-                    style={activeTab === cat.value ? { background: "var(--page-primary, #d93a2b)" } : undefined}
+                    style={activeTab === cat.value ? { background: "var(--page-primary, #fe0000)" } : undefined}
                   >
                     {cat.label}
                   </TabsTrigger>
@@ -283,7 +283,7 @@ export default function NewsPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <Newspaper className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>No items found</h3>
+              <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #000000)" }}>No items found</h3>
               <p className="text-gray-500">No news items in this category yet.</p>
             </div>
           ) : (
@@ -309,7 +309,7 @@ export default function NewsPage() {
                               {formatDate(featured.date)}
                             </span>
                           </div>
-                          <h2 className="text-2xl lg:text-3xl font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                          <h2 className="text-2xl lg:text-3xl font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #000000)" }}>
                             {featured.title}
                           </h2>
                           <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
@@ -355,13 +355,13 @@ export default function NewsPage() {
                               <Calendar className="w-3.5 h-3.5" />
                               {formatDate(item.date)}
                             </div>
-                            <h3 className="text-lg font-display font-bold dark:text-white mb-2 leading-snug" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                            <h3 className="text-lg font-display font-bold dark:text-white mb-2 leading-snug" style={{ color: "var(--page-text, #000000)" }}>
                               {item.title}
                             </h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                               {truncate(item.excerpt, 120)}
                             </p>
-                            <span className="inline-flex items-center text-sm font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--page-secondary, #d93a2b)" }}>
+                            <span className="inline-flex items-center text-sm font-semibold group-hover:gap-2 transition-all" style={{ color: "var(--page-secondary, #fe0000)" }}>
                               Read More
                               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
@@ -379,21 +379,21 @@ export default function NewsPage() {
 
       {/* ─── CTA ─── */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #d93a2b), var(--page-hero-to, #d93a2b))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #fe0000), var(--page-hero-to, #fe0000))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
         <FloatingParticles />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <Sparkles className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #d93a2b)" }} />
+            <Sparkles className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #fe0000)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Want to Share Your{" "}
-              <span style={{ color: "var(--page-secondary, #d93a2b)" }}>Story?</span>
+              <span style={{ color: "var(--page-secondary, #fe0000)" }}>Story?</span>
             </h2>
             <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
               If you have news, achievements, or events to share with the Milton community, we would love to hear from you.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #d93a2b)" }}>
+              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #fe0000)" }}>
                 <Link href="/contact">
                   Submit News
                   <ArrowRight className="ml-2 w-5 h-5" />

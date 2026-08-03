@@ -21,7 +21,7 @@ const JOB_LISTINGS = [
     location: "Kathmandu",
     deadline: "Aug 30, 2026",
     logo: "F1",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     company: "Nepal Investment Bank",
@@ -30,7 +30,7 @@ const JOB_LISTINGS = [
     location: "Kathmandu",
     deadline: "Sep 15, 2026",
     logo: "NIB",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     company: "World Vision International",
@@ -39,7 +39,7 @@ const JOB_LISTINGS = [
     location: "Lalitpur",
     deadline: "Aug 20, 2026",
     logo: "WV",
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     company: "CloudFactory Nepal",
@@ -48,7 +48,7 @@ const JOB_LISTINGS = [
     location: "Kathmandu",
     deadline: "Sep 5, 2026",
     logo: "CF",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     company: "Sajilo Software",
@@ -57,7 +57,7 @@ const JOB_LISTINGS = [
     location: "Patan",
     deadline: "Oct 1, 2026",
     logo: "SS",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     company: "Hotel Yak & Yeti",
@@ -66,7 +66,7 @@ const JOB_LISTINGS = [
     location: "Kathmandu",
     deadline: "Sep 10, 2026",
     logo: "HY",
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
 ]
 
@@ -77,7 +77,7 @@ const ALUMNI = [
     role: "Software Engineer at Google",
     story: "Arjun's passion for coding was nurtured at Milton through the IT Club and hackathons. Today, he works at Google's Hyderabad office, building scalable solutions for millions of users.",
     initials: "AK",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     name: "Pooja Shrestha",
@@ -85,7 +85,7 @@ const ALUMNI = [
     role: "Marketing Manager at Kantipur Media",
     story: "Pooja credits Milton's industry exposure and internship program for her rapid career growth. She now leads marketing campaigns for Nepal's largest media house.",
     initials: "PS",
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
   {
     name: "Sagar Bhattarai",
@@ -93,7 +93,7 @@ const ALUMNI = [
     role: "Financial Analyst at Himalayan Bank",
     story: "The strong foundation in accounting and finance at Milton helped Sagar clear bank exams and secure a position in one of Nepal's leading commercial banks.",
     initials: "SB",
-    color: "from-[#1b3a5c] to-[#12283f]",
+    color: "from-[#1b3f63] to-[#1b3f63]",
   },
   {
     name: "Anita Tamang",
@@ -101,7 +101,7 @@ const ALUMNI = [
     role: "Program Coordinator at Save the Children",
     story: "Anita's field experiences and research projects during her BASW program at Milton prepared her for impactful work in the development sector.",
     initials: "AT",
-    color: "from-[#d93a2b] to-[#b82e21]",
+    color: "from-[#fe0000] to-[#fe0000]",
   },
 ]
 
@@ -113,12 +113,12 @@ const SERVICES = [
 ]
 
 const PARTNERS = [
-  { name: "F1Soft International", logo: "F1", color: "bg-[#e8eef7] dark:bg-[#12283f]/60 text-[#1b3a5c] dark:text-[#dce5f0]" },
-  { name: "CloudFactory", logo: "CF", color: "bg-[#e8eef7] dark:bg-[#12283f]/60 text-[#1b3a5c] dark:text-[#dce5f0]" },
-  { name: "Nepal Investment Bank", logo: "NIB", color: "bg-[#e8eef7] dark:bg-[#12283f]/60 text-[#1b3a5c] dark:text-[#dce5f0]" },
+  { name: "F1Soft International", logo: "F1", color: "bg-[#e8eef7] dark:bg-[#1b3f63]/60 text-[#1b3f63] dark:text-[#dce5f0]" },
+  { name: "CloudFactory", logo: "CF", color: "bg-[#e8eef7] dark:bg-[#1b3f63]/60 text-[#1b3f63] dark:text-[#dce5f0]" },
+  { name: "Nepal Investment Bank", logo: "NIB", color: "bg-[#e8eef7] dark:bg-[#1b3f63]/60 text-[#1b3f63] dark:text-[#dce5f0]" },
   { name: "Kantipur Media", logo: "KM", color: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300" },
-  { name: "World Vision Nepal", logo: "WV", color: "bg-[#fde9e6] dark:bg-[#7a1f16]/60 text-[#b82e21] dark:text-[#f5c9c4]" },
-  { name: "Sajilo Software", logo: "SS", color: "bg-[#e8eef7] dark:bg-[#12283f]/60 text-[#1b3a5c] dark:text-[#dce5f0]" },
+  { name: "World Vision Nepal", logo: "WV", color: "bg-[#fde9e6] dark:bg-[#fe0000]/60 text-[#fe0000] dark:text-[#f5c9c4]" },
+  { name: "Sajilo Software", logo: "SS", color: "bg-[#e8eef7] dark:bg-[#1b3f63]/60 text-[#1b3f63] dark:text-[#dce5f0]" },
 ]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -147,7 +147,7 @@ function FloatingParticles() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "var(--page-primary, #1b3a5c)" : i % 3 === 1 ? "var(--page-secondary, #d93a2b)" : "var(--page-accent, #d93a2b)",
+            background: i % 3 === 0 ? "var(--page-primary, #1b3f63)" : i % 3 === 1 ? "var(--page-secondary, #fe0000)" : "var(--page-accent, #fe0000)",
             width: `${2 + Math.random() * 4}px`,
             height: `${2 + Math.random() * 4}px`,
             animationDelay: `${Math.random() * 5}s`,
@@ -158,7 +158,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-primary, #1b3a5c)",
+          background: "var(--page-primary, #1b3f63)",
           width: "300px",
           height: "300px",
           top: "-10%",
@@ -169,7 +169,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-secondary, #d93a2b)",
+          background: "var(--page-secondary, #fe0000)",
           width: "250px",
           height: "250px",
           bottom: "-10%",
@@ -180,7 +180,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-accent, #d93a2b)",
+          background: "var(--page-accent, #fe0000)",
           width: "200px",
           height: "200px",
           top: "30%",
@@ -198,7 +198,7 @@ export default function CareerCenterPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
@@ -210,7 +210,7 @@ export default function CareerCenterPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Briefcase className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+              <Briefcase className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #1b3f63)" }} />
               Your Future Starts Here
             </Badge>
           </motion.div>
@@ -239,7 +239,7 @@ export default function CareerCenterPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-14">
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">What We Offer</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>
               Career Services
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -254,10 +254,10 @@ export default function CareerCenterPage() {
                   <motion.div whileHover={{ y: -6 }} className="group h-full">
                     <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl">
                       <CardContent className="p-6 text-center">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform" style={{ background: "var(--page-primary, #1b3a5c)" }}>
-                          <Icon className="w-7 h-7" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform" style={{ background: "var(--page-primary, #1b3f63)" }}>
+                          <Icon className="w-7 h-7" style={{ color: "var(--page-secondary, #1b3f63)" }} />
                         </div>
-                        <h3 className="text-lg font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #1a1a1a)" }}>{service.title}</h3>
+                        <h3 className="text-lg font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #000000)" }}>{service.title}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{service.description}</p>
                       </CardContent>
                     </Card>
@@ -275,12 +275,12 @@ export default function CareerCenterPage() {
           <FadeInSection className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
             <div>
               <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Open Positions</Badge>
-              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
+              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>
                 Jobs & Internships
               </h2>
               <p className="mt-2 text-gray-600 dark:text-gray-400">Current opportunities from our partner organizations</p>
             </div>
-            <Button variant="outline" asChild className="mt-4 md:mt-0 border-[#1b3a5c]/20" style={{ color: "var(--page-text, #1a1a1a)" }}>
+            <Button variant="outline" asChild className="mt-4 md:mt-0 border-[#1b3f63]/20" style={{ color: "var(--page-text, #000000)" }}>
               <Link href="#jobs">
                 View All Openings
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -298,7 +298,7 @@ export default function CareerCenterPage() {
                           {job.logo}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{job.role}</h3>
+                          <h3 className="font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>{job.role}</h3>
                           <p className="text-sm text-gray-500 dark:text-gray-400">{job.company}</p>
                         </div>
                       </div>
@@ -313,7 +313,7 @@ export default function CareerCenterPage() {
                       </div>
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
                         <span className="text-xs text-gray-400">Deadline: {job.deadline}</span>
-                        <Button variant="ghost" size="sm" asChild className="p-0 h-auto font-semibold text-sm" style={{ color: "var(--page-secondary, #1b3a5c)" }}>
+                        <Button variant="ghost" size="sm" asChild className="p-0 h-auto font-semibold text-sm" style={{ color: "var(--page-secondary, #1b3f63)" }}>
                           <a href={`mailto:career@milton.edu.com?subject=Application for ${job.role} at ${job.company}`}>
                             Apply Now
                             <ArrowRight className="ml-1 w-3.5 h-3.5" />
@@ -335,9 +335,9 @@ export default function CareerCenterPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeInSection>
               <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Build Your Brand</Badge>
-              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #1a1a1a)" }}>
+              <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #000000)" }}>
                 Resume Building<br />
-                <span style={{ color: "var(--page-secondary, #1b3a5c)" }}>Tips & Resources</span>
+                <span style={{ color: "var(--page-secondary, #1b3f63)" }}>Tips & Resources</span>
               </h2>
               <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 A strong resume is your first impression. Our career counselors provide templates,
@@ -352,8 +352,8 @@ export default function CareerCenterPage() {
                   { icon: ListChecks, text: "Proofread carefully — errors create a poor impression" },
                 ].map((tip) => (
                   <li key={tip.text} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ background: "var(--page-primary, #1b3a5c)" }}>
-                      <tip.icon className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3a5c)" }} />
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ background: "var(--page-primary, #1b3f63)" }}>
+                      <tip.icon className="w-4 h-4" style={{ color: "var(--page-secondary, #1b3f63)" }} />
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">{tip.text}</span>
                   </li>
@@ -366,7 +366,7 @@ export default function CareerCenterPage() {
                     Download Template
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="border-[#1b3a5c]/20" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                <Button variant="outline" asChild className="border-[#1b3f63]/20" style={{ color: "var(--page-text, #000000)" }}>
                   <Link href="/contact">
                     Book Appointment
                   </Link>
@@ -375,10 +375,10 @@ export default function CareerCenterPage() {
             </FadeInSection>
             <FadeInSection>
               <div className="relative">
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#d93a2b]/20 rounded-2xl" />
-                <div className="relative rounded-2xl p-8 md:p-10 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }}>
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#fe0000]/20 rounded-2xl" />
+                <div className="relative rounded-2xl p-8 md:p-10 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,35,0.1),transparent_60%)]" />
-                  <FileText className="w-16 h-16 mb-6 relative z-10" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+                  <FileText className="w-16 h-16 mb-6 relative z-10" style={{ color: "var(--page-accent, #1b3f63)" }} />
                   <h3 className="text-2xl font-display font-bold text-white relative z-10">Pro Tip</h3>
                   <p className="text-white/70 mt-3 leading-relaxed relative z-10">
                     Keep your resume to one page if you have less than 5 years of experience.
@@ -400,7 +400,7 @@ export default function CareerCenterPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-14">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Inspiring Journeys</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>
               Alumni Success Stories
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -418,13 +418,13 @@ export default function CareerCenterPage() {
                           {alumnus.initials}
                         </div>
                         <div>
-                          <h3 className="font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>{alumnus.name}</h3>
+                          <h3 className="font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>{alumnus.name}</h3>
                           <p className="text-xs text-gray-500 dark:text-gray-400">{alumnus.program}</p>
                           <Badge variant="success" className="mt-1 text-[10px]">{alumnus.role}</Badge>
                         </div>
                       </div>
-                      <div className="relative pl-6 border-l-2 border-[#d93a2b]/30">
-                        <Quote className="w-4 h-4 absolute -left-2 -top-1" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+                      <div className="relative pl-6 border-l-2 border-[#fe0000]/30">
+                        <Quote className="w-4 h-4 absolute -left-2 -top-1" style={{ color: "var(--page-accent, #1b3f63)" }} />
                         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">{alumnus.story}</p>
                       </div>
                     </CardContent>
@@ -441,7 +441,7 @@ export default function CareerCenterPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-14">
             <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Our Network</Badge>
-            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
+            <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>
               Partner Companies
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -457,7 +457,7 @@ export default function CareerCenterPage() {
                       <div className={`w-14 h-14 rounded-xl ${partner.color} flex items-center justify-center mx-auto mb-3 text-lg font-bold`}>
                         {partner.logo}
                       </div>
-                      <p className="text-xs font-medium dark:text-white leading-tight" style={{ color: "var(--page-text, #1a1a1a)" }}>{partner.name}</p>
+                      <p className="text-xs font-medium dark:text-white leading-tight" style={{ color: "var(--page-text, #000000)" }}>{partner.name}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -469,22 +469,22 @@ export default function CareerCenterPage() {
 
       {/* ─── CTA ─── */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.08),transparent_50%)]" />
         <FloatingParticles />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
-            <Handshake className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+            <Handshake className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #1b3f63)" }} />
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               Ready to Launch Your{" "}
-              <span style={{ color: "var(--page-secondary, #1b3a5c)" }}>Career?</span>
+              <span style={{ color: "var(--page-secondary, #1b3f63)" }}>Career?</span>
             </h2>
             <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
               Visit the Career Center in person or book an online counseling session. We are here to help you succeed.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #1b3a5c)" }}>
+              <Button size="xl" asChild className="text-white shadow-xl" style={{ background: "var(--page-secondary, #1b3f63)" }}>
                 <a href="mailto:career@milton.edu.com">
                   <Mail className="mr-2 w-5 h-5" />
                   career@milton.edu.com

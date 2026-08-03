@@ -48,18 +48,18 @@ export function CampusPanorama() {
     <div className="fixed inset-0 -z-10 overflow-hidden">
       <div 
         className="absolute inset-0 opacity-60" 
-        style={{ background: "linear-gradient(to bottom, #0b1522 0%, #12283f 40%, #1b3a5c 70%, #dce5f0 100%)" }} 
+        style={{ background: "linear-gradient(to bottom, #000000 0%, #1b3f63 40%, #1b3f63 70%, #dce5f0 100%)" }} 
       />
 
       <svg className="absolute bottom-0 w-full opacity-70" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
         <defs>
           <linearGradient id="pano-ground" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#12283f" />
-            <stop offset="100%" stopColor="#0b1522" />
+            <stop offset="0%" stopColor="#1b3f63" />
+            <stop offset="100%" stopColor="#000000" />
           </linearGradient>
           <linearGradient id="pano-building" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#1b3a5c" />
-            <stop offset="100%" stopColor="#12283f" />
+            <stop offset="0%" stopColor="#1b3f63" />
+            <stop offset="100%" stopColor="#1b3f63" />
           </linearGradient>
           <radialGradient id="pano-beam" cx="50%" cy="100%" r="100%">
             <stop offset="0%" stopColor="#dce5f0" stopOpacity="0.4" />
@@ -69,12 +69,12 @@ export function CampusPanorama() {
 
         {/* Northern Lights / Aurora */}
         <g className="pano-aurora" opacity="0.3">
-          <path d="M-100,300 Q200,200 500,350 T1100,250 T1600,400 L1600,100 L-100,100 Z" fill="#1b3a5c" filter="blur(20px)" />
+          <path d="M-100,300 Q200,200 500,350 T1100,250 T1600,400 L1600,100 L-100,100 Z" fill="#1b3f63" filter="blur(20px)" />
           <path d="M-100,200 Q300,300 700,200 T1300,350 T1600,200 L1600,0 L-100,0 Z" fill="#dce5f0" filter="blur(30px)" />
         </g>
 
         {/* Background Hills */}
-        <path d="M0,600 Q300,550 700,600 T1440,580 L1440,900 L0,900 Z" fill="#12283f" />
+        <path d="M0,600 Q300,550 700,600 T1440,580 L1440,900 L0,900 Z" fill="#1b3f63" />
         
         {/* Ground */}
         <path d="M0,700 L1440,700 L1440,900 L0,900 Z" fill="url(#pano-ground)" />
@@ -92,16 +92,16 @@ export function CampusPanorama() {
         {/* Buildings (Campus Panorama) */}
         <g fill="url(#pano-building)">
           <rect x="200" y="550" width="150" height="150" />
-          <polygon points="200,550 275,500 350,550" fill="#0b1522" />
+          <polygon points="200,550 275,500 350,550" fill="#000000" />
           
           <rect x="380" y="450" width="100" height="250" />
-          <polygon points="380,450 430,400 480,450" fill="#0b1522" />
+          <polygon points="380,450 430,400 480,450" fill="#000000" />
           
           <rect x="520" y="600" width="200" height="100" />
           
           <rect x="750" y="400" width="120" height="300" />
           <rect x="900" y="500" width="150" height="200" />
-          <polygon points="900,500 975,450 1050,500" fill="#0b1522" />
+          <polygon points="900,500 975,450 1050,500" fill="#000000" />
           
           <rect x="1100" y="580" width="180" height="120" />
         </g>
@@ -135,13 +135,13 @@ export function CampusPanorama() {
 
         {/* Drone Silhouette */}
         <g transform="translate(150, 200)" className="pano-hover-drone" opacity="0.7">
-          <rect x="-20" y="-5" width="40" height="10" rx="4" fill="#0b1522" />
-          <circle cx="0" cy="8" r="6" fill="#12283f" />
+          <rect x="-20" y="-5" width="40" height="10" rx="4" fill="#000000" />
+          <circle cx="0" cy="8" r="6" fill="#1b3f63" />
           <circle cx="0" cy="8" r="2" fill="#dce5f0" />
-          <line x1="-25" y1="-5" x2="-35" y2="-15" stroke="#0b1522" strokeWidth="3" />
-          <line x1="25" y1="-5" x2="35" y2="-15" stroke="#0b1522" strokeWidth="3" />
-          <line x1="-45" y1="-15" x2="-25" y2="-15" stroke="#12283f" strokeWidth="2" />
-          <line x1="25" y1="-15" x2="45" y2="-15" stroke="#12283f" strokeWidth="2" />
+          <line x1="-25" y1="-5" x2="-35" y2="-15" stroke="#000000" strokeWidth="3" />
+          <line x1="25" y1="-5" x2="35" y2="-15" stroke="#000000" strokeWidth="3" />
+          <line x1="-45" y1="-15" x2="-25" y2="-15" stroke="#1b3f63" strokeWidth="2" />
+          <line x1="25" y1="-15" x2="45" y2="-15" stroke="#1b3f63" strokeWidth="2" />
         </g>
 
         {/* Scanning Beam */}
@@ -198,7 +198,7 @@ export function CampusPanorama() {
         >
           <svg width="30" height="40" viewBox="0 0 30 40" fill="none" opacity="0.8">
             <path d="M15,0 C6.7,0 0,6.7 0,15 C0,26.2 15,40 15,40 C15,40 30,26.2 30,15 C30,6.7 23.3,0 15,0 Z" fill="#dce5f0" />
-            <circle cx="15" cy="15" r="7" fill="#0b1522" />
+            <circle cx="15" cy="15" r="7" fill="#000000" />
           </svg>
         </div>
       ))}

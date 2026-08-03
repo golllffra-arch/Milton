@@ -11,7 +11,7 @@ export interface GalleryAlbum {
 export const GALLERY_ALBUMS: GalleryAlbum[] = [
   {
     id: "annual-sports-day-2026", title: "Annual Sports Day 2026", category: "sports",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Students competing in various sports events",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Students competing in various sports events",
     date: "March 2026",
     images: [
       { src: "", caption: "Opening ceremony with torch relay" },
@@ -24,7 +24,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "tech-fest-coding", title: "Tech Fest Coding Competition", category: "events",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Students participating in coding challenge",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Students participating in coding challenge",
     date: "February 2026",
     images: [
       { src: "", caption: "Competition opening" },
@@ -35,7 +35,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "college-library", title: "College Library", category: "campus",
-    color: "from-[#d93a2b] to-[#b82e21]", coverDescription: "Our well-stocked library facility",
+    color: "from-[#fe0000] to-[#fe0000]", coverDescription: "Our well-stocked library facility",
     date: "2026",
     images: [
       { src: "", caption: "Main reading hall" },
@@ -47,7 +47,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "dashain-celebration-2025", title: "Dashain Celebration 2025", category: "cultural",
-    color: "from-[#d93a2b] to-[#b82e21]", coverDescription: "Dashain festival celebration on campus",
+    color: "from-[#fe0000] to-[#fe0000]", coverDescription: "Dashain festival celebration on campus",
     date: "October 2025",
     images: [
       { src: "", caption: "Tika ceremony" },
@@ -58,7 +58,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "singapore-study-tour", title: "Singapore Study Tour", category: "tours",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Students on educational tour to Singapore",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Students on educational tour to Singapore",
     date: "January 2026",
     images: [
       { src: "", caption: "At Singapore CBD" },
@@ -71,7 +71,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "computer-lab-session", title: "Computer Lab Session", category: "campus",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Students in modern computer lab",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Students in modern computer lab",
     date: "2026",
     images: [
       { src: "", caption: "Lab overview" },
@@ -81,7 +81,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "inter-college-debate", title: "Inter-College Debate", category: "events",
-    color: "from-[#d93a2b] to-[#b82e21]", coverDescription: "Debate competition between colleges",
+    color: "from-[#fe0000] to-[#fe0000]", coverDescription: "Debate competition between colleges",
     date: "December 2025",
     images: [
       { src: "", caption: "Debate stage" },
@@ -92,7 +92,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "basketball-tournament", title: "Basketball Tournament", category: "sports",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Inter-class basketball competition",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Inter-class basketball competition",
     date: "February 2026",
     images: [
       { src: "", caption: "Tip-off" },
@@ -103,7 +103,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "cultural-day-performances", title: "Cultural Day Performances", category: "cultural",
-    color: "from-[#d93a2b] to-[#b82e21]", coverDescription: "Students showcasing cultural performances",
+    color: "from-[#fe0000] to-[#fe0000]", coverDescription: "Students showcasing cultural performances",
     date: "November 2025",
     images: [
       { src: "", caption: "Traditional dance" },
@@ -115,7 +115,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "dubai-industrial-visit", title: "Dubai Industrial Visit", category: "tours",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Industry visit to Dubai",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Industry visit to Dubai",
     date: "December 2025",
     images: [
       { src: "", caption: "At Dubai skyline" },
@@ -136,7 +136,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "freshers-party-2025", title: "Freshers' Party 2025", category: "events",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Welcome party for new students",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Welcome party for new students",
     date: "November 2025",
     images: [
       { src: "", caption: "Stage decoration" },
@@ -147,7 +147,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "volunteer-orphanage", title: "Volunteer at Orphanage", category: "cultural",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Students volunteering at local orphanage",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Students volunteering at local orphanage",
     date: "January 2026",
     images: [
       { src: "", caption: "With children" },
@@ -157,7 +157,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
   },
   {
     id: "malaysia-university-visit", title: "Malaysia University Visit", category: "tours",
-    color: "from-[#1b3a5c] to-[#12283f]", coverDescription: "Visiting universities in Malaysia",
+    color: "from-[#1b3f63] to-[#1b3f63]", coverDescription: "Visiting universities in Malaysia",
     date: "January 2026",
     images: [
       { src: "", caption: "University campus" },

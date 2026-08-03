@@ -20,11 +20,11 @@ interface SearchResult {
 const CATEGORY_ORDER: Category[] = ["Pages", "Programs", "News", "Faculty", "Gallery"]
 
 const CATEGORY_META: Record<Category, { icon: React.ElementType; accent: string }> = {
-  Pages: { icon: FileText, accent: "#1b3a5c" },
-  Programs: { icon: GraduationCap, accent: "#d93a2b" },
-  News: { icon: Newspaper, accent: "#1b3a5c" },
-  Faculty: { icon: Users, accent: "#d93a2b" },
-  Gallery: { icon: ImageIcon, accent: "#1b3a5c" },
+  Pages: { icon: FileText, accent: "#1b3f63" },
+  Programs: { icon: GraduationCap, accent: "#fe0000" },
+  News: { icon: Newspaper, accent: "#1b3f63" },
+  Faculty: { icon: Users, accent: "#fe0000" },
+  Gallery: { icon: ImageIcon, accent: "#1b3f63" },
 }
 
 const STATIC_PAGES: SearchResult[] = [
@@ -270,7 +270,7 @@ export default function GlobalSearch({
                 onKeyDown={onKeyDown}
                 placeholder={placeholder}
                 className="w-full bg-transparent py-3.5 text-sm outline-none dark:text-white"
-                style={{ color: "var(--page-text, #1a1a1a)" }}
+                style={{ color: "var(--page-text, #000000)" }}
               />
               {loading && <Loader2 className="h-4 w-4 shrink-0 animate-spin text-muted-foreground" />}
               <button
@@ -322,7 +322,7 @@ export default function GlobalSearch({
                               <Meta.icon className="h-4 w-4" style={{ color: Meta.accent }} />
                             </span>
                             <span className="min-w-0 flex-1">
-                              <span className="block truncate text-sm font-medium dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                              <span className="block truncate text-sm font-medium dark:text-white" style={{ color: "var(--page-text, #000000)" }}>
                                 {item.title}
                               </span>
                               {item.subtitle && (
@@ -350,7 +350,7 @@ export default function GlobalSearch({
                 <span className="mx-2">&middot;</span>
                 <kbd className="rounded border px-1 py-0.5 font-mono">esc</kbd> close
               </span>
-              <Link href="/programs" className="font-medium hover:underline" onClick={() => setOpen(false)} style={{ color: "var(--page-accent, #d93a2b)" }}>
+              <Link href="/programs" className="font-medium hover:underline" onClick={() => setOpen(false)} style={{ color: "var(--page-accent, #fe0000)" }}>
                 Browse all programs
               </Link>
             </div>

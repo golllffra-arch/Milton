@@ -12,7 +12,7 @@ export function CampusVibes() {
   })), [])
 
   const confetti = useMemo(() => Array.from({ length: 25 }, (_: unknown, i) => {
-    const colors = ['#d93a2b', '#e8b4ac', '#1b3a5c', '#dce5f0', '#12283f']
+    const colors = ['#fe0000', '#e8b4ac', '#1b3f63', '#dce5f0', '#1b3f63']
     return {
       x: Math.random() * 1440,
       startY: -50,
@@ -28,7 +28,7 @@ export function CampusVibes() {
       {/* 1. Gradient background */}
       <div 
         className="absolute inset-0" 
-        style={{ background: "linear-gradient(to bottom, #7a1f16 0%, #b82e21 30%, #d93a2b 60%, #e8b4ac 100%)" }} 
+        style={{ background: "linear-gradient(to bottom, #fe0000 0%, #fe0000 30%, #fe0000 60%, #e8b4ac 100%)" }} 
       />
       
       {/* 2. SVG scene layers */}
@@ -39,16 +39,16 @@ export function CampusVibes() {
         {/* Background Trees */}
         {[100, 300, 500, 800, 1100, 1300].map((x, i) => (
           <g key={`bg-tree-${i}`} transform={`translate(${x}, 550) scale(${Math.random() * 0.4 + 0.6})`}>
-            <rect x="-10" y="0" width="20" height="150" fill="#7a1f16" opacity="0.6"/>
-            <circle cx="0" cy="-20" r="60" fill="#b82e21" opacity="0.5"/>
-            <circle cx="-30" cy="10" r="40" fill="#b82e21" opacity="0.5"/>
-            <circle cx="30" cy="10" r="40" fill="#b82e21" opacity="0.5"/>
+            <rect x="-10" y="0" width="20" height="150" fill="#fe0000" opacity="0.6"/>
+            <circle cx="0" cy="-20" r="60" fill="#fe0000" opacity="0.5"/>
+            <circle cx="-30" cy="10" r="40" fill="#fe0000" opacity="0.5"/>
+            <circle cx="30" cy="10" r="40" fill="#fe0000" opacity="0.5"/>
           </g>
         ))}
 
         {/* Campus Buildings / Quad */}
-        <path d="M50,600 L50,350 L250,300 L450,350 L450,600 Z" fill="#12283f" opacity="0.7"/>
-        <path d="M900,600 L900,250 L1150,250 L1150,600 Z" fill="#12283f" opacity="0.7"/>
+        <path d="M50,600 L50,350 L250,300 L450,350 L450,600 Z" fill="#1b3f63" opacity="0.7"/>
+        <path d="M900,600 L900,250 L1150,250 L1150,600 Z" fill="#1b3f63" opacity="0.7"/>
         {/* Building windows */}
         {Array.from({length: 12}).map((_: unknown, i) => (
           <rect key={`win1-${i}`} x={100 + (i%3)*80} y={380 + Math.floor(i/3)*50} width="30" height="30" fill="#e8b4ac" opacity="0.3"/>
@@ -58,37 +58,37 @@ export function CampusVibes() {
         ))}
 
         {/* Sports Field Mid-ground */}
-        <ellipse cx="720" cy="700" rx="500" ry="100" fill="#b82e21" opacity="0.4" />
+        <ellipse cx="720" cy="700" rx="500" ry="100" fill="#fe0000" opacity="0.4" />
         <ellipse cx="720" cy="700" rx="480" ry="90" fill="none" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
         <line x1="720" y1="600" x2="720" y2="800" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
         <circle cx="720" cy="700" r="30" fill="none" stroke="#f5c9c4" strokeWidth="4" opacity="0.3" />
 
         {/* Basketball Hoop */}
         <g transform="translate(300, 650)">
-          <rect x="-3" y="-120" width="6" height="120" fill="#0b1522" />
-          <rect x="-25" y="-140" width="50" height="40" fill="#0b1522" />
-          <rect x="-15" y="-130" width="30" height="20" fill="#12283f" />
-          <path d="M-10,-110 L10,-110 L5,-80 L-5,-80 Z" fill="none" stroke="#0b1522" strokeWidth="2"/>
+          <rect x="-3" y="-120" width="6" height="120" fill="#000000" />
+          <rect x="-25" y="-140" width="50" height="40" fill="#000000" />
+          <rect x="-15" y="-130" width="30" height="20" fill="#1b3f63" />
+          <path d="M-10,-110 L10,-110 L5,-80 L-5,-80 Z" fill="none" stroke="#000000" strokeWidth="2"/>
         </g>
 
         {/* Waving Flag */}
         <g transform="translate(1300, 500)">
-          <rect x="-3" y="-150" width="6" height="250" fill="#0b1522" />
-          <path d="M0,-140 Q40,-160 80,-140 Q120,-120 160,-140 L160,-80 Q120,-60 80,-80 Q40,-100 0,-80 Z" fill="#d93a2b" className="vibes-flag"/>
+          <rect x="-3" y="-150" width="6" height="250" fill="#000000" />
+          <path d="M0,-140 Q40,-160 80,-140 Q120,-120 160,-140 L160,-80 Q120,-60 80,-80 Q40,-100 0,-80 Z" fill="#fe0000" className="vibes-flag"/>
         </g>
 
         {/* Foreground Trees */}
         {[200, 600, 1000, 1350].map((x, i) => (
           <g key={`fg-tree-${i}`} transform={`translate(${x}, 750) scale(${Math.random() * 0.3 + 0.8})`}>
-            <path d="M-10,150 Q0,0 0,-50 Q0,0 10,150 Z" fill="#0b1522" />
-            <circle cx="0" cy="-60" r="70" fill="#020617" opacity="0.9"/>
-            <circle cx="-40" cy="-20" r="50" fill="#020617" opacity="0.9"/>
-            <circle cx="40" cy="-20" r="50" fill="#020617" opacity="0.9"/>
+            <path d="M-10,150 Q0,0 0,-50 Q0,0 10,150 Z" fill="#000000" />
+            <circle cx="0" cy="-60" r="70" fill="#000000" opacity="0.9"/>
+            <circle cx="-40" cy="-20" r="50" fill="#000000" opacity="0.9"/>
+            <circle cx="40" cy="-20" r="50" fill="#000000" opacity="0.9"/>
           </g>
         ))}
 
         {/* Student Silhouettes */}
-        <g fill="#020617">
+        <g fill="#000000">
           {/* Sitting under tree */}
           <circle cx="150" cy="780" r="10" />
           <path d="M140,790 L160,790 L155,820 L145,820 Z" />
@@ -103,7 +103,7 @@ export function CampusVibes() {
           <g transform="translate(850, 680)">
             <circle cx="10" cy="-25" r="9" />
             <path d="M0,-15 L15,-15 L25,20 L5,20 Z" />
-            <path d="M5,-10 L-15,-5" stroke="#020617" strokeWidth="4"/>
+            <path d="M5,-10 L-15,-5" stroke="#000000" strokeWidth="4"/>
             <circle cx="-25" cy="-5" r="5" /> {/* ball */}
           </g>
         </g>
@@ -118,7 +118,7 @@ export function CampusVibes() {
               '--start-y': `${n.y}px`,
               animation: `vibes-float-up ${n.duration}s infinite ease-in-out ${n.delay}s`
             } as React.CSSProperties}
-            fill="#0b1522"
+            fill="#000000"
           >
             {n.type === 'single' ? (
               <path d="M0,20 A8,6 0 1,1 -16,20 A8,6 0 1,1 0,20 M0,20 L0,-10 L15,-5" />

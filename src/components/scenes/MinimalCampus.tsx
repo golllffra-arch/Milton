@@ -32,10 +32,10 @@ export function MinimalCampus() {
   })), [])
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0b1522]">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#000000]">
       <div 
         className="absolute inset-0 opacity-20" 
-        style={{ background: "radial-gradient(circle at 50% 50%, #12283f 0%, #0b1522 80%)" }} 
+        style={{ background: "radial-gradient(circle at 50% 50%, #1b3f63 0%, #000000 80%)" }} 
       />
 
       <svg className="absolute bottom-0 w-full opacity-[0.06]" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">

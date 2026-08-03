@@ -18,7 +18,7 @@
   z-index: -20; /* behind scene overlays */
   overflow: hidden;
   will-change: transform;
-  background: linear-gradient(180deg, #0b1522 0%, #1b3a5c 50%, #12283f 100%);
+  background: linear-gradient(180deg, #000000 0%, #1b3f63 50%, #1b3f63 100%);
 }
 
 /* Generic layer that fills the hero / viewport */
@@ -79,7 +79,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,120,100,0.95) 0%, rgba(217,58,43,0.6) 40%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle at 30% 30%, rgba(255,120,100,0.95) 0%, rgba(254,0,0,0.6) 40%, rgba(0,0,0,0) 70%);
   filter: blur(14px);
   opacity: 0.95;
   transform: scale(1);
@@ -118,7 +118,7 @@
 @keyframes petal-fall { 0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; } 70% { opacity: 0.95; } 100% { transform: translateY(120vh) rotate(360deg) scale(0.8); opacity: 0; } }
 
 /* Overlay vignette */
-.overlay { position: absolute; inset: 0; z-index: 10; pointer-events: none; background-image: radial-gradient(ellipse at 50% 10%, rgba(217,58,43,0.04), transparent 20%), radial-gradient(ellipse at 10% 90%, rgba(11,21,34,0.06), transparent 30%); mix-blend-mode: multiply; }
+.overlay { position: absolute; inset: 0; z-index: 10; pointer-events: none; background-image: radial-gradient(ellipse at 50% 10%, rgba(254,0,0,0.04), transparent 20%), radial-gradient(ellipse at 10% 90%, rgba(0,0,0,0.06), transparent 30%); mix-blend-mode: multiply; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

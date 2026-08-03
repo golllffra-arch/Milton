@@ -30,7 +30,7 @@ function FloatingParticles() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "var(--page-primary, #1b3a5c)" : i % 3 === 1 ? "var(--page-secondary, #d93a2b)" : "var(--page-accent, #d93a2b)",
+            background: i % 3 === 0 ? "var(--page-primary, #1b3f63)" : i % 3 === 1 ? "var(--page-secondary, #fe0000)" : "var(--page-accent, #fe0000)",
             width: `${2 + Math.random() * 4}px`,
             height: `${2 + Math.random() * 4}px`,
             animationDelay: `${Math.random() * 5}s`,
@@ -41,7 +41,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-primary, #1b3a5c)",
+          background: "var(--page-primary, #1b3f63)",
           width: "300px",
           height: "300px",
           top: "-10%",
@@ -52,7 +52,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-secondary, #d93a2b)",
+          background: "var(--page-secondary, #fe0000)",
           width: "250px",
           height: "250px",
           bottom: "-10%",
@@ -63,7 +63,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-accent, #d93a2b)",
+          background: "var(--page-accent, #fe0000)",
           width: "200px",
           height: "200px",
           top: "30%",
@@ -114,7 +114,7 @@ export default function FacultyPage() {
           className="absolute inset-0 z-0"
         />
         <FloatingParticles />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,58,43,0.14),transparent_60%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(254,0,0,0.14),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.06),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
@@ -124,7 +124,7 @@ export default function FacultyPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Users className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+              <Users className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #fe0000)" }} />
               Our Team
             </Badge>
           </motion.div>
@@ -188,7 +188,7 @@ export default function FacultyPage() {
             <div className="text-center py-20">
               <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3
-                style={{ color: "var(--page-text, #1a1a1a)" }}
+                style={{ color: "var(--page-text, #000000)" }}
                 className="text-xl font-display font-bold dark:text-white mb-2"
               >
                 No faculty found
@@ -210,10 +210,10 @@ export default function FacultyPage() {
                           style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }}
                           className="p-6 text-center relative"
                         >
-                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,58,43,0.12),transparent_70%)]" />
-                          <Avatar className="w-20 h-20 mx-auto border-4 border-[var(--page-accent,#d93a2b)]/40 relative z-10">
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(254,0,0,0.12),transparent_70%)]" />
+                          <Avatar className="w-20 h-20 mx-auto border-4 border-[var(--page-accent,#fe0000)]/40 relative z-10">
                             <AvatarFallback
-                              style={{ background: "var(--page-primary, #1b3a5c)" }}
+                              style={{ background: "var(--page-primary, #1b3f63)" }}
                               className="text-white text-xl font-bold"
                             >
                               {getInitials(faculty.name)}
@@ -222,26 +222,26 @@ export default function FacultyPage() {
                         </div>
                         <CardContent className="p-6">
                           <h3
-                            style={{ color: "var(--page-text, #1a1a1a)" }}
-                            className="text-lg font-display font-bold dark:text-white text-center group-hover:text-[var(--page-secondary,#d93a2b)] transition-colors inline-flex items-center gap-1"
+                            style={{ color: "var(--page-text, #000000)" }}
+                            className="text-lg font-display font-bold dark:text-white text-center group-hover:text-[var(--page-secondary,#fe0000)] transition-colors inline-flex items-center gap-1"
                           >
                             {faculty.name}
                             <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </h3>
                           <p
-                            style={{ color: "var(--page-secondary, #d93a2b)" }}
+                            style={{ color: "var(--page-secondary, #fe0000)" }}
                             className="text-xs font-medium text-center mt-1"
                           >
                             {faculty.qualifications}
                           </p>
                           <div className="mt-4 flex items-start gap-2">
                             <GraduationCap
-                              style={{ color: "var(--page-accent, #d93a2b)" }}
+                              style={{ color: "var(--page-accent, #fe0000)" }}
                               className="w-4 h-4 mt-0.5 shrink-0"
                             />
                             <div>
                               <p
-                                style={{ color: "var(--page-text, #1a1a1a)" }}
+                                style={{ color: "var(--page-text, #000000)" }}
                                 className="text-xs font-semibold dark:text-white"
                               >
                                 Specialization
@@ -251,12 +251,12 @@ export default function FacultyPage() {
                           </div>
                           <div className="mt-3 flex items-start gap-2">
                             <BookOpen
-                              style={{ color: "var(--page-accent, #d93a2b)" }}
+                              style={{ color: "var(--page-accent, #fe0000)" }}
                               className="w-4 h-4 mt-0.5 shrink-0"
                             />
                             <div>
                               <p
-                                style={{ color: "var(--page-text, #1a1a1a)" }}
+                                style={{ color: "var(--page-text, #000000)" }}
                                 className="text-xs font-semibold dark:text-white"
                               >
                                 Subjects
@@ -281,8 +281,8 @@ export default function FacultyPage() {
                             <a
                               href={`mailto:${faculty.email}`}
                               onClick={(e) => e.stopPropagation()}
-                              style={{ color: "var(--page-secondary, #d93a2b)" }}
-                              className="hover:text-[#1b3a5c] transition-colors"
+                              style={{ color: "var(--page-secondary, #fe0000)" }}
+                              className="hover:text-[#1b3f63] transition-colors"
                             >
                               <Mail className="w-4 h-4" />
                             </a>
@@ -305,7 +305,7 @@ export default function FacultyPage() {
           className="absolute inset-0"
         />
         <FloatingParticles />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,58,43,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(254,0,0,0.1),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -314,7 +314,7 @@ export default function FacultyPage() {
               { value: "12+", label: "Years Avg. Experience" },
               { value: "5:1", label: "Student-Faculty Ratio" },
             ].map((s) => (
-              <div key={s.label} className="border-t-2 border-[#d93a2b] pt-5">
+              <div key={s.label} className="border-t-2 border-[#fe0000] pt-5">
                 <div className="text-3xl md:text-4xl font-bold font-display text-white">{s.value}</div>
                 <div className="text-sm text-white/70 mt-1 font-medium uppercase tracking-wider">{s.label}</div>
               </div>
@@ -331,15 +331,15 @@ export default function FacultyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInSection>
             <GraduationCap
-              style={{ color: "var(--page-accent, #d93a2b)" }}
+              style={{ color: "var(--page-accent, #fe0000)" }}
               className="w-12 h-12 mx-auto mb-6"
             />
             <h2
-              style={{ color: "var(--page-text, #1a1a1a)" }}
+              style={{ color: "var(--page-text, #000000)" }}
               className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight"
             >
               Learn from the{" "}
-              <span style={{ color: "var(--page-secondary, #d93a2b)" }}>Best</span>
+              <span style={{ color: "var(--page-secondary, #fe0000)" }}>Best</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Our faculty bring a wealth of academic knowledge and industry experience to the classroom.
@@ -349,8 +349,8 @@ export default function FacultyPage() {
               <Button
                 asChild
                 size="xl"
-                style={{ background: "var(--page-secondary, #d93a2b)", color: "#ffffff" }}
-                className="hover:bg-[#b82e21] shadow-xl shadow-[#d93a2b]/30"
+                style={{ background: "var(--page-secondary, #fe0000)", color: "#ffffff" }}
+                className="hover:bg-[#fe0000] shadow-xl shadow-[#fe0000]/30"
               >
                 <Link href="/admissions">
                   Apply Now
@@ -361,8 +361,8 @@ export default function FacultyPage() {
                 asChild
                 variant="outline"
                 size="xl"
-                style={{ color: "var(--page-primary, #1b3a5c)", borderColor: "var(--page-primary, #1b3a5c)" }}
-                className="hover:bg-[var(--page-primary,#1b3a5c)] hover:text-white"
+                style={{ color: "var(--page-primary, #1b3f63)", borderColor: "var(--page-primary, #1b3f63)" }}
+                className="hover:bg-[var(--page-primary,#1b3f63)] hover:text-white"
               >
                 <Link href="/contact">Schedule a Visit</Link>
               </Button>

@@ -75,14 +75,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-[#1b3a5c] flex items-center justify-center group-hover:bg-[#d93a2b] transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-[#1b3f63] flex items-center justify-center group-hover:bg-[#fe0000] transition-colors">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <span className="font-display text-lg font-bold text-[#1b3a5c] dark:text-white leading-tight">
+              <span className="font-display text-lg font-bold text-[#1b3f63] dark:text-white leading-tight">
                 Milton
               </span>
-              <span className="block text-[10px] uppercase tracking-widest text-[#d93a2b] font-medium -mt-1">
+              <span className="block text-[10px] uppercase tracking-widest text-[#fe0000] font-medium -mt-1">
                 International College
               </span>
             </div>
@@ -102,8 +102,8 @@ export function Navbar() {
                         "px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1.5",
                         item.label === "About" && "pr-3",
                     pathname === item.href
-                      ? "text-[#d93a2b]"
-                      : "text-gray-700 dark:text-gray-200 hover:text-[#d93a2b] dark:hover:text-[#d93a2b]"
+                      ? "text-[#fe0000]"
+                      : "text-gray-700 dark:text-gray-200 hover:text-[#fe0000] dark:hover:text-[#fe0000]"
                   )}
                 >
                   {item.label}
@@ -115,7 +115,7 @@ export function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#d93a2b] transition-colors"
+                        className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#fe0000] transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -156,7 +156,7 @@ export function Navbar() {
               <div key={item.href}>
                 <Link
                   href={item.href}
-                  className="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#d93a2b] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-[#fe0000] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   {item.label}
                 </Link>
@@ -166,7 +166,7 @@ export function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-3 py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-[#d93a2b] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                        className="block px-3 py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-[#fe0000] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                       >
                         {child.label}
                       </Link>

@@ -65,9 +65,9 @@ const CAREERS = [
 ]
 
 const RELATED_PROGRAMS = [
-  { code: "bbm", title: "BBM", fullName: "Bachelor of Business Management", icon: BookOpen, gradient: "from-[#d93a2b] to-[#b82e21]" },
-  { code: "bbs", title: "BBS", fullName: "Bachelor of Business Studies", icon: Shield, gradient: "from-[#1b3a5c] to-[#1b3a5c]" },
-  { code: "basw", title: "BASW", fullName: "Bachelor of Arts in Social Work", icon: Users, gradient: "from-[#d93a2b] to-[#b82e21]" },
+  { code: "bbm", title: "BBM", fullName: "Bachelor of Business Management", icon: BookOpen, gradient: "from-[#fe0000] to-[#fe0000]" },
+  { code: "bbs", title: "BBS", fullName: "Bachelor of Business Studies", icon: Shield, gradient: "from-[#1b3f63] to-[#1b3f63]" },
+  { code: "basw", title: "BASW", fullName: "Bachelor of Arts in Social Work", icon: Users, gradient: "from-[#fe0000] to-[#fe0000]" },
 ]
 
 function FadeInSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -92,15 +92,15 @@ export default function BCAPage() {
       {/* ─── HERO ─── */}
       <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from), var(--page-hero-to))" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at top right, color-mix(in srgb, var(--page-secondary, #d93a2b) 15%, transparent), transparent 60%)" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--page-accent, #1b3a5c) 8%, transparent), transparent 50%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at top right, color-mix(in srgb, var(--page-secondary, #fe0000) 15%, transparent), transparent 60%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at bottom left, color-mix(in srgb, var(--page-accent, #1b3f63) 8%, transparent), transparent 50%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }}
+              className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }}
             >
               <GraduationCap className="w-12 h-12 text-white" />
             </motion.div>
@@ -121,7 +121,7 @@ export default function BCAPage() {
                 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight"
               >
                 BCA{" "}
-                <span className="bg-gradient-to-r from-[#d93a2b] to-[#d93a2b] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#fe0000] to-[#fe0000] bg-clip-text text-transparent">
                   Program
                 </span>
               </motion.h1>
@@ -144,7 +144,7 @@ export default function BCAPage() {
           <div className="lg:col-span-2 space-y-16">
             {/* Overview */}
             <FadeInSection>
-              <h2 className="text-3xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #1a1a1a)" }}>Program Overview</h2>
+              <h2 className="text-3xl font-display font-bold dark:text-white mb-6" style={{ color: "var(--page-text, #000000)" }}>Program Overview</h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   The Bachelor of Computer Applications (BCA) is a four-year, eight-semester
@@ -169,8 +169,8 @@ export default function BCAPage() {
             {/* Curriculum */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Curriculum Structure</h2>
+                <BookOpen className="w-6 h-6" style={{ color: "var(--page-secondary, #fe0000)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>Curriculum Structure</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 The BCA program spans 8 semesters over 4 years with a total of 126 credit hours.
@@ -180,7 +180,7 @@ export default function BCAPage() {
                 {SEMESTERS.map((sem) => (
                   <Card key={sem.sem} className="border border-gray-200 dark:border-gray-700 shadow-sm">
                     <CardContent className="p-4">
-                      <h3 className="font-display font-bold dark:text-white mb-3 text-lg" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                      <h3 className="font-display font-bold dark:text-white mb-3 text-lg" style={{ color: "var(--page-text, #000000)" }}>
                         Semester {sem.sem}
                       </h3>
                       <div className="space-y-2">
@@ -199,8 +199,8 @@ export default function BCAPage() {
             {/* Career Opportunities */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <Briefcase className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Career Opportunities</h2>
+                <Briefcase className="w-6 h-6" style={{ color: "var(--page-secondary, #fe0000)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>Career Opportunities</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 BCA graduates are in high demand across industries. Here are some career paths you
@@ -212,11 +212,11 @@ export default function BCAPage() {
                   return (
                     <Card key={career.title} className="border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                       <CardContent className="p-5 flex gap-4">
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--page-primary, #1b3a5c)" }}>
-                          <Icon className="w-5 h-5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "var(--page-primary, #1b3f63)" }}>
+                          <Icon className="w-5 h-5" style={{ color: "var(--page-secondary, #fe0000)" }} />
                         </div>
                         <div>
-                          <h3 className="font-semibold dark:text-white text-sm" style={{ color: "var(--page-text, #1a1a1a)" }}>{career.title}</h3>
+                          <h3 className="font-semibold dark:text-white text-sm" style={{ color: "var(--page-text, #000000)" }}>{career.title}</h3>
                           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{career.description}</p>
                         </div>
                       </CardContent>
@@ -229,8 +229,8 @@ export default function BCAPage() {
             {/* Eligibility */}
             <FadeInSection>
               <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="w-6 h-6" style={{ color: "var(--page-secondary, #d93a2b)" }} />
-                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #1a1a1a)" }}>Eligibility Criteria</h2>
+                <CheckCircle className="w-6 h-6" style={{ color: "var(--page-secondary, #fe0000)" }} />
+                <h2 className="text-3xl font-display font-bold dark:text-white" style={{ color: "var(--page-text, #000000)" }}>Eligibility Criteria</h2>
               </div>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
@@ -243,7 +243,7 @@ export default function BCAPage() {
                       "Good moral character and commitment to academic integrity",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
-                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #fe0000)" }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -254,10 +254,10 @@ export default function BCAPage() {
 
             {/* Download */}
             <FadeInSection>
-              <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }}>
+              <Card className="text-white border-0 shadow-xl" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }}>
                 <CardContent className="p-8 flex flex-col sm:flex-row items-center gap-6">
-                  <div className="w-16 h-16 rounded-2xl bg-[#d93a2b]/20 flex items-center justify-center shrink-0">
-                    <Download className="w-8 h-8" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+                  <div className="w-16 h-16 rounded-2xl bg-[#fe0000]/20 flex items-center justify-center shrink-0">
+                    <Download className="w-8 h-8" style={{ color: "var(--page-accent, #1b3f63)" }} />
                   </div>
                   <div className="flex-1 text-center sm:text-left">
                     <h3 className="text-xl font-display font-bold mb-2">Download Syllabus</h3>
@@ -279,7 +279,7 @@ export default function BCAPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm sticky top-24">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #000000)" }}>
                     Program at a Glance
                   </h3>
                   <div className="space-y-4">
@@ -293,7 +293,7 @@ export default function BCAPage() {
                     ].map((item) => (
                       <div key={item.label} className="flex justify-between text-sm">
                         <span className="text-gray-500 dark:text-gray-400">{item.label}</span>
-                        <span className="font-medium dark:text-white text-right" style={{ color: "var(--page-text, #1a1a1a)" }}>{item.value}</span>
+                        <span className="font-medium dark:text-white text-right" style={{ color: "var(--page-text, #000000)" }}>{item.value}</span>
                       </div>
                     ))}
                   </div>
@@ -304,7 +304,7 @@ export default function BCAPage() {
             <FadeInSection>
               <Card className="border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardContent className="p-6">
-                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #1a1a1a)" }}>
+                  <h3 className="font-display font-bold dark:text-white mb-4" style={{ color: "var(--page-text, #000000)" }}>
                     Other Programs
                   </h3>
                   <div className="space-y-3">
@@ -317,10 +317,10 @@ export default function BCAPage() {
                               <Icon className="w-5 h-5 text-white" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold dark:text-white text-sm" style={{ color: "var(--page-text, #1a1a1a)" }}>{p.title}</p>
+                              <p className="font-semibold dark:text-white text-sm" style={{ color: "var(--page-text, #000000)" }}>{p.title}</p>
                               <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{p.fullName}</p>
                             </div>
-                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-all shrink-0" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-all shrink-0" style={{ color: "var(--page-secondary, #fe0000)" }} />
                           </div>
                         </Link>
                       )
@@ -331,7 +331,7 @@ export default function BCAPage() {
             </FadeInSection>
 
             <FadeInSection>
-              <Card className="bg-gradient-to-br from-[#d93a2b] to-[#b82e21] text-white border-0 shadow-lg">
+              <Card className="bg-gradient-to-br from-[#fe0000] to-[#fe0000] text-white border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
                   <GraduationCap className="w-10 h-10 mx-auto mb-4 opacity-80" />
                   <h3 className="font-display font-bold text-lg mb-2">Apply for BCA</h3>
@@ -339,7 +339,7 @@ export default function BCAPage() {
                     Admissions open for 2026/27. Secure your seat today.
                   </p>
                   <Link href="/admissions">
-                    <Button className="w-full bg-white hover:bg-white/90" style={{ color: "var(--page-secondary, #d93a2b)" }}>
+                    <Button className="w-full bg-white hover:bg-white/90" style={{ color: "var(--page-secondary, #fe0000)" }}>
                       Apply Now
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

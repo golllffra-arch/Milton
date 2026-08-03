@@ -49,10 +49,10 @@ export function getInitials(name: string): string {
 }
 
 export const DEPARTMENT_BADGE_STYLES: Record<string, { background: string; color: string }> = {
-  BCA: { background: "#E8EEF7", color: "#1B3A5C" },
-  BBM: { background: "#FDE9E6", color: "#B82E21" },
-  BBS: { background: "#E8EEF7", color: "#1B3A5C" },
-  BASW: { background: "#FDE9E6", color: "#B82E21" },
+  BCA: { background: "#E8EEF7", color: "#1b3f63" },
+  BBM: { background: "#FDE9E6", color: "#fe0000" },
+  BBS: { background: "#E8EEF7", color: "#1b3f63" },
+  BASW: { background: "#FDE9E6", color: "#fe0000" },
   Administration: { background: "#F1F2F4", color: "#4B5563" },
 };
 

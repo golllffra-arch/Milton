@@ -131,10 +131,10 @@ const ENROLLMENT_TRENDS = [
 ]
 
 const PROGRAM_DISTRIBUTION = [
-  { name: "BCA", value: 280, color: "#1b3a5c" },
-  { name: "BBM", value: 95, color: "#d93a2b" },
-  { name: "BBS", value: 85, color: "#1b3a5c" },
-  { name: "BASW", value: 65, color: "#1b3a5c" },
+  { name: "BCA", value: 280, color: "#1b3f63" },
+  { name: "BBM", value: 95, color: "#fe0000" },
+  { name: "BBS", value: 85, color: "#1b3f63" },
+  { name: "BASW", value: 65, color: "#1b3f63" },
 ]
 
 const RECENT_ACTIVITIES = [
@@ -312,8 +312,8 @@ function StatCard({ title, value, subtitle, icon: Icon, color, trend }: { title:
           {subtitle && <p className="text-xs text-muted-foreground mt-1">{subtitle}</p>}
           {trend && (
             <div className="flex items-center gap-1 mt-2">
-              <TrendingUp className={cn("h-3 w-3", trend.positive ? "text-[#1b3a5c]" : "text-red-500")} />
-              <span className={cn("text-xs font-medium", trend.positive ? "text-[#1b3a5c]" : "text-red-500")}>{trend.value}</span>
+              <TrendingUp className={cn("h-3 w-3", trend.positive ? "text-[#1b3f63]" : "text-red-500")} />
+              <span className={cn("text-xs font-medium", trend.positive ? "text-[#1b3f63]" : "text-red-500")}>{trend.value}</span>
             </div>
           )}
         </CardContent>
@@ -385,7 +385,7 @@ export default function AdminDashboard() {
                 className={cn(
                   "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   activeTab === item.id
-                    ? "bg-[#1b3a5c] text-white shadow-md"
+                    ? "bg-[#1b3f63] text-white shadow-md"
                     : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
                 )}
                 title={sidebarOpen ? undefined : item.label}
@@ -397,8 +397,8 @@ export default function AdminDashboard() {
           </nav>
           <div className={cn("border-t p-3", !sidebarOpen && "text-center")}>
             <div className={cn("flex items-center gap-3", !sidebarOpen && "justify-center")}>
-              <Avatar className="h-8 w-8 border-2 border-[#1b3a5c]/20">
-                <AvatarFallback className="bg-[#1b3a5c] text-[10px] text-white">{getInitials(ADMIN.name)}</AvatarFallback>
+              <Avatar className="h-8 w-8 border-2 border-[#1b3f63]/20">
+                <AvatarFallback className="bg-[#1b3f63] text-[10px] text-white">{getInitials(ADMIN.name)}</AvatarFallback>
               </Avatar>
               {sidebarOpen && (
                 <div className="min-w-0">
@@ -447,12 +447,12 @@ export default function AdminDashboard() {
                 <motion.div key="overview" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold tracking-tight text-[#1b3a5c] dark:text-white md:text-3xl">Welcome back, Dr. Khadka</h1>
+                      <h1 className="text-2xl font-bold tracking-tight text-[#1b3f63] dark:text-white md:text-3xl">Welcome back, Dr. Khadka</h1>
                       <p className="text-muted-foreground">Here&apos;s what&apos;s happening at Milton International College today.</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <Button variant="outline" size="sm"><RefreshCw className="mr-1 h-4 w-4" />Refresh</Button>
-                      <Button size="sm" className="bg-[#1b3a5c] text-white hover:bg-[#12283f]">
+                      <Button size="sm" className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]">
                         <Download className="mr-1 h-4 w-4" />Export Report
                       </Button>
                     </div>
@@ -460,9 +460,9 @@ export default function AdminDashboard() {
 
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <StatCard title="Total Students" value="525+" subtitle="Across all programs" icon={Users} color="from-blue-600 to-blue-400" trend={{ value: "12% from last month", positive: true }} />
-                    <StatCard title="Faculty & Staff" value="53" subtitle="Full-time educators" icon={GraduationCap} color="from-[#1b3a5c] to-[#12283f]" trend={{ value: "3 new this semester", positive: true }} />
-                    <StatCard title="Revenue Collected" value={formatCurrencyShort(totalCollected)} subtitle="This academic year" icon={DollarSign} color="from-[#1b3a5c] to-[#12283f]" trend={{ value: "85% collection rate", positive: true }} />
-                    <StatCard title="Avg. Attendance" value="87.3%" subtitle="College-wide average" icon={CalendarCheck} color="from-[#d93a2b] to-red-400" trend={{ value: "2.1% improvement", positive: true }} />
+                    <StatCard title="Faculty & Staff" value="53" subtitle="Full-time educators" icon={GraduationCap} color="from-[#1b3f63] to-[#1b3f63]" trend={{ value: "3 new this semester", positive: true }} />
+                    <StatCard title="Revenue Collected" value={formatCurrencyShort(totalCollected)} subtitle="This academic year" icon={DollarSign} color="from-[#1b3f63] to-[#1b3f63]" trend={{ value: "85% collection rate", positive: true }} />
+                    <StatCard title="Avg. Attendance" value="87.3%" subtitle="College-wide average" icon={CalendarCheck} color="from-[#fe0000] to-red-400" trend={{ value: "2.1% improvement", positive: true }} />
                   </div>
 
                   <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -472,7 +472,7 @@ export default function AdminDashboard() {
                           <CardTitle>Enrollment Trends</CardTitle>
                           <CardDescription>Student & faculty growth over the last 6 months</CardDescription>
                         </div>
-                        <Badge variant="outline" className="gap-1"><TrendingUp className="h-3 w-3 text-[#1b3a5c]" /> Growing</Badge>
+                        <Badge variant="outline" className="gap-1"><TrendingUp className="h-3 w-3 text-[#1b3f63]" /> Growing</Badge>
                       </CardHeader>
                       <CardContent>
                         <ResponsiveContainer width="100%" height={300}>
@@ -483,8 +483,8 @@ export default function AdminDashboard() {
                             <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--muted-foreground))" fontSize={12} />
                             <Tooltip contentStyle={{ borderRadius: "8px", border: "1px solid hsl(var(--border))" }} />
                             <Legend />
-                            <Line yAxisId="left" type="monotone" dataKey="students" stroke="#1b3a5c" strokeWidth={3} dot={{ fill: "#1b3a5c" }} name="Students" />
-                            <Line yAxisId="right" type="monotone" dataKey="faculty" stroke="#d93a2b" strokeWidth={3} dot={{ fill: "#d93a2b" }} name="Faculty" />
+                            <Line yAxisId="left" type="monotone" dataKey="students" stroke="#1b3f63" strokeWidth={3} dot={{ fill: "#1b3f63" }} name="Students" />
+                            <Line yAxisId="right" type="monotone" dataKey="faculty" stroke="#fe0000" strokeWidth={3} dot={{ fill: "#fe0000" }} name="Faculty" />
                           </RechartsLine>
                         </ResponsiveContainer>
                       </CardContent>
@@ -519,7 +519,7 @@ export default function AdminDashboard() {
                           ))}
                         </div>
                         <div className="mt-4 rounded-lg bg-muted/50 p-3 text-center">
-                          <BarChart className="mx-auto h-5 w-5 text-[#1b3a5c]" />
+                          <BarChart className="mx-auto h-5 w-5 text-[#1b3f63]" />
                           <p className="mt-1 text-xs text-muted-foreground">BCA is the largest program with 53% of students</p>
                         </div>
                       </CardContent>
@@ -562,13 +562,13 @@ export default function AdminDashboard() {
                 <motion.div key="students" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Student Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Student Management</h1>
                       <p className="text-muted-foreground">Manage all enrolled students</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <Dialog open={addStudentOpen} onOpenChange={setAddStudentOpen}>
                         <DialogTrigger asChild>
-                          <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]"><Plus className="mr-1 h-4 w-4" />Add Student</Button>
+                          <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]"><Plus className="mr-1 h-4 w-4" />Add Student</Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-lg">
                           <DialogHeader>
@@ -619,7 +619,7 @@ export default function AdminDashboard() {
                           </div>
                           <DialogFooter>
                             <Button variant="outline" onClick={() => setAddStudentOpen(false)}>Cancel</Button>
-                            <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]">Enroll Student</Button>
+                            <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]">Enroll Student</Button>
                           </DialogFooter>
                         </DialogContent>
                       </Dialog>
@@ -704,7 +704,7 @@ export default function AdminDashboard() {
                     <p className="text-sm text-muted-foreground">Showing {filteredStudents.length} of {STUDENTS_DATA.length} students</p>
                     <div className="flex items-center gap-2">
                       <Button variant="outline" size="sm" disabled>Previous</Button>
-                      <Button variant="outline" size="sm" className="bg-[#1b3a5c] text-white">1</Button>
+                      <Button variant="outline" size="sm" className="bg-[#1b3f63] text-white">1</Button>
                       <Button variant="outline" size="sm">2</Button>
                       <Button variant="outline" size="sm">3</Button>
                       <Button variant="outline" size="sm">Next</Button>
@@ -718,12 +718,12 @@ export default function AdminDashboard() {
                 <motion.div key="faculty" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Faculty & Staff Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Faculty & Staff Management</h1>
                       <p className="text-muted-foreground">Manage educators and staff members</p>
                     </div>
                     <Dialog open={addFacultyOpen} onOpenChange={setAddFacultyOpen}>
                       <DialogTrigger asChild>
-                        <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]"><Plus className="mr-1 h-4 w-4" />Add Faculty</Button>
+                        <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]"><Plus className="mr-1 h-4 w-4" />Add Faculty</Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-lg">
                         <DialogHeader>
@@ -766,7 +766,7 @@ export default function AdminDashboard() {
                         </div>
                         <DialogFooter>
                           <Button variant="outline" onClick={() => setAddFacultyOpen(false)}>Cancel</Button>
-                          <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]">Add Faculty</Button>
+                          <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]">Add Faculty</Button>
                         </DialogFooter>
                       </DialogContent>
                     </Dialog>
@@ -826,20 +826,20 @@ export default function AdminDashboard() {
                 <motion.div key="courses" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Course Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Course Management</h1>
                       <p className="text-muted-foreground">Manage programs, semesters and subjects</p>
                     </div>
                     <div className="flex gap-2">
                       {["BCA", "BBM", "BBS", "BASW"].map((p) => (
                         <Button key={p} variant={selectedProgram === p ? "default" : "outline"} size="sm" onClick={() => setSelectedProgram(p)}
-                          className={selectedProgram === p ? "bg-[#1b3a5c] text-white" : ""}>{p}</Button>
+                          className={selectedProgram === p ? "bg-[#1b3f63] text-white" : ""}>{p}</Button>
                       ))}
                     </div>
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2">
                     {currentProgramCourses?.semesters.map((sem) => (
-                      <Card key={sem.semester} className="shadow-md border-l-4 border-l-[#1b3a5c]">
+                      <Card key={sem.semester} className="shadow-md border-l-4 border-l-[#1b3f63]">
                         <CardHeader className="pb-2">
                           <div className="flex items-center justify-between">
                             <CardTitle className="text-lg">{sem.semester}</CardTitle>
@@ -888,18 +888,18 @@ export default function AdminDashboard() {
                 <motion.div key="fees" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Fee Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Fee Management</h1>
                       <p className="text-muted-foreground">Track fee collections, pending dues & invoices</p>
                     </div>
-                    <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]"><Plus className="mr-1 h-4 w-4" />Generate Invoice</Button>
+                    <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]"><Plus className="mr-1 h-4 w-4" />Generate Invoice</Button>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-3">
-                    <Card className="bg-gradient-to-br from-[#1b3a5c] to-[#12283f] text-white shadow-lg">
+                    <Card className="bg-gradient-to-br from-[#1b3f63] to-[#1b3f63] text-white shadow-lg">
                       <CardHeader className="pb-2"><CardTitle className="text-sm text-white/80">Total Collected</CardTitle></CardHeader>
                       <CardContent><p className="text-3xl font-bold">{formatCurrencyShort(totalCollected)}</p><p className="text-sm text-white/70">This academic year</p></CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-[#d93a2b] to-[#b82e21] text-white shadow-lg">
+                    <Card className="bg-gradient-to-br from-[#fe0000] to-[#fe0000] text-white shadow-lg">
                       <CardHeader className="pb-2"><CardTitle className="text-sm text-white/80">Pending</CardTitle></CardHeader>
                       <CardContent><p className="text-3xl font-bold">{formatCurrencyShort(totalPending)}</p><p className="text-sm text-white/70">Due from students</p></CardContent>
                     </Card>
@@ -913,7 +913,7 @@ export default function AdminDashboard() {
                     <Filter className="h-4 w-4 text-muted-foreground" />
                     {["all", "paid", "partial", "unpaid", "overdue"].map((s) => (
                       <Button key={s} variant={feeFilter === s ? "default" : "outline"} size="sm" onClick={() => setFeeFilter(s)}
-                        className={feeFilter === s ? "bg-[#1b3a5c] text-white" : "capitalize"}>{s}</Button>
+                        className={feeFilter === s ? "bg-[#1b3f63] text-white" : "capitalize"}>{s}</Button>
                     ))}
                   </div>
 
@@ -956,12 +956,12 @@ export default function AdminDashboard() {
                 <motion.div key="cms" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Content Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Content Management</h1>
                       <p className="text-muted-foreground">Manage news, notices, gallery and banners</p>
                     </div>
                     <Dialog open={addNewsOpen} onOpenChange={setAddNewsOpen}>
                       <DialogTrigger asChild>
-                        <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]"><Plus className="mr-1 h-4 w-4" />Add News</Button>
+                        <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]"><Plus className="mr-1 h-4 w-4" />Add News</Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-lg">
                         <DialogHeader>
@@ -992,7 +992,7 @@ export default function AdminDashboard() {
                         </div>
                         <DialogFooter>
                           <Button variant="outline" onClick={() => setAddNewsOpen(false)}>Cancel</Button>
-                          <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]">Publish</Button>
+                          <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]">Publish</Button>
                         </DialogFooter>
                       </DialogContent>
                     </Dialog>
@@ -1019,7 +1019,7 @@ export default function AdminDashboard() {
                               <p className="mt-1 text-xs text-muted-foreground">{formatDate(n.date)}</p>
                             </div>
                             <div className="flex items-center gap-1 ml-4">
-                              <Button variant="ghost" size="icon" className="h-8 w-8">{n.published ? <ToggleRight className="h-4 w-4 text-[#1b3a5c]" /> : <ToggleLeft className="h-4 w-4" />}</Button>
+                              <Button variant="ghost" size="icon" className="h-8 w-8">{n.published ? <ToggleRight className="h-4 w-4 text-[#1b3f63]" /> : <ToggleLeft className="h-4 w-4" />}</Button>
                               <Button variant="ghost" size="icon" className="h-8 w-8"><Edit className="h-4 w-4" /></Button>
                               <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500"><Trash2 className="h-4 w-4" /></Button>
                             </div>
@@ -1077,12 +1077,12 @@ export default function AdminDashboard() {
                 <motion.div key="events" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Events & Tour Management</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Events & Tour Management</h1>
                       <p className="text-muted-foreground">Create and manage college events and educational tours</p>
                     </div>
                     <Dialog open={createEventOpen} onOpenChange={setCreateEventOpen}>
                       <DialogTrigger asChild>
-                        <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]"><Plus className="mr-1 h-4 w-4" />Create Event</Button>
+                        <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]"><Plus className="mr-1 h-4 w-4" />Create Event</Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-lg">
                         <DialogHeader>
@@ -1120,7 +1120,7 @@ export default function AdminDashboard() {
                         </div>
                         <DialogFooter>
                           <Button variant="outline" onClick={() => setCreateEventOpen(false)}>Cancel</Button>
-                          <Button className="bg-[#1b3a5c] text-white hover:bg-[#12283f]">Create Event</Button>
+                          <Button className="bg-[#1b3f63] text-white hover:bg-[#1b3f63]">Create Event</Button>
                         </DialogFooter>
                       </DialogContent>
                     </Dialog>
@@ -1128,7 +1128,7 @@ export default function AdminDashboard() {
 
                   <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                     {EVENTS_DATA.map((e) => (
-                      <Card key={e.id} className={cn("shadow-md cursor-pointer transition-all hover:shadow-lg", selectedEvent === e.id && "ring-2 ring-[#1b3a5c]")} onClick={() => setSelectedEvent(selectedEvent === e.id ? null : e.id)}>
+                      <Card key={e.id} className={cn("shadow-md cursor-pointer transition-all hover:shadow-lg", selectedEvent === e.id && "ring-2 ring-[#1b3f63]")} onClick={() => setSelectedEvent(selectedEvent === e.id ? null : e.id)}>
                         <CardHeader className="pb-2">
                           <div className="flex items-start justify-between">
                             <Badge variant={statusBadge(e.type)} className="capitalize">{e.type}</Badge>
@@ -1184,7 +1184,7 @@ export default function AdminDashboard() {
               {activeTab === "applicants" && (
                 <motion.div key="applicants" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div>
-                    <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Applicant Management</h1>
+                    <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Applicant Management</h1>
                     <p className="text-muted-foreground">Review and process admission applications</p>
                   </div>
 
@@ -1193,11 +1193,11 @@ export default function AdminDashboard() {
                       <CardHeader className="pb-2"><CardTitle className="text-sm text-white/80">Total Applications</CardTitle></CardHeader>
                       <CardContent><p className="text-3xl font-bold">{totalApplications}</p><p className="text-sm text-white/70">This intake</p></CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-[#d93a2b] to-[#b82e21] text-white shadow-lg">
+                    <Card className="bg-gradient-to-br from-[#fe0000] to-[#fe0000] text-white shadow-lg">
                       <CardHeader className="pb-2"><CardTitle className="text-sm text-white/80">Pending Review</CardTitle></CardHeader>
                       <CardContent><p className="text-3xl font-bold">{pendingApps}</p><p className="text-sm text-white/70">Awaiting decision</p></CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-[#1b3a5c] to-[#12283f] text-white shadow-lg">
+                    <Card className="bg-gradient-to-br from-[#1b3f63] to-[#1b3f63] text-white shadow-lg">
                       <CardHeader className="pb-2"><CardTitle className="text-sm text-white/80">Accepted</CardTitle></CardHeader>
                       <CardContent><p className="text-3xl font-bold">{acceptedApps}</p><p className="text-sm text-white/70">Enrolled so far</p></CardContent>
                     </Card>
@@ -1227,7 +1227,7 @@ export default function AdminDashboard() {
                               <TableCell className="text-right">
                                 {a.status === "pending" ? (
                                   <div className="flex items-center justify-end gap-1">
-                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-[#1b3a5c]"><ThumbsUp className="h-4 w-4" /></Button>
+                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-[#1b3f63]"><ThumbsUp className="h-4 w-4" /></Button>
                                     <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500"><ThumbsDown className="h-4 w-4" /></Button>
                                     <Button variant="ghost" size="icon" className="h-8 w-8"><Eye className="h-4 w-4" /></Button>
                                   </div>
@@ -1249,7 +1249,7 @@ export default function AdminDashboard() {
                 <motion.div key="reports" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Reports</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Reports</h1>
                       <p className="text-muted-foreground">Generate and export institutional reports</p>
                     </div>
                     <div className="flex gap-2">
@@ -1260,7 +1260,7 @@ export default function AdminDashboard() {
 
                   <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                     <Card className="shadow-md">
-                      <CardHeader><CardTitle className="flex items-center gap-2"><Users className="h-5 w-5 text-[#1b3a5c]" />Attendance Summary</CardTitle></CardHeader>
+                      <CardHeader><CardTitle className="flex items-center gap-2"><Users className="h-5 w-5 text-[#1b3f63]" />Attendance Summary</CardTitle></CardHeader>
                       <CardContent className="space-y-4">
                         <div><div className="flex justify-between text-sm mb-1"><span>BCA</span><span className="font-medium">88.2%</span></div><Progress value={88.2} className="h-2" /></div>
                         <div><div className="flex justify-between text-sm mb-1"><span>BBM</span><span className="font-medium">85.7%</span></div><Progress value={85.7} className="h-2" /></div>
@@ -1272,13 +1272,13 @@ export default function AdminDashboard() {
                     </Card>
 
                     <Card className="shadow-md">
-                      <CardHeader><CardTitle className="flex items-center gap-2"><DollarSign className="h-5 w-5 text-[#1b3a5c]" />Fee Collection Report</CardTitle></CardHeader>
+                      <CardHeader><CardTitle className="flex items-center gap-2"><DollarSign className="h-5 w-5 text-[#1b3f63]" />Fee Collection Report</CardTitle></CardHeader>
                       <CardContent className="space-y-4">
                         <ResponsiveContainer width="100%" height={160}>
                           <RechartsBar data={[
-                            { name: "Collected", value: totalCollected, fill: "#1b3a5c" },
-                            { name: "Pending", value: totalPending, fill: "#d93a2b" },
-                            { name: "Overdue", value: totalOverdue, fill: "#d93a2b" },
+                            { name: "Collected", value: totalCollected, fill: "#1b3f63" },
+                            { name: "Pending", value: totalPending, fill: "#fe0000" },
+                            { name: "Overdue", value: totalOverdue, fill: "#fe0000" },
                           ]}>
                             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                             <XAxis dataKey="name" fontSize={11} />
@@ -1287,12 +1287,12 @@ export default function AdminDashboard() {
                             <Bar dataKey="value" radius={[4, 4, 0, 0]} />
                           </RechartsBar>
                         </ResponsiveContainer>
-                        <div className="flex justify-between text-sm"><span>Collection Rate</span><span className="font-medium text-[#1b3a5c]">74.2%</span></div>
+                        <div className="flex justify-between text-sm"><span>Collection Rate</span><span className="font-medium text-[#1b3f63]">74.2%</span></div>
                       </CardContent>
                     </Card>
 
                     <Card className="shadow-md">
-                      <CardHeader><CardTitle className="flex items-center gap-2"><TrendingUp className="h-5 w-5 text-[#1b3a5c]" />Enrollment Report</CardTitle></CardHeader>
+                      <CardHeader><CardTitle className="flex items-center gap-2"><TrendingUp className="h-5 w-5 text-[#1b3f63]" />Enrollment Report</CardTitle></CardHeader>
                       <CardContent className="space-y-4">
                         <ResponsiveContainer width="100%" height={160}>
                           <AreaChart data={ENROLLMENT_TRENDS}>
@@ -1300,12 +1300,12 @@ export default function AdminDashboard() {
                             <XAxis dataKey="month" fontSize={11} />
                             <YAxis fontSize={11} />
                             <Tooltip />
-                            <Area type="monotone" dataKey="students" stroke="#1b3a5c" fill="#1b3a5c" fillOpacity={0.2} />
+                            <Area type="monotone" dataKey="students" stroke="#1b3f63" fill="#1b3f63" fillOpacity={0.2} />
                           </AreaChart>
                         </ResponsiveContainer>
                         <div className="space-y-1 text-sm">
                           <div className="flex justify-between"><span>Current Enrollment</span><span className="font-medium">525</span></div>
-                          <div className="flex justify-between"><span>Year-over-Year</span><span className="font-medium text-[#1b3a5c]">+12.5%</span></div>
+                          <div className="flex justify-between"><span>Year-over-Year</span><span className="font-medium text-[#1b3f63]">+12.5%</span></div>
                         </div>
                       </CardContent>
                     </Card>
@@ -1325,7 +1325,7 @@ export default function AdminDashboard() {
                         ].map((r, i) => (
                           <div key={i} className="flex items-center justify-between rounded-lg border p-3 hover:bg-muted/30">
                             <div className="flex items-center gap-3">
-                              <div className="rounded-lg bg-[#1b3a5c]/10 p-2"><r.icon className="h-4 w-4 text-[#1b3a5c]" /></div>
+                              <div className="rounded-lg bg-[#1b3f63]/10 p-2"><r.icon className="h-4 w-4 text-[#1b3f63]" /></div>
                               <div><p className="text-sm font-medium">{r.title}</p><p className="text-xs text-muted-foreground">{r.desc}</p></div>
                             </div>
                             <Button variant="ghost" size="icon" className="h-8 w-8"><Download className="h-4 w-4" /></Button>
@@ -1342,7 +1342,7 @@ export default function AdminDashboard() {
                 <motion.div key="logs" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h1 className="text-2xl font-bold text-[#1b3a5c] dark:text-white">Activity Logs</h1>
+                      <h1 className="text-2xl font-bold text-[#1b3f63] dark:text-white">Activity Logs</h1>
                       <p className="text-muted-foreground">Complete audit trail of all system activities</p>
                     </div>
                     <div className="flex gap-2">
@@ -1368,7 +1368,7 @@ export default function AdminDashboard() {
                               <TableCell>
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-7 w-7">
-                                    <AvatarFallback className="bg-[#1b3a5c] text-[10px] text-white">{getInitials(a.user)}</AvatarFallback>
+                                    <AvatarFallback className="bg-[#1b3f63] text-[10px] text-white">{getInitials(a.user)}</AvatarFallback>
                                   </Avatar>
                                   <span className="font-medium text-sm">{a.user}</span>
                                 </div>
@@ -1385,7 +1385,7 @@ export default function AdminDashboard() {
 
                   <div className="flex items-center justify-center gap-2">
                     <Button variant="outline" size="sm" disabled>Previous</Button>
-                    <Button variant="outline" size="sm" className="bg-[#1b3a5c] text-white">1</Button>
+                    <Button variant="outline" size="sm" className="bg-[#1b3f63] text-white">1</Button>
                     <Button variant="outline" size="sm">2</Button>
                     <Button variant="outline" size="sm">3</Button>
                     <Button variant="outline" size="sm">Next</Button>
@@ -1406,10 +1406,10 @@ export default function AdminDashboard() {
               onClick={() => setActiveTab(item.id)}
               className={cn(
                 "flex min-w-[60px] flex-1 flex-col items-center gap-0.5 px-2 py-2 text-[10px] font-medium transition-colors",
-                activeTab === item.id ? "text-[#1b3a5c] dark:text-white" : "text-muted-foreground"
+                activeTab === item.id ? "text-[#1b3f63] dark:text-white" : "text-muted-foreground"
               )}
             >
-              <item.icon className={cn("h-5 w-5", activeTab === item.id && "text-[#1b3a5c] dark:text-white")} />
+              <item.icon className={cn("h-5 w-5", activeTab === item.id && "text-[#1b3f63] dark:text-white")} />
               <span className="truncate">{item.label}</span>
             </button>
           ))}

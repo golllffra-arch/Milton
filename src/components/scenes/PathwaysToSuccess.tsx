@@ -56,14 +56,14 @@ export function PathwaysToSuccess() {
         <defs>
           <radialGradient id="paths-moon-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#dce5f0" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#1b3a5c" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#12283f" stopOpacity="0" />
+            <stop offset="50%" stopColor="#1b3f63" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#1b3f63" stopOpacity="0" />
           </radialGradient>
           
           <radialGradient id="paths-lamp-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#f5c9c4" stopOpacity="0.9" />
-            <stop offset="30%" stopColor="#d93a2b" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#b82e21" stopOpacity="0" />
+            <stop offset="30%" stopColor="#fe0000" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#fe0000" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -72,49 +72,49 @@ export function PathwaysToSuccess() {
         <path d="M1150 150 A40 40 0 1 0 1190 230 A50 50 0 1 1 1150 150 Z" fill="#dce5f0" />
 
         {/* Mountains Left */}
-        <path d="M0 650 L150 520 L300 680 L450 550 L650 720 L1440 720 L1440 900 L0 900 Z" fill="#0b1522" />
-        <path d="M0 720 L200 620 L400 780 L600 650 L800 800 L1440 800 L1440 900 L0 900 Z" fill="#0b1522" />
+        <path d="M0 650 L150 520 L300 680 L450 550 L650 720 L1440 720 L1440 900 L0 900 Z" fill="#000000" />
+        <path d="M0 720 L200 620 L400 780 L600 650 L800 800 L1440 800 L1440 900 L0 900 Z" fill="#000000" />
 
         {/* City Skyline Right */}
-        <path d="M900 750 L900 680 L930 680 L930 630 L960 630 L960 690 L980 690 L980 610 L1010 610 L1010 660 L1040 660 L1040 590 L1080 590 L1080 670 L1120 670 L1120 550 L1160 550 L1160 640 L1200 640 L1200 600 L1250 600 L1250 680 L1300 680 L1300 620 L1350 620 L1350 700 L1440 700 L1440 900 L900 900 Z" fill="#0b1522" />
+        <path d="M900 750 L900 680 L930 680 L930 630 L960 630 L960 690 L980 690 L980 610 L1010 610 L1010 660 L1040 660 L1040 590 L1080 590 L1080 670 L1120 670 L1120 550 L1160 550 L1160 640 L1200 640 L1200 600 L1250 600 L1250 680 L1300 680 L1300 620 L1350 620 L1350 700 L1440 700 L1440 900 L900 900 Z" fill="#000000" />
 
         {/* The Base/Ground */}
-        <path d="M0 780 L1440 780 L1440 900 L0 900 Z" fill="#0b1522" />
+        <path d="M0 780 L1440 780 L1440 900 L0 900 Z" fill="#000000" />
 
         {/* Diverging Paths */}
         {/* Left Path */}
-        <path d="M680 820 Q400 780 200 720 L180 730 Q390 800 650 850 Z" fill="#12283f" opacity="0.6" />
+        <path d="M680 820 Q400 780 200 720 L180 730 Q390 800 650 850 Z" fill="#1b3f63" opacity="0.6" />
         {/* Center Path */}
-        <path d="M720 820 L700 650 L740 650 L720 850 Z" fill="#12283f" opacity="0.6" />
+        <path d="M720 820 L700 650 L740 650 L720 850 Z" fill="#1b3f63" opacity="0.6" />
         {/* Right Path */}
-        <path d="M760 820 Q1040 780 1240 720 L1260 730 Q1050 800 790 850 Z" fill="#12283f" opacity="0.6" />
+        <path d="M760 820 Q1040 780 1240 720 L1260 730 Q1050 800 790 850 Z" fill="#1b3f63" opacity="0.6" />
 
         {/* College Gate/Arch Silhouette */}
-        <path d="M620 880 L620 750 C620 700 820 700 820 750 L820 880 L790 880 L790 760 C790 730 650 730 650 760 L650 880 Z" fill="#0b1522" />
-        <rect x="610" y="740" width="40" height="15" fill="#0b1522" />
-        <rect x="790" y="740" width="40" height="15" fill="#0b1522" />
-        <path d="M600 740 L660 740 L630 710 Z" fill="#0b1522" />
-        <path d="M780 740 L840 740 L810 710 Z" fill="#0b1522" />
+        <path d="M620 880 L620 750 C620 700 820 700 820 750 L820 880 L790 880 L790 760 C790 730 650 730 650 760 L650 880 Z" fill="#000000" />
+        <rect x="610" y="740" width="40" height="15" fill="#000000" />
+        <rect x="790" y="740" width="40" height="15" fill="#000000" />
+        <path d="M600 740 L660 740 L630 710 Z" fill="#000000" />
+        <path d="M780 740 L840 740 L810 710 Z" fill="#000000" />
 
         {/* Lamp Posts and Glows along paths */}
         <g transform="translate(450, 750)">
-          <line x1="0" y1="0" x2="0" y2="40" stroke="#0b1522" strokeWidth="3" />
+          <line x1="0" y1="0" x2="0" y2="40" stroke="#000000" strokeWidth="3" />
           <circle cx="0" cy="0" r="30" fill="url(#paths-lamp-glow)" />
           <circle cx="0" cy="0" r="5" fill="#f5c9c4" />
         </g>
         <g transform="translate(300, 715) scale(0.7)">
-          <line x1="0" y1="0" x2="0" y2="40" stroke="#0b1522" strokeWidth="3" />
+          <line x1="0" y1="0" x2="0" y2="40" stroke="#000000" strokeWidth="3" />
           <circle cx="0" cy="0" r="30" fill="url(#paths-lamp-glow)" />
           <circle cx="0" cy="0" r="5" fill="#f5c9c4" />
         </g>
         
         <g transform="translate(990, 750)">
-          <line x1="0" y1="0" x2="0" y2="40" stroke="#0b1522" strokeWidth="3" />
+          <line x1="0" y1="0" x2="0" y2="40" stroke="#000000" strokeWidth="3" />
           <circle cx="0" cy="0" r="30" fill="url(#paths-lamp-glow)" />
           <circle cx="0" cy="0" r="5" fill="#f5c9c4" />
         </g>
         <g transform="translate(1140, 715) scale(0.7)">
-          <line x1="0" y1="0" x2="0" y2="40" stroke="#0b1522" strokeWidth="3" />
+          <line x1="0" y1="0" x2="0" y2="40" stroke="#000000" strokeWidth="3" />
           <circle cx="0" cy="0" r="30" fill="url(#paths-lamp-glow)" />
           <circle cx="0" cy="0" r="5" fill="#f5c9c4" />
         </g>

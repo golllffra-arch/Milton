@@ -46,10 +46,10 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 py-12 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: "var(--page-primary, #1b3a5c)" }}>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: "var(--page-primary, #1b3f63)" }}>
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--page-text, #1a1a1a)" }}>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--page-text, #000000)" }}>
             Get Your Student ID
           </h1>
           <p className="text-sm text-gray-500 mt-1">Each student gets a unique ID based on their name</p>
@@ -65,20 +65,20 @@ export default function RegisterPage() {
           <CardContent>
             {createdId ? (
               <div className="text-center space-y-4">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full" style={{ background: "color-mix(in srgb, var(--page-primary, #1b3a5c) 10%, transparent)" }}>
-                  <BadgeCheck className="w-8 h-8" style={{ color: "var(--page-accent, #d93a2b)" }} />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full" style={{ background: "color-mix(in srgb, var(--page-primary, #1b3f63) 10%, transparent)" }}>
+                  <BadgeCheck className="w-8 h-8" style={{ color: "var(--page-accent, #fe0000)" }} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Your student ID</p>
-                  <p className="font-display text-3xl font-bold mt-1" style={{ color: "var(--page-primary, #1b3a5c)" }}>
+                  <p className="font-display text-3xl font-bold mt-1" style={{ color: "var(--page-primary, #1b3f63)" }}>
                     {createdId}
                   </p>
                 </div>
                 <p className="text-sm text-gray-500">
-                  Password for all students: <span className="font-semibold" style={{ color: "var(--page-accent, #d93a2b)" }}>milton</span>
+                  Password for all students: <span className="font-semibold" style={{ color: "var(--page-accent, #fe0000)" }}>milton</span>
                 </p>
                 <Link href="/login" className="block">
-                  <Button className="w-full text-white" style={{ background: "var(--page-primary, #1b3a5c)" }}>
+                  <Button className="w-full text-white" style={{ background: "var(--page-primary, #1b3f63)" }}>
                     Sign In Now
                   </Button>
                 </Link>
@@ -107,7 +107,7 @@ export default function RegisterPage() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full text-white" style={{ background: "var(--page-primary, #1b3a5c)" }} disabled={loading}>
+                <Button type="submit" className="w-full text-white" style={{ background: "var(--page-primary, #1b3f63)" }} disabled={loading}>
                   {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
                   {loading ? "Creating account..." : "Get My Student ID"}
                 </Button>
@@ -115,7 +115,7 @@ export default function RegisterPage() {
             )}
             <p className="text-xs text-gray-400 text-center mt-4">
               Already have an ID?{" "}
-              <Link href="/login" className="font-medium hover:underline" style={{ color: "var(--page-accent, #d93a2b)" }}>
+              <Link href="/login" className="font-medium hover:underline" style={{ color: "var(--page-accent, #fe0000)" }}>
                 Sign in
               </Link>
             </p>

@@ -75,7 +75,7 @@ function HoverUnderline() {
   return (
     <span
       className="absolute inset-x-2 -bottom-0.5 h-[2px] origin-center scale-x-0 rounded-full transition-transform duration-300 group-hover:scale-x-100"
-      style={{ background: "var(--nav-accent, #d93a2b)" }}
+      style={{ background: "var(--nav-accent, #fe0000)" }}
     />
   )
 }
@@ -144,7 +144,7 @@ function Dropdown({
                   style={{ color: "var(--nav-muted, rgba(255,255,255,0.65))" }}
                   onClick={() => setOpen(false)}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--nav-accent, #d93a2b)"
+                    e.currentTarget.style.color = "var(--nav-accent, #fe0000)"
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = "var(--nav-muted, rgba(255,255,255,0.65))"
@@ -170,7 +170,7 @@ function NavParticles() {
           key={i}
           className="nav-particle absolute h-[2px] w-[2px] rounded-full"
           style={{
-            background: "var(--nav-accent, #d93a2b)",
+            background: "var(--nav-accent, #fe0000)",
             left: `${10 + i * 18}%`,
             top: `${30 + (i % 3) * 25}%`,
             animationDelay: `${i * 1.2}s`,
@@ -329,7 +329,7 @@ export default function SiteHeader() {
                   className="group relative flex items-center rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10"
                   style={{
                     color: isActive(item.href)
-                      ? "var(--nav-accent, #d93a2b)"
+                      ? "var(--nav-accent, #fe0000)"
                       : "var(--nav-text, #ffffff)",
                     zIndex: 1,
                   }}
@@ -341,7 +341,7 @@ export default function SiteHeader() {
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
                     )}
-                    style={{ background: "var(--nav-accent, #d93a2b)" }}
+                    style={{ background: "var(--nav-accent, #fe0000)" }}
                   />
                   <span className="relative z-10">{item.label}</span>
                 </Link>
@@ -438,7 +438,7 @@ export default function SiteHeader() {
                       className="block rounded-lg px-3 py-3 text-lg font-medium transition-colors"
                       style={{
                         color: isActive(item.href)
-                          ? "var(--nav-accent, #d93a2b)"
+                          ? "var(--nav-accent, #fe0000)"
                           : "var(--nav-text, #ffffff)",
                       }}
                     >
@@ -453,8 +453,8 @@ export default function SiteHeader() {
                   href="/login"
                   className="flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-all"
                   style={{
-                    borderColor: "var(--nav-accent, #d93a2b)",
-                    color: "var(--nav-accent, #d93a2b)",
+                    borderColor: "var(--nav-accent, #fe0000)",
+                    color: "var(--nav-accent, #fe0000)",
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden fill="none">

@@ -13,12 +13,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const HIGHLIGHTS = [
-  { icon: Monitor, name: "Computer Labs", description: "Modern computer labs with high-speed internet and latest software for hands-on learning.", color: "from-[#1b3a5c] to-[#12283f]" },
-  { icon: Library, name: "Library", description: "Well-stocked library with thousands of books, journals, and digital resources for research.", color: "from-[#d93a2b] to-[#b82e21]" },
-  { icon: Building2, name: "Smart Classrooms", description: "Fully equipped smart classrooms with projectors, audio systems, and interactive boards.", color: "from-[#1b3a5c] to-[#12283f]" },
-  { icon: Dumbbell, name: "Sports Ground", description: "Spacious grounds for cricket, football, basketball, volleyball, and athletic events.", color: "from-[#1b3a5c] to-[#12283f]" },
-  { icon: Utensils, name: "Cafeteria", description: "Hygienic and spacious cafeteria serving nutritious meals, snacks, and beverages.", color: "from-[#d93a2b] to-[#b82e21]" },
-  { icon: TreePine, name: "Student Lounge", description: "Relax and socialize in our comfortable student lounge with recreational activities.", color: "from-[#1b3a5c] to-[#12283f]" },
+  { icon: Monitor, name: "Computer Labs", description: "Modern computer labs with high-speed internet and latest software for hands-on learning.", color: "from-[#1b3f63] to-[#1b3f63]" },
+  { icon: Library, name: "Library", description: "Well-stocked library with thousands of books, journals, and digital resources for research.", color: "from-[#fe0000] to-[#fe0000]" },
+  { icon: Building2, name: "Smart Classrooms", description: "Fully equipped smart classrooms with projectors, audio systems, and interactive boards.", color: "from-[#1b3f63] to-[#1b3f63]" },
+  { icon: Dumbbell, name: "Sports Ground", description: "Spacious grounds for cricket, football, basketball, volleyball, and athletic events.", color: "from-[#1b3f63] to-[#1b3f63]" },
+  { icon: Utensils, name: "Cafeteria", description: "Hygienic and spacious cafeteria serving nutritious meals, snacks, and beverages.", color: "from-[#fe0000] to-[#fe0000]" },
+  { icon: TreePine, name: "Student Lounge", description: "Relax and socialize in our comfortable student lounge with recreational activities.", color: "from-[#1b3f63] to-[#1b3f63]" },
 ]
 
 const LOCATIONS = [
@@ -53,7 +53,7 @@ function FloatingParticles() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "var(--page-primary, #1b3a5c)" : i % 3 === 1 ? "var(--page-secondary, #d93a2b)" : "var(--page-accent, #d93a2b)",
+            background: i % 3 === 0 ? "var(--page-primary, #1b3f63)" : i % 3 === 1 ? "var(--page-secondary, #fe0000)" : "var(--page-accent, #fe0000)",
             width: `${2 + Math.random() * 4}px`,
             height: `${2 + Math.random() * 4}px`,
             animationDelay: `${Math.random() * 5}s`,
@@ -64,7 +64,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-primary, #1b3a5c)",
+          background: "var(--page-primary, #1b3f63)",
           width: "300px",
           height: "300px",
           top: "-10%",
@@ -75,7 +75,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-secondary, #d93a2b)",
+          background: "var(--page-secondary, #fe0000)",
           width: "250px",
           height: "250px",
           bottom: "-10%",
@@ -86,7 +86,7 @@ function FloatingParticles() {
       <div
         className="atmosphere-blob"
         style={{
-          background: "var(--page-accent, #d93a2b)",
+          background: "var(--page-accent, #fe0000)",
           width: "200px",
           height: "200px",
           top: "30%",
@@ -104,7 +104,7 @@ export default function VirtualTourPage() {
     <div className="overflow-hidden">
       {/* ─── HERO ─── */}
       <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #000000), var(--page-hero-to, #000000))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,28,35,0.15),transparent_60%)] z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,168,76,0.08),transparent_50%)] z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0di00aC0ydjRoLTR2Mmg0djRoMnYtNGg0di0yaC00em0wLTMwVjBoLTJ2NGgtNHYyaDR2NGgyVjZoNFY0aC00ek02IDM0di00SDR2NEgwdjJoNHY0aDJ2LTRoNFYzNEg2ek02IDRWMEg0djRIMHYyaDR2NGgyVjZoNFY0SDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] z-0 opacity-30" />
@@ -116,7 +116,7 @@ export default function VirtualTourPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Badge variant="outline" className="mb-6 px-4 py-2 text-sm border-white/20 text-white/80 bg-white/5 backdrop-blur-sm">
-              <Globe className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+              <Globe className="w-3.5 h-3.5 mr-1.5" style={{ color: "var(--page-secondary, #fe0000)" }} />
               Explore Milton
             </Badge>
           </motion.div>
@@ -154,12 +154,12 @@ export default function VirtualTourPage() {
           </FadeInSection>
           <FadeInSection>
             <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
-              <div className="aspect-video flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}>
+              <div className="aspect-video flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #000000), var(--page-hero-to, #000000))" }}>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="w-20 h-20 rounded-full flex items-center justify-center cursor-pointer shadow-2xl" style={{ background: "var(--page-secondary, #d93a2b)" }}
+                    className="w-20 h-20 rounded-full flex items-center justify-center cursor-pointer shadow-2xl" style={{ background: "var(--page-secondary, #fe0000)" }}
                   >
                     <Play className="w-8 h-8 text-white ml-1" />
                   </motion.div>
@@ -179,7 +179,7 @@ export default function VirtualTourPage() {
       </section>
 
       {/* ─── 360° GALLERY ─── */}
-      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #0f172a)" }}>
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #000000)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-14">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Immersive Views</Badge>
@@ -192,12 +192,12 @@ export default function VirtualTourPage() {
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: "Main Entrance & Plaza", color: "from-[#1e293b] to-[#0f172a]" },
-              { name: "Computer Science Lab", color: "from-[#1b3a5c] to-[#12283f]" },
-              { name: "Central Library", color: "from-[#d93a2b] to-[#b82e21]" },
-              { name: "Sports Ground", color: "from-[#1b3a5c] to-[#12283f]" },
-              { name: "Smart Classroom", color: "from-[#1b3a5c] to-[#12283f]" },
-              { name: "Cafeteria & Lounge", color: "from-[#d93a2b] to-[#b82e21]" },
+              { name: "Main Entrance & Plaza", color: "from-[#000000] to-[#000000]" },
+              { name: "Computer Science Lab", color: "from-[#1b3f63] to-[#1b3f63]" },
+              { name: "Central Library", color: "from-[#fe0000] to-[#fe0000]" },
+              { name: "Sports Ground", color: "from-[#1b3f63] to-[#1b3f63]" },
+              { name: "Smart Classroom", color: "from-[#1b3f63] to-[#1b3f63]" },
+              { name: "Cafeteria & Lounge", color: "from-[#fe0000] to-[#fe0000]" },
             ].map((item, index) => (
               <FadeInSection key={item.name}>
                 <motion.div whileHover={{ y: -6 }} className="group cursor-pointer">
@@ -231,7 +231,7 @@ export default function VirtualTourPage() {
               <Badge variant="info" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Navigate</Badge>
               <h2 className="text-4xl md:text-5xl font-display font-bold dark:text-white leading-tight" style={{ color: "var(--page-text, #f1f5f9)" }}>
                 Campus{" "}
-                <span style={{ color: "var(--page-secondary, #d93a2b)" }}>Map</span>
+                <span style={{ color: "var(--page-secondary, #fe0000)" }}>Map</span>
               </h2>
               <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
                 Our campus is designed for convenience and inspiration. Located in the heart of
@@ -241,7 +241,7 @@ export default function VirtualTourPage() {
               <div className="mt-8 space-y-4">
                 {LOCATIONS.map((loc) => (
                   <div key={loc.name} className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #d93a2b)" }} />
+                    <MapPin className="w-5 h-5 mt-0.5 shrink-0" style={{ color: "var(--page-secondary, #fe0000)" }} />
                     <div>
                       <p className="font-semibold dark:text-white text-sm" style={{ color: "var(--page-text, #f1f5f9)" }}>{loc.name}</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{loc.desc}</p>
@@ -252,11 +252,11 @@ export default function VirtualTourPage() {
             </FadeInSection>
             <FadeInSection>
               <div className="relative">
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-[#d93a2b]/20 rounded-2xl" />
-                <div className="relative rounded-2xl p-6 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }}>
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-[#fe0000]/20 rounded-2xl" />
+                <div className="relative rounded-2xl p-6 shadow-xl overflow-hidden" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #000000), var(--page-hero-to, #000000))" }}>
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.08),transparent_60%)]" />
                   <div className="relative z-10">
-                    <MapPin className="w-8 h-8 mb-4" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+                    <MapPin className="w-8 h-8 mb-4" style={{ color: "var(--page-accent, #1b3f63)" }} />
                     <div className="grid grid-cols-2 gap-4">
                       {[
                         { label: "Ground Floor", items: "Admin, Library, Cafeteria" },
@@ -267,7 +267,7 @@ export default function VirtualTourPage() {
                         { label: "Basement", items: "Parking, Storage, Generator" },
                       ].map((floor) => (
                         <div key={floor.label} className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                          <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-accent, #1b3a5c)" }}>{floor.label}</p>
+                          <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--page-accent, #1b3f63)" }}>{floor.label}</p>
                           <p className="text-white/70 text-xs mt-1">{floor.items}</p>
                         </div>
                       ))}
@@ -281,7 +281,7 @@ export default function VirtualTourPage() {
       </section>
 
       {/* ─── KEY HIGHLIGHTS ─── */}
-      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #0f172a)" }}>
+      <section className="py-20 dark:bg-gray-900" style={{ background: "var(--page-bg, #000000)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-14">
             <Badge variant="warning" className="mb-4 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Explore Our Facilities</Badge>
@@ -317,7 +317,7 @@ export default function VirtualTourPage() {
 
       {/* ─── CTA ─── */}
       <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1e293b), var(--page-hero-to, #0f172a))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #000000), var(--page-hero-to, #000000))" }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(227,28,35,0.15),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(201,168,76,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTQwIDQwTDAgMGgyMEwwIDIwaDIweiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
@@ -330,11 +330,11 @@ export default function VirtualTourPage() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <Eye className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #1b3a5c)" }} />
+              <Eye className="w-12 h-12 mx-auto mb-6" style={{ color: "var(--page-accent, #1b3f63)" }} />
             </motion.div>
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
               Experience It{" "}
-              <span className="bg-gradient-to-r from-[#d93a2b] to-[#d93a2b] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#fe0000] to-[#fe0000] bg-clip-text text-transparent">
                 In Person
               </span>
             </h2>
@@ -347,7 +347,7 @@ export default function VirtualTourPage() {
                 <Button
                   size="xl"
                   className="text-white shadow-xl group"
-                  style={{ background: "var(--page-secondary, #d93a2b)" }}
+                  style={{ background: "var(--page-secondary, #fe0000)" }}
                 >
                   Schedule a Visit
                   <MapPin className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

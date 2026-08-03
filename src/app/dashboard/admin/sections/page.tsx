@@ -68,51 +68,51 @@ type BlockTypeConfig = {
 
 const BLOCK_TYPES: BlockTypeConfig[] = [
   {
-    type: "hero", label: "Hero", icon: Globe, color: "#1b3a5c",
+    type: "hero", label: "Hero", icon: Globe, color: "#1b3f63",
     defaultContent: { heading: "Welcome to Milton", subtext: "Shape Your Future", badge: "Admissions Open 2026", primaryCta: "Apply Now", secondaryCta: "Learn More", imageUrl: "", headingColor: "#ffffff" },
   },
   {
-    type: "text", label: "Text", icon: Type, color: "#1b3a5c",
+    type: "text", label: "Text", icon: Type, color: "#1b3f63",
     defaultContent: { title: "Section Title", body: "Add your content here..." },
   },
   {
-    type: "image", label: "Image", icon: ImageIcon, color: "#1b3a5c",
+    type: "image", label: "Image", icon: ImageIcon, color: "#1b3f63",
     defaultContent: { src: "", alt: "Image description", caption: "", fullWidth: false },
   },
   {
-    type: "gallery", label: "Gallery", icon: ImagePlus, color: "#d93a2b",
+    type: "gallery", label: "Gallery", icon: ImagePlus, color: "#fe0000",
     defaultContent: { title: "Gallery", images: "", columns: "3" },
   },
   {
-    type: "video", label: "Video", icon: Video, color: "#d93a2b",
+    type: "video", label: "Video", icon: Video, color: "#fe0000",
     defaultContent: { title: "", embedUrl: "" },
   },
   {
-    type: "stats", label: "Stats", icon: BarChart3, color: "#1b3a5c",
+    type: "stats", label: "Stats", icon: BarChart3, color: "#1b3f63",
     defaultContent: { stats: [{ label: "Students", value: 500, suffix: "+" }, { label: "Faculty", value: 50, suffix: "" }] },
   },
   {
-    type: "cardGrid", label: "Card Grid", icon: Grid3X3, color: "#1b3a5c",
+    type: "cardGrid", label: "Card Grid", icon: Grid3X3, color: "#1b3f63",
     defaultContent: { title: "Our Programs", description: "", columns: "3", cards: [{ title: "Program", description: "", icon: "", link: "", image: "" }] },
   },
   {
-    type: "testimonial", label: "Testimonial", icon: MessageSquare, color: "#1b3a5c",
+    type: "testimonial", label: "Testimonial", icon: MessageSquare, color: "#1b3f63",
     defaultContent: { title: "What Students Say", testimonials: [{ name: "Student Name", role: "Student", content: "", rating: 5 }] },
   },
   {
-    type: "cta", label: "CTA", icon: Layout, color: "#d93a2b",
+    type: "cta", label: "CTA", icon: Layout, color: "#fe0000",
     defaultContent: { heading: "Join Milton Today", subtext: "Take the first step toward your future", primaryCta: "Apply Now", secondaryCta: "Contact Us" },
   },
   {
-    type: "form", label: "Form", icon: FormInput, color: "#d93a2b",
+    type: "form", label: "Form", icon: FormInput, color: "#fe0000",
     defaultContent: { title: "Contact Us", submitLabel: "Submit", fields: [{ label: "Full Name", type: "text", placeholder: "Your Name", required: true }] },
   },
   {
-    type: "faq", label: "FAQ", icon: HelpCircle, color: "#1b3a5c",
+    type: "faq", label: "FAQ", icon: HelpCircle, color: "#1b3f63",
     defaultContent: { title: "Frequently Asked Questions", items: [{ question: "Question?", answer: "Answer here." }] },
   },
   {
-    type: "map", label: "Map", icon: Map, color: "#1b3a5c",
+    type: "map", label: "Map", icon: Map, color: "#1b3f63",
     defaultContent: { title: "Find Us", embedUrl: "" },
   },
   {
@@ -525,7 +525,7 @@ function BlockEditDialog({
                         <button key={star} type="button" onClick={() => {
                           const arr = [...(content.testimonials as Array<Record<string, unknown>> || [])]; arr[i] = { ...arr[i], rating: star }; updateContent("testimonials", arr)
                         }}>
-                          <Star className={cn("h-5 w-5", (t.rating as number || 0) >= star ? "fill-[#d93a2b] text-[#d93a2b]" : "text-muted-foreground")} />
+                          <Star className={cn("h-5 w-5", (t.rating as number || 0) >= star ? "fill-[#fe0000] text-[#fe0000]" : "text-muted-foreground")} />
                         </button>
                       ))}
                     </div>
@@ -888,7 +888,7 @@ export default function SectionBuilder() {
                 {pages.map((p) => (
                   <SelectItem key={p.id} value={p.id}>
                     <span className="flex items-center gap-2">
-                      {p.isHomepage && <Globe className="h-3 w-3 text-[#1b3a5c]" />}
+                      {p.isHomepage && <Globe className="h-3 w-3 text-[#1b3f63]" />}
                       {p.title}
                     </span>
                   </SelectItem>
@@ -949,7 +949,7 @@ export default function SectionBuilder() {
           <div className="flex items-center gap-2">
             <div className={cn(
               "flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium",
-              selectedPage?.isPublished ? "text-[#1b3a5c] border-[#e2e5ea] bg-[#e8eef7] dark:bg-[#12283f] dark:border-[#1e3a5c]" : "text-[#b82e21] border-[#e2e5ea] bg-[#fde9e6] dark:bg-[#7a1f16] dark:border-[#b82e21]",
+              selectedPage?.isPublished ? "text-[#1b3f63] border-[#e2e5ea] bg-[#e8eef7] dark:bg-[#1b3f63] dark:border-[#1b3f63]" : "text-[#fe0000] border-[#e2e5ea] bg-[#fde9e6] dark:bg-[#fe0000] dark:border-[#fe0000]",
             )}>
               {selectedPage?.isPublished ? <Globe className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
               {selectedPage?.isPublished ? "Published" : "Draft"}

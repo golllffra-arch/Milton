@@ -85,7 +85,7 @@ export default function HomePage() {
   return (
     <main className="bg-[var(--sky)] text-[var(--ink)]">
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[#12283f]">
+      <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[#1b3f63]">
         <Petals />
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           {/* Copy */}
@@ -120,7 +120,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-4">
               <a
                 href="/admissions"
-                className="rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white shadow-[0_8px_30px_-8px_rgba(217,58,43,0.6)] transition-all hover:-translate-y-0.5 hover:bg-[#b82e21]"
+                className="rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white shadow-[0_8px_30px_-8px_rgba(254,0,0,0.6)] transition-all hover:-translate-y-0.5 hover:bg-[#fe0000]"
               >
                 Apply for 2026/27
               </a>
@@ -245,7 +245,7 @@ export default function HomePage() {
                     <span className="font-display text-2xl font-semibold text-[var(--indigo)]">
                       {p.code}
                     </span>
-                    <span className="rounded-full bg-[#e8eef7] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[#1b3a5c]">
+                    <span className="rounded-full bg-[#e8eef7] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[#1b3f63]">
                       {p.track} · {p.duration}
                     </span>
                   </div>
@@ -287,7 +287,7 @@ export default function HomePage() {
                 (the flyer version is too compressed for web use).
                 Save it at /public/images/campus-building.jpg
               */}
-              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-6">
+              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-6">
                 <div className="text-center">
                   <span className="text-white/60 font-display text-lg">Campus Building Photo</span>
                   <p className="text-white/40 text-sm mt-1">Placeholder — add your image</p>
@@ -377,7 +377,7 @@ export default function HomePage() {
                 Principal. Until a real portrait/name is provided, this
                 stays a clearly-labelled placeholder (per your request).
               */}
-              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-8">
+              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-8">
                 <div className="text-center">
                   <span className="text-white/50 font-display text-base">Principal</span>
                   <p className="text-white/30 text-xs mt-1">Portrait placeholder</p>
@@ -440,7 +440,7 @@ export default function HomePage() {
             </p>
             <a
               href="/admissions"
-              className="mt-8 inline-block rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#b82e21]"
+              className="mt-8 inline-block rounded-full bg-[var(--gold)] px-7 py-3.5 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#fe0000]"
             >
               Start Your Application
             </a>
@@ -457,7 +457,7 @@ export default function HomePage() {
                 Suggested search: "anime graduation illustration",
                 "anime students celebrating graduation".
               */}
-              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#12283f] p-8">
+              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-8">
                 <div className="text-center">
                   <span className="text-white/60 font-display text-lg">Graduation</span>
                   <p className="text-white/40 text-sm mt-1">Anime-style illustration</p>

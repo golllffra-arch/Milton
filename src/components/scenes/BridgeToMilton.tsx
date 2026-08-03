@@ -31,44 +31,44 @@ export function BridgeToMilton() {
       {/* 1. Gradient background */}
       <div 
         className="absolute inset-0" 
-        style={{ background: "linear-gradient(to bottom, #0b1522 0%, #7a1f16 40%, #b82e21 75%, #d93a2b 100%)" }} 
+        style={{ background: "linear-gradient(to bottom, #000000 0%, #fe0000 40%, #fe0000 75%, #fe0000 100%)" }} 
       />
       
       {/* 2. SVG scene layers */}
       <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
         <defs>
           <linearGradient id="bridge-water-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#7a1f16" stopOpacity="0.8"/>
-            <stop offset="100%" stopColor="#0b1522" stopOpacity="1"/>
+            <stop offset="0%" stopColor="#fe0000" stopOpacity="0.8"/>
+            <stop offset="100%" stopColor="#000000" stopOpacity="1"/>
           </linearGradient>
         </defs>
 
         {/* Back Mountains */}
-        <path d="M0,500 Q150,350 350,450 T800,400 T1200,500 L1440,450 L1440,900 L0,900 Z" fill="#1b3a5c" opacity="0.3" />
+        <path d="M0,500 Q150,350 350,450 T800,400 T1200,500 L1440,450 L1440,900 L0,900 Z" fill="#1b3f63" opacity="0.3" />
         {/* Front Mountains */}
-        <path d="M0,580 Q200,480 500,550 T1000,450 T1350,550 L1440,500 L1440,900 L0,900 Z" fill="#12283f" opacity="0.5" />
+        <path d="M0,580 Q200,480 500,550 T1000,450 T1350,550 L1440,500 L1440,900 L0,900 Z" fill="#1b3f63" opacity="0.5" />
         
         {/* Campus Buildings Far Side */}
-        <path d="M150,550 L150,420 L220,420 L220,380 L260,380 L260,420 L350,420 L350,550 Z" fill="#12283f" opacity="0.7"/>
-        <path d="M420,560 L420,380 L490,320 L560,380 L560,560 Z" fill="#12283f" opacity="0.7"/>
-        <path d="M600,570 L600,460 L750,460 L750,570 Z" fill="#12283f" opacity="0.7"/>
-        <path d="M1050,560 L1050,400 L1090,400 L1120,350 L1150,400 L1190,400 L1190,560 Z" fill="#12283f" opacity="0.7"/>
+        <path d="M150,550 L150,420 L220,420 L220,380 L260,380 L260,420 L350,420 L350,550 Z" fill="#1b3f63" opacity="0.7"/>
+        <path d="M420,560 L420,380 L490,320 L560,380 L560,560 Z" fill="#1b3f63" opacity="0.7"/>
+        <path d="M600,570 L600,460 L750,460 L750,570 Z" fill="#1b3f63" opacity="0.7"/>
+        <path d="M1050,560 L1050,400 L1090,400 L1120,350 L1150,400 L1190,400 L1190,560 Z" fill="#1b3f63" opacity="0.7"/>
         
         {/* Water */}
         <rect x="0" y="700" width="1440" height="200" fill="url(#bridge-water-grad)" />
         
         {/* Bridge silhouette */}
-        <path d="M-100,720 Q720,620 1540,720 L1540,770 Q720,670 -100,770 Z" fill="#020617" />
+        <path d="M-100,720 Q720,620 1540,720 L1540,770 Q720,670 -100,770 Z" fill="#000000" />
         {/* Bridge pillars */}
-        <rect x="250" y="695" width="50" height="205" fill="#020617" />
-        <rect x="700" y="670" width="50" height="230" fill="#020617" />
-        <rect x="1150" y="695" width="50" height="205" fill="#020617" />
+        <rect x="250" y="695" width="50" height="205" fill="#000000" />
+        <rect x="700" y="670" width="50" height="230" fill="#000000" />
+        <rect x="1150" y="695" width="50" height="205" fill="#000000" />
         
         {/* Bridge Railings & details */}
         {Array.from({ length: 38 }).map((_: unknown, i) => (
-           <rect key={i} x={i * 40 - 20} y={690 + Math.abs(i - 19) * 1.5} width="6" height="25" fill="#0b1522" />
+           <rect key={i} x={i * 40 - 20} y={690 + Math.abs(i - 19) * 1.5} width="6" height="25" fill="#000000" />
         ))}
-        <path d="M-100,700 Q720,600 1540,700 L1540,705 Q720,605 -100,705 Z" fill="#12283f" opacity="0.5"/>
+        <path d="M-100,700 Q720,600 1540,700 L1540,705 Q720,605 -100,705 Z" fill="#1b3f63" opacity="0.5"/>
 
         {/* Streetlamps */}
         {[
@@ -77,8 +77,8 @@ export function BridgeToMilton() {
           {x: 1160, y: 570, size: 0.9}
         ].map((lamp, i) => (
           <g key={`lamp-${i}`} transform={`translate(${lamp.x}, ${lamp.y}) scale(${lamp.size})`}>
-            <rect x="-2" y="0" width="4" height="130" fill="#020617" />
-            <path d="M-10,0 L10,0 L5,-15 L-5,-15 Z" fill="#020617" />
+            <rect x="-2" y="0" width="4" height="130" fill="#000000" />
+            <path d="M-10,0 L10,0 L5,-15 L-5,-15 Z" fill="#000000" />
             <circle cx="0" cy="-5" r="25" fill="#e8b4ac" opacity="0.5" className="bridge-glow" />
             <circle cx="0" cy="-5" r="8" fill="#f5c9c4" />
           </g>
@@ -127,7 +127,7 @@ export function BridgeToMilton() {
               animation: `bridge-leaf-fall ${l.duration}s infinite linear ${l.delay}s`,
             } as React.CSSProperties}
           >
-            <path d="M0,0 C10,-10 20,0 20,10 C10,20 0,10 0,0" fill="#b82e21" opacity="0.7" />
+            <path d="M0,0 C10,-10 20,0 20,10 C10,20 0,10 0,0" fill="#fe0000" opacity="0.7" />
           </g>
         ))}
       </svg>

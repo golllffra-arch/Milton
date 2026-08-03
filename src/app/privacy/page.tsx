@@ -38,10 +38,10 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--page-bg, #ffffff)" }}>
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3a5c), var(--page-hero-to, #1b3a5c))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #1b3f63), var(--page-hero-to, #1b3f63))" }} />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <Shield className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-accent, #d93a2b)" }} />
+            <Shield className="w-14 h-14 mx-auto mb-4" style={{ color: "var(--page-accent, #fe0000)" }} />
             <h1 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">Privacy Policy</h1>
             <p className="mt-4 text-lg text-white/70 max-w-xl mx-auto">
               How Milton International College handles your personal information.
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-xl font-display font-semibold mb-3" style={{ color: "var(--page-text, #1a1a1a)" }}>{s.title}</h2>
+                <h2 className="text-xl font-display font-semibold mb-3" style={{ color: "var(--page-text, #000000)" }}>{s.title}</h2>
                 <p className="leading-relaxed" style={{ color: "var(--page-muted, #6b7280)" }}>{s.content}</p>
               </motion.div>
             ))}

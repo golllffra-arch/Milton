@@ -5,37 +5,37 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 211 56% 25%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 0 0% 0%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 211 56% 25%;
     --radius: 0.5rem;
 
     --page-bg: #ffffff;
     --page-surface: #ffffff;
-    --page-primary: #1b3a5c;
-    --page-secondary: #d93a2b;
-    --page-accent: #d93a2b;
-    --page-text: #1b3a5c;
+    --page-primary: #1b3f63;
+    --page-secondary: #fe0000;
+    --page-accent: #fe0000;
+    --page-text: #000000;
     --page-muted: #6b7280;
     --page-border: #e2e5ea;
-    --page-hero-from: #1b3a5c;
-    --page-hero-to: #12283f;
-    --page-glow: rgba(28,53,87,0.2);
+    --page-hero-from: #1b3f63;
+    --page-hero-to: #1b3f63;
+    --page-glow: rgba(27,63,99,0.2);
   }
 
   .dark {
@@ -78,8 +78,8 @@
     text-wrap: balance;
   }
   .bg-grid {
-    background-image: linear-gradient(rgba(var(--page-primary-rgb, 28,53,87),0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(var(--page-primary-rgb, 28,53,87),0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(var(--page-primary-rgb, 27,63,99),0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--page-primary-rgb, 27,63,99),0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
   .bg-page-surface {
@@ -107,177 +107,177 @@
 [data-page-theme="home"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="about"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="services"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="projects"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="coor"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="contact"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="admissions"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="news"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="student-life"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="career-center"] {
   --page-bg: #ffffff;
   --page-surface: #ffffff;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
-  --page-text: #1a1a1a;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
+  --page-text: #000000;
   --page-muted: #6b7280;
   --page-border: #e2e5ea;
-  --page-hero-from: #1b3a5c;
-  --page-hero-to: #12283f;
-  --page-glow: rgba(27,58,92,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #1b3f63;
+  --page-glow: rgba(27,63,99,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 [data-page-theme="virtual-tour"] {
-  --page-bg: #0b1522;
-  --page-surface: #12283f;
-  --page-primary: #1b3a5c;
-  --page-secondary: #d93a2b;
-  --page-accent: #d93a2b;
+  --page-bg: #000000;
+  --page-surface: #1b3f63;
+  --page-primary: #1b3f63;
+  --page-secondary: #fe0000;
+  --page-accent: #fe0000;
   --page-text: #ffffff;
   --page-muted: #94a3b8;
-  --page-border: #1e3a5c;
-  --page-hero-from: #12283f;
-  --page-hero-to: #0b1522;
-  --page-glow: rgba(217,58,43,0.25);
-  --page-primary-rgb: 27,58,92;
-  --page-secondary-rgb: 217,58,43;
+  --page-border: #1b3f63;
+  --page-hero-from: #1b3f63;
+  --page-hero-to: #000000;
+  --page-glow: rgba(254,0,0,0.25);
+  --page-primary-rgb: 27,63,99;
+  --page-secondary-rgb: 254,0,0;
 }
 
 /* ========== ATMOSPHERE ANIMATIONS ========== */
@@ -395,7 +395,7 @@
 }
 
 ::selection {
-  background: rgba(var(--page-primary-rgb, 28,53,87), 0.2);
+  background: rgba(var(--page-primary-rgb, 27,63,99), 0.2);
   color: var(--page-text);
 }
 
@@ -406,10 +406,10 @@ html {
 /* ─── Milton palette ─── */
 
 :root {
-  --ink: #1a1a1a;
-  --indigo: #1b3a5c;
-  --sakura: #d93a2b;
-  --gold: #d93a2b;
+  --ink: #000000;
+  --indigo: #1b3f63;
+  --sakura: #fe0000;
+  --gold: #fe0000;
   --sky: #ffffff;
   --paper: #ffffff;
 }

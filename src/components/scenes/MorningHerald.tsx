@@ -59,30 +59,30 @@ export function MorningHerald() {
     <div className="fixed inset-0 -z-10 overflow-hidden">
       <div 
         className="absolute inset-0 opacity-40" 
-        style={{ background: "linear-gradient(to top, #e8b4ac 0%, #d93a2b 20%, #b82e21 40%, #7a1f16 70%, #0b1522 100%)" }} 
+        style={{ background: "linear-gradient(to top, #e8b4ac 0%, #fe0000 20%, #fe0000 40%, #fe0000 70%, #000000 100%)" }} 
       />
       
       <svg className="absolute bottom-0 w-full opacity-60" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
         <defs>
           <linearGradient id="herald-sun-grad" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#f5c9c4" />
-            <stop offset="100%" stopColor="#d93a2b" />
+            <stop offset="100%" stopColor="#fe0000" />
           </linearGradient>
           <linearGradient id="herald-mountain-1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#7a1f16" />
-            <stop offset="100%" stopColor="#0b1522" />
+            <stop offset="0%" stopColor="#fe0000" />
+            <stop offset="100%" stopColor="#000000" />
           </linearGradient>
           <linearGradient id="herald-mountain-2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#7a1f16" />
-            <stop offset="100%" stopColor="#7a1f16" />
+            <stop offset="0%" stopColor="#fe0000" />
+            <stop offset="100%" stopColor="#fe0000" />
           </linearGradient>
           <linearGradient id="herald-ground" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#7a1f16" />
-            <stop offset="100%" stopColor="#0b1522" />
+            <stop offset="0%" stopColor="#fe0000" />
+            <stop offset="100%" stopColor="#000000" />
           </linearGradient>
           <linearGradient id="herald-path" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#b82e21" />
-            <stop offset="100%" stopColor="#7a1f16" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#fe0000" />
+            <stop offset="100%" stopColor="#fe0000" stopOpacity="0.5" />
           </linearGradient>
         </defs>
 
@@ -111,27 +111,27 @@ export function MorningHerald() {
         <path d="M600,900 Q650,850 750,820 T800,760 Q750,740 700,750 T750,780 Q650,820 600,900" fill="url(#herald-path)" />
 
         {/* Trees / Bushes */}
-        <path d="M200,750 Q180,700 220,680 T260,700 T240,750 Z" fill="#0b1522" />
-        <path d="M1200,720 Q1180,670 1220,650 T1260,670 T1240,720 Z" fill="#0b1522" />
-        <path d="M300,780 Q280,740 320,720 T360,740 T340,780 Z" fill="#0b1522" />
-        <path d="M1100,760 Q1080,720 1120,700 T1160,720 T1140,760 Z" fill="#0b1522" />
+        <path d="M200,750 Q180,700 220,680 T260,700 T240,750 Z" fill="#000000" />
+        <path d="M1200,720 Q1180,670 1220,650 T1260,670 T1240,720 Z" fill="#000000" />
+        <path d="M300,780 Q280,740 320,720 T360,740 T340,780 Z" fill="#000000" />
+        <path d="M1100,760 Q1080,720 1120,700 T1160,720 T1140,760 Z" fill="#000000" />
 
         {/* Bell Tower */}
         <g transform="translate(1250, 450)">
-          <rect x="0" y="50" width="60" height="400" fill="#0b1522" />
-          <polygon points="-10,50 30,-20 70,50" fill="#0b1522" />
+          <rect x="0" y="50" width="60" height="400" fill="#000000" />
+          <polygon points="-10,50 30,-20 70,50" fill="#000000" />
           <circle cx="30" cy="70" r="15" fill="#f5c9c4" opacity="0.8" />
-          <line x1="30" y1="70" x2="30" y2="60" stroke="#0b1522" strokeWidth="2" />
-          <line x1="30" y1="70" x2="40" y2="70" stroke="#0b1522" strokeWidth="2" />
-          <rect x="15" y="120" width="30" height="50" rx="15" fill="#d93a2b" opacity="0.4" />
-          <path d="M 25 130 L 35 130 L 35 150 L 25 150 Z" fill="#0b1522" />
+          <line x1="30" y1="70" x2="30" y2="60" stroke="#000000" strokeWidth="2" />
+          <line x1="30" y1="70" x2="40" y2="70" stroke="#000000" strokeWidth="2" />
+          <rect x="15" y="120" width="30" height="50" rx="15" fill="#fe0000" opacity="0.4" />
+          <path d="M 25 130 L 35 130 L 35 150 L 25 150 Z" fill="#000000" />
         </g>
 
         {/* Megaphone Accent */}
         <g transform="translate(150, 800) rotate(-15)">
-          <path d="M0,20 L30,5 L50,-20 L60,-15 L40,15 L70,30 L60,40 L30,25 Z" fill="#7a1f16" />
-          <polygon points="0,20 30,5 30,35" fill="#7a1f16" />
-          <path d="M30,5 Q40,-5 50,0 T60,20 Q50,30 40,25 T30,35 Z" fill="#b82e21" opacity="0.7" />
+          <path d="M0,20 L30,5 L50,-20 L60,-15 L40,15 L70,30 L60,40 L30,25 Z" fill="#fe0000" />
+          <polygon points="0,20 30,5 30,35" fill="#fe0000" />
+          <path d="M30,5 Q40,-5 50,0 T60,20 Q50,30 40,25 T30,35 Z" fill="#fe0000" opacity="0.7" />
         </g>
       </svg>
 
@@ -150,9 +150,9 @@ export function MorningHerald() {
         >
           <svg width="40" height="30" viewBox="0 0 40 30" fill="none" opacity="0.3">
             <path d="M5,5 Q20,-5 35,5 L35,25 Q20,15 5,25 Z" fill="#f5c9c4" />
-            <line x1="10" y1="10" x2="30" y2="10" stroke="#7a1f16" strokeWidth="1.5" />
-            <line x1="10" y1="15" x2="25" y2="15" stroke="#7a1f16" strokeWidth="1.5" />
-            <line x1="10" y1="20" x2="30" y2="20" stroke="#7a1f16" strokeWidth="1.5" />
+            <line x1="10" y1="10" x2="30" y2="10" stroke="#fe0000" strokeWidth="1.5" />
+            <line x1="10" y1="15" x2="25" y2="15" stroke="#fe0000" strokeWidth="1.5" />
+            <line x1="10" y1="20" x2="30" y2="20" stroke="#fe0000" strokeWidth="1.5" />
           </svg>
         </div>
       ))}
@@ -170,9 +170,9 @@ export function MorningHerald() {
           }}
         >
           <svg width="60" height="40" viewBox="0 0 60 40" fill="none" opacity="0.6">
-            <path d="M0,20 Q15,5 30,20 Q45,5 60,20 Q45,25 30,15 Q15,25 0,20 Z" fill="#0b1522" />
+            <path d="M0,20 Q15,5 30,20 Q45,5 60,20 Q45,25 30,15 Q15,25 0,20 Z" fill="#000000" />
             <rect x="25" y="25" width="10" height="8" fill="#f5c9c4" />
-            <polygon points="25,25 30,30 35,25" fill="#d93a2b" />
+            <polygon points="25,25 30,30 35,25" fill="#fe0000" />
           </svg>
         </div>
       ))}
@@ -181,7 +181,7 @@ export function MorningHerald() {
       {particles.map((p) => (
         <div
           key={`particle-${p.id}`}
-          className="absolute rounded-full bg-[#d93a2b] herald-rise-particle"
+          className="absolute rounded-full bg-[#fe0000] herald-rise-particle"
           style={{
             left: `${p.x}%`,
             bottom: `${p.y}%`,

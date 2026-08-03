@@ -28,7 +28,7 @@ export function FutureHorizon() {
       {/* 1. Gradient background */}
       <div 
         className="absolute inset-0" 
-        style={{ background: "linear-gradient(to bottom, #0b1522 0%, #12283f 35%, #1b3a5c 70%, #d93a2b 100%)" }} 
+        style={{ background: "linear-gradient(to bottom, #000000 0%, #1b3f63 35%, #1b3f63 70%, #fe0000 100%)" }} 
       />
       
       {/* 2. SVG scene layers */}
@@ -42,10 +42,10 @@ export function FutureHorizon() {
         <path d="M150,300 L300,200 L450,350 L600,250 L800,320 L1050,200 L1300,300" fill="none" stroke="#e2e5ea" strokeWidth="1" opacity="0.2" strokeDasharray="5,5"/>
 
         {/* Distant Hills */}
-        <path d="M0,600 Q300,550 720,620 T1440,580 L1440,900 L0,900 Z" fill="#0b1522" opacity="0.4" />
+        <path d="M0,600 Q300,550 720,620 T1440,580 L1440,900 L0,900 Z" fill="#000000" opacity="0.4" />
 
         {/* City Skyline Silhouette */}
-        <g fill="#020617" opacity="0.8">
+        <g fill="#000000" opacity="0.8">
           <rect x="150" y="450" width="80" height="250" />
           <polygon points="150,450 190,400 230,450" />
           
@@ -61,7 +61,7 @@ export function FutureHorizon() {
           
           <rect x="700" y="250" width="80" height="450" />
           <rect x="720" y="150" width="40" height="100" />
-          <line x1="740" y1="50" x2="740" y2="150" stroke="#020617" strokeWidth="4" />
+          <line x1="740" y1="50" x2="740" y2="150" stroke="#000000" strokeWidth="4" />
           
           <rect x="800" y="400" width="110" height="300" />
           <rect x="930" y="320" width="70" height="380" />
@@ -85,10 +85,10 @@ export function FutureHorizon() {
         ))}
 
         {/* Foreground Hills */}
-        <path d="M0,700 Q400,600 800,750 T1440,680 L1440,900 L0,900 Z" fill="#020617" opacity="0.9" />
+        <path d="M0,700 Q400,600 800,750 T1440,680 L1440,900 L0,900 Z" fill="#000000" opacity="0.9" />
 
         {/* Highway winding to the city */}
-        <path d="M-100,900 Q400,850 700,700 T740,600" fill="none" stroke="#12283f" strokeWidth="80" strokeLinecap="round"/>
+        <path d="M-100,900 Q400,850 700,700 T740,600" fill="none" stroke="#1b3f63" strokeWidth="80" strokeLinecap="round"/>
         <path d="M-100,900 Q400,850 700,700 T740,600" fill="none" stroke="#e8b4ac" strokeWidth="4" strokeDasharray="20,20" opacity="0.3" strokeLinecap="round"/>
 
         {/* Animated Car Lights */}
@@ -96,7 +96,7 @@ export function FutureHorizon() {
           <circle 
             key={`car-${i}`}
             cx="0" cy="0" r="4"
-            fill={c.type === 'headlight' ? "#f5c9c4" : "#d93a2b"}
+            fill={c.type === 'headlight' ? "#f5c9c4" : "#fe0000"}
             className="future-car"
             style={{
               animation: c.type === 'headlight' 
@@ -109,10 +109,10 @@ export function FutureHorizon() {
 
         {/* Briefcase Accent Foreground */}
         <g transform="translate(1100, 780)">
-          <rect x="0" y="20" width="80" height="50" rx="5" fill="#0b1522" stroke="#12283f" strokeWidth="2"/>
-          <path d="M25,20 L25,10 Q40,0 55,10 L55,20" fill="none" stroke="#12283f" strokeWidth="4"/>
+          <rect x="0" y="20" width="80" height="50" rx="5" fill="#000000" stroke="#1b3f63" strokeWidth="2"/>
+          <path d="M25,20 L25,10 Q40,0 55,10 L55,20" fill="none" stroke="#1b3f63" strokeWidth="4"/>
           <rect x="35" y="15" width="10" height="10" fill="#e2e5ea" />
-          <line x1="0" y1="40" x2="80" y2="40" stroke="#12283f" strokeWidth="2"/>
+          <line x1="0" y1="40" x2="80" y2="40" stroke="#1b3f63" strokeWidth="2"/>
         </g>
 
         {/* Animated Rocket */}
@@ -123,7 +123,7 @@ export function FutureHorizon() {
             <polygon points="-15,20 0,-30 15,20" fill="#e2e5ea" />
             <polygon points="-15,20 -25,40 -10,30" fill="#6b7280" />
             <polygon points="15,20 25,40 10,30" fill="#6b7280" />
-            <polygon points="-8,20 0,40 8,20" fill="#d93a2b" className="future-flame"/>
+            <polygon points="-8,20 0,40 8,20" fill="#fe0000" className="future-flame"/>
             <circle cx="0" cy="5" r="5" fill="#dce5f0" />
           </g>
         </g>
@@ -131,8 +131,8 @@ export function FutureHorizon() {
         <defs>
           <linearGradient id="rocket-trail" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#f5c9c4" stopOpacity="0.8"/>
-            <stop offset="50%" stopColor="#d93a2b" stopOpacity="0.4"/>
-            <stop offset="100%" stopColor="#12283f" stopOpacity="0"/>
+            <stop offset="50%" stopColor="#fe0000" stopOpacity="0.4"/>
+            <stop offset="100%" stopColor="#1b3f63" stopOpacity="0"/>
           </linearGradient>
         </defs>
 
@@ -147,8 +147,8 @@ export function FutureHorizon() {
               animation: `future-toss ${cap.duration}s infinite ease-in-out ${cap.delay}s`
             } as React.CSSProperties}
           >
-            <polygon points="0,-10 30,0 0,10 -30,0" fill="#020617" />
-            <path d="M-15,5 L-15,15 Q0,25 15,15 L15,5 Z" fill="#0b1522" />
+            <polygon points="0,-10 30,0 0,10 -30,0" fill="#000000" />
+            <path d="M-15,5 L-15,15 Q0,25 15,15 L15,5 Z" fill="#000000" />
             <line x1="0" y1="0" x2="25" y2="15" stroke="#e8b4ac" strokeWidth="2" />
             <circle cx="25" cy="15" r="3" fill="#e8b4ac" />
           </g>

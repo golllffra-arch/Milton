@@ -55,10 +55,10 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 py-12 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: "var(--page-primary, #1b3a5c)" }}>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: "var(--page-primary, #1b3f63)" }}>
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--page-text, #1a1a1a)" }}>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--page-text, #000000)" }}>
             Welcome Back
           </h1>
           <p className="text-sm text-gray-500 mt-1">Sign in to your student portal</p>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" className="w-full text-white" style={{ background: "var(--page-primary, #1b3a5c)" }} disabled={loading}>
+              <Button type="submit" className="w-full text-white" style={{ background: "var(--page-primary, #1b3f63)" }} disabled={loading}>
                 {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
                 {loading ? "Signing in..." : "Sign In"}
               </Button>
@@ -112,7 +112,7 @@ export default function LoginPage() {
             </p>
             <p className="text-sm text-gray-500 text-center mt-3">
               New student?{" "}
-              <Link href="/register" className="font-medium hover:underline" style={{ color: "var(--page-accent, #d93a2b)" }}>
+              <Link href="/register" className="font-medium hover:underline" style={{ color: "var(--page-accent, #fe0000)" }}>
                 Get your student ID
               </Link>
             </p>

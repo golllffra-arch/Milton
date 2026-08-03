@@ -111,7 +111,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
       {config.style === "top-announcement" && config.announcementText && (
         <div
           className="text-white text-center text-sm py-2 px-4"
-          style={{ backgroundColor: config.announcementColor || "#d93a2b" }}
+          style={{ backgroundColor: config.announcementColor || "#fe0000" }}
         >
           {config.announcementText}
         </div>
@@ -122,20 +122,20 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
           <Link href="/" className="flex items-center gap-2 group">
             <div
               className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-              style={{ backgroundColor: "var(--page-primary, #1b3a5c)" }}
+              style={{ backgroundColor: "var(--page-primary, #1b3f63)" }}
             >
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
               <span
                 className="font-display text-lg font-bold leading-tight transition-colors"
-                style={{ color: isHomePage && !scrolled ? "#fff" : "var(--page-primary, #1b3a5c)" }}
+                style={{ color: isHomePage && !scrolled ? "#fff" : "var(--page-primary, #1b3f63)" }}
               >
                 {settings?.collegeName || "Milton"}
               </span>
               <span
                 className="block text-[10px] uppercase tracking-widest font-medium -mt-1"
-                style={{ color: "var(--page-secondary, #d93a2b)" }}
+                style={{ color: "var(--page-secondary, #fe0000)" }}
               >
                 International College
               </span>
@@ -160,10 +160,10 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                     className={cn(
                       "px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-1",
                       pathname === item.href
-                        ? "text-[var(--page-secondary,#d93a2b)]"
+                        ? "text-[var(--page-secondary,#fe0000)]"
                         : isHomePage && !scrolled
                         ? "text-white/80 hover:text-white"
-                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#d93a2b)] dark:hover:text-[var(--page-secondary,#d93a2b)]"
+                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#fe0000)] dark:hover:text-[var(--page-secondary,#fe0000)]"
                     )}
                   >
                     {item.label}
@@ -175,10 +175,10 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                     className={cn(
                       "px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-1",
                       pathname === item.href
-                        ? "text-[var(--page-secondary,#d93a2b)]"
+                        ? "text-[var(--page-secondary,#fe0000)]"
                         : isHomePage && !scrolled
                         ? "text-white/80 hover:text-white"
-                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#d93a2b)] dark:hover:text-[var(--page-secondary,#d93a2b)]"
+                        : "text-gray-700 dark:text-gray-200 hover:text-[var(--page-secondary,#fe0000)] dark:hover:text-[var(--page-secondary,#fe0000)]"
                     )}
                   >
                     {item.label}
@@ -199,7 +199,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                         href={child.href}
                         className="block px-4 py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
                         style={{
-                          color: "var(--page-text, #1b3a5c)",
+                          color: "var(--page-text, #1b3f63)",
                         }}
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -239,7 +239,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                 <Button
                   size="sm"
                   className="hidden sm:inline-flex text-white border-0"
-                  style={{ backgroundColor: "var(--page-secondary, #d93a2b)" }}
+                  style={{ backgroundColor: "var(--page-secondary, #fe0000)" }}
                 >
                   {config.ctaLabel || "Student Portal"}
                 </Button>
@@ -274,7 +274,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
                       className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg"
-                      style={{ color: "var(--page-text, #1b3a5c)" }}
+                      style={{ color: "var(--page-text, #1b3f63)" }}
                     >
                       {item.label}
                       <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeDropdown === item.label && "rotate-180")} />
@@ -298,7 +298,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
                   <Link
                     href={item.href}
                     className="block px-3 py-2.5 text-sm font-medium rounded-lg"
-                    style={{ color: "var(--page-text, #1b3a5c)" }}
+                    style={{ color: "var(--page-text, #1b3f63)" }}
                   >
                     {item.label}
                   </Link>
@@ -308,7 +308,7 @@ export function DynamicNavbar({ variantSlug = "navbar-default", settings }: Dyna
             <Link href="/login" className="block px-3 py-2.5 mt-2">
               <Button
                 className="w-full text-white border-0"
-                style={{ backgroundColor: "var(--page-secondary, #d93a2b)" }}
+                style={{ backgroundColor: "var(--page-secondary, #fe0000)" }}
               >
                 {config.ctaLabel || "Student Portal"}
               </Button>
