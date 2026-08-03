@@ -516,7 +516,7 @@ export default function StudentDashboard() {
                           <div className="space-y-3">
                             {todayRoutine.slots.map((slot, i) => (
                               <div key={i} className="flex items-center gap-4 rounded-lg border p-3 transition-colors hover:bg-muted/30">
-                                <div className="flex h-12 w-16 shrink-0 items-center justify-center rounded-md bg-milton-navy text-[10px] font-medium leading-tight text-white">
+                                <div className="flex h-12 w-16 shrink-0 items-center justify-center rounded-md bg-muted text-[10px] font-medium leading-tight text-milton-navy">
                                   {slot.time}
                                 </div>
                                 <div className="min-w-0 flex-1">
@@ -564,12 +564,12 @@ export default function StudentDashboard() {
                   <p className="mt-1 text-muted-foreground">Monitor your class attendance across all subjects</p>
                 </div>
 
-                <Card className="bg-gradient-to-r from-milton-navy to-milton-navy/90 text-white shadow-xl">
+                <Card className="border-2 border-milton-navy/20 shadow-xl">
                   <CardContent className="flex flex-col items-center gap-6 py-8 sm:flex-row">
-                    <CircularProgress value={QUICK_STATS.attendance} size={130} strokeWidth={9} color="white" />
+                    <CircularProgress value={QUICK_STATS.attendance} size={130} strokeWidth={9} />
                     <div>
-                      <h3 className="text-2xl font-bold">Overall Attendance: {QUICK_STATS.attendance}%</h3>
-                      <p className="mt-1 text-white/70">
+                      <h3 className="text-2xl font-bold text-milton-navy">Overall Attendance: {QUICK_STATS.attendance}%</h3>
+                      <p className="mt-1 text-muted-foreground">
                         {QUICK_STATS.attendance >= 75 ? "Excellent! Keep it up." : QUICK_STATS.attendance >= 60 ? "Needs improvement." : "Critical - please attend classes regularly."}
                       </p>
                       <div className="mt-4 flex gap-4 text-xs">
@@ -634,8 +634,8 @@ export default function StudentDashboard() {
                 <div className="overflow-x-auto rounded-xl border shadow-md">
                   <table className="w-full min-w-[800px] text-sm">
                     <thead>
-                      <tr className="bg-milton-navy text-white">
-                        <th className="sticky left-0 z-10 bg-milton-navy px-4 py-3 text-left font-medium">Time</th>
+                      <tr className="bg-muted text-milton-navy">
+                        <th className="sticky left-0 z-10 bg-muted px-4 py-3 text-left font-medium">Time</th>
                         {ROUTINE.map((r) => (
                           <th key={r.day} className={cn("px-4 py-3 text-left font-medium", r.day === todayName && "bg-milton-red")}>
                             {r.day}
@@ -695,22 +695,22 @@ export default function StudentDashboard() {
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <Card className="bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg">
+                  <Card className="border-l-4 border-l-blue-500 shadow-lg">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-medium text-white/80">Semester GPA</CardTitle>
+                      <CardTitle className="text-sm font-medium text-muted-foreground">Semester GPA</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-4xl font-bold">{semGPA}</div>
-                      <p className="mt-1 text-sm text-white/70">{selectedSemester}</p>
+                      <div className="text-4xl font-bold text-blue-600">{semGPA}</div>
+                      <p className="mt-1 text-sm text-muted-foreground">{selectedSemester}</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-gradient-to-br from-milton-navy to-milton-navy/80 text-white shadow-lg">
+                  <Card className="border-l-4 border-l-milton-navy shadow-lg">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-medium text-white/80">Cumulative GPA</CardTitle>
+                      <CardTitle className="text-sm font-medium text-muted-foreground">Cumulative GPA</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-4xl font-bold">{cumGPA}</div>
-                      <p className="mt-1 text-sm text-white/70">All semesters</p>
+                      <div className="text-4xl font-bold text-milton-navy">{cumGPA}</div>
+                      <p className="mt-1 text-sm text-muted-foreground">All semesters</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -1027,7 +1027,7 @@ export default function StudentDashboard() {
                       const variant = e.type === "academic" ? "info" : e.type === "sports" ? "success" : e.type === "cultural" ? "warning" : "secondary"
                       return (
                         <div key={i} className="flex items-start gap-4 rounded-lg border p-4 transition-colors hover:bg-muted/20">
-                          <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg bg-milton-navy text-white">
+                          <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg bg-muted text-milton-navy">
                             <span className="text-lg font-bold">{new Date(e.date).getDate()}</span>
                             <span className="text-[10px] uppercase leading-tight">
                               {new Date(e.date).toLocaleString("default", { month: "short" })}
@@ -1101,18 +1101,18 @@ export default function StudentDashboard() {
                 <div className="flex justify-center">
                   <div className="w-full max-w-md overflow-hidden rounded-2xl border-2 border-milton-navy/20 bg-white shadow-2xl dark:bg-gray-900">
                     {/* Top stripe */}
-                    <div className="bg-gradient-to-r from-milton-navy to-milton-navy/90 px-6 py-5 text-white">
+                    <div className="bg-milton-navy/10 px-6 py-5 text-milton-navy">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-milton-navy/10">
                             <span className="text-lg font-bold">M</span>
                           </div>
                           <div>
                             <h2 className="font-display text-lg font-bold leading-tight">Milton International</h2>
-                            <p className="text-xs text-white/70">College</p>
+                            <p className="text-xs text-milton-navy/70">College</p>
                           </div>
                         </div>
-                        <Badge className="border-white/30 bg-white/10 text-white">Student</Badge>
+                        <Badge className="border-milton-navy/30 bg-milton-navy/10 text-milton-navy">Student</Badge>
                       </div>
                     </div>
 
