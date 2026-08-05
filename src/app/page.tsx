@@ -87,7 +87,7 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[#1b3f63]">
         <Petals />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           {/* Copy */}
           <motion.div
             variants={stagger}
@@ -141,7 +141,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="group relative z-10"
           >
-            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-2xl rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
+            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-full rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--paper)]">
                 <img
                   src="/images/liverpool.png"
@@ -287,11 +287,12 @@ export default function HomePage() {
                 (the flyer version is too compressed for web use).
                 Save it at /public/images/campus-building.jpg
               */}
-              <div className="relative aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-6">
-                <div className="text-center">
-                  <span className="text-white/60 font-display text-lg">Campus Building Photo</span>
-                  <p className="text-white/40 text-sm mt-1">Placeholder — add your image</p>
-                </div>
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src="/images/universtiy.jpg"
+                  alt="Milton International College campus building"
+                  className="h-full w-full object-cover"
+                />
                 <span className="absolute left-4 top-4 rounded-full bg-[var(--gold)] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wide text-white shadow">
                   Open for Visit
                 </span>
@@ -377,11 +378,12 @@ export default function HomePage() {
                 Principal. Until a real portrait/name is provided, this
                 stays a clearly-labelled placeholder (per your request).
               */}
-              <div className="h-full w-full rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-8">
-                <div className="text-center">
-                  <span className="text-white/50 font-display text-base">Principal</span>
-                  <p className="text-white/30 text-xs mt-1">Portrait placeholder</p>
-                </div>
+              <div className="h-full w-full overflow-hidden rounded-full">
+                <img
+                  src="/images/professor.jpg"
+                  alt="Principal of Milton International College"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </TiltCard>
           </motion.div>
@@ -457,11 +459,12 @@ export default function HomePage() {
                 Suggested search: "anime graduation illustration",
                 "anime students celebrating graduation".
               */}
-              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[var(--indigo)] to-[#1b3f63] p-8">
-                <div className="text-center">
-                  <span className="text-white/60 font-display text-lg">Graduation</span>
-                  <p className="text-white/40 text-sm mt-1">Anime-style illustration</p>
-                </div>
+              <div className="h-full w-full overflow-hidden">
+                <img
+                  src="/images/graduation.jpg"
+                  alt="Students celebrating graduation at Milton International College"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </TiltCard>
           </motion.div>
