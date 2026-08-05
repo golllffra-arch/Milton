@@ -141,7 +141,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="group relative z-10"
           >
-            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-sm rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
+            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-2xl rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--paper)]">
                 <img
                   src="/images/liverpool.png"
