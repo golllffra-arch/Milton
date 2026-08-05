@@ -15,12 +15,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const CLUBS = [
-  { icon: Laptop, name: "IT Club", description: "Coding competitions, workshops, hackathons, and tech talks to sharpen your programming skills.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Users, name: "Debate & Public Speaking Club", description: "Sharpen your oratory skills through debates, extempore, and public speaking events.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Dumbbell, name: "Sports Club", description: "Organizes inter-college tournaments, fitness challenges, and recreational sports activities.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Palette, name: "Cultural Club", description: "Celebrates Nepal's diverse culture through dance, music, drama, and art exhibitions.", color: "from-[#fe0000] to-[#fe0000]" },
-  { icon: Heart, name: "Community Service Club", description: "Volunteer initiatives, awareness campaigns, and social outreach programs for community impact.", color: "from-[#fe0000] to-[#fe0000]" },
-  { icon: Globe, name: "Tourism & Travel Club", description: "Organizes educational tours, treks, and international exposure trips for students.", color: "from-[#1b3f63] to-[#1b3f63]" },
+  { icon: Laptop, name: "IT Club", description: "Coding competitions, workshops, hackathons, and tech talks to sharpen your programming skills.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" },
+  { icon: Users, name: "Debate & Public Speaking Club", description: "Sharpen your oratory skills through debates, extempore, and public speaking events.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" },
+  { icon: Dumbbell, name: "Sports Club", description: "Organizes inter-college tournaments, fitness challenges, and recreational sports activities.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80" },
+  { icon: Palette, name: "Cultural Club", description: "Celebrates Nepal's diverse culture through dance, music, drama, and art exhibitions.", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80" },
+  { icon: Heart, name: "Community Service Club", description: "Volunteer initiatives, awareness campaigns, and social outreach programs for community impact.", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" },
+  { icon: Globe, name: "Tourism & Travel Club", description: "Organizes educational tours, treks, and international exposure trips for students.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" },
 ]
 
 const TOURS = [
@@ -171,8 +171,12 @@ export default function StudentLifePage() {
                 <FadeInSection key={club.name}>
                   <motion.div whileHover={{ y: -6 }} className="group h-full">
                     <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
-                      <div className={`bg-gradient-to-br ${club.color} p-5`}>
-                        <Icon className="w-10 h-10 text-white" />
+                      <div className="relative h-44 overflow-hidden">
+                        <img src={club.photo} alt={club.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        <div className={`bg-gradient-to-br ${club.color} p-3 rounded-xl shadow-lg absolute bottom-3 left-4`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
                       </div>
                       <CardContent className="p-6">
                         <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #000000)" }}>{club.name}</h3>

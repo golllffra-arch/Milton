@@ -13,12 +13,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const HIGHLIGHTS = [
-  { icon: Monitor, name: "Computer Labs", description: "Modern computer labs with high-speed internet and latest software for hands-on learning.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Library, name: "Library", description: "Well-stocked library with thousands of books, journals, and digital resources for research.", color: "from-[#fe0000] to-[#fe0000]" },
-  { icon: Building2, name: "Smart Classrooms", description: "Fully equipped smart classrooms with projectors, audio systems, and interactive boards.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Dumbbell, name: "Sports Ground", description: "Spacious grounds for cricket, football, basketball, volleyball, and athletic events.", color: "from-[#1b3f63] to-[#1b3f63]" },
-  { icon: Utensils, name: "Cafeteria", description: "Hygienic and spacious cafeteria serving nutritious meals, snacks, and beverages.", color: "from-[#fe0000] to-[#fe0000]" },
-  { icon: TreePine, name: "Student Lounge", description: "Relax and socialize in our comfortable student lounge with recreational activities.", color: "from-[#1b3f63] to-[#1b3f63]" },
+  { icon: Monitor, name: "Computer Labs", description: "Modern computer labs with high-speed internet and latest software for hands-on learning.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80" },
+  { icon: Library, name: "Library", description: "Well-stocked library with thousands of books, journals, and digital resources for research.", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80" },
+  { icon: Building2, name: "Smart Classrooms", description: "Fully equipped smart classrooms with projectors, audio systems, and interactive boards.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" },
+  { icon: Dumbbell, name: "Sports Ground", description: "Spacious grounds for cricket, football, basketball, volleyball, and athletic events.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80" },
+  { icon: Utensils, name: "Cafeteria", description: "Hygienic and spacious cafeteria serving nutritious meals, snacks, and beverages.", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
+  { icon: TreePine, name: "Student Lounge", description: "Relax and socialize in our comfortable student lounge with recreational activities.", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" },
 ]
 
 const LOCATIONS = [
@@ -155,7 +155,9 @@ export default function VirtualTourPage() {
           <FadeInSection>
             <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
               <div className="aspect-video flex items-center justify-center relative" style={{ background: "linear-gradient(135deg, var(--page-hero-from, #000000), var(--page-hero-to, #000000))" }}>
+                <img src="/images/universtiy.jpg" alt="Milton International College campus tour video" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(227,28,35,0.12),transparent_60%)]" />
+                <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -192,16 +194,18 @@ export default function VirtualTourPage() {
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: "Main Entrance & Plaza", color: "from-[#000000] to-[#000000]" },
-              { name: "Computer Science Lab", color: "from-[#1b3f63] to-[#1b3f63]" },
-              { name: "Central Library", color: "from-[#fe0000] to-[#fe0000]" },
-              { name: "Sports Ground", color: "from-[#1b3f63] to-[#1b3f63]" },
-              { name: "Smart Classroom", color: "from-[#1b3f63] to-[#1b3f63]" },
-              { name: "Cafeteria & Lounge", color: "from-[#fe0000] to-[#fe0000]" },
+              { name: "Main Entrance & Plaza", color: "from-[#000000] to-[#000000]", photo: "/images/universtiy.jpg" },
+              { name: "Computer Science Lab", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" },
+              { name: "Central Library", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80" },
+              { name: "Sports Ground", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80" },
+              { name: "Smart Classroom", color: "from-[#1b3f63] to-[#1b3f63]", photo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" },
+              { name: "Cafeteria & Lounge", color: "from-[#fe0000] to-[#fe0000]", photo: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" },
             ].map((item, index) => (
               <FadeInSection key={item.name}>
                 <motion.div whileHover={{ y: -6 }} className="group cursor-pointer">
                   <div className={`bg-gradient-to-br ${item.color} rounded-xl overflow-hidden shadow-lg relative aspect-[4/3]`}>
+                    <img src={item.photo} alt={item.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/25" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                       <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
@@ -299,8 +303,12 @@ export default function VirtualTourPage() {
                 <FadeInSection key={item.name}>
                   <motion.div whileHover={{ y: -6 }} className="group h-full">
                     <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
-                      <div className={`bg-gradient-to-br ${item.color} p-5`}>
-                        <Icon className="w-10 h-10 text-white" />
+                      <div className="relative h-44 overflow-hidden">
+                        <img src={item.photo} alt={item.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        <div className={`bg-gradient-to-br ${item.color} p-3 rounded-xl shadow-lg absolute bottom-3 left-4`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
                       </div>
                       <CardContent className="p-6">
                         <h3 className="text-xl font-display font-bold dark:text-white mb-2" style={{ color: "var(--page-text, #f1f5f9)" }}>{item.name}</h3>

@@ -144,8 +144,8 @@ export default function HomePage() {
             <TiltCard className="mx-auto aspect-[4/5] w-full max-w-full rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--paper)]">
                 <img
-                  src="/images/liverpool.png"
-                  alt="Anime-style illustration of Milton International College's campus"
+                  src="/images/universtiy.jpg"
+                  alt="Milton International College campus building"
                   className="h-full w-full object-cover"
                 />
               </div>
