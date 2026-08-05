@@ -87,7 +87,7 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[var(--indigo)] via-[var(--indigo)] to-[#1b3f63]">
         <Petals />
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div className="mx-auto grid w-full max-w-full grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:px-12 md:py-32">
           {/* Copy */}
           <motion.div
             variants={stagger}
@@ -141,7 +141,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="group relative z-10"
           >
-            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-full rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
+            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-full rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur md:w-[150%] md:-ml-[25%] md:max-w-none">
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--paper)]">
                 <img
                   src="/images/universtiy.jpg"
