@@ -110,6 +110,20 @@ export default function LoginPage() {
             <p className="text-xs text-gray-400 text-center mt-4">
               College password for all students: <span className="font-semibold">milton</span>
             </p>
+            <div className="mt-5 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-4 text-left">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Demo Access</p>
+              <p className="text-xs text-gray-500">All passwords: <span className="font-semibold text-gray-700">milton</span></p>
+              <div className="mt-2 space-y-1 text-xs text-gray-500">
+                <p>
+                  <span className="font-semibold text-[var(--page-primary, #1b3f63)]">Admin</span> —{" "}
+                  <span className="font-mono">admin@milton.edu</span>
+                </p>
+                <p>
+                  <span className="font-semibold text-[var(--page-accent, #fe0000)]">Student</span> —{" "}
+                  <span className="font-mono">MICAS001</span> or your Student ID
+                </p>
+              </div>
+            </div>
             <p className="text-sm text-gray-500 text-center mt-3">
               New student?{" "}
               <Link href="/register" className="font-medium hover:underline" style={{ color: "var(--page-accent, #fe0000)" }}>
