@@ -6,6 +6,7 @@ export interface FacultyMember {
   subjects: string[]
   department: string
   email: string
+  photo: string
   bio?: string
   education?: string[]
   experience?: { role: string; institution: string; years: string }[]
@@ -19,6 +20,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Data Structures, Algorithms, Database Systems",
     subjects: ["Data Structures", "Database Management", "Algorithm Analysis"],
     department: "BCA", email: "rajesh.sharma@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/32.jpg",
     bio: "Prof. Dr. Rajesh Sharma has over 15 years of teaching and research experience in computer science. He has published numerous research papers in international journals and has guided several Ph.D. students. His passion for teaching and commitment to student success make him a valued member of the Milton faculty.",
     education: ["Ph.D. in Computer Science - Tribhuvan University", "M.Sc. IT - Kathmandu University", "B.Sc. Computer Science - TU"],
     experience: [
@@ -34,6 +36,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Marketing Management, Organizational Behavior",
     subjects: ["Marketing Management", "Organizational Behavior", "Business Communication"],
     department: "BBM", email: "sunita.koirala@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/women/44.jpg",
     bio: "Dr. Sunita Koirala brings a wealth of industry and academic experience to the classroom. With a Ph.D. in Management and an MBA, she combines theoretical knowledge with practical business insights. She has worked with leading corporations before transitioning to academia.",
     education: ["Ph.D. in Management - Tribhuvan University", "MBA - Kathmandu University", "BBA - Purbanchal University"],
     experience: [
@@ -49,6 +52,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Applied Mathematics, Statistics",
     subjects: ["Business Mathematics", "Statistics", "Quantitative Methods"],
     department: "BBS", email: "bibek.thapa@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/75.jpg",
     bio: "Asst. Prof. Bibek Thapa is a dedicated mathematics educator with a talent for making complex concepts accessible. His M.Phil. research focused on applied statistical methods in business, and he regularly conducts workshops on data analysis.",
     education: ["M.Phil. in Mathematics - Tribhuvan University", "M.Sc. Mathematics - TU", "B.Sc. Mathematics - TU"],
     experience: [
@@ -63,6 +67,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Community Development, Social Research",
     subjects: ["Social Work Practice", "Community Development", "Social Research Methods"],
     department: "BASW", email: "anju.poudel@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/women/65.jpg",
     bio: "Ms. Anju Poudel is a passionate social work educator with extensive field experience in community development. She has led numerous community outreach programs and research projects focused on social justice and women empowerment.",
     education: ["MSW - Tribhuvan University", "M.A. Sociology - TU", "BSW - Purbanchal University"],
     experience: [
@@ -78,6 +83,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Web Technologies, Software Architecture",
     subjects: ["Web Development", "Software Engineering", "Object-Oriented Programming"],
     department: "BCA", email: "sagar.acharya@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/22.jpg",
     education: ["M.E. Software Engineering - Pokhara University", "B.E. Computer - Kathmandu University"],
     experience: [
       { role: "Assistant Professor", institution: "Milton International College", years: "2019 - Present" },
@@ -91,6 +97,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Microeconomics, Financial Management",
     subjects: ["Microeconomics", "Financial Management", "Business Environment"],
     department: "BBM", email: "krishna.dhungana@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/41.jpg",
     education: ["MBA - Tribhuvan University", "M.A. Economics - TU"],
     experience: [
       { role: "Lecturer", institution: "Milton International College", years: "2018 - Present" },
@@ -104,6 +111,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "English Literature, Academic Writing",
     subjects: ["English Composition", "Academic Writing", "Communication Skills"],
     department: "Administration", email: "mamata.ghimire@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/women/12.jpg",
     education: ["M.A. English - Tribhuvan University", "M.Ed. - TU"],
     experience: [
       { role: "Senior Lecturer", institution: "Milton International College", years: "2015 - Present" },
@@ -117,6 +125,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Physics, General Science",
     subjects: ["General Science", "Physics Fundamentals", "Environmental Studies"],
     department: "BBS", email: "prakash.neupane@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/57.jpg",
     education: ["M.Sc. Physics - Tribhuvan University", "B.Ed. - TU"],
     experience: [
       { role: "Lecturer", institution: "Milton International College", years: "2016 - Present" },
@@ -130,6 +139,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Gender Studies, Counseling, Human Rights",
     subjects: ["Social Welfare", "Gender Studies", "Counseling Skills"],
     department: "BASW", email: "srijana.baral@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/women/28.jpg",
     education: ["MSW - Tribhuvan University", "M.A. Gender Studies - TU"],
     experience: [
       { role: "Assistant Professor", institution: "Milton International College", years: "2019 - Present" },
@@ -143,6 +153,7 @@ export const FACULTY: FacultyMember[] = [
     specialization: "Computer Networks, Cyber Security",
     subjects: ["Computer Networks", "Cyber Security", "Operating Systems"],
     department: "BCA", email: "anil.maharjan@milton.edu.com",
+    photo: "https://randomuser.me/api/portraits/men/85.jpg",
     education: ["M.C.A. - Purbanchal University", "B.Sc. IT - Kathmandu University"],
     experience: [
       { role: "Assistant Professor", institution: "Milton International College", years: "2020 - Present" },

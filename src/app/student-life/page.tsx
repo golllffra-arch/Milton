@@ -372,8 +372,8 @@ export default function StudentLifePage() {
               I am today. Campus life at Milton is vibrant, supportive, and unforgettable.&rdquo;
             </blockquote>
             <div className="mt-8">
-              <div className="w-16 h-16 rounded-full bg-[#fe0000] flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-xl font-bold">RS</span>
+              <div className="w-16 h-16 rounded-full bg-[#fe0000] flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Riya Shrestha" className="w-full h-full object-cover" />
               </div>
               <p className="text-white font-display font-bold text-lg">Riya Shrestha</p>
               <p className="text-white/60 text-sm">BCA Graduate, Class of 2025</p>

@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input"
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
 } from "@/components/ui/select"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { getInitials, DEPARTMENT_BADGE_STYLES } from "@/lib/utils"
 import { FACULTY } from "@/lib/data/faculty"
 
@@ -212,6 +212,7 @@ export default function FacultyPage() {
                         >
                           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(254,0,0,0.12),transparent_70%)]" />
                           <Avatar className="w-20 h-20 mx-auto border-4 border-[var(--page-accent,#fe0000)]/40 relative z-10">
+                            <AvatarImage src={faculty.photo} alt={faculty.name} />
                             <AvatarFallback
                               style={{ background: "var(--page-primary, #1b3f63)" }}
                               className="text-white text-xl font-bold"

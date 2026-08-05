@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { getInitials, DEPARTMENT_BADGE_STYLES } from "@/lib/utils"
 import { FACULTY } from "@/lib/data/faculty"
 
@@ -64,6 +64,7 @@ function FacultyProfile({ member }: { member: typeof FACULTY[0] }) {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
               <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-[var(--page-accent,#fe0000)]/40 shadow-xl">
+                <AvatarImage src={member.photo} alt={member.name} />
                 <AvatarFallback className="text-white text-4xl font-bold" style={{ background: "var(--page-primary, #1b3f63)" }}>
                   {getInitials(member.name)}
                 </AvatarFallback>

@@ -204,8 +204,8 @@ function CardGridBlock({ content }: { content: any }) {
 
 function TestimonialBlock({ content }: { content: any }) {
   const items = content.testimonials || [
-    { name: "Aarav Sharma", role: "BCA Student", content: "Milton College has given me the best education experience. The faculty is excellent and the campus environment is amazing.", rating: 5 },
-    { name: "Sita Rijal", role: "BBM Graduate", content: "The practical exposure and international tours at Milton shaped my career. Highly recommend!", rating: 5 },
+    { name: "Aarav Sharma", role: "BCA Student", photo: "https://randomuser.me/api/portraits/men/8.jpg", content: "Milton College has given me the best education experience. The faculty is excellent and the campus environment is amazing.", rating: 5 },
+    { name: "Sita Rijal", role: "BBM Graduate", photo: "https://randomuser.me/api/portraits/women/33.jpg", content: "The practical exposure and international tours at Milton shaped my career. Highly recommend!", rating: 5 },
   ]
   return (
     <div>
@@ -217,7 +217,13 @@ function TestimonialBlock({ content }: { content: any }) {
             <CardContent className="p-6 pt-12 space-y-4">
               <p className="text-muted-foreground italic">"{t.content}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1b3f63] flex items-center justify-center text-white font-bold text-sm">{t.name.split(" ").map((n:string)=>n[0]).join("")}</div>
+                <div className="w-10 h-10 rounded-full bg-[#1b3f63] flex items-center justify-center text-white font-bold text-sm overflow-hidden">
+                  {t.photo ? (
+                    <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
+                  ) : (
+                    t.name.split(" ").map((n:string)=>n[0]).join("")
+                  )}
+                </div>
                 <div>
                   <p className="font-semibold text-sm">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
