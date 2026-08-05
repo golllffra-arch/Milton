@@ -141,11 +141,11 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="group relative z-10"
           >
-            <TiltCard className="mx-auto aspect-square w-full max-w-lg rounded-[28px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur">
-              <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-[var(--indigo)]">
+            <TiltCard className="mx-auto aspect-[4/3] w-full rounded-[28px] border border-white/20 bg-white/10 p-2.5 sm:p-3 shadow-2xl backdrop-blur">
+              <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-slate-900">
                 <img
-                  src="/images/universtiy.jpg"
-                  alt="Milton International College campus building"
+                  src="/images/campus_hero.jpg"
+                  alt="Milton International College full campus"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
